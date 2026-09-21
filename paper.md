@@ -15,9 +15,18 @@ dihedral, ESM2 protein-language-model embedding, and persistent-homology
 (H0/H1/H2 + burial) features, which are propagated through equivariant graph
 convolution layers and fused via a per-layer gated fusion module before two
 task heads: residue classification and centroid-based pocket localization.
-On the COACH420 and HOLO4K benchmarks, adding topology to sequence and
+On the COACH420 and HOLO4K training pool, adding topology to sequence and
 burial features gave a statistically significant classification gain
-(+0.0423 mean-average-precision, 10/10 cross-validation folds, p<1e-5) and,
+(+0.0423 mean-average-precision against a two-feature burial baseline,
+10/10 cross-validation folds, p<1e-5). A later, stronger control shows
+that most of this gain is ordinary local geometry: against 17 plain
+per-residue geometry features (neighbor counts, solvent exposure,
+half-sphere exposure, local shape, ray-cast buriedness, hull and residue
+depth), geometry alone outperforms topology alone (+0.0129 PR-AUC, 10/10
+folds), and topology adds only a small residual on top of geometry
+(+0.0097 PR-AUC, 9/10 folds, paired t p=0.017, Wilcoxon p=0.037; not
+significant in ROC-AUC). The same control on CryptoBench finds no added
+benefit from topology (+0.0008 PR-AUC, 95% CI -0.005 to +0.007). Separately,
 after fixing a coordinate-frame bug and training a dedicated localization
 head, a trained-localization system that reaches distance-to-center-success
 (DCC@4Å) of 0.593 on COACH420 — a real win over a live, current run of the
@@ -29,7 +38,9 @@ combined with transfer learning from the main pipeline, a regularized
 logistic-regression meta-combiner across scales, and topology and transfer
 learning levers each confirmed by a paired significance test (topology:
 paired t=6.11, p=0.00049, Cohen's d=2.16; transfer learning: paired
-t=3.97, p=0.0054, Cohen's d=1.40; both n=8 seeds), reaches AUC 0.918 and
+t=3.97, p=0.0054, Cohen's d=1.40; both n=8 seeds; the topology comparison
+used a baseline with no burial or exposure features, and the geometry
+control described below attributes that gain to ordinary geometry), reaches AUC 0.918 and
 Matthews correlation coefficient (MCC) 0.470, matching or exceeding the
 CryptoBench authors' own published state of the art (AUC 0.87, MCC 0.42)
 and the most recent published baseline we found on this exact benchmark,
@@ -162,7 +173,11 @@ mis-calibrated Betti-radius sampling if missed. A grouped, cluster-level
 control analysis confirmed that the topology signal is not merely a proxy
 for burial/density: after residualizing out a non-linear burial model, the
 strongest single topological feature retained roughly 73% of its raw
-discriminative signal.
+discriminative signal. That control residualized only against a burial
+model; a later and stronger control, retraining the models with 17 plain
+geometry features in place of, and alongside, the topology block, is
+reported under "Geometry control" in Results and changes the
+interpretation of the topology gain.
 
 **Datasets.** The main pipeline was trained on a leakage-clean pool of PDB
 chains built from BioLiP-style ligand-proximity labels (4.5 Å heavy-atom
@@ -250,6 +265,74 @@ pre-ESM2 gain (expected, since the language-model embedding absorbs some of
 the same signal) but still highly significant. In the same nested comparison
 the full model also beat a matched, per-fold live run of P2Rank by +0.0524
 PR-AUC (9/10 folds).
+
+### Geometry control: how much of the topology gain is ordinary local geometry?
+
+The comparisons above measure topology against sequence and burial features
+in which "burial" is only two summaries (neighborhood atom count and radius
+of gyration). A structural biologist would also compute solvent
+accessibility, residue depth, exposure, and local shape without any
+topology. We built a 17-feature per-residue geometry set (heavy-atom counts
+within 4, 6, 8, 10, 12 and 15 Å; relative solvent-accessible surface area;
+half-sphere exposure up and down; linearity, planarity and sphericity of the
+12 Å atom cloud; offset of the Cα from that cloud's centroid; the fraction
+of 100 rays from the Cα blocked within 10 Å and within 20 Å, expressed in a
+canonical local frame so the feature is rotation-invariant; convex-hull
+depth; and residue depth) and re-ran the Phase 11 nested cross-validation:
+10 folds × 2 seeds, the same 2,055-chain homology-clean pool (one of the
+2,056 chains was dropped because its re-fetched structure could not be
+aligned to its graph), the same ESM2-35M plus dihedral inputs, model, loss
+and early-stopping protocol. Every arm used an identical 51-wide side
+channel (34 topology plus 17 geometry columns, unselected columns zeroed),
+so architecture and parameter count are equal across arms. The rerun
+reproduces the earlier result (no-topology 0.4404 vs. 0.4405 and full
+topology 0.4947 vs. 0.4949 test PR-AUC). The primary comparison, geometry
+plus topology against geometry alone, was fixed before the run.
+
+| Arm | Test PR-AUC | Test ROC-AUC |
+|---|---|---|
+| No topology, no geometry | 0.4404 ± 0.0270 | 0.8478 ± 0.0162 |
+| Topology (34 features) | 0.4947 ± 0.0201 | 0.8733 ± 0.0096 |
+| Geometry (17 features) | 0.5076 ± 0.0225 | 0.8797 ± 0.0111 |
+| Geometry + topology | 0.5173 ± 0.0196 | 0.8812 ± 0.0103 |
+
+(mean ± std over the 10 folds; the 2 seeds are averaged within fold, and all
+comparisons below are paired over the 10 independent folds.)
+
+- **Geometry alone beats topology alone.** Geometry minus topology:
+  +0.0129 PR-AUC (95% CI +0.0049 to +0.0209; geometry better in 10/10
+  folds; paired t p=0.005, Wilcoxon p=0.002) and +0.0064 ROC-AUC
+  (p=0.0015 / 0.0039).
+- **Both add to the no-feature baseline.** Geometry minus none: +0.0672
+  PR-AUC (10/10 folds, p=2.5e-8); topology minus none: +0.0543 (10/10 folds,
+  p=2.2e-6).
+- **Topology adds a small residual on top of geometry (primary
+  comparison).** Geometry + topology minus geometry: +0.0097 PR-AUC (95% CI
+  +0.0022 to +0.0171; better in 9/10 folds; paired t p=0.017, Wilcoxon
+  p=0.037), but only +0.0015 ROC-AUC (CI -0.0013 to +0.0043; p=0.25 / 0.16,
+  not significant). This meets this project's two-test rule for PR-AUC but
+  not for ROC-AUC, rests on 10 folds, and is about a third of the +0.032
+  originally attributed to topology beyond burial. Geometry adds far more to
+  topology (+0.0226 PR-AUC, 10/10 folds, p=4.8e-5) than topology adds to
+  geometry.
+
+The same control on CryptoBench found no benefit from topology at all. On
+the official split (8 seeds, benchmark labels), geometry plus persistence
+features minus geometry alone was -0.011 validation PR-AUC (paired t
+p=0.070, Wilcoxon p=0.109), +0.003 test PR-AUC (p=0.42 / 0.46), and geometry
+alone beat topology alone on test PR-AUC (0.283 vs. 0.261, 8/8 seeds,
+p=5e-4). On the 185-protein experimental-site holdout (an embedding-cluster
+hard split scored against ligand-contact residues), geometry plus
+persistence minus geometry was +0.0008 protein-level PR-AUC (95% bootstrap
+CI -0.005 to +0.007, p=0.79). Geometry alone gave PR-AUC 0.352 against
+0.345 for topology and 0.301 for neither, and modestly outperformed a
+pretrained P2Rank 2.5.1 (ROC-AUC 0.796 vs. 0.756, p=1e-4). A plausible but
+untested reason the main pipeline retains a small topology residual while
+CryptoBench does not is the roughly three-fold larger training pool
+(2,055 vs. 700 chains); the two benchmarks also differ in label definition.
+Scope of this control: it was run at the ESM2-35M scale on the 2,055-chain
+pool and on CryptoBench; it was not repeated for the 650M/3B models, for
+COACH420/HOLO4K benchmark scoring, or for localization.
 
 ### Ablations: what helped and what did not
 
@@ -340,7 +423,10 @@ confirmed with strong multi-seed evidence (8/8 seed-paired wins, mean delta
 +0.0528, ~3.4–4.1× the noise floor at the largest data scale). This is, to
 our knowledge, the first demonstration that persistent homology improves
 *where* a trained equivariant model believes a pocket center is, not only
-*whether* a residue is classified as part of one.
+*whether* a residue is classified as part of one. That comparison was
+against a no-topology control; the geometry control described above was
+not repeated for localization, so how much of this localization gain is
+specific to topology rather than to local geometry is untested.
 
 **Scaling the training pool** turned out to be the largest single lever for
 localization accuracy on the standard benchmarks. Across three
@@ -448,7 +534,12 @@ from clearly confirmed to a clean null, reported honestly in each case):
   effect by conventional standards) — the single strongest and most
   confidently confirmed lever tested on CryptoBench, and notably
   *larger* in relative terms than the equivalent gain on the main
-  pipeline.
+  pipeline. **Caveat added after a geometry control:** this comparison
+  used a baseline with no burial or exposure features. Replacing or
+  supplementing the topology block with 17 plain geometry features gave
+  an equal or larger gain, and topology added nothing detectable on top
+  of geometry (see "Geometry control" above); the topology lever is
+  therefore confirmed only relative to a weak baseline.
 - **Transfer learning from the main pipeline:** scratch 0.3492 vs
   transfer-initialized 0.3710 validation PR-AUC, paired by seed (mean
   difference +0.0218). Paired t-test t=3.97, **p=0.0054**; Wilcoxon
@@ -657,20 +748,27 @@ that is already visibly present.
 
 ## Discussion
 
-The classification-side result is the most robustly established finding in
-this project: across two structurally distinct benchmarks (open-pocket
-COACH420/HOLO4K and cryptic-pocket CryptoBench), across multiple training
-scales, and across a decisive nested cross-validation design, adding
-persistent homology features to sequence and burial features produces a
-statistically significant, reproducible gain, and the gain is, if anything,
-larger and more confidently confirmed on the harder cryptic-pocket task than
-on the standard one. A plausible mechanism is that persistent homology
-summarizes local cavity *shape* — how enclosed a region is, whether it forms
-a tunnel or a pocket rather than an open groove — in a way that raw atomic
-coordinates and even a language-model sequence embedding do not directly
-encode, and that this shape signal is informative specifically about where a
-cavity is likely to exist even before it has fully opened, which is exactly
-the cryptic-pocket setting.
+Adding persistent-homology features to sequence and burial features
+produces a large, reproducible classification gain against the baselines
+this project started with, across two structurally distinct benchmarks
+(open-pocket COACH420/HOLO4K and cryptic-pocket CryptoBench), across
+multiple training scales, and across a decisive nested cross-validation
+design. The geometry control reported above shows that this gain is not
+specific to topology. Seventeen conventional per-residue geometry features
+give an equal or larger gain on both benchmarks (+0.0672 vs. +0.0543
+PR-AUC on the main pipeline), and topology adds either nothing detectable
+(CryptoBench: +0.0008 PR-AUC, 95% CI -0.005 to +0.007) or a small residual
+(main pipeline: +0.0097 PR-AUC, significant for PR-AUC but not ROC-AUC)
+beyond them. The earlier reading, that persistent homology encodes cavity
+*shape* in a way that raw coordinates and language-model embeddings do not,
+is therefore not supported as a topology-specific mechanism: burial,
+exposure and local shape, however computed, carry most of the signal, and
+the persistent-homology block is one, slightly less efficient, way of
+supplying it. What remains is a small positive contribution on the larger
+main-pipeline pool that we cannot yet attribute to any particular
+topological property, and whose smaller size on the 700-chain CryptoBench
+training set may reflect data volume or the differing label definitions
+rather than the task itself.
 
 Transfer learning from the larger, more diverse main-pipeline training pool
 to CryptoBench's comparatively small 700-chain training set produced a
@@ -723,12 +821,18 @@ improvement from ensembling exists at all.
 ## Conclusion
 
 Fusing persistent homology features into an E(n)-equivariant graph neural
-network produces a real, statistically significant improvement in
-protein binding-site classification (+0.0423 PR-AUC beyond sequence and
-burial features, p<1e-5) and, with a trained localization head, in
-pocket-center localization accuracy as well (+0.0289 to +0.0528 DCC
-depending on data scale, multi-seed confirmed) — a joint result more
-specific than either ingredient's own prior art: published work fusing
+network improves protein binding-site classification over sequence and
+two-feature burial baselines (+0.0423 PR-AUC, p<1e-5), but a stronger
+control shows most of this is ordinary local geometry: against 17 plain
+geometry features, topology adds a small residual +0.0097 PR-AUC on the
+main pipeline (9/10 folds; not significant in ROC-AUC) and nothing
+detectable on CryptoBench. With a trained localization head, the model
+also improved pocket-center localization over a no-topology control
+(+0.0289 to +0.0528 DCC depending on data scale, multi-seed confirmed);
+that comparison has not been repeated against geometry. The combination
+of topology-fused equivariant message passing with a trained 3D
+localization objective is more specific than either ingredient's own prior
+art: published work fusing
 topology with a graph neural network exists for protein function
 prediction and for characterizing already-located pockets (see Related
 Work), and published equivariant architectures for small-molecule
@@ -759,6 +863,14 @@ into a further claimed improvement.
 Natural extensions of this specific line of work, grounded in gaps this
 project identified but did not close:
 
+- **Finish the geometry control.** The control was run at the ESM2-35M
+  scale on the 2,055-chain pool and on CryptoBench. It has not been
+  repeated for the 650M and 3B main-pipeline models, for COACH420/HOLO4K
+  benchmark scoring, or for pocket-center localization, where the claimed
+  topology gain (+0.0289 to +0.0528 DCC) was measured only against a
+  no-topology control. Whether the small residual topology effect on the
+  main pipeline grows, shrinks or vanishes with data scale, and which
+  topological properties (if any) it reflects, are open.
 - **A larger cryptic-pocket benchmark.** CryptoBench's 60-chain validation
   and 182-chain test splits are small enough to leave the ensemble's MCC
   gain statistically underpowered: a chain-level bootstrap over the

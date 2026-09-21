@@ -30,8 +30,10 @@ exposure geometry:
   geometry: PR-AUC +0.0008 (95% CI -0.005..+0.007, p = 0.79). Geometry beats P2Rank on ROC (0.796 vs 0.756).
 * `cryptic-pocket/phase167_validation/phase234_REVISED_MANUSCRIPT.md` is the revised write-up (the Phase 214 manuscript is
   frozen and predates these controls; see `phase234_CHANGES_FROM_FROZEN.md`).
-* Phases 229-230 (in progress): the same control on the main pipeline (Phase 11 nested CV). Until it finishes, the COACH420/HOLO4K
-  and older CryptoBench topology results in `paper.md` are only tested against a 2-feature burial baseline.
+* Phases 229-230: the same control on the main pipeline (Phase 11 nested CV, 10 folds x 2 seeds, 2,055 chains). Geometry beats
+  topology alone (test PR-AUC +0.0129, 10/10 folds); topology adds a small residual over geometry (+0.0097, 9/10 folds, t p = 0.017,
+  Wilcoxon p = 0.037; not significant in ROC-AUC). `paper.md` has been updated to match. The control was not repeated at the 650M/3B
+  scales, for COACH420/HOLO4K scoring, or for localization.
 
 ## Not in this repository
 

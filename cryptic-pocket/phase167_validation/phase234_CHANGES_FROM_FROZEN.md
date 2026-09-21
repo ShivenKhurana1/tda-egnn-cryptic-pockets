@@ -13,6 +13,7 @@ The frozen manuscript and `phase216_submission_package_FINAL.zip` are untouched.
    P2Rank is comparable or better at localization when given 3 guesses.
 5. **Dropped from the claims:** "TDA gain grows with pocket size" (not re-tested against geometry) and "TDA captures information not in
    ESM + structure" (true only relative to a baseline lacking geometry).
-6. **Not yet covered:** the main-pipeline (COACH420/HOLO4K) and older CryptoBench-scale topology ablations were tested only against a
-   2-feature burial baseline. Phase 230 (Phase 11 nested CV re-run with the geometry control) is in progress; the revised manuscript
-   flags this in Limitations item 6 and should be updated when it finishes.
+6. **Main pipeline (Phase 230, done).** Phase 11 nested CV re-run with the geometry control: geometry beats topology alone
+   (+0.0129 PR-AUC, 10/10 folds); topology adds a small residual over geometry (+0.0097, 9/10 folds, t p=0.017, W p=0.037; ROC n.s.).
+   So "topology adds nothing" holds for CryptoBench only. `paper.md` was updated accordingly (abstract, Methods, new Results
+   subsection, Discussion, Conclusion, Future Work).
