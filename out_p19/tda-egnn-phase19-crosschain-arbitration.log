@@ -1,0 +1,49 @@
+[{"stream_name":"stderr","time":5.37857797,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":5.378649133,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":6.133196908,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.133243809,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.133248857,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.133253216,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":6.711040445,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.711072821,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.7110842139999995,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.711087536,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":10.015740098,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━\u001b[0m \u001b[32m41.0/63.1 kB\u001b[0m \u001b[31m1.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━\u001b[0m \u001b[32m61.4/63.1 kB\u001b[0m \u001b[31m838.3 kB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m705.6 kB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":10.37007099,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.1/1.1 MB\u001b[0m \u001b[31m4.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.2/1.1 MB\u001b[0m \u001b[31m2.5 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.3/1.1 MB\u001b[0m \u001b[31m3.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.6/1.1 MB\u001b[0m \u001b[31m4.7 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━\u001b[0m \u001b[32m0.9/1.1 MB\u001b[0m \u001b[31m5.4 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m5.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.127681679,"data":"\u001b[?25hloaded cached features for 2,082 chains\n"}
+,{"stream_name":"stdout","time":50.345485154,"data":"device cuda\n"}
+,{"stream_name":"stdout","time":50.542119088,"data":"loaded 3 trained checkpoints (no retraining)\n"}
+,{"stream_name":"stdout","time":82.204184052,"data":"inference on 2,082 chains in 0.5 min (cached in memory -- selection-criterion experiments below are instant)\n"}
+,{"stream_name":"stdout","time":82.226824964,"data":"6 candidate chain-selection criteria\n"}
+,{"stream_name":"stdout","time":82.25999637,"data":"HOLO4K structures (multi-chain arbitration applies): 972\n"}
+,{"stream_name":"stdout","time":82.260023182,"data":"COACH420 structures (single chain, unaffected by this fix): 177\n"}
+,{"stream_name":"stdout","time":82.260030259,"data":"tune 340 / test 632\n"}
+,{"stream_name":"stdout","time":82.404056027,"data":"criterion           tune DCC     n\n"}
+,{"stream_name":"stdout","time":82.404098925,"data":"------------------------------------\n"}
+,{"stream_name":"stdout","time":82.404103848,"data":"sum_probs             0.5369   339\n"}
+,{"stream_name":"stdout","time":82.404107316,"data":"max_prob              0.5457   339\n"}
+,{"stream_name":"stdout","time":82.404110569,"data":"mean_prob             0.5221   339\n"}
+,{"stream_name":"stdout","time":82.461943978,"data":"top10_mean            0.5428   339\n"}
+,{"stream_name":"stdout","time":82.496795148,"data":"count_above_05        0.5280   339\n"}
+,{"stream_name":"stdout","time":82.496817606,"data":"max_minus_mean        0.5546   339\n"}
+,{"stream_name":"stdout","time":82.496823582,"data":"\n"}
+,{"stream_name":"stdout","time":82.496828896,"data":"selected on TUNE: max_minus_mean (DCC 0.5546)\n"}
+,{"stream_name":"stdout","time":82.682373437,"data":"                                   DCC     n\n"}
+,{"stream_name":"stdout","time":82.68239533,"data":"--------------------------------------------\n"}
+,{"stream_name":"stdout","time":82.682401411,"data":"current (sum_probs)             0.5310   629\n"}
+,{"stream_name":"stdout","time":82.682406683,"data":"winner: max_minus_mean          0.5294   629\n"}
+,{"stream_name":"stdout","time":82.682411308,"data":"\n"}
+,{"stream_name":"stdout","time":82.68241558,"data":"improvement on HOLO4K test structures: -0.0016 DCC\n"}
+,{"stream_name":"stdout","time":82.682420028,"data":"\n"}
+,{"stream_name":"stdout","time":82.682424435,"data":"(COACH420 is single-chain per structure -- this fix does not apply there, its DCC is unchanged from Phase 16's 0.5115)\n"}
+,{"stream_name":"stdout","time":82.682429183,"data":"\n"}
+,{"stream_name":"stdout","time":82.682433438,"data":"saved -\u003e phase19_summary.json\n"}
+,{"stream_name":"stderr","time":88.377896485,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":88.377928838,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":88.519740706,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":88.519789802,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":89.091970504,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":89.388553003,"data":"[NbConvertApp] Writing 25150 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":91.66428206,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":92.528053015,"data":"[NbConvertApp] Writing 350878 bytes to __results__.html\n"}
+]

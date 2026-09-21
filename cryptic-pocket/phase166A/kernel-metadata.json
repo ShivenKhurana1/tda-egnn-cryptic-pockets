@@ -1,0 +1,17 @@
+{
+  "id": "blackpearls1/phase166-esm-structure-hard-generalization",
+  "title": "Phase166 esm_structure Hard Generalization",
+  "code_file": "phase166_esm_structure_hard_generalization.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase159-cryptobench-anmmsf-ingestion"
+  ],
+  "competition_sources": [],
+  "model_sources": []
+}

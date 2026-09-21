@@ -1,0 +1,83 @@
+[{"stream_name":"stderr","time":8.981089862,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":8.981149108,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":10.20989359,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.209924392,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.209929772,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.20993387,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.91194226,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.911973281,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.911979303,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.911983357,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":15.437434246,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m3.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":15.589599631,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m70.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m30.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":60.168433667,"data":"\u001b[?25hUSING: /kaggle/input/notebooks/blackpearls1/tda-egnn-phase159-cryptobench-anmmsf-ingestion/phase159_cryptobench_anmmsf_graphs.pt\n"}
+,{"stream_name":"stdout","time":60.168484369,"data":"SIZE GB: 0.6506836423650384\n"}
+,{"stream_name":"stdout","time":65.463664347,"data":"node dim: 542\n"}
+,{"stream_name":"stdout","time":65.463702176,"data":"official splits: {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":67.380118199,"data":"embedding clusters: 30 largest cluster: 99 smallest cluster: 2\n"}
+,{"stream_name":"stdout","time":67.583879264,"data":"hard split sizes: {'train_hard': 668, 'val_hard': 89, 'test_hard': 185}\n"}
+,{"stream_name":"stdout","time":67.583913723,"data":"hard split positive residues: {'train_hard': 9496, 'val_hard': 1078, 'test_hard': 2672}\n"}
+,{"stream_name":"stdout","time":67.583917879,"data":"hard split cluster counts: {}\n"}
+,{"stream_name":"stdout","time":68.047100964,"data":"full_tda extra feature dims= 34 {'train_hard': 668, 'val_hard': 89, 'test_hard': 185}\n"}
+,{"stream_name":"stdout","time":68.063868776,"data":"full_tda             34 extra features\n"}
+,{"stream_name":"stdout","time":68.063893831,"data":"[508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541]\n"}
+,{"stream_name":"stdout","time":68.111764313,"data":"DEVICE: cpu\n"}
+,{"stream_name":"stdout","time":68.111788006,"data":"GPU: Tesla P100-PCIE-16GB\n"}
+,{"stream_name":"stdout","time":68.111792611,"data":"CUDA capability: (6, 0)\n"}
+,{"stream_name":"stdout","time":68.111796347,"data":"DEVICE: cpu\n"}
+,{"stream_name":"stderr","time":68.112899631,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":68.112920751,"data":"    Found GPU0 Tesla P100-PCIE-16GB which is of cuda capability 6.0.\n"}
+,{"stream_name":"stderr","time":68.112949702,"data":"    Minimum and Maximum cuda capability supported by this version of PyTorch is\n"}
+,{"stream_name":"stderr","time":68.112954909,"data":"    (7.0) - (12.0)\n"}
+,{"stream_name":"stderr","time":68.112958583,"data":"    \n"}
+,{"stream_name":"stderr","time":68.112962021,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":68.112965427,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":68.112969383,"data":"    Please install PyTorch with a following CUDA\n"}
+,{"stream_name":"stderr","time":68.112972764,"data":"    configurations:  12.6 following instructions at\n"}
+,{"stream_name":"stderr","time":68.112976727,"data":"    https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":68.112980616,"data":"    \n"}
+,{"stream_name":"stderr","time":68.112984146,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":68.112987336,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":68.112991299,"data":"Tesla P100-PCIE-16GB with CUDA capability sm_60 is not compatible with the current PyTorch installation.\n"}
+,{"stream_name":"stderr","time":68.112994544,"data":"The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\n"}
+,{"stream_name":"stderr","time":68.112997831,"data":"If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":68.113001302,"data":"\n"}
+,{"stream_name":"stderr","time":68.113004471,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":68.113008276,"data":"\n"}
+,{"stream_name":"stderr","time":68.113011586,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":68.11302756,"data":"    Found GPU0 Tesla P100-PCIE-16GB which is of cuda capability 6.0.\n"}
+,{"stream_name":"stderr","time":68.11303158,"data":"    Minimum and Maximum cuda capability supported by this version of PyTorch is\n"}
+,{"stream_name":"stderr","time":68.113035298,"data":"    (7.0) - (12.0)\n"}
+,{"stream_name":"stderr","time":68.113038624,"data":"    \n"}
+,{"stream_name":"stderr","time":68.113042072,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":68.113045384,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":68.113048869,"data":"    Please install PyTorch with a following CUDA\n"}
+,{"stream_name":"stderr","time":68.113062798,"data":"    configurations:  12.6 following instructions at\n"}
+,{"stream_name":"stderr","time":68.113066252,"data":"    https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":68.113069724,"data":"    \n"}
+,{"stream_name":"stderr","time":68.113072959,"data":"  queued_call()\n"}
+,{"stream_name":"stderr","time":68.113076246,"data":"/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:435: UserWarning: \n"}
+,{"stream_name":"stderr","time":68.113079766,"data":"Tesla P100-PCIE-16GB with CUDA capability sm_60 is not compatible with the current PyTorch installation.\n"}
+,{"stream_name":"stderr","time":68.113083327,"data":"The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.\n"}
+,{"stream_name":"stderr","time":68.113086911,"data":"If you want to use the Tesla P100-PCIE-16GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/\n"}
+,{"stream_name":"stderr","time":68.113094669,"data":"\n"}
+,{"stream_name":"stderr","time":68.113097101,"data":"  queued_call()\n"}
+,{"stream_name":"stdout","time":1458.938733862,"data":"full_tda           seed=0 val_PR=0.2741 val_ROC=0.8495 test_PR=0.2661 test_ROC=0.8348 MCC=0.2977 DCC4=0.146 elapsed=23.2m\n"}
+,{"stream_name":"stdout","time":2038.734240191,"data":"full_tda           seed=1 val_PR=0.2556 val_ROC=0.8290 test_PR=0.2383 test_ROC=0.8243 MCC=0.2810 DCC4=0.162 elapsed=32.8m\n"}
+,{"stream_name":"stdout","time":3038.487835824,"data":"full_tda           seed=2 val_PR=0.2852 val_ROC=0.8527 test_PR=0.2704 test_ROC=0.8370 MCC=0.2916 DCC4=0.162 elapsed=49.5m\n"}
+,{"stream_name":"stdout","time":4063.546325407,"data":"full_tda           seed=3 val_PR=0.2707 val_ROC=0.8440 test_PR=0.2476 test_ROC=0.8349 MCC=0.2903 DCC4=0.146 elapsed=66.6m\n"}
+,{"stream_name":"stdout","time":5310.159690499,"data":"full_tda           seed=4 val_PR=0.2674 val_ROC=0.8415 test_PR=0.2651 test_ROC=0.8346 MCC=0.3036 DCC4=0.151 elapsed=87.4m\n"}
+,{"stream_name":"stdout","time":6504.779270387,"data":"full_tda           seed=5 val_PR=0.2669 val_ROC=0.8374 test_PR=0.2565 test_ROC=0.8291 MCC=0.2908 DCC4=0.124 elapsed=107.3m\n"}
+,{"stream_name":"stdout","time":7507.922166644,"data":"full_tda           seed=6 val_PR=0.2581 val_ROC=0.8371 test_PR=0.2469 test_ROC=0.8346 MCC=0.2922 DCC4=0.076 elapsed=124.0m\n"}
+,{"stream_name":"stdout","time":8876.640232948,"data":"full_tda           seed=7 val_PR=0.2746 val_ROC=0.8527 test_PR=0.2770 test_ROC=0.8418 MCC=0.3018 DCC4=0.114 elapsed=146.8m\n"}
+,{"stream_name":"stdout","time":8876.738898012,"data":"     arm  n_seeds  val_pr_auc_mean  val_pr_auc_std  test_pr_auc_mean  test_pr_auc_std  test_roc_auc_mean  test_roc_auc_std  test_mcc_mean  test_mcc_std  test_f1_mean  test_f1_std  test_precision_mean  test_precision_std  test_recall_mean  test_recall_std  test_dcc4_mean  test_dcc4_std  test_center_error_mean  test_center_error_std\n"}
+,{"stream_name":"stdout","time":8876.738933849,"data":"full_tda        8         0.269057         0.00947          0.258482         0.013361            0.83389          0.005202       0.293626      0.007258      0.306083      0.00786              0.20813            0.008279          0.579903         0.021726        0.135135       0.029465               11.039479               0.539572\n"}
+,{"stream_name":"stderr","time":8882.82314445,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":8882.823213011,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":8883.028771163,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":8883.028809282,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":8883.705821051,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":8884.000076026,"data":"[NbConvertApp] Writing 29416 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":8886.310855608,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":8887.18869279,"data":"[NbConvertApp] Writing 372082 bytes to __results__.html\n"}
+]

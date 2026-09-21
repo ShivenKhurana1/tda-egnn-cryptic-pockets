@@ -1,0 +1,92 @@
+[
+  {
+    "comparison": "all_tda - h0",
+    "metric": "val_pr_auc",
+    "all_tda_mean": 0.29139861493731434,
+    "arm_mean": 0.25665933206083147,
+    "mean_delta": 0.03473928287648283,
+    "paired_t": 8.146910955957614,
+    "t_p": 8.113559303612542e-05,
+    "wilcoxon_p": 0.0078125
+  },
+  {
+    "comparison": "all_tda - h1",
+    "metric": "val_pr_auc",
+    "all_tda_mean": 0.29139861493731434,
+    "arm_mean": 0.2865050591623596,
+    "mean_delta": 0.004893555774954747,
+    "paired_t": 0.5587665975428513,
+    "t_p": 0.593736868601759,
+    "wilcoxon_p": 1.0
+  },
+  {
+    "comparison": "all_tda - h2",
+    "metric": "val_pr_auc",
+    "all_tda_mean": 0.29139861493731434,
+    "arm_mean": 0.2756750511253832,
+    "mean_delta": 0.01572356381193112,
+    "paired_t": 2.2138510814653096,
+    "t_p": 0.06244132581862511,
+    "wilcoxon_p": 0.0390625
+  },
+  {
+    "comparison": "all_tda - h0_h1",
+    "metric": "val_pr_auc",
+    "all_tda_mean": 0.29139861493731434,
+    "arm_mean": 0.2959383115428984,
+    "mean_delta": -0.004539696605584086,
+    "paired_t": -1.0054336245333428,
+    "t_p": 0.3481708570943737,
+    "wilcoxon_p": 0.4609375
+  },
+  {
+    "comparison": "all_tda - h1_h2",
+    "metric": "val_pr_auc",
+    "all_tda_mean": 0.29139861493731434,
+    "arm_mean": 0.2886357323667308,
+    "mean_delta": 0.0027628825705835122,
+    "paired_t": 0.35061362672219254,
+    "t_p": 0.7361923905801131,
+    "wilcoxon_p": 0.84375
+  },
+  {
+    "comparison": "all_tda - h0_h2",
+    "metric": "val_pr_auc",
+    "all_tda_mean": 0.29139861493731434,
+    "arm_mean": 0.2874367136477194,
+    "mean_delta": 0.003961901289594935,
+    "paired_t": 0.605952939798667,
+    "t_p": 0.5636702523446507,
+    "wilcoxon_p": 0.640625
+  },
+  {
+    "comparison": "all_tda - persistence",
+    "metric": "val_pr_auc",
+    "all_tda_mean": 0.29139861493731434,
+    "arm_mean": 0.2960285206372939,
+    "mean_delta": -0.004629905699979564,
+    "paired_t": -1.7015256981208384,
+    "t_p": 0.13263438604833944,
+    "wilcoxon_p": 0.25
+  },
+  {
+    "comparison": "all_tda - betti",
+    "metric": "val_pr_auc",
+    "all_tda_mean": 0.29139861493731434,
+    "arm_mean": 0.2678719832410622,
+    "mean_delta": 0.023526631696252118,
+    "paired_t": 4.350613204420101,
+    "t_p": 0.0033523443398191474,
+    "wilcoxon_p": 0.0078125
+  },
+  {
+    "comparison": "all_tda - burial",
+    "metric": "val_pr_auc",
+    "all_tda_mean": 0.29139861493731434,
+    "arm_mean": 0.27553204959481287,
+    "mean_delta": 0.015866565342501485,
+    "paired_t": 1.7202284707437774,
+    "t_p": 0.129073980097351,
+    "wilcoxon_p": 0.109375
+  }
+]

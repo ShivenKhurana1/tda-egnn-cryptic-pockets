@@ -1,0 +1,15 @@
+{
+  "id": "blackpearls1/phase230a-geometry-control-main",
+  "title": "Phase230a Geometry Control Main",
+  "code_file": "phase230a_geometry_control_main.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": ["blackpearls1/tda-egnn-phase10-esm-boost", "blackpearls1/phase229-geometry-main-pool"]
+}

@@ -1,0 +1,93 @@
+[{"stream_name":"stderr","time":6.366455061,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.36653644,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.20837575,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.208425558,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.208434245,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.208439692,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.794163275,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.794185209,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.794189483,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.7941927060000005,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.235336275,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m1.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":11.437488177,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.3/1.1 MB\u001b[0m \u001b[31m8.5 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m19.3 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m14.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":40.066750353,"data":"\u001b[?25hdevice cuda | seq 27 + topo 33 | pos_weight 9.90\n"}
+,{"stream_name":"stdout","time":40.066828275,"data":"clusters 21 | chains 41\n"}
+,{"stream_name":"stdout","time":47.695239203,"data":"  seq-only     fold 0 seed 0 | val PR 0.189 | test PR 0.171 ROC 0.668 (n=2150, pos=197)\n"}
+,{"stream_name":"stdout","time":54.621130313,"data":"  seq-only     fold 0 seed 1 | val PR 0.152 | test PR 0.154 ROC 0.680 (n=2150, pos=197)\n"}
+,{"stream_name":"stdout","time":61.106124289,"data":"  seq-only     fold 0 seed 2 | val PR 0.178 | test PR 0.252 ROC 0.742 (n=2150, pos=197)\n"}
+,{"stream_name":"stdout","time":67.166826987,"data":"  seq-only     fold 1 seed 0 | val PR 0.154 | test PR 0.148 ROC 0.559 (n=1575, pos=194)\n"}
+,{"stream_name":"stdout","time":73.027353912,"data":"  seq-only     fold 1 seed 1 | val PR 0.220 | test PR 0.151 ROC 0.609 (n=1575, pos=194)\n"}
+,{"stream_name":"stdout","time":79.546001359,"data":"  seq-only     fold 1 seed 2 | val PR 0.254 | test PR 0.230 ROC 0.603 (n=1575, pos=194)\n"}
+,{"stream_name":"stdout","time":86.350109701,"data":"  seq-only     fold 2 seed 0 | val PR 0.217 | test PR 0.219 ROC 0.644 (n=1493, pos=169)\n"}
+,{"stream_name":"stdout","time":93.867157562,"data":"  seq-only     fold 2 seed 1 | val PR 0.163 | test PR 0.172 ROC 0.618 (n=1493, pos=169)\n"}
+,{"stream_name":"stdout","time":100.298052685,"data":"  seq-only     fold 2 seed 2 | val PR 0.209 | test PR 0.220 ROC 0.677 (n=1493, pos=169)\n"}
+,{"stream_name":"stdout","time":106.638900906,"data":"  seq-only     fold 3 seed 0 | val PR 0.178 | test PR 0.171 ROC 0.628 (n=1950, pos=194)\n"}
+,{"stream_name":"stdout","time":111.823503646,"data":"  seq-only     fold 3 seed 1 | val PR 0.164 | test PR 0.146 ROC 0.616 (n=1950, pos=194)\n"}
+,{"stream_name":"stdout","time":118.626215892,"data":"  seq-only     fold 3 seed 2 | val PR 0.240 | test PR 0.225 ROC 0.686 (n=1950, pos=194)\n"}
+,{"stream_name":"stdout","time":128.856338871,"data":"  seq-only     fold 4 seed 0 | val PR 0.253 | test PR 0.110 ROC 0.681 (n=2919, pos=171)\n"}
+,{"stream_name":"stdout","time":133.576890852,"data":"  seq-only     fold 4 seed 1 | val PR 0.244 | test PR 0.161 ROC 0.740 (n=2919, pos=171)\n"}
+,{"stream_name":"stdout","time":140.000023883,"data":"  seq-only     fold 4 seed 2 | val PR 0.289 | test PR 0.115 ROC 0.654 (n=2919, pos=171)\n"}
+,{"stream_name":"stdout","time":144.628263723,"data":"  burial-only  fold 0 seed 0 | val PR 0.427 | test PR 0.399 ROC 0.813 (n=2150, pos=197)\n"}
+,{"stream_name":"stdout","time":147.562653937,"data":"  burial-only  fold 0 seed 1 | val PR 0.266 | test PR 0.320 ROC 0.756 (n=2150, pos=197)\n"}
+,{"stream_name":"stdout","time":154.965258296,"data":"  burial-only  fold 0 seed 2 | val PR 0.251 | test PR 0.363 ROC 0.819 (n=2150, pos=197)\n"}
+,{"stream_name":"stdout","time":159.49788888,"data":"  burial-only  fold 1 seed 0 | val PR 0.228 | test PR 0.398 ROC 0.771 (n=1575, pos=194)\n"}
+,{"stream_name":"stdout","time":162.879648539,"data":"  burial-only  fold 1 seed 1 | val PR 0.315 | test PR 0.389 ROC 0.773 (n=1575, pos=194)\n"}
+,{"stream_name":"stdout","time":172.854289579,"data":"  burial-only  fold 1 seed 2 | val PR 0.185 | test PR 0.376 ROC 0.747 (n=1575, pos=194)\n"}
+,{"stream_name":"stdout","time":177.340862896,"data":"  burial-only  fold 2 seed 0 | val PR 0.276 | test PR 0.253 ROC 0.726 (n=1493, pos=169)\n"}
+,{"stream_name":"stdout","time":182.898766793,"data":"  burial-only  fold 2 seed 1 | val PR 0.338 | test PR 0.255 ROC 0.729 (n=1493, pos=169)\n"}
+,{"stream_name":"stdout","time":187.676556898,"data":"  burial-only  fold 2 seed 2 | val PR 0.170 | test PR 0.251 ROC 0.701 (n=1493, pos=169)\n"}
+,{"stream_name":"stdout","time":192.458342431,"data":"  burial-only  fold 3 seed 0 | val PR 0.386 | test PR 0.281 ROC 0.771 (n=1950, pos=194)\n"}
+,{"stream_name":"stdout","time":197.148614973,"data":"  burial-only  fold 3 seed 1 | val PR 0.309 | test PR 0.263 ROC 0.755 (n=1950, pos=194)\n"}
+,{"stream_name":"stdout","time":203.315230823,"data":"  burial-only  fold 3 seed 2 | val PR 0.256 | test PR 0.256 ROC 0.785 (n=1950, pos=194)\n"}
+,{"stream_name":"stdout","time":207.525140796,"data":"  burial-only  fold 4 seed 0 | val PR 0.394 | test PR 0.192 ROC 0.773 (n=2919, pos=171)\n"}
+,{"stream_name":"stdout","time":211.881149239,"data":"  burial-only  fold 4 seed 1 | val PR 0.353 | test PR 0.211 ROC 0.789 (n=2919, pos=171)\n"}
+,{"stream_name":"stdout","time":222.288852535,"data":"  burial-only  fold 4 seed 2 | val PR 0.510 | test PR 0.120 ROC 0.675 (n=2919, pos=171)\n"}
+,{"stream_name":"stdout","time":231.122868692,"data":"  full         fold 0 seed 0 | val PR 0.474 | test PR 0.313 ROC 0.795 (n=2150, pos=197)\n"}
+,{"stream_name":"stdout","time":233.902950816,"data":"  full         fold 0 seed 1 | val PR 0.360 | test PR 0.328 ROC 0.736 (n=2150, pos=197)\n"}
+,{"stream_name":"stdout","time":238.571937117,"data":"  full         fold 0 seed 2 | val PR 0.339 | test PR 0.374 ROC 0.795 (n=2150, pos=197)\n"}
+,{"stream_name":"stdout","time":244.396073643,"data":"  full         fold 1 seed 0 | val PR 0.358 | test PR 0.447 ROC 0.816 (n=1575, pos=194)\n"}
+,{"stream_name":"stdout","time":249.103721937,"data":"  full         fold 1 seed 1 | val PR 0.390 | test PR 0.484 ROC 0.830 (n=1575, pos=194)\n"}
+,{"stream_name":"stdout","time":252.457367552,"data":"  full         fold 1 seed 2 | val PR 0.277 | test PR 0.430 ROC 0.794 (n=1575, pos=194)\n"}
+,{"stream_name":"stdout","time":259.564478221,"data":"  full         fold 2 seed 0 | val PR 0.392 | test PR 0.332 ROC 0.762 (n=1493, pos=169)\n"}
+,{"stream_name":"stdout","time":262.690988876,"data":"  full         fold 2 seed 1 | val PR 0.378 | test PR 0.339 ROC 0.739 (n=1493, pos=169)\n"}
+,{"stream_name":"stdout","time":266.050755783,"data":"  full         fold 2 seed 2 | val PR 0.224 | test PR 0.263 ROC 0.696 (n=1493, pos=169)\n"}
+,{"stream_name":"stdout","time":269.803273878,"data":"  full         fold 3 seed 0 | val PR 0.407 | test PR 0.331 ROC 0.820 (n=1950, pos=194)\n"}
+,{"stream_name":"stdout","time":275.037081527,"data":"  full         fold 3 seed 1 | val PR 0.368 | test PR 0.299 ROC 0.807 (n=1950, pos=194)\n"}
+,{"stream_name":"stdout","time":280.149818242,"data":"  full         fold 3 seed 2 | val PR 0.325 | test PR 0.328 ROC 0.827 (n=1950, pos=194)\n"}
+,{"stream_name":"stdout","time":283.38103244,"data":"  full         fold 4 seed 0 | val PR 0.448 | test PR 0.219 ROC 0.767 (n=2919, pos=171)\n"}
+,{"stream_name":"stdout","time":287.303128211,"data":"  full         fold 4 seed 1 | val PR 0.395 | test PR 0.314 ROC 0.815 (n=2919, pos=171)\n"}
+,{"stream_name":"stdout","time":292.762505443,"data":"  full         fold 4 seed 2 | val PR 0.506 | test PR 0.337 ROC 0.829 (n=2919, pos=171)\n"}
+,{"stream_name":"stdout","time":292.76257207,"data":"\n"}
+,{"stream_name":"stdout","time":292.762589657,"data":"45 runs in 4.2 min\n"}
+,{"stream_name":"stdout","time":292.797918428,"data":"arm                  test PR-AUC      test ROC-AUC        test MCC\n"}
+,{"stream_name":"stdout","time":292.797940024,"data":"------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":292.797944249,"data":"seq-only           0.176 +-0.042      0.654 +-0.049    0.175 +-0.044\n"}
+,{"stream_name":"stdout","time":292.797947458,"data":"burial-only        0.288 +-0.081      0.759 +-0.038    0.295 +-0.069\n"}
+,{"stream_name":"stdout","time":292.797950521,"data":"full               0.343 +-0.066      0.789 +-0.039    0.346 +-0.049\n"}
+,{"stream_name":"stdout","time":292.79795349,"data":"\n"}
+,{"stream_name":"stdout","time":292.797956394,"data":"==================================================================\n"}
+,{"stream_name":"stdout","time":292.797959414,"data":"PAIRED COMPARISONS (same fold, same seed)\n"}
+,{"stream_name":"stdout","time":292.797962338,"data":"  full - burial-only    test_pr  : +0.0543 +-0.0629  14/15 wins  Wilcoxon p=0.0043\n"}
+,{"stream_name":"stdout","time":292.797965296,"data":"  full - burial-only    test_roc : +0.0298 +-0.0434  10/15 wins  Wilcoxon p=0.0151\n"}
+,{"stream_name":"stdout","time":292.797968373,"data":"  full - seq-only       test_pr  : +0.1665 +-0.0721  15/15 wins  Wilcoxon p=0.0001\n"}
+,{"stream_name":"stdout","time":292.797980145,"data":"  full - seq-only       test_roc : +0.1350 +-0.0666  15/15 wins  Wilcoxon p=0.0001\n"}
+,{"stream_name":"stdout","time":292.797982734,"data":"  burial-only - seq-only       test_pr  : +0.1122 +-0.0770  15/15 wins  Wilcoxon p=0.0001\n"}
+,{"stream_name":"stdout","time":292.797985106,"data":"  burial-only - seq-only       test_roc : +0.1052 +-0.0515  15/15 wins  Wilcoxon p=0.0001\n"}
+,{"stream_name":"stdout","time":292.797987381,"data":"\n"}
+,{"stream_name":"stdout","time":292.79798959,"data":"saved -\u003e /kaggle/working/phase5b_cv_results.json\n"}
+,{"stream_name":"stderr","time":293.047171967,"data":"/tmp/ipykernel_22/2628511441.py:4: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.\n"}
+,{"stream_name":"stderr","time":293.04720207,"data":"  ax[0].boxplot([get(a, \"test_pr\") for a in ARMS], labels=ARMS)\n"}
+,{"stream_name":"stderr","time":293.047207397,"data":"\n"}
+,{"stream_name":"stderr","time":293.047214347,"data":"/tmp/ipykernel_22/2628511441.py:4: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.\n"}
+,{"stream_name":"stderr","time":293.047217647,"data":"  ax[0].boxplot([get(a, \"test_pr\") for a in ARMS], labels=ARMS)\n"}
+,{"stream_name":"stderr","time":298.503159272,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":298.503210735,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":298.653763568,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":298.653801744,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":299.245161699,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":299.54230283,"data":"[NbConvertApp] Writing 88301 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":301.866628846,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":302.693692748,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":302.693721466,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":302.694030508,"data":"[NbConvertApp] Writing 359834 bytes to __results__.html\n"}
+]

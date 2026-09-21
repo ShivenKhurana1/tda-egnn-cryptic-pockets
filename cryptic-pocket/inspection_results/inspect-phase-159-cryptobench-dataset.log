@@ -1,0 +1,165 @@
+[{"stream_name":"stderr","time":6.678616074,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.67869836,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.678705102,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.678729607,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.24089477,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.240927139,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.2409317699999995,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.240935365,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":10.640161054,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/64.4 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m30.7/64.4 kB\u001b[0m \u001b[31m2.1 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m64.4/64.4 kB\u001b[0m \u001b[31m797.6 kB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":10.944222067,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.3 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.1/1.3 MB\u001b[0m \u001b[31m4.1 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.2/1.3 MB\u001b[0m \u001b[31m3.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.3/1.3 MB\u001b[0m \u001b[31m3.4 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.8/1.3 MB\u001b[0m \u001b[31m5.7 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━\u001b[0m \u001b[32m1.3/1.3 MB\u001b[0m \u001b[31m7.3 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.3/1.3 MB\u001b[0m \u001b[31m6.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":18.368140022,"data":"\u001b[?25hMATCHES:\n"}
+,{"stream_name":"stdout","time":18.368178323,"data":"/kaggle/input/datasets/blackpearls1/phase159-cryptobench-anmmsf-graphs/phase159_cryptobench_anmmsf_graphs.pt\n"}
+,{"stream_name":"stdout","time":18.368197199,"data":"\n"}
+,{"stream_name":"stdout","time":18.368201493,"data":"USING: /kaggle/input/datasets/blackpearls1/phase159-cryptobench-anmmsf-graphs/phase159_cryptobench_anmmsf_graphs.pt\n"}
+,{"stream_name":"stdout","time":18.368206154,"data":"SIZE GB: 0.6506836423650384\n"}
+,{"stream_name":"stdout","time":39.499256408,"data":"TOP-LEVEL TYPE: \u003cclass 'dict'\u003e\n"}
+,{"stream_name":"stdout","time":39.499303783,"data":"\n"}
+,{"stream_name":"stdout","time":39.499310462,"data":"TOP-LEVEL KEYS:\n"}
+,{"stream_name":"stdout","time":39.499315323,"data":"  dataset: list, len=942\n"}
+,{"stream_name":"stdout","time":39.499320087,"data":"  n_pre_topo: int: 508\n"}
+,{"stream_name":"stdout","time":39.499324725,"data":"  topo_dim: int: 34\n"}
+,{"stream_name":"stdout","time":39.499329758,"data":"  msf_col_idx: int: 507\n"}
+,{"stream_name":"stdout","time":39.499334493,"data":"  msf_mean: float: 2.6206294655459086\n"}
+,{"stream_name":"stdout","time":39.499338986,"data":"  msf_std: float: 267.57097702367383\n"}
+,{"stream_name":"stdout","time":39.499343349,"data":"  topo_names: list, len=34\n"}
+,{"stream_name":"stdout","time":39.499349046,"data":"  burial_names: list, len=2\n"}
+,{"stream_name":"stdout","time":39.499353825,"data":"  dropped_names: list, len=1\n"}
+,{"stream_name":"stdout","time":39.499358673,"data":"  topo_mean: shape=(34,), dtype=float32\n"}
+,{"stream_name":"stdout","time":39.499363515,"data":"  topo_std: shape=(34,), dtype=float32\n"}
+,{"stream_name":"stdout","time":39.499367805,"data":"  esm_dim: int: 480\n"}
+,{"stream_name":"stdout","time":39.499373773,"data":"  pos_weight: float: 20.727917861996076\n"}
+,{"stream_name":"stdout","time":39.499382634,"data":"  anm_cutoff: float: 13.0\n"}
+,{"stream_name":"stdout","time":39.499408189,"data":"  anm_n_modes: int: 10\n"}
+,{"stream_name":"stdout","time":39.499413107,"data":"  aa_alphabet: str: ACDEFGHIKLMNPQRSTVWYX\n"}
+,{"stream_name":"stdout","time":39.499417291,"data":"  source: str: CryptoBench (Skrhak et al. 2025, btae745)\n"}
+,{"stream_name":"stdout","time":39.511986826,"data":"DATASET: \u003cclass 'dict'\u003e\n"}
+,{"stream_name":"stdout","time":39.512013536,"data":"  dataset: list, len=942\n"}
+,{"stream_name":"stdout","time":39.512019611,"data":"  n_pre_topo: int: 508\n"}
+,{"stream_name":"stdout","time":39.512024559,"data":"  topo_dim: int: 34\n"}
+,{"stream_name":"stdout","time":39.512029207,"data":"  msf_col_idx: int: 507\n"}
+,{"stream_name":"stdout","time":39.512033756,"data":"  msf_mean: float: 2.6206294655459086\n"}
+,{"stream_name":"stdout","time":39.512038408,"data":"  msf_std: float: 267.57097702367383\n"}
+,{"stream_name":"stdout","time":39.512043199,"data":"  topo_names: list, len=34\n"}
+,{"stream_name":"stdout","time":39.512047896,"data":"  burial_names: list, len=2\n"}
+,{"stream_name":"stdout","time":39.512052364,"data":"  dropped_names: list, len=1\n"}
+,{"stream_name":"stdout","time":39.512057109,"data":"  topo_mean: shape=(34,), dtype=float32\n"}
+,{"stream_name":"stdout","time":39.512062141,"data":"  topo_std: shape=(34,), dtype=float32\n"}
+,{"stream_name":"stdout","time":39.512067805,"data":"  esm_dim: int: 480\n"}
+,{"stream_name":"stdout","time":39.512073266,"data":"  pos_weight: float: 20.727917861996076\n"}
+,{"stream_name":"stdout","time":39.512077474,"data":"  anm_cutoff: float: 13.0\n"}
+,{"stream_name":"stdout","time":39.512082085,"data":"  anm_n_modes: int: 10\n"}
+,{"stream_name":"stdout","time":39.512086542,"data":"  aa_alphabet: str: ACDEFGHIKLMNPQRSTVWYX\n"}
+,{"stream_name":"stdout","time":39.512106737,"data":"  source: str: CryptoBench (Skrhak et al. 2025, btae745)\n"}
+,{"stream_name":"stdout","time":39.523091387,"data":"NUMBER OF GRAPHS: 942\n"}
+,{"stream_name":"stdout","time":39.523115132,"data":"\n"}
+,{"stream_name":"stdout","time":39.523119578,"data":"FIRST GRAPH TYPE: \u003cclass 'torch_geometric.data.data.Data'\u003e\n"}
+,{"stream_name":"stdout","time":39.523123581,"data":"\n"}
+,{"stream_name":"stdout","time":39.523128513,"data":"FIRST GRAPH:\n"}
+,{"stream_name":"stdout","time":39.523135426,"data":"Data(x=[254, 542], edge_index=[2, 2548], edge_attr=[2548, 2], y=[254], pos=[254, 3], true_center=[3], pdb_id='1a4u', chain_id='B', split='train', num_nodes=254)\n"}
+,{"stream_name":"stdout","time":39.523138145,"data":"\n"}
+,{"stream_name":"stdout","time":39.523140382,"data":"GRAPH ATTRIBUTES:\n"}
+,{"stream_name":"stdout","time":39.523142708,"data":"['edge_attr', 'x', 'true_center', 'pos', 'edge_index', 'split', 'y', 'chain_id', 'pdb_id', 'num_nodes']\n"}
+,{"stream_name":"stdout","time":39.523157557,"data":"\n"}
+,{"stream_name":"stdout","time":39.523159792,"data":"ATTRIBUTE DETAILS:\n"}
+,{"stream_name":"stdout","time":39.523162182,"data":"  edge_attr: type=\u003cclass 'torch.Tensor'\u003e, shape=torch.Size([2548, 2]), dtype=torch.float32\n"}
+,{"stream_name":"stdout","time":39.523164774,"data":"  x: type=\u003cclass 'torch.Tensor'\u003e, shape=torch.Size([254, 542]), dtype=torch.float32\n"}
+,{"stream_name":"stdout","time":39.523167305,"data":"  true_center: type=\u003cclass 'torch.Tensor'\u003e, shape=torch.Size([3]), dtype=torch.float32\n"}
+,{"stream_name":"stdout","time":39.52316986,"data":"  pos: type=\u003cclass 'torch.Tensor'\u003e, shape=torch.Size([254, 3]), dtype=torch.float32\n"}
+,{"stream_name":"stdout","time":39.523172354,"data":"  edge_index: type=\u003cclass 'torch.Tensor'\u003e, shape=torch.Size([2, 2548]), dtype=torch.int64\n"}
+,{"stream_name":"stdout","time":39.523174738,"data":"  split: type=\u003cclass 'str'\u003e, shape=None, dtype=None\n"}
+,{"stream_name":"stdout","time":39.523177122999996,"data":"  y: type=\u003cclass 'torch.Tensor'\u003e, shape=torch.Size([254]), dtype=torch.float32\n"}
+,{"stream_name":"stdout","time":39.52317962,"data":"  chain_id: type=\u003cclass 'str'\u003e, shape=None, dtype=None\n"}
+,{"stream_name":"stdout","time":39.523182055,"data":"  pdb_id: type=\u003cclass 'str'\u003e, shape=None, dtype=None\n"}
+,{"stream_name":"stdout","time":39.523184409,"data":"  num_nodes: type=\u003cclass 'int'\u003e, shape=None, dtype=None\n"}
+,{"stream_name":"stdout","time":39.565520941,"data":"SPLIT COUNTS:\n"}
+,{"stream_name":"stdout","time":39.565545044,"data":"Counter({'train': 700, 'test': 182, 'val': 60})\n"}
+,{"stream_name":"stdout","time":39.565550292,"data":"\n"}
+,{"stream_name":"stdout","time":39.565554116,"data":"NODE COUNTS:\n"}
+,{"stream_name":"stdout","time":39.565558204,"data":"min: 52\n"}
+,{"stream_name":"stdout","time":39.565562111,"data":"max: 1094\n"}
+,{"stream_name":"stdout","time":39.565565541,"data":"mean: 305.52866242038215\n"}
+,{"stream_name":"stdout","time":39.565568779,"data":"median: 284.0\n"}
+,{"stream_name":"stdout","time":39.565572171,"data":"\n"}
+,{"stream_name":"stdout","time":39.565575353,"data":"NODE FEATURE SHAPES:\n"}
+,{"stream_name":"stdout","time":39.565582529,"data":"[(52, 542), (57, 542), (59, 542), (60, 542), (67, 542), (68, 542), (72, 542), (73, 542), (85, 542), (86, 542), (87, 542), (88, 542), (90, 542), (92, 542), (93, 542), (94, 542), (96, 542), (99, 542), (101, 542), (102, 542), (103, 542), (104, 542), (106, 542), (107, 542), (108, 542), (109, 542), (110, 542), (112, 542), (113, 542), (114, 542), (115, 542), (116, 542), (117, 542), (119, 542), (120, 542), (121, 542), (122, 542), (123, 542), (124, 542), (125, 542), (126, 542), (127, 542), (128, 542), (129, 542), (130, 542), (131, 542), (132, 542), (133, 542), (135, 542), (136, 542), (137, 542), (139, 542), (140, 542), (141, 542), (142, 542), (143, 542), (144, 542), (145, 542), (146, 542), (147, 542), (148, 542), (149, 542), (150, 542), (151, 542), (152, 542), (153, 542), (154, 542), (155, 542), (156, 542), (157, 542), (158, 542), (159, 542), (160, 542), (161, 542), (162, 542), (164, 542), (165, 542), (166, 542), (167, 542), (168, 542), (169, 542), (170, 542), (171, 542), (172, 542), (173, 542), (174, 542), (175, 542), (176, 542), (177, 542), (178, 542), (179, 542), (180, 542), (181, 542), (182, 542), (183, 542), (184, 542), (185, 542), (186, 542), (187, 542), (188, 542), (189, 542), (191, 542), (192, 542), (193, 542), (195, 542), (196, 542), (197, 542), (198, 542), (199, 542), (200, 542), (201, 542), (202, 542), (203, 542), (204, 542), (205, 542), (206, 542), (207, 542), (208, 542), (209, 542), (210, 542), (211, 542), (212, 542), (213, 542), (214, 542), (215, 542), (216, 542), (217, 542), (218, 542), (219, 542), (220, 542), (221, 542), (222, 542), (223, 542), (224, 542), (225, 542), (226, 542), (227, 542), (228, 542), (229, 542), (230, 542), (231, 542), (232, 542), (233, 542), (235, 542), (237, 542), (238, 542), (239, 542), (240, 542), (241, 542), (242, 542), (243, 542), (244, 542), (245, 542), (246, 542), (247, 542), (248, 542), (249, 542), (250, 542), (251, 542), (252, 542), (253, 542), (254, 542), (255, 542), (256, 542), (257, 542), (258, 542), (259, 542), (260, 542), (261, 542), (262, 542), (263, 542), (264, 542), (265, 542), (266, 542), (267, 542), (268, 542), (269, 542), (270, 542), (271, 542), (272, 542), (273, 542), (274, 542), (275, 542), (276, 542), (277, 542), (278, 542), (279, 542), (280, 542), (282, 542), (283, 542), (284, 542), (285, 542), (286, 542), (287, 542), (288, 542), (289, 542), (290, 542), (291, 542), (292, 542), (293, 542), (294, 542), (295, 542), (296, 542), (297, 542), (298, 542), (299, 542), (301, 542), (302, 542), (303, 542), (304, 542), (305, 542), (306, 542), (307, 542), (308, 542), (309, 542), (310, 542), (311, 542), (312, 542), (313, 542), (314, 542), (315, 542), (316, 542), (317, 542), (318, 542), (319, 542), (320, 542), (321, 542), (322, 542), (323, 542), (324, 542), (325, 542), (326, 542), (327, 542), (329, 542), (330, 542), (331, 542), (332, 542), (333, 542), (334, 542), (335, 542), (336, 542), (337, 542), (338, 542), (339, 542), (340, 542), (342, 542), (343, 542), (344, 542), (346, 542), (347, 542), (348, 542), (349, 542), (350, 542), (351, 542), (352, 542), (353, 542), (355, 542), (356, 542), (358, 542), (359, 542), (360, 542), (361, 542), (363, 542), (364, 542), (365, 542), (366, 542), (367, 542), (368, 542), (369, 542), (371, 542), (372, 542), (373, 542), (374, 542), (375, 542), (376, 542), (377, 542), (379, 542), (381, 542), (382, 542), (384, 542), (385, 542), (386, 542), (387, 542), (388, 542), (390, 542), (391, 542), (392, 542), (393, 542), (394, 542), (395, 542), (397, 542), (398, 542), (399, 542), (400, 542), (401, 542), (402, 542), (403, 542), (404, 542), (405, 542), (406, 542), (407, 542), (408, 542), (409, 542), (413, 542), (415, 542), (416, 542), (417, 542), (418, 542), (419, 542), (420, 542), (421, 542), (422, 542), (424, 542), (426, 542), (427, 542), (428, 542), (429, 542), (430, 542), (431, 542), (432, 542), (433, 542), (435, 542), (436, 542), (437, 542), (438, 542), (440, 542), (441, 542), (442, 542), (443, 542), (444, 542), (445, 542), (446, 542), (447, 542), (448, 542), (449, 542), (450, 542), (451, 542), (452, 542), (453, 542), (455, 542), (456, 542), (457, 542), (458, 542), (459, 542), (460, 542), (462, 542), (463, 542), (467, 542), (468, 542), (469, 542), (470, 542), (471, 542), (472, 542), (474, 542), (475, 542), (478, 542), (479, 542), (480, 542), (482, 542), (483, 542), (488, 542), (490, 542), (492, 542), (493, 542), (495, 542), (496, 542), (498, 542), (499, 542), (500, 542), (501, 542), (502, 542), (504, 542), (505, 542), (509, 542), (513, 542), (516, 542), (517, 542), (518, 542), (525, 542), (527, 542), (533, 542), (535, 542), (536, 542), (537, 542), (539, 542), (541, 542), (545, 542), (548, 542), (551, 542), (556, 542), (561, 542), (564, 542), (571, 542), (574, 542), (579, 542), (580, 542), (583, 542), (584, 542), (585, 542), (588, 542), (589, 542), (596, 542), (597, 542), (608, 542), (609, 542), (614, 542), (616, 542), (619, 542), (623, 542), (624, 542), (625, 542), (631, 542), (636, 542), (639, 542), (648, 542), (655, 542), (660, 542), (672, 542), (676, 542), (677, 542), (680, 542), (691, 542), (698, 542), (705, 542), (710, 542), (712, 542), (723, 542), (724, 542), (726, 542), (729, 542), (760, 542), (764, 542), (791, 542), (809, 542), (817, 542), (831, 542), (901, 542), (1017, 542), (1033, 542), (1045, 542), (1094, 542)]\n"}
+,{"stream_name":"stdout","time":39.565615726,"data":"\n"}
+,{"stream_name":"stdout","time":39.56561823,"data":"LABEL COUNTS:\n"}
+,{"stream_name":"stdout","time":39.565620449,"data":"positive: 13246\n"}
+,{"stream_name":"stdout","time":39.565622664,"data":"negative: 274562\n"}
+,{"stream_name":"stdout","time":39.565625049,"data":"positive fraction: 0.04602373804758728\n"}
+,{"stream_name":"stdout","time":39.577489274,"data":"\n"}
+,{"stream_name":"stdout","time":39.577510512,"data":"TOP-LEVEL METADATA:\n"}
+,{"stream_name":"stdout","time":39.577515928,"data":"\n"}
+,{"stream_name":"stdout","time":39.577519727,"data":"--- n_pre_topo ---\n"}
+,{"stream_name":"stdout","time":39.577523873,"data":"508\n"}
+,{"stream_name":"stdout","time":39.577526982,"data":"\n"}
+,{"stream_name":"stdout","time":39.5775302,"data":"--- topo_dim ---\n"}
+,{"stream_name":"stdout","time":39.577546148,"data":"34\n"}
+,{"stream_name":"stdout","time":39.577549689,"data":"\n"}
+,{"stream_name":"stdout","time":39.577552779,"data":"--- msf_col_idx ---\n"}
+,{"stream_name":"stdout","time":39.577555881,"data":"507\n"}
+,{"stream_name":"stdout","time":39.577559047,"data":"\n"}
+,{"stream_name":"stdout","time":39.577562258,"data":"--- msf_mean ---\n"}
+,{"stream_name":"stdout","time":39.577565813,"data":"2.6206294655459086\n"}
+,{"stream_name":"stdout","time":39.577570509,"data":"\n"}
+,{"stream_name":"stdout","time":39.577573635,"data":"--- msf_std ---\n"}
+,{"stream_name":"stdout","time":39.577577186,"data":"267.57097702367383\n"}
+,{"stream_name":"stdout","time":39.577580486,"data":"\n"}
+,{"stream_name":"stdout","time":39.577583767,"data":"--- topo_names ---\n"}
+,{"stream_name":"stdout","time":39.577587448,"data":"['H0_n_bars', 'H0_total_pers', 'H0_max_pers', 'H0_mean_pers', 'H0_std_pers', 'H0_entropy', 'H0_mean_death', 'H0_betti_r2', 'H0_betti_r3', 'H0_betti_r5', 'H1_n_bars', 'H1_total_pers', 'H1_max_pers', 'H1_mean_pers', 'H1_std_pers', 'H1_entropy', 'H1_mean_birth', 'H1_mean_death', 'H1_betti_r2', 'H1_betti_r3', 'H1_betti_r5', 'H2_n_bars', 'H2_total_pers', 'H2_max_pers', 'H2_mean_pers', 'H2_std_pers', 'H2_entropy', 'H2_mean_birth', 'H2_mean_death', 'H2_betti_r2', 'H2_betti_r3', 'H2_betti_r5', 'nbhd_n_atoms', 'nbhd_gyration']\n"}
+,{"stream_name":"stdout","time":39.577592515,"data":"\n"}
+,{"stream_name":"stdout","time":39.577595811,"data":"--- burial_names ---\n"}
+,{"stream_name":"stdout","time":39.577599836,"data":"['nbhd_n_atoms', 'nbhd_gyration']\n"}
+,{"stream_name":"stdout","time":39.577603166,"data":"\n"}
+,{"stream_name":"stdout","time":39.577606366,"data":"--- dropped_names ---\n"}
+,{"stream_name":"stdout","time":39.577609538,"data":"['H0_mean_birth']\n"}
+,{"stream_name":"stdout","time":39.577612708,"data":"\n"}
+,{"stream_name":"stdout","time":39.57761599,"data":"--- topo_mean ---\n"}
+,{"stream_name":"stdout","time":39.577631098,"data":"[2.29382980e+02 1.74673813e+02 1.94313717e+00 7.61141539e-01\n"}
+,{"stream_name":"stdout","time":39.577634873,"data":" 2.11629972e-01 5.36141157e+00 7.61141539e-01 3.13955843e-01\n"}
+,{"stream_name":"stdout","time":39.57763883,"data":" 1.57118626e-02 1.18134310e-04 3.41626740e+02 3.61541367e+01\n"}
+,{"stream_name":"stdout","time":39.577642457,"data":" 1.00892556e+00 1.04834564e-01 1.70224026e-01 4.81426573e+00\n"}
+,{"stream_name":"stdout","time":39.577646048,"data":" 1.92107069e+00 2.02590561e+00 4.48090134e+01 6.30722582e-01\n"}
+,{"stream_name":"stdout","time":39.57764965,"data":" 7.38339452e-03 2.02300613e+02 6.06498623e+00 4.75828499e-01\n"}
+,{"stream_name":"stdout","time":39.577653651,"data":" 2.88940929e-02 6.07781634e-02 4.05571699e+00 2.32990241e+00\n"}
+,{"stream_name":"stdout","time":39.577657776,"data":" 2.35879660e+00 3.09922242e+00 2.41012406e+00 6.17772946e-03\n"}
+,{"stream_name":"stdout","time":39.57766136,"data":" 2.30384506e+02 8.18076801e+00]\n"}
+,{"stream_name":"stdout","time":39.577664864,"data":"\n"}
+,{"stream_name":"stdout","time":39.577668145,"data":"--- topo_std ---\n"}
+,{"stream_name":"stdout","time":39.577671535,"data":"[5.99906464e+01 4.64183235e+01 2.85804659e-01 2.42949128e-02\n"}
+,{"stream_name":"stdout","time":39.577674928,"data":" 3.96432914e-02 3.03670555e-01 2.42949128e-02 6.08930826e-01\n"}
+,{"stream_name":"stdout","time":39.577678396,"data":" 1.31686196e-01 1.08683193e-02 1.16864975e+02 1.32598286e+01\n"}
+,{"stream_name":"stdout","time":39.577682431,"data":" 2.23606795e-01 7.99013395e-03 1.49609363e-02 4.42828238e-01\n"}
+,{"stream_name":"stdout","time":39.57768597,"data":" 5.88884875e-02 6.17832057e-02 1.93631573e+01 1.01581585e+00\n"}
+,{"stream_name":"stdout","time":39.577689499,"data":" 9.87980738e-02 7.79247131e+01 2.83437419e+00 1.77705750e-01\n"}
+,{"stream_name":"stdout","time":39.577692882,"data":" 4.80692508e-03 1.32845622e-02 4.80390638e-01 8.46582800e-02\n"}
+,{"stream_name":"stdout","time":39.577695988,"data":" 8.58193263e-02 2.85800171e+00 2.18563223e+00 8.93757194e-02\n"}
+,{"stream_name":"stdout","time":39.577713514,"data":" 5.99900970e+01 6.75605118e-01]\n"}
+,{"stream_name":"stdout","time":39.57772233,"data":"\n"}
+,{"stream_name":"stdout","time":39.577726146,"data":"--- esm_dim ---\n"}
+,{"stream_name":"stdout","time":39.577729843,"data":"480\n"}
+,{"stream_name":"stdout","time":39.577733221,"data":"\n"}
+,{"stream_name":"stdout","time":39.577736428,"data":"--- pos_weight ---\n"}
+,{"stream_name":"stdout","time":39.577739644,"data":"20.727917861996076\n"}
+,{"stream_name":"stdout","time":39.57774289,"data":"\n"}
+,{"stream_name":"stdout","time":39.577745973,"data":"--- anm_cutoff ---\n"}
+,{"stream_name":"stdout","time":39.577749189,"data":"13.0\n"}
+,{"stream_name":"stdout","time":39.577752365,"data":"\n"}
+,{"stream_name":"stdout","time":39.577755517,"data":"--- anm_n_modes ---\n"}
+,{"stream_name":"stdout","time":39.577758833,"data":"10\n"}
+,{"stream_name":"stdout","time":39.577762526,"data":"\n"}
+,{"stream_name":"stdout","time":39.577765991,"data":"--- aa_alphabet ---\n"}
+,{"stream_name":"stdout","time":39.577769791,"data":"ACDEFGHIKLMNPQRSTVWYX\n"}
+,{"stream_name":"stdout","time":39.57777374,"data":"\n"}
+,{"stream_name":"stdout","time":39.577779458,"data":"--- source ---\n"}
+,{"stream_name":"stdout","time":39.577783543,"data":"CryptoBench (Skrhak et al. 2025, btae745)\n"}
+,{"stream_name":"stderr","time":44.907801749,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":44.907839977,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":45.050624411,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":45.050652672,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":45.62410432,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":45.918552883,"data":"[NbConvertApp] Writing 22945 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":48.219885352,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":49.006392899,"data":"[NbConvertApp] Writing 312731 bytes to __results__.html\n"}
+]

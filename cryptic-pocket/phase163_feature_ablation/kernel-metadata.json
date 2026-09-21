@@ -1,0 +1,17 @@
+{
+  "id": "blackpearls1/tda-egnn-phase163-cryptobench-feature-ablation",
+  "title": "TDA EGNN Phase163 CryptoBench Feature Ablation",
+  "code_file": "phase163_cryptobench_feature_ablation.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase159-cryptobench-anmmsf-ingestion"
+  ]
+}

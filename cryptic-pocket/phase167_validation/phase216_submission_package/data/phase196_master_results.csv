@@ -1,0 +1,25 @@
+section,arm,metric,value,comparison
+experimental_residue_validation,esm_structure,protein_mean_PR_AUC,0.295203,
+experimental_residue_validation,full_tda,protein_mean_PR_AUC,0.348529,vs ESM
+experimental_residue_validation,full_model,protein_mean_PR_AUC,0.347575,vs ESM
+experimental_residue_validation,esm_structure,protein_median_ROC_AUC,0.829078,
+experimental_residue_validation,full_tda,protein_median_ROC_AUC,0.859539,vs ESM
+experimental_residue_validation,full_model,protein_median_ROC_AUC,0.855311,vs ESM
+localization,esm_structure,gamma10_mean_center_error_A,10.158503,
+localization,full_tda,gamma10_mean_center_error_A,10.066239,
+localization,full_model,gamma10_mean_center_error_A,10.052842,
+localization,esm_structure,gamma10_DCC10,0.631081,
+localization,full_tda,gamma10_DCC10,0.635811,
+localization,full_model,gamma10_DCC10,0.635811,
+pocket_size,full_model,partial_spearman_pocket_size_vs_PR_AUC,0.7558,controlled for protein size
+pocket_size,full_model,partial_spearman_pocket_size_vs_center_error,-0.6029,controlled for protein size
+pocket_size,full_tda,partial_spearman_pocket_size_vs_PR_AUC,0.7536,controlled for protein size
+pocket_size,esm_structure,partial_spearman_pocket_size_vs_PR_AUC,0.7051,controlled for protein size
+tda_gain,full_tda,pocket_size_vs_PR_AUC_gain,0.366323,TDA vs ESM
+tda_gain,full_tda,pocket_fraction_vs_PR_AUC_gain,0.343364,TDA vs ESM
+case_study,full_model,3q6u_PR_AUC,0.7618,
+case_study,full_model,3q6u_gamma10_error_A,0.854976,
+case_study,full_model,5ytb_PR_AUC,0.0338,
+case_study,full_model,5ytb_gamma10_error_A,40.835433,
+case_study,full_model,7yjc_PR_AUC,0.0135,
+case_study,full_model,7yjc_gamma10_error_A,33.111639,

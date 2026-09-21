@@ -1,0 +1,58 @@
+[{"stream_name":"stderr","time":7.018828657,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.018929135,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.903910833,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.903972635,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.90397996,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.9039847,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.508155095,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.508187729,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.50819203,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.508197484,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.139149493,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m2.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":12.291479569,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m40.3 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m25.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":48.25735499,"data":"\u001b[?25hGPU Tesla T4 probe PASS\n"}
+,{"stream_name":"stdout","time":48.257408746,"data":"train 1441 | val 308 | test 307 (untouched)\n"}
+,{"stream_name":"stdout","time":191.862043439,"data":"  [1/6] h=128 L=4 dr=0.1 wd=1e-04 -\u003e val PR 0.3977 (train 0.4433, gap +0.046, 0.58M par, 24 ep) [2m]\n"}
+,{"stream_name":"stdout","time":330.683027498,"data":"  [2/6] h=64 L=4 dr=0.1 wd=1e-04 -\u003e val PR 0.3820 (train 0.4531, gap +0.071, 0.16M par, 40 ep) [5m]\n"}
+,{"stream_name":"stdout","time":508.566075599,"data":"  [3/6] h=128 L=4 dr=0.3 wd=1e-04 -\u003e val PR 0.3938 (train 0.4887, gap +0.095, 0.58M par, 29 ep) [8m]\n"}
+,{"stream_name":"stdout","time":655.385208947,"data":"  [4/6] h=128 L=4 dr=0.1 wd=1e-02 -\u003e val PR 0.3969 (train 0.4418, gap +0.045, 0.58M par, 24 ep) [10m]\n"}
+,{"stream_name":"stdout","time":882.628536896,"data":"  [5/6] h=128 L=6 dr=0.2 wd=1e-03 -\u003e val PR 0.3986 (train 0.4645, gap +0.066, 0.87M par, 25 ep) [14m]\n"}
+,{"stream_name":"stdout","time":1131.621524242,"data":"  [6/6] h=192 L=4 dr=0.2 wd=1e-03 -\u003e val PR 0.3972 (train 0.4477, gap +0.051, 1.27M par, 23 ep) [18m]\n"}
+,{"stream_name":"stdout","time":1131.62156539,"data":"\n"}
+,{"stream_name":"stdout","time":1131.621572218,"data":"sweep done in 18.1 min\n"}
+,{"stream_name":"stdout","time":1131.62157718,"data":"\n"}
+,{"stream_name":"stdout","time":1131.621581758,"data":"    h  L  drop      wd   params   val PR  train PR     gap\n"}
+,{"stream_name":"stdout","time":1131.621586601,"data":"  128  6   0.2   1e-03    0.87M   0.3986    0.4645  +0.066\n"}
+,{"stream_name":"stdout","time":1131.621591548,"data":"  128  4   0.1   1e-04    0.58M   0.3977    0.4433  +0.046\n"}
+,{"stream_name":"stdout","time":1131.621596818,"data":"  192  4   0.2   1e-03    1.27M   0.3972    0.4477  +0.051\n"}
+,{"stream_name":"stdout","time":1131.621602626,"data":"  128  4   0.1   1e-02    0.58M   0.3969    0.4418  +0.045\n"}
+,{"stream_name":"stdout","time":1131.621611657,"data":"  128  4   0.3   1e-04    0.58M   0.3938    0.4887  +0.095\n"}
+,{"stream_name":"stdout","time":1131.62161723,"data":"   64  4   0.1   1e-04    0.16M   0.3820    0.4531  +0.071\n"}
+,{"stream_name":"stdout","time":1131.621622338,"data":"\n"}
+,{"stream_name":"stdout","time":1131.621627011,"data":"best on VAL: h=128 L=6 dropout=0.2 wd=1e-03 -\u003e val PR 0.3986\n"}
+,{"stream_name":"stdout","time":1131.621632218,"data":"default was val PR 0.3977\n"}
+,{"stream_name":"stdout","time":1404.574493291,"data":"retrained best config: val PR 0.3965\n"}
+,{"stream_name":"stdout","time":1404.574528081,"data":"\n"}
+,{"stream_name":"stdout","time":1405.33075238,"data":"layer      mean gate   std across residues\n"}
+,{"stream_name":"stdout","time":1405.330794451,"data":"0             0.4875                0.0345\n"}
+,{"stream_name":"stdout","time":1405.330802171,"data":"1             0.4634                0.0304\n"}
+,{"stream_name":"stdout","time":1405.330807175,"data":"2             0.4745                0.0282\n"}
+,{"stream_name":"stdout","time":1405.330812515,"data":"3             0.4714                0.0269\n"}
+,{"stream_name":"stdout","time":1405.330818167,"data":"4             0.4602                0.0345\n"}
+,{"stream_name":"stdout","time":1405.330823898,"data":"5             0.4679                0.0543\n"}
+,{"stream_name":"stdout","time":1405.330829399,"data":"\n"}
+,{"stream_name":"stdout","time":1405.330834387,"data":"final-layer gate, binding-site residues : 0.4479 +-0.0368\n"}
+,{"stream_name":"stdout","time":1405.33083998,"data":"final-layer gate, non-site residues     : 0.4695 +-0.0552\n"}
+,{"stream_name":"stdout","time":1405.330845575,"data":"difference: -0.0217\n"}
+,{"stream_name":"stdout","time":1405.330850261,"data":"\n"}
+,{"stream_name":"stdout","time":1405.3308551,"data":"deviation from 0.5 init: 0.0292 | across-residue spread: 0.0371\n"}
+,{"stream_name":"stdout","time":1405.330860684,"data":"VERDICT: gates remain near init and roughly flat -- the mechanism is acting as a constant scale, so the interpretability claim is NOT supported\n"}
+,{"stream_name":"stderr","time":1410.778579172,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1410.778616733,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1410.938319975,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1410.938347492,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1411.572049344,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1411.874637459,"data":"[NbConvertApp] Writing 21764 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1414.216179041,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1415.062637695,"data":"[NbConvertApp] Writing 352204 bytes to __results__.html\n"}
+]

@@ -1,0 +1,14 @@
+# From ~/bioproj/cryptic-pocket
+mkdir -p phase163_feature_ablation
+cp /PATH/TO/phase163_cryptobench_feature_ablation.ipynb phase163_feature_ablation/
+cp /PATH/TO/kernel-metadata.json phase163_feature_ablation/
+cd phase163_feature_ablation
+kaggle kernels push -p .
+kaggle kernels status blackpearls1/tda-egnn-phase163-cryptobench-feature-ablation
+while true; do kaggle kernels status blackpearls1/tda-egnn-phase163-cryptobench-feature-ablation; sleep 15; done
+# after it finishes:
+mkdir -p ~/bioproj/cryptic-pocket/phase163_output
+kaggle kernels output blackpearls1/tda-egnn-phase163-cryptobench-feature-ablation -p ~/bioproj/cryptic-pocket/phase163_output
+ls -lh ~/bioproj/cryptic-pocket/phase163_output
+cat ~/bioproj/cryptic-pocket/phase163_output/phase163_ablation_summary.csv
+cat ~/bioproj/cryptic-pocket/phase163_output/phase163_paired_significance.json

@@ -1,0 +1,554 @@
+[{"stream_name":"stderr","time":6.556527869,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.55659151,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.43443495,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.434472116,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.434476019,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.434479168,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.045283944,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.045327249,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.045333804,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.045338416,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.600268583,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m2.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":12.006692031,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/44.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.1/44.1 kB\u001b[0m \u001b[31m2.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":12.973067848,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━\u001b[0m \u001b[32m0.9/1.1 MB\u001b[0m \u001b[31m26.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m22.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.02486404,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.3 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m135.5 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m75.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.075814028,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.2 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m213.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m83.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.228363759,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/10.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━\u001b[0m \u001b[32m7.1/10.0 MB\u001b[0m \u001b[31m213.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m10.0/10.0 MB\u001b[0m \u001b[31m168.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m10.0/10.0 MB\u001b[0m \u001b[31m168.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m10.0/10.0 MB\u001b[0m \u001b[31m91.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.228412997,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/566.4 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m566.4/566.4 kB\u001b[0m \u001b[31m34.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.279281379,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.0/3.0 MB\u001b[0m \u001b[31m94.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":41.834738799,"data":"\u001b[?25hGPU: Tesla T4 (probe PASS)\n"}
+,{"stream_name":"stdout","time":46.25036141,"data":"CryptoBench: 1,107 apo entries | folds: {'test': 222, 'train-0': 219, 'train-1': 222, 'train-2': 222, 'train-3': 222}\n"}
+,{"stream_name":"stdout","time":46.250409228,"data":"training units (one main pocket per apo entry): 1,107\n"}
+,{"stream_name":"stdout","time":46.250429101,"data":"split coverage: 1107/1107 (0 unassigned, dropped)\n"}
+,{"stream_name":"stdout","time":66.106737966,"data":"fetched 1,107/1,107 in 0.3 min\n"}
+,{"stream_name":"stderr","time":66.202135117,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":66.202166673,"data":"\n"}
+,{"stream_name":"stderr","time":66.202172681,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":70.599706226,"data":"[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    4.2s\n"}
+,{"stream_name":"stderr","time":70.599745565,"data":"\n"}
+,{"stream_name":"stderr","time":70.603100152,"data":"[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    4.2s\n"}
+,{"stream_name":"stderr","time":86.163920627,"data":"[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:   19.8s\n"}
+,{"stream_name":"stderr","time":86.163984154,"data":"\n"}
+,{"stream_name":"stderr","time":86.163990127,"data":"[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:   19.8s\n"}
+,{"stream_name":"stderr","time":118.110968977,"data":"[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed:   51.7s\n"}
+,{"stream_name":"stderr","time":118.111022875,"data":"\n"}
+,{"stream_name":"stderr","time":118.114044683,"data":"[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed:   51.7s\n"}
+,{"stream_name":"stderr","time":192.570242449,"data":"[Parallel(n_jobs=4)]: Done 792 tasks      | elapsed:  2.1min\n"}
+,{"stream_name":"stderr","time":192.570288189,"data":"\n"}
+,{"stream_name":"stderr","time":192.570293995,"data":"[Parallel(n_jobs=4)]: Done 792 tasks      | elapsed:  2.1min\n"}
+,{"stream_name":"stdout","time":257.019382785,"data":"\n"}
+,{"stream_name":"stdout","time":257.019434492,"data":"parsed in 3.2 min\n"}
+,{"stream_name":"stdout","time":257.019441859,"data":"usable chains: 942/1,107\n"}
+,{"stream_name":"stdout","time":257.019446723,"data":"residues 287,808 | cryptic-pocket residues 13,246 (4.60%)\n"}
+,{"stream_name":"stdout","time":257.019451489,"data":"  train    760 chains\n"}
+,{"stream_name":"stdout","time":257.019456388,"data":"  test     182 chains\n"}
+,{"stream_name":"stderr","time":257.020399586,"data":"[Parallel(n_jobs=4)]: Done 1107 out of 1107 | elapsed:  3.2min finished\n"}
+,{"stream_name":"stderr","time":257.020442129,"data":"\n"}
+,{"stream_name":"stderr","time":257.020448474,"data":"[Parallel(n_jobs=4)]: Done 1107 out of 1107 | elapsed:  3.2min finished\n"}
+,{"stream_name":"stderr","time":257.210508017,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":257.210574195,"data":"\n"}
+,{"stream_name":"stderr","time":257.210581149,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stdout","time":257.215738538,"data":"computing persistent homology on 287,808 residues (4 workers, ~6.4 ms/residue -\u003e ETA 31 min)\n"}
+,{"stream_name":"stderr","time":279.306516283,"data":"[Parallel(n_jobs=4)]: Done  10 tasks      | elapsed:   22.0s\n"}
+,{"stream_name":"stderr","time":279.306582189,"data":"\n"}
+,{"stream_name":"stderr","time":279.306589888,"data":"[Parallel(n_jobs=4)]: Done  10 tasks      | elapsed:   22.0s\n"}
+,{"stream_name":"stderr","time":380.478257362,"data":"[Parallel(n_jobs=4)]: Done  64 tasks      | elapsed:  2.1min\n"}
+,{"stream_name":"stderr","time":380.478294392,"data":"\n"}
+,{"stream_name":"stderr","time":380.478605064,"data":"[Parallel(n_jobs=4)]: Done  64 tasks      | elapsed:  2.1min\n"}
+,{"stream_name":"stderr","time":569.658616665,"data":"[Parallel(n_jobs=4)]: Done 154 tasks      | elapsed:  5.2min\n"}
+,{"stream_name":"stderr","time":569.658722853,"data":"\n"}
+,{"stream_name":"stderr","time":569.658729916,"data":"[Parallel(n_jobs=4)]: Done 154 tasks      | elapsed:  5.2min\n"}
+,{"stream_name":"stderr","time":823.224494247,"data":"[Parallel(n_jobs=4)]: Done 280 tasks      | elapsed:  9.4min\n"}
+,{"stream_name":"stderr","time":823.224570997,"data":"\n"}
+,{"stream_name":"stderr","time":823.224579411,"data":"[Parallel(n_jobs=4)]: Done 280 tasks      | elapsed:  9.4min\n"}
+,{"stream_name":"stderr","time":1139.761503886,"data":"[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed: 14.7min\n"}
+,{"stream_name":"stderr","time":1139.761568261,"data":"\n"}
+,{"stream_name":"stderr","time":1139.761576565,"data":"[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed: 14.7min\n"}
+,{"stream_name":"stderr","time":1511.150263831,"data":"[Parallel(n_jobs=4)]: Done 640 tasks      | elapsed: 20.9min\n"}
+,{"stream_name":"stderr","time":1511.150343432,"data":"\n"}
+,{"stream_name":"stderr","time":1511.151218283,"data":"[Parallel(n_jobs=4)]: Done 640 tasks      | elapsed: 20.9min\n"}
+,{"stream_name":"stderr","time":2012.81246669,"data":"[Parallel(n_jobs=4)]: Done 874 tasks      | elapsed: 29.3min\n"}
+,{"stream_name":"stderr","time":2012.812512735,"data":"\n"}
+,{"stream_name":"stderr","time":2012.812519318,"data":"[Parallel(n_jobs=4)]: Done 874 tasks      | elapsed: 29.3min\n"}
+,{"stream_name":"stderr","time":2143.672567602,"data":"[Parallel(n_jobs=4)]: Done 942 out of 942 | elapsed: 31.4min finished\n"}
+,{"stream_name":"stderr","time":2143.672639215,"data":"\n"}
+,{"stream_name":"stderr","time":2143.672647658,"data":"[Parallel(n_jobs=4)]: Done 942 out of 942 | elapsed: 31.4min finished\n"}
+,{"stream_name":"stdout","time":2143.674621391,"data":"\n"}
+,{"stream_name":"stdout","time":2143.674651426,"data":"done in 31.4 min (6.55 ms/residue)\n"}
+,{"stream_name":"stdout","time":2143.674660031,"data":"pruned 1 constant column(s): ['H0_mean_birth']\n"}
+,{"stream_name":"stdout","time":2144.443840523,"data":"rotation invariance: 3.22e-06\n"}
+,{"stream_name":"stderr","time":2144.679755216,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":2144.679808534,"data":"\n"}
+,{"stream_name":"stderr","time":2144.683119738,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":2145.954967317,"data":"[Parallel(n_jobs=4)]: Done  10 tasks      | elapsed:    1.3s\n"}
+,{"stream_name":"stderr","time":2145.955041651,"data":"\n"}
+,{"stream_name":"stderr","time":2145.957087575,"data":"[Parallel(n_jobs=4)]: Done  10 tasks      | elapsed:    1.3s\n"}
+,{"stream_name":"stderr","time":2151.508729484,"data":"[Parallel(n_jobs=4)]: Done  64 tasks      | elapsed:    6.8s\n"}
+,{"stream_name":"stderr","time":2151.508818287,"data":"\n"}
+,{"stream_name":"stderr","time":2151.511107289,"data":"[Parallel(n_jobs=4)]: Done  64 tasks      | elapsed:    6.8s\n"}
+,{"stream_name":"stderr","time":2164.754604044,"data":"[Parallel(n_jobs=4)]: Done 154 tasks      | elapsed:   20.1s\n"}
+,{"stream_name":"stderr","time":2164.754667582,"data":"\n"}
+,{"stream_name":"stderr","time":2164.754677093,"data":"[Parallel(n_jobs=4)]: Done 154 tasks      | elapsed:   20.1s\n"}
+,{"stream_name":"stderr","time":2185.838068063,"data":"[Parallel(n_jobs=4)]: Done 280 tasks      | elapsed:   41.1s\n"}
+,{"stream_name":"stderr","time":2185.838110084,"data":"\n"}
+,{"stream_name":"stderr","time":2185.840102086,"data":"[Parallel(n_jobs=4)]: Done 280 tasks      | elapsed:   41.1s\n"}
+,{"stream_name":"stderr","time":2204.339769386,"data":"[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed:   59.7s\n"}
+,{"stream_name":"stderr","time":2204.339844258,"data":"\n"}
+,{"stream_name":"stderr","time":2204.339852161,"data":"[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed:   59.7s\n"}
+,{"stream_name":"stderr","time":2229.057447576,"data":"[Parallel(n_jobs=4)]: Done 640 tasks      | elapsed:  1.4min\n"}
+,{"stream_name":"stderr","time":2229.057517482,"data":"\n"}
+,{"stream_name":"stderr","time":2229.057872796,"data":"[Parallel(n_jobs=4)]: Done 640 tasks      | elapsed:  1.4min\n"}
+,{"stream_name":"stderr","time":2276.121924238,"data":"[Parallel(n_jobs=4)]: Done 874 tasks      | elapsed:  2.2min\n"}
+,{"stream_name":"stderr","time":2276.122070233,"data":"\n"}
+,{"stream_name":"stderr","time":2276.122082318,"data":"[Parallel(n_jobs=4)]: Done 874 tasks      | elapsed:  2.2min\n"}
+,{"stream_name":"stdout","time":2285.667044788,"data":"ANM-MSF computed for 942 chains in 2.4 min\n"}
+,{"stream_name":"stdout","time":2285.667114495,"data":"MSF stats: mean 2.621  std 267.6  range [0, 1.288e+05]\n"}
+,{"stream_name":"stdout","time":2285.667120557,"data":"ANM-MSF rotation invariance: 4.91e-07\n"}
+,{"stream_name":"stderr","time":2285.669364673,"data":"[Parallel(n_jobs=4)]: Done 942 out of 942 | elapsed:  2.4min finished\n"}
+,{"stream_name":"stderr","time":2285.669376633,"data":"\n"}
+,{"stream_name":"stderr","time":2285.670404144,"data":"[Parallel(n_jobs=4)]: Done 942 out of 942 | elapsed:  2.4min finished\n"}
+,{"stream_name":"stderr","time":2285.824017197,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":2285.824079678,"data":"\n"}
+,{"stream_name":"stderr","time":2285.826125018,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":2293.972130161,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2293.972172723,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2294.1744213,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2294.174487669,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2294.174494747,"data":"\n"}
+,{"stream_name":"stderr","time":2294.176083012,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2294.176108214,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2296.296021772,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue ONL is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2296.296253152,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2296.507013992,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue ONL is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2296.50705422,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2296.507060046,"data":"\n"}
+,{"stream_name":"stderr","time":2296.507064847,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue ONL is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2296.507070394,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2298.350961135,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2298.351013438,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2298.457763844,"data":"[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:   12.5s\n"}
+,{"stream_name":"stderr","time":2298.457838743,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2298.457844767,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2298.457848574,"data":"\n"}
+,{"stream_name":"stderr","time":2298.457852036,"data":"[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:   12.5s\n"}
+,{"stream_name":"stderr","time":2298.457855813,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2298.457859814,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2298.55958681,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2298.559624463,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2298.762049414,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2298.762092101,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2298.762097599,"data":"\n"}
+,{"stream_name":"stderr","time":2298.762101823,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2298.762106754,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2299.767100704,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2299.767135125,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2299.969470919,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2299.969502268,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2299.969507555,"data":"\n"}
+,{"stream_name":"stderr","time":2299.972047291,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2299.972066437,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2300.951062851,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2300.951098286,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2301.155636577,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2301.155663381,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2301.155669234,"data":"\n"}
+,{"stream_name":"stderr","time":2301.156072095,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2301.156090321,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2301.687227066,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2301.687284384,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2301.889620049,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2301.889704084,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2301.889712058,"data":"\n"}
+,{"stream_name":"stderr","time":2301.889726541,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2301.889730419,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2303.749992089,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2303.750027978,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2303.956027542,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2303.956061999,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2303.956104775,"data":"\n"}
+,{"stream_name":"stderr","time":2303.956109584,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2303.956114315,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2304.421846437,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2304.421884109,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2304.62495638,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2304.624991814,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2304.624996785,"data":"\n"}
+,{"stream_name":"stderr","time":2304.627152768,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2304.627175313,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2313.26887007,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2313.268931432,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2313.47113444,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2313.471180335,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2313.471187887,"data":"\n"}
+,{"stream_name":"stderr","time":2313.471193748,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2313.471200101,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2315.115448498,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2315.115512017,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2315.317595885,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2315.317631221,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2315.31765162,"data":"\n"}
+,{"stream_name":"stderr","time":2315.317656059,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2315.317659822,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2316.719294061,"data":"[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:   30.8s\n"}
+,{"stream_name":"stderr","time":2316.719320597,"data":"\n"}
+,{"stream_name":"stderr","time":2316.71932532,"data":"[Parallel(n_jobs=4)]: Done 192 tasks      | elapsed:   30.8s\n"}
+,{"stream_name":"stderr","time":2317.364057613,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2317.36409361,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2317.566498633,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2317.566559553,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2317.566566894,"data":"\n"}
+,{"stream_name":"stderr","time":2317.566571078,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2317.566575688,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2319.135126755,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue DGL is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2319.135189321,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2319.135196651,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2319.135201951,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2319.338209501,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue DGL is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2319.338263065,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2319.338270385,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2319.338276148,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2319.338281021,"data":"\n"}
+,{"stream_name":"stderr","time":2319.338285712,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue DGL is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2319.338290912,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2319.338295727,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2319.338301065,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2319.408107299,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue DGL is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2319.408141632,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2319.610609721,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue DGL is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2319.61067051,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2319.610694752,"data":"\n"}
+,{"stream_name":"stderr","time":2319.61069911,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue DGL is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2319.610703636,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2320.458715538,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2320.458748564,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2320.661969243,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2320.662003851,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2320.662008581,"data":"\n"}
+,{"stream_name":"stderr","time":2320.662012675,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2320.662017244,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2327.295101958,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2327.29515003,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2327.494983202,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2327.495057298,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2327.495064548,"data":"\n"}
+,{"stream_name":"stderr","time":2327.495069286,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2327.495074078,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2329.565805397,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2329.565878508,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2329.768142698,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2329.768179815,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2329.768186224,"data":"\n"}
+,{"stream_name":"stderr","time":2329.768191548,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2329.768197186,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2336.661190057,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2336.661302322,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2336.863975715,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2336.864012524,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2336.86401886,"data":"\n"}
+,{"stream_name":"stderr","time":2336.864188207,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2336.864199072,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2336.895753457,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2336.895780223,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2337.098595958,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2337.098631854,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2337.098637448,"data":"\n"}
+,{"stream_name":"stderr","time":2337.098641778,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2337.098646568,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2340.626858884,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2340.626932031,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2340.833549127,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2340.833588656,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2340.833594746,"data":"\n"}
+,{"stream_name":"stderr","time":2340.833599967,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2340.833605358,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2343.568540094,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2343.568624267,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2343.772024714,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2343.772060845,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2343.772065833,"data":"\n"}
+,{"stream_name":"stderr","time":2343.772069931,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2343.772075341,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2349.79498241,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2349.795028338,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2350.02220627,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2350.022237554,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2350.022406979,"data":"\n"}
+,{"stream_name":"stderr","time":2350.022416178,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2350.022424734,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2350.39288383,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2350.392955128,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2350.595342924,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2350.595377479,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2350.595381696,"data":"\n"}
+,{"stream_name":"stderr","time":2350.595385277,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2350.595390484,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2355.782874172,"data":"[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed:  1.2min\n"}
+,{"stream_name":"stderr","time":2355.782957602,"data":"\n"}
+,{"stream_name":"stderr","time":2355.784026922,"data":"[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed:  1.2min\n"}
+,{"stream_name":"stderr","time":2365.209231292,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue ONL is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2365.209305009,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2365.412450212,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue ONL is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2365.412486241,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2365.412491553,"data":"\n"}
+,{"stream_name":"stderr","time":2365.415110358,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue ONL is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2365.41513449,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2376.466618462,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2376.466682701,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2376.672398646,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2376.672432927,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2376.672456426,"data":"\n"}
+,{"stream_name":"stderr","time":2376.672461115,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2376.672466434,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2377.17694517,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue AG2 is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2377.176989895,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2377.379732673,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue AG2 is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2377.37978416,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2377.379790005,"data":"\n"}
+,{"stream_name":"stderr","time":2377.382046793,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue AG2 is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2377.382066064,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2379.958885509,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2379.958960237,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2380.184143965,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2380.184171048,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2380.184175066,"data":"\n"}
+,{"stream_name":"stderr","time":2380.184178632,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2380.184182725,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2381.293821127,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2381.293875595,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2381.506608675,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2381.506650766,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2381.506655503,"data":"\n"}
+,{"stream_name":"stderr","time":2381.506659125,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2381.50666324,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2381.670775794,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2381.670836236,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2381.873093056,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2381.873151948,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2381.873158732,"data":"\n"}
+,{"stream_name":"stderr","time":2381.873163764,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2381.873169228,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2386.97514819,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2386.975223877,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2387.177653906,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2387.17768902,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2387.17769489,"data":"\n"}
+,{"stream_name":"stderr","time":2387.177699546,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2387.177704882,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2389.548225578,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2389.548298971,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2389.750317806,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2389.750351363,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2389.750373451,"data":"\n"}
+,{"stream_name":"stderr","time":2389.75037762,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2389.750381629,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2390.085806147,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue BET is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2390.085842324,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2390.287935177,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue BET is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2390.287965938,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2390.287970263,"data":"\n"}
+,{"stream_name":"stderr","time":2390.290046976,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue BET is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2390.290065752,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2399.352655224,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2399.352726805,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2399.555110493,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2399.555145191,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2399.55515051,"data":"\n"}
+,{"stream_name":"stderr","time":2399.555155101,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2399.555160506,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2403.4868303,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2403.486881347,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2403.689934914,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2403.689967573,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2403.689972779,"data":"\n"}
+,{"stream_name":"stderr","time":2403.692063796,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2403.692083605,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2403.739815504,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2403.739835896,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2403.94217512,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2403.942200677,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2403.942205893,"data":"\n"}
+,{"stream_name":"stderr","time":2403.943188899,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2403.943221183,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2404.765234376,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2404.765275496,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2404.977997811,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2404.978044416,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2404.978052233,"data":"\n"}
+,{"stream_name":"stderr","time":2404.978059295,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2404.978064205,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2412.83200015,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2412.832071489,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2413.057515122,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2413.057551168,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2413.05755677,"data":"\n"}
+,{"stream_name":"stderr","time":2413.057561527,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2413.057566904,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2414.139203069,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2414.139268328,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2414.344828198,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2414.344863119,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2414.344869115,"data":"\n"}
+,{"stream_name":"stderr","time":2414.344874028,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2414.344879031,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2425.602619894,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2425.602697103,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2425.805067,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2425.805100767,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2425.805106475,"data":"\n"}
+,{"stream_name":"stderr","time":2425.805111267,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2425.805116342,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2426.394860874,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2426.394923889,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2426.597475846,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2426.597549827,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2426.597555794,"data":"\n"}
+,{"stream_name":"stderr","time":2426.597559899,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2426.597564338,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2427.143687009,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue A6L is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2427.143745377,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2427.347416902,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue A6L is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2427.347462249,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2427.347466704,"data":"\n"}
+,{"stream_name":"stderr","time":2427.347469903,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue A6L is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2427.347473723,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2427.80196187,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2427.802006263,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2428.005039804,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2428.005083913,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2428.005088512,"data":"\n"}
+,{"stream_name":"stderr","time":2428.005092128,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2428.005096123,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2430.689709373,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2430.689758954,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2430.892274743,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2430.892310969,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2430.89231607,"data":"\n"}
+,{"stream_name":"stderr","time":2430.894042848,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2430.894061421,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2431.36309446,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2431.363134852,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2431.565675454,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2431.565727604,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2431.565733132,"data":"\n"}
+,{"stream_name":"stderr","time":2431.565736826,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2431.565741142,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2433.524731244,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2433.524779021,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2433.727015471,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2433.727068981,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2433.727074531,"data":"\n"}
+,{"stream_name":"stderr","time":2433.727078255,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2433.727082206,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2437.229831499,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2437.229872704,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2437.439307269,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2437.43933996,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2437.439345691,"data":"\n"}
+,{"stream_name":"stderr","time":2437.440047071,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2437.440068808,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2440.143506393,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2440.145943959,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2440.346597391,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2440.346633912,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2440.346639704,"data":"\n"}
+,{"stream_name":"stderr","time":2440.346644765,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2440.346650234,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2440.783991167,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2440.784032917,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2440.989289979,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2440.989332536,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2440.989338132,"data":"\n"}
+,{"stream_name":"stderr","time":2440.989484116,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2440.989520603,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2441.428129939,"data":"[Parallel(n_jobs=4)]: Done 792 tasks      | elapsed:  2.6min\n"}
+,{"stream_name":"stderr","time":2441.428201672,"data":"\n"}
+,{"stream_name":"stderr","time":2441.432027892,"data":"[Parallel(n_jobs=4)]: Done 792 tasks      | elapsed:  2.6min\n"}
+,{"stream_name":"stderr","time":2442.780623764,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2442.780663225,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2442.982740377,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2442.982774554,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2442.982798713,"data":"\n"}
+,{"stream_name":"stderr","time":2442.984045608,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2442.984080987,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2446.447795289,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2446.447861233,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2446.678513614,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2446.678542891,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2446.678701886,"data":"\n"}
+,{"stream_name":"stderr","time":2446.678709166,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2446.678714592,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2447.067066642,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2447.067102162,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2447.268354655,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2447.268407377,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2447.26841399,"data":"\n"}
+,{"stream_name":"stderr","time":2447.268418834,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2447.268424445,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2448.490023823,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2448.49006295,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2448.69272344,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2448.692784316,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2448.692790678,"data":"\n"}
+,{"stream_name":"stderr","time":2448.692795324,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2448.692816904,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2454.323770696,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue I7F is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2454.323820073,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2454.328109933,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2454.328131799,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2454.526256476,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue I7F is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2454.526303203,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2454.526311705,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2454.526318349,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2454.526323139,"data":"\n"}
+,{"stream_name":"stderr","time":2454.526328218,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue I7F is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2454.526333083,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2454.526338498,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2454.526344526,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2455.131494464,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue SAM is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2455.131553742,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2455.334182979,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue SAM is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2455.334244488,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2455.334252485,"data":"\n"}
+,{"stream_name":"stderr","time":2455.334257963,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue SAM is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2455.334263718,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2457.241162442,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2457.241208167,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2457.443652444,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2457.443700443,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":2457.443706445,"data":"\n"}
+,{"stream_name":"stderr","time":2457.443711118,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":2457.443716153,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":2474.038422332,"data":"\n"}
+,{"stream_name":"stdout","time":2474.038469635,"data":"dihedrals recovered for 942/942 chains in 3.1 min\n"}
+,{"stream_name":"stderr","time":2474.039757904,"data":"[Parallel(n_jobs=4)]: Done 942 out of 942 | elapsed:  3.1min finished\n"}
+,{"stream_name":"stderr","time":2474.03980446,"data":"\n"}
+,{"stream_name":"stderr","time":2474.039826339,"data":"[Parallel(n_jobs=4)]: Done 942 out of 942 | elapsed:  3.1min finished\n"}
+,{"stream_name":"stderr","time":2495.791081773,"data":"Some weights of EsmModel were not initialized from the model checkpoint at facebook/esm2_t12_35M_UR50D and are newly initialized: ['esm.pooler.dense.bias', 'esm.pooler.dense.weight']\n"}
+,{"stream_name":"stderr","time":2495.791117714,"data":"You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.\n"}
+,{"stream_name":"stderr","time":2495.791124531,"data":"\n"}
+,{"stream_name":"stderr","time":2495.791129544,"data":"Some weights of EsmModel were not initialized from the model checkpoint at facebook/esm2_t12_35M_UR50D and are newly initialized: ['esm.pooler.dense.bias', 'esm.pooler.dense.weight']\n"}
+,{"stream_name":"stderr","time":2495.791135089,"data":"You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.\n"}
+,{"stream_name":"stdout","time":2496.071994427,"data":"facebook/esm2_t12_35M_UR50D: hidden 480, device cuda\n"}
+,{"stream_name":"stdout","time":2496.535768892,"data":"  0/942  [0.0m]\n"}
+,{"stream_name":"stdout","time":2499.078855924,"data":"  320/942  [0.1m]\n"}
+,{"stream_name":"stdout","time":2503.784417098,"data":"  640/942  [0.1m]\n"}
+,{"stream_name":"stdout","time":2512.851141712,"data":"\n"}
+,{"stream_name":"stdout","time":2512.851173906,"data":"ESM2 embeddings for 942 chains / 287,808 residues in 0.3 min (0.06 ms/residue)\n"}
+,{"stream_name":"stdout","time":2515.954857494,"data":"built 942 graphs (0 dropped: alignment/labeling failures)\n"}
+,{"stream_name":"stdout","time":2515.954935774,"data":"residues 287,808 | cryptic positives 13,246 (4.60%) | pos_weight 20.73 | N_PRE 508 (msf column at index 507)\n"}
+,{"stream_name":"stdout","time":2515.954946746,"data":"  train    760 chains\n"}
+,{"stream_name":"stdout","time":2515.954951933,"data":"  test     182 chains\n"}
+,{"stream_name":"stdout","time":2516.148877942,"data":"train  chains   700  residues 213,254  positives  9803  rate  4.60%\n"}
+,{"stream_name":"stdout","time":2516.148931836,"data":"val    chains    60  residues  19,562  positives   846  rate  4.32%\n"}
+,{"stream_name":"stdout","time":2516.148937844,"data":"test   chains   182  residues  54,992  positives  2597  rate  4.72%\n"}
+,{"stream_name":"stdout","time":2516.635694231,"data":"integrity OK\n"}
+,{"stream_name":"stdout","time":2517.216583167,"data":"saved -\u003e /kaggle/working/phase159_cryptobench_anmmsf_graphs.pt (699 MB)\n"}
+,{"stream_name":"stderr","time":2522.301683259,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2522.301732061,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2522.463088365,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2522.463120008,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2523.148000121,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2523.472736472,"data":"[NbConvertApp] Writing 112219 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2525.759600496,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2526.674726346,"data":"[NbConvertApp] Writing 487015 bytes to __results__.html\n"}
+]

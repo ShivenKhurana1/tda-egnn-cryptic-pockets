@@ -1,0 +1,21 @@
+{
+  "tune_scores": {
+    "sum_probs": 0.5368731563421829,
+    "max_prob": 0.5457227138643068,
+    "mean_prob": 0.5221238938053098,
+    "top10_mean": 0.5427728613569321,
+    "count_above_05": 0.528023598820059,
+    "max_minus_mean": 0.5545722713864307
+  },
+  "selected": "max_minus_mean",
+  "test_baseline_sum_probs": {
+    "dcc": 0.5310015898251192,
+    "n": 629
+  },
+  "test_winner": {
+    "dcc": 0.5294117647058824,
+    "n": 629,
+    "criterion": "max_minus_mean"
+  },
+  "delta": -0.0015898251192368873
+}

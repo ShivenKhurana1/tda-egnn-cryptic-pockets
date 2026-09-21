@@ -1,0 +1,46 @@
+[{"stream_name":"stderr","time":6.857611868,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.857666385,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.799547449,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.799584609,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.799588785,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.799591765,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.460437187,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.460489635,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.460495139,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.460499705,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.227853442,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m2.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":12.379348482,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━\u001b[0m \u001b[32m0.8/1.1 MB\u001b[0m \u001b[31m24.5 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m21.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":55.466555152,"data":"\u001b[?25hcuda | node dim 541 | pos_weight 13.65\n"}
+,{"stream_name":"stdout","time":55.466610029,"data":"{'train': 1441, 'val': 308, 'test': 307}\n"}
+,{"stream_name":"stdout","time":206.70504945,"data":"  [bce] seed 0 val PR 0.4738 test PR 0.5002 ROC 0.8674 MCC 0.4656  [2.5m]\n"}
+,{"stream_name":"stdout","time":354.957460266,"data":"  [bce] seed 1 val PR 0.4729 test PR 0.4946 ROC 0.8748 MCC 0.4609  [5.0m]\n"}
+,{"stream_name":"stdout","time":489.107441442,"data":"  [bce] seed 2 val PR 0.4824 test PR 0.5037 ROC 0.8762 MCC 0.4738  [7.2m]\n"}
+,{"stream_name":"stdout","time":643.699637776,"data":"  [focal] seed 0 val PR 0.4708 test PR 0.4984 ROC 0.8702 MCC 0.4676  [9.8m]\n"}
+,{"stream_name":"stdout","time":790.930392703,"data":"  [focal] seed 1 val PR 0.4802 test PR 0.5009 ROC 0.8794 MCC 0.4621  [12.3m]\n"}
+,{"stream_name":"stdout","time":959.438600247,"data":"  [focal] seed 2 val PR 0.4811 test PR 0.5038 ROC 0.8725 MCC 0.4642  [15.1m]\n"}
+,{"stream_name":"stdout","time":959.43866734,"data":"\n"}
+,{"stream_name":"stdout","time":959.438673409,"data":"done in 15.1 min\n"}
+,{"stream_name":"stdout","time":959.636827641,"data":"config                 mean test PR     std\n"}
+,{"stream_name":"stdout","time":959.63686843,"data":"bce                          0.4995  0.0038\n"}
+,{"stream_name":"stdout","time":959.636875296,"data":"focal                        0.5010  0.0022\n"}
+,{"stream_name":"stdout","time":959.920614259,"data":"bce-ensemble(3seed)          0.5216 (ROC 0.8838, MCC 0.483)\n"}
+,{"stream_name":"stdout","time":960.025392934,"data":"focal-ensemble(3seed)         0.5233 (ROC 0.8830, MCC 0.481)\n"}
+,{"stream_name":"stdout","time":960.02542893,"data":"bce+focal ensemble(6)         0.5280\n"}
+,{"stream_name":"stdout","time":960.025432661,"data":"\n"}
+,{"stream_name":"stdout","time":960.025435166,"data":"reference points:\n"}
+,{"stream_name":"stdout","time":960.025437633,"data":"  P2Rank                           0.4589\n"}
+,{"stream_name":"stdout","time":960.025440351,"data":"  Phase7 EGNN                      0.4209\n"}
+,{"stream_name":"stdout","time":960.025442744,"data":"  Phase10 augmented-full (1 seed)  0.5002\n"}
+,{"stream_name":"stdout","time":960.025463758,"data":"\n"}
+,{"stream_name":"stdout","time":960.025467742,"data":"best single-seed-mean config: focal (0.5010)\n"}
+,{"stream_name":"stdout","time":960.025471894,"data":"recommendation for the next properly-powered run: focal loss\n"}
+,{"stream_name":"stdout","time":960.025475741,"data":"saved -\u003e phase11b_results.json\n"}
+,{"stream_name":"stderr","time":965.810234826,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":965.810288555,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":965.992327044,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":965.992356139,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":966.657986381,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":966.981737171,"data":"[NbConvertApp] Writing 19270 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":969.486425547,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":970.412097491,"data":"[NbConvertApp] Writing 341903 bytes to __results__.html\n"}
+]

@@ -1,0 +1,121 @@
+[{"stream_name":"stderr","time":6.307125821,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.307180439,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.164877741,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.164900768,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.1649052619999996,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.164907683,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.755345751,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.755378126,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.755381727,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.755384362,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.159123918,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m4.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":11.564529204,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m40.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":11.615666036,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.3 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m116.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m64.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":11.666183474,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.2 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m123.1 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m65.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":22.387125123,"data":"\u001b[?25hM-CSA rows: 28,188\n"}
+,{"stream_name":"stdout","time":22.387173246,"data":"annotated (pdb,chain) pairs : 1,052\n"}
+,{"stream_name":"stdout","time":22.38718061,"data":"unique PDB entries          : 951\n"}
+,{"stream_name":"stdout","time":22.387185737,"data":"catalytic residues total    : 4,387\n"}
+,{"stream_name":"stdout","time":22.387190099,"data":"mean per chain              : 4.2\n"}
+,{"stream_name":"stdout","time":41.964884313,"data":"fetched 951/951 in 0.3 min\n"}
+,{"stream_name":"stderr","time":41.965819296,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":41.965841039,"data":"\n"}
+,{"stream_name":"stderr","time":41.965846513,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":44.037435722,"data":"[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    1.9s\n"}
+,{"stream_name":"stderr","time":44.037498671,"data":"\n"}
+,{"stream_name":"stderr","time":44.03750605,"data":"[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:    1.9s\n"}
+,{"stream_name":"stderr","time":54.573240999,"data":"[Parallel(n_jobs=4)]: Done 340 tasks      | elapsed:   12.4s\n"}
+,{"stream_name":"stderr","time":54.573274827,"data":"\n"}
+,{"stream_name":"stderr","time":54.573281331,"data":"[Parallel(n_jobs=4)]: Done 340 tasks      | elapsed:   12.4s\n"}
+,{"stream_name":"stderr","time":75.066048365,"data":"[Parallel(n_jobs=4)]: Done 840 tasks      | elapsed:   32.9s\n"}
+,{"stream_name":"stderr","time":75.066087908,"data":"\n"}
+,{"stream_name":"stderr","time":75.066094721,"data":"[Parallel(n_jobs=4)]: Done 840 tasks      | elapsed:   32.9s\n"}
+,{"stream_name":"stderr","time":80.415445247,"data":"[Parallel(n_jobs=4)]: Done 944 out of 951 | elapsed:   38.3s remaining:    0.3s\n"}
+,{"stream_name":"stderr","time":80.41548312,"data":"\n"}
+,{"stream_name":"stderr","time":80.415488756,"data":"[Parallel(n_jobs=4)]: Done 944 out of 951 | elapsed:   38.3s remaining:    0.3s\n"}
+,{"stream_name":"stdout","time":84.721542624,"data":"\n"}
+,{"stream_name":"stdout","time":84.721578747,"data":"chains 874 | residues 306,949 | catalytic 3,995 (1.30%) | 0.7 min\n"}
+,{"stream_name":"stdout","time":84.721583467,"data":"mean catalytic residues per chain: 4.6\n"}
+,{"stream_name":"stderr","time":84.722398049,"data":"[Parallel(n_jobs=4)]: Done 951 out of 951 | elapsed:   42.8s finished\n"}
+,{"stream_name":"stderr","time":84.722410423,"data":"\n"}
+,{"stream_name":"stderr","time":84.722417903,"data":"[Parallel(n_jobs=4)]: Done 951 out of 951 | elapsed:   42.8s finished\n"}
+,{"stream_name":"stdout","time":95.364310669,"data":"874 chains -\u003e 789 clusters -\u003e 789 representatives\n"}
+,{"stream_name":"stdout","time":95.567875505,"data":"topology on 789 chains / 276,374 residues (ETA 29 min)\n"}
+,{"stream_name":"stderr","time":95.604880754,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":95.604911159,"data":"\n"}
+,{"stream_name":"stderr","time":95.605967046,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":122.098522228,"data":"[Parallel(n_jobs=4)]: Done  10 tasks      | elapsed:   26.5s\n"}
+,{"stream_name":"stderr","time":122.098582104,"data":"\n"}
+,{"stream_name":"stderr","time":122.098586701,"data":"[Parallel(n_jobs=4)]: Done  10 tasks      | elapsed:   26.5s\n"}
+,{"stream_name":"stderr","time":261.631640007,"data":"[Parallel(n_jobs=4)]: Done  64 tasks      | elapsed:  2.8min\n"}
+,{"stream_name":"stderr","time":261.631693312,"data":"\n"}
+,{"stream_name":"stderr","time":261.631700127,"data":"[Parallel(n_jobs=4)]: Done  64 tasks      | elapsed:  2.8min\n"}
+,{"stream_name":"stderr","time":445.532462382,"data":"[Parallel(n_jobs=4)]: Done 154 tasks      | elapsed:  5.8min\n"}
+,{"stream_name":"stderr","time":445.532494461,"data":"\n"}
+,{"stream_name":"stderr","time":445.53496723,"data":"[Parallel(n_jobs=4)]: Done 154 tasks      | elapsed:  5.8min\n"}
+,{"stream_name":"stderr","time":718.792145582,"data":"[Parallel(n_jobs=4)]: Done 280 tasks      | elapsed: 10.4min\n"}
+,{"stream_name":"stderr","time":718.792217066,"data":"\n"}
+,{"stream_name":"stderr","time":718.79222323,"data":"[Parallel(n_jobs=4)]: Done 280 tasks      | elapsed: 10.4min\n"}
+,{"stream_name":"stderr","time":1094.628763945,"data":"[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed: 16.7min\n"}
+,{"stream_name":"stderr","time":1094.628826015,"data":"\n"}
+,{"stream_name":"stderr","time":1094.628928281,"data":"[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed: 16.7min\n"}
+,{"stream_name":"stderr","time":1536.25583202,"data":"[Parallel(n_jobs=4)]: Done 640 tasks      | elapsed: 24.0min\n"}
+,{"stream_name":"stderr","time":1536.255883473,"data":"\n"}
+,{"stream_name":"stderr","time":1536.255889493,"data":"[Parallel(n_jobs=4)]: Done 640 tasks      | elapsed: 24.0min\n"}
+,{"stream_name":"stdout","time":1875.171752526,"data":"done in 29.7 min\n"}
+,{"stream_name":"stderr","time":1875.172703992,"data":"[Parallel(n_jobs=4)]: Done 789 out of 789 | elapsed: 29.7min finished\n"}
+,{"stream_name":"stderr","time":1875.17272938,"data":"\n"}
+,{"stream_name":"stderr","time":1875.172747095,"data":"[Parallel(n_jobs=4)]: Done 789 out of 789 | elapsed: 29.7min finished\n"}
+,{"stream_name":"stdout","time":1900.003798491,"data":"789 graphs | node dim 61 | pos_weight 75.5 | positive rate 1.31%\n"}
+,{"stream_name":"stdout","time":1989.133078554,"data":"  seq-only     fold 0 val PR 0.2050 test PR 0.2063 ROC 0.9037 [1m]\n"}
+,{"stream_name":"stdout","time":2060.441861143,"data":"  seq-only     fold 1 val PR 0.1764 test PR 0.2163 ROC 0.9127 [3m]\n"}
+,{"stream_name":"stdout","time":2162.922995866,"data":"  seq-only     fold 2 val PR 0.1640 test PR 0.1873 ROC 0.9068 [4m]\n"}
+,{"stream_name":"stdout","time":2252.598241219,"data":"  seq-only     fold 3 val PR 0.2108 test PR 0.2279 ROC 0.9110 [6m]\n"}
+,{"stream_name":"stdout","time":2357.737227953,"data":"  seq-only     fold 4 val PR 0.1970 test PR 0.1540 ROC 0.8832 [8m]\n"}
+,{"stream_name":"stdout","time":2458.727858337,"data":"  burial-only  fold 0 val PR 0.2093 test PR 0.2261 ROC 0.9106 [9m]\n"}
+,{"stream_name":"stdout","time":2540.129804733,"data":"  burial-only  fold 1 val PR 0.2119 test PR 0.2441 ROC 0.9212 [11m]\n"}
+,{"stream_name":"stdout","time":2632.596920848,"data":"  burial-only  fold 2 val PR 0.1991 test PR 0.2223 ROC 0.9033 [12m]\n"}
+,{"stream_name":"stdout","time":2722.789667103,"data":"  burial-only  fold 3 val PR 0.2422 test PR 0.2378 ROC 0.9179 [14m]\n"}
+,{"stream_name":"stdout","time":2828.326899699,"data":"  burial-only  fold 4 val PR 0.2051 test PR 0.1891 ROC 0.8963 [15m]\n"}
+,{"stream_name":"stdout","time":2908.360448047,"data":"  full         fold 0 val PR 0.2196 test PR 0.2110 ROC 0.8806 [17m]\n"}
+,{"stream_name":"stdout","time":2974.175286048,"data":"  full         fold 1 val PR 0.1925 test PR 0.2474 ROC 0.9137 [18m]\n"}
+,{"stream_name":"stdout","time":3050.889666631,"data":"  full         fold 2 val PR 0.2112 test PR 0.1777 ROC 0.8969 [19m]\n"}
+,{"stream_name":"stdout","time":3111.902479108,"data":"  full         fold 3 val PR 0.2408 test PR 0.2210 ROC 0.9121 [20m]\n"}
+,{"stream_name":"stdout","time":3191.048729835,"data":"  full         fold 4 val PR 0.2053 test PR 0.1861 ROC 0.8831 [22m]\n"}
+,{"stream_name":"stdout","time":3191.087614813,"data":"positive (catalytic) base rate: 0.0131\n"}
+,{"stream_name":"stdout","time":3191.087650064,"data":"\n"}
+,{"stream_name":"stdout","time":3191.087657266,"data":"arm                  test PR-AUC      test ROC-AUC   lift over base\n"}
+,{"stream_name":"stdout","time":3191.087663334,"data":"seq-only          0.1984 +-0.0259     0.9035 +-0.0106            15.2x\n"}
+,{"stream_name":"stdout","time":3191.087668924,"data":"burial-only       0.2239 +-0.0191     0.9099 +-0.0092            17.1x\n"}
+,{"stream_name":"stdout","time":3191.087674014,"data":"full              0.2086 +-0.0250     0.8973 +-0.0139            16.0x\n"}
+,{"stream_name":"stdout","time":3191.087679065,"data":"\n"}
+,{"stream_name":"stdout","time":3191.087683735,"data":"  full - burial-only    PR -0.0152 +-0.0165 | 1/5 | t p=0.1377 | W p=0.1875\n"}
+,{"stream_name":"stdout","time":3191.087689023,"data":"  full - seq-only       PR +0.0103 +-0.0180 | 3/5 | t p=0.3182 | W p=0.6250\n"}
+,{"stream_name":"stderr","time":3194.024626785,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":3194.024663209,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":3194.024670369,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":3194.024725147,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":3194.024854133,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":3194.025078123,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":3194.025180197,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":3194.025189834,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":3194.025195618,"data":"Exception encountered at \"In [8]\":\n"}
+,{"stream_name":"stderr","time":3194.025201097,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":3194.025205663,"data":"NameError                                 Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":3194.02521045,"data":"/tmp/ipykernel_23/1259955979.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":3194.025215348,"data":"     16     print(f\"  {x} - {y_:\u003c14} PR {d.mean():+.4f} +-{d.std():.4f} | {(d\u003e0).sum()}/{NF} | \"\n"}
+,{"stream_name":"stderr","time":3194.025220229,"data":"     17           f\"t p={t:.4f} | W p={w:.4f}\")\n"}
+,{"stream_name":"stderr","time":3194.02522514,"data":"---\u003e 18 json.dump(recs2,open(\"/kaggle/working/phase9_mcsa.json\",\"w\"),indent=2,default=float)\n"}
+,{"stream_name":"stderr","time":3194.025231038,"data":"     19 print(\"\\nsaved -\u003e phase9_mcsa.json\")\n"}
+,{"stream_name":"stderr","time":3194.025235904,"data":"\n"}
+,{"stream_name":"stderr","time":3194.025240118,"data":"NameError: name 'json' is not defined\n"}
+,{"stream_name":"stderr","time":3194.025244659,"data":"\n"}
+,{"stream_name":"stderr","time":3196.176797882,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3196.176850326,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3196.347520348,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3196.347553975,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3196.948572253,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":3197.262904616,"data":"[NbConvertApp] Writing 36809 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":3199.550270984,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3200.428991917,"data":"[NbConvertApp] Writing 419337 bytes to __results__.html\n"}
+]

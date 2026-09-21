@@ -1,0 +1,10 @@
+analysis,predictor,outcome,n,spearman_rho,p_value
+TDA_gain,n_nodes,pr_auc_gain_tda_vs_esm,185,-0.042098469850515186,0.5693748584649956
+TDA_gain,n_nodes,roc_auc_gain_tda_vs_esm,185,0.09263786154238597,0.20978033397285478
+TDA_gain,n_nodes,enrichment10_gain_tda_vs_esm,185,0.009523809704489381,0.8976245158446535
+TDA_gain,n_experimental,pr_auc_gain_tda_vs_esm,185,0.36632257727071976,2.926186076735962e-07
+TDA_gain,n_experimental,roc_auc_gain_tda_vs_esm,185,0.11971195887022212,0.10457557066297384
+TDA_gain,n_experimental,enrichment10_gain_tda_vs_esm,185,0.17770266587367242,0.015523607123486324
+TDA_gain,experimental_fraction,pr_auc_gain_tda_vs_esm,185,0.343363948920055,1.710882120767305e-06
+TDA_gain,experimental_fraction,roc_auc_gain_tda_vs_esm,185,0.07286616453622927,0.3242899133995907
+TDA_gain,experimental_fraction,enrichment10_gain_tda_vs_esm,185,0.1280801957456148,0.08231050157191838

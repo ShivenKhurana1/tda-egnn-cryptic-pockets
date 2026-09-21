@@ -1,0 +1,21 @@
+{
+  "id": "blackpearls1/tda-egnn-phase161-cryptobench-topk-localization",
+  "title": "TDA EGNN Phase161 CryptoBench TopK Localization",
+  "code_file": "phase161_cryptobench_topk_localization.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "blackpearls1/tda-egnn-phase101-coach420-seeds36-salvage"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase48-cryptobench-esm3b",
+    "blackpearls1/tda-egnn-phase97-esm3b-coach420-train",
+    "blackpearls1/tda-egnn-phase107-coach420-esm3b-seed7"
+  ]
+}

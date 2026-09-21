@@ -1,0 +1,15 @@
+{
+  "id": "blackpearls1/tda-egnn-phase1-data-ingestion",
+  "title": "TDA EGNN Phase1 Data Ingestion",
+  "code_file": "phase1_data_ingestion.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}

@@ -1,0 +1,118 @@
+[{"stream_name":"stderr","time":7.759138668,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.75922293,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":8.886691588,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.886727947,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.886732156,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.886735214,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.729272069,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.729312664,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.729319017,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.72932334,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":14.168140697,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m1.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.577906173,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m49.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m23.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.629581842,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.2 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m190.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m63.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":48.631271117,"data":"\u001b[?25hchains 41 | residues 10,087 | node dim 60 | topo dim 33\n"}
+,{"stream_name":"stdout","time":48.631427276,"data":"sequence lengths: min 98, max 564\n"}
+,{"stream_name":"stdout","time":50.41645982,"data":"820 pairwise alignments in 1.6s\n"}
+,{"stream_name":"stdout","time":50.416504162,"data":"\n"}
+,{"stream_name":"stdout","time":50.416509855,"data":"pairs at \u003e=30% identity: 32\n"}
+,{"stream_name":"stdout","time":50.416514368,"data":"   4HHB_B     4HHB_D     1.000\n"}
+,{"stream_name":"stdout","time":50.416518423,"data":"   4HHB_A     4HHB_C     1.000\n"}
+,{"stream_name":"stdout","time":50.416529195,"data":"   4DFR_A     4DFR_B     1.000\n"}
+,{"stream_name":"stdout","time":50.416532895,"data":"   3ERD_A     3ERD_B     1.000\n"}
+,{"stream_name":"stdout","time":50.416535543,"data":"   2OZ2_A     2OZ2_C     1.000\n"}
+,{"stream_name":"stdout","time":50.416538225,"data":"   1HVR_A     1HVR_B     1.000\n"}
+,{"stream_name":"stdout","time":50.416540814,"data":"   1HCK_A     1KE5_A     1.000\n"}
+,{"stream_name":"stdout","time":50.41654363,"data":"   1E66_A     1EVE_A     1.000\n"}
+,{"stream_name":"stdout","time":50.416546295,"data":"   1DHF_A     1DHF_B     1.000\n"}
+,{"stream_name":"stdout","time":50.416549855,"data":"   1AKE_A     1AKE_B     1.000\n"}
+,{"stream_name":"stdout","time":50.416568005,"data":"   1HCK_A     2C6O_A     0.997\n"}
+,{"stream_name":"stdout","time":50.416572628,"data":"   3ERD_A     3ERT_A     0.996\n"}
+,{"stream_name":"stdout","time":50.447577802,"data":"21 clusters from 41 chains at 30% identity\n"}
+,{"stream_name":"stdout","time":50.447620815,"data":"\n"}
+,{"stream_name":"stdout","time":50.447627738,"data":"  C00 (n=5): 1ATP_E, 1HCK_A, 1KE5_A, 1PHK_A, 2C6O_A\n"}
+,{"stream_name":"stdout","time":50.447631876,"data":"  C01 (n=4): 1DHF_A, 1DHF_B, 4DFR_A, 4DFR_B\n"}
+,{"stream_name":"stdout","time":50.44763605,"data":"  C02 (n=4): 1M17_A, 1QPE_A, 1XKK_A, 2SRC_A\n"}
+,{"stream_name":"stdout","time":50.447640073,"data":"  C03 (n=4): 4HHB_A, 4HHB_B, 4HHB_C, 4HHB_D\n"}
+,{"stream_name":"stdout","time":50.447644462,"data":"  C04 (n=3): 3ERD_A, 3ERD_B, 3ERT_A\n"}
+,{"stream_name":"stdout","time":50.447648497,"data":"  C05 (n=2): 1A4W_H, 3PTB_A\n"}
+,{"stream_name":"stdout","time":50.447652553,"data":"  C06 (n=2): 1AKE_A, 1AKE_B\n"}
+,{"stream_name":"stdout","time":50.447656381,"data":"  C07 (n=2): 1E66_A, 1EVE_A\n"}
+,{"stream_name":"stdout","time":50.447660235,"data":"  C08 (n=2): 1HVR_A, 1HVR_B\n"}
+,{"stream_name":"stdout","time":50.447664425,"data":"  C09 (n=2): 2OZ2_A, 2OZ2_C\n"}
+,{"stream_name":"stdout","time":50.447668239,"data":"  ...plus 11 singleton cluster(s)\n"}
+,{"stream_name":"stdout","time":50.447672205,"data":"\n"}
+,{"stream_name":"stdout","time":50.447675905,"data":"suspected kinase chains: 8 -\u003e 2 cluster(s): ['C00', 'C02']\n"}
+,{"stream_name":"stdout","time":50.447680436,"data":"  entry-level splits WERE leaking homologues\n"}
+,{"stream_name":"stdout","time":53.458265128,"data":"mmseqs2 ready: /tmp/mmseqs/bin/mmseqs\n"}
+,{"stream_name":"stdout","time":59.971747337,"data":"mmseqs2: 23 clusters (exact method: 21)\n"}
+,{"stream_name":"stdout","time":59.971795442,"data":"pairwise agreement with exact clustering: 810/820 = 98.8%\n"}
+,{"stream_name":"stdout","time":59.971804323,"data":"   disagree: 1HCK_A     1PHK_A     exact identity 0.314\n"}
+,{"stream_name":"stdout","time":59.971809997,"data":"   disagree: 1DHF_A     4DFR_A     exact identity 0.308\n"}
+,{"stream_name":"stdout","time":59.971815333,"data":"   disagree: 1DHF_A     4DFR_B     exact identity 0.308\n"}
+,{"stream_name":"stdout","time":59.971820666,"data":"   disagree: 1DHF_B     4DFR_A     exact identity 0.308\n"}
+,{"stream_name":"stdout","time":59.971826419,"data":"   disagree: 1DHF_B     4DFR_B     exact identity 0.308\n"}
+,{"stream_name":"stdout","time":59.971849393,"data":"   disagree: 1KE5_A     1PHK_A     exact identity 0.307\n"}
+,{"stream_name":"stdout","time":59.971853739,"data":"   disagree: 1PHK_A     2C6O_A     exact identity 0.300\n"}
+,{"stream_name":"stdout","time":59.971857747,"data":"   disagree: 1ATP_E     2C6O_A     exact identity 0.224\n"}
+,{"stream_name":"stdout","time":63.898660188,"data":"grouping by cluster (21 groups, 5-fold)\n"}
+,{"stream_name":"stdout","time":63.898701024,"data":"\n"}
+,{"stream_name":"stdout","time":63.898705695,"data":"=== logreg | grouped by entry ===\n"}
+,{"stream_name":"stdout","time":63.898709788,"data":"feature set                ROC-AUC          PR-AUC\n"}
+,{"stream_name":"stdout","time":64.114648723,"data":"seq                   0.593 +-0.007     0.119 +-0.023\n"}
+,{"stream_name":"stdout","time":64.114689516,"data":"burial                0.750 +-0.027     0.276 +-0.060\n"}
+,{"stream_name":"stdout","time":65.063053784,"data":"topo                  0.800 +-0.033     0.339 +-0.050\n"}
+,{"stream_name":"stdout","time":65.297734113,"data":"seq+burial            0.757 +-0.020     0.262 +-0.055\n"}
+,{"stream_name":"stdout","time":73.098688815,"data":"seq+burial+topo       0.804 +-0.028     0.339 +-0.053\n"}
+,{"stream_name":"stdout","time":73.098741454,"data":"  topology marginal PR-AUC: +0.0771 +-0.0376  (5/5 folds)\n"}
+,{"stream_name":"stdout","time":73.098749123,"data":"\n"}
+,{"stream_name":"stdout","time":73.098754527,"data":"=== hgb | grouped by entry ===\n"}
+,{"stream_name":"stdout","time":73.098760014,"data":"feature set                ROC-AUC          PR-AUC\n"}
+,{"stream_name":"stdout","time":76.510630446,"data":"seq                   0.592 +-0.022     0.129 +-0.029\n"}
+,{"stream_name":"stdout","time":78.705825353,"data":"burial                0.737 +-0.030     0.284 +-0.055\n"}
+,{"stream_name":"stdout","time":83.019469605,"data":"topo                  0.775 +-0.045     0.338 +-0.045\n"}
+,{"stream_name":"stdout","time":86.590590232,"data":"seq+burial            0.769 +-0.026     0.334 +-0.053\n"}
+,{"stream_name":"stdout","time":92.661167136,"data":"seq+burial+topo       0.789 +-0.032     0.366 +-0.041\n"}
+,{"stream_name":"stdout","time":92.661214652,"data":"  topology marginal PR-AUC: +0.0322 +-0.0352  (4/5 folds)\n"}
+,{"stream_name":"stdout","time":92.661318242,"data":"\n"}
+,{"stream_name":"stdout","time":92.661324182,"data":"=== logreg | grouped by cluster ===\n"}
+,{"stream_name":"stdout","time":92.661329672,"data":"feature set                ROC-AUC          PR-AUC\n"}
+,{"stream_name":"stdout","time":92.66133508,"data":"seq                   0.575 +-0.030     0.113 +-0.015\n"}
+,{"stream_name":"stdout","time":92.94107873,"data":"burial                0.752 +-0.052     0.274 +-0.056\n"}
+,{"stream_name":"stdout","time":93.830524308,"data":"topo                  0.815 +-0.050     0.351 +-0.046\n"}
+,{"stream_name":"stdout","time":94.074803966,"data":"seq+burial            0.752 +-0.051     0.252 +-0.050\n"}
+,{"stream_name":"stdout","time":102.566586524,"data":"seq+burial+topo       0.812 +-0.050     0.342 +-0.055\n"}
+,{"stream_name":"stdout","time":102.566636742,"data":"  topology marginal PR-AUC: +0.0903 +-0.0176  (5/5 folds)\n"}
+,{"stream_name":"stdout","time":102.566644026,"data":"\n"}
+,{"stream_name":"stdout","time":102.566649445,"data":"=== hgb | grouped by cluster ===\n"}
+,{"stream_name":"stdout","time":102.566654916,"data":"feature set                ROC-AUC          PR-AUC\n"}
+,{"stream_name":"stdout","time":105.909789148,"data":"seq                   0.561 +-0.033     0.114 +-0.019\n"}
+,{"stream_name":"stdout","time":108.060554131,"data":"burial                0.741 +-0.047     0.292 +-0.068\n"}
+,{"stream_name":"stdout","time":112.291554299,"data":"topo                  0.754 +-0.081     0.308 +-0.070\n"}
+,{"stream_name":"stdout","time":115.760653698,"data":"seq+burial            0.746 +-0.059     0.280 +-0.060\n"}
+,{"stream_name":"stdout","time":121.424317693,"data":"seq+burial+topo       0.778 +-0.071     0.312 +-0.060\n"}
+,{"stream_name":"stdout","time":121.424364123,"data":"  topology marginal PR-AUC: +0.0322 +-0.0409  (3/5 folds)\n"}
+,{"stream_name":"stdout","time":121.424370554,"data":"\n"}
+,{"stream_name":"stdout","time":121.424375681,"data":"==============================================================\n"}
+,{"stream_name":"stdout","time":121.424381806,"data":"LEAKAGE IMPACT -- topology marginal PR-AUC gain, entry vs cluster split\n"}
+,{"stream_name":"stdout","time":121.424387314,"data":"  logreg   entry +0.0771   cluster +0.0903   shrinkage -17%\n"}
+,{"stream_name":"stdout","time":121.424392563,"data":"  hgb      entry +0.0322   cluster +0.0322   shrinkage 0%\n"}
+,{"stream_name":"stdout","time":121.511682784,"data":"split     clusters   chains   residues  positives  pos rate\n"}
+,{"stream_name":"stdout","time":121.511749412,"data":"train           15       28      7,033        634     9.01%\n"}
+,{"stream_name":"stdout","time":121.511757733,"data":"val              3        6      1,888        147     7.79%\n"}
+,{"stream_name":"stdout","time":121.5117641,"data":"test             3        7      1,166        144    12.35%\n"}
+,{"stream_name":"stdout","time":121.511770635,"data":"\n"}
+,{"stream_name":"stdout","time":121.511776714,"data":"cross-split pairs \u003e= 30% identity: 0\n"}
+,{"stream_name":"stdout","time":121.511782612,"data":"no homologous pair spans two splits -- split is clean\n"}
+,{"stream_name":"stdout","time":121.511788127,"data":"saved -\u003e /kaggle/working/processed/phase4_splits.pt (6.4 MB)\n"}
+,{"stream_name":"stderr","time":127.977763462,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":127.977814661,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":128.201018696,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":128.201055799,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":128.99286188,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":129.41682521,"data":"[NbConvertApp] Writing 101144 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":132.807620846,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":134.048309789,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":134.048550728,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":134.049220552,"data":"[NbConvertApp] Writing 381501 bytes to __results__.html\n"}
+]

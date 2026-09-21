@@ -1,0 +1,17 @@
+{
+  "id": "blackpearls1/phase165-persistence-ablation",
+  "title": "Phase165 Persistence Ablation",
+  "code_file": "phase165_persistence_ablation.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase159-cryptobench-anmmsf-ingestion"
+  ],
+  "competition_sources": [],
+  "model_sources": []
+}

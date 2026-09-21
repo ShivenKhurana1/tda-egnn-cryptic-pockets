@@ -1,0 +1,52 @@
+[
+  {
+    "comparison": "full - esm_only",
+    "metric": "val_pr_auc",
+    "full_mean": 0.2912638129255768,
+    "arm_mean": 0.2244101491285001,
+    "mean_delta": 0.06685366379707666,
+    "paired_t": 8.925399416501673,
+    "t_p": 4.502858787942761e-05,
+    "wilcoxon_p": 0.0078125
+  },
+  {
+    "comparison": "full - esm_structure",
+    "metric": "val_pr_auc",
+    "full_mean": 0.2912638129255768,
+    "arm_mean": 0.2208477881532664,
+    "mean_delta": 0.07041602477231038,
+    "paired_t": 10.3702765413539,
+    "t_p": 1.6826190227255935e-05,
+    "wilcoxon_p": 0.0078125
+  },
+  {
+    "comparison": "full - esm_structure_tda",
+    "metric": "val_pr_auc",
+    "full_mean": 0.2912638129255768,
+    "arm_mean": 0.29098470064917337,
+    "mean_delta": 0.00027911227640339126,
+    "paired_t": 0.1063405004009371,
+    "t_p": 0.9182955737695669,
+    "wilcoxon_p": 0.9453125
+  },
+  {
+    "comparison": "full - esm_structure_anm",
+    "metric": "val_pr_auc",
+    "full_mean": 0.2912638129255768,
+    "arm_mean": 0.21211794366215753,
+    "mean_delta": 0.07914586926341927,
+    "paired_t": 10.687782734461454,
+    "t_p": 1.3776936493742285e-05,
+    "wilcoxon_p": 0.0078125
+  },
+  {
+    "comparison": "full - tda_anm",
+    "metric": "val_pr_auc",
+    "full_mean": 0.2912638129255768,
+    "arm_mean": 0.14460066512468106,
+    "mean_delta": 0.1466631478008957,
+    "paired_t": 39.81709463549662,
+    "t_p": 1.641857393516589e-09,
+    "wilcoxon_p": 0.0078125
+  }
+]

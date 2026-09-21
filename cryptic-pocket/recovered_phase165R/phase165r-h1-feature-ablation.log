@@ -1,0 +1,50 @@
+[{"stream_name":"stderr","time":8.370523842,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":8.370608894,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":9.532470589999999,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.532505679,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.532511874,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.532515889999999,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.334573144,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.334611251,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.33461668,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.334621481,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":14.797566496,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m2.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":15.052360539,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m55.4 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m25.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":52.416542463,"data":"\u001b[?25hUSING: /kaggle/input/notebooks/blackpearls1/tda-egnn-phase159-cryptobench-anmmsf-ingestion/phase159_cryptobench_anmmsf_graphs.pt\n"}
+,{"stream_name":"stdout","time":52.41657853,"data":"SIZE GB: 0.6506836423650384\n"}
+,{"stream_name":"stdout","time":58.683334698,"data":"node dim: 542\n"}
+,{"stream_name":"stdout","time":58.683384548,"data":"splits: {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":61.336260422,"data":"h1_total_max H1 persistence dims= 2 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":61.336296516,"data":"h1_mean_std H1 persistence dims= 2 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":61.336301596,"data":"h1_entropy H1 persistence dims= 1 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":61.336305853,"data":"h1_birth_death H1 persistence dims= 2 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":61.357533809,"data":"h1_total_max          2 features\n"}
+,{"stream_name":"stdout","time":61.357586907,"data":"['H1_total_pers', 'H1_max_pers']\n"}
+,{"stream_name":"stdout","time":61.357594015,"data":"h1_mean_std           2 features\n"}
+,{"stream_name":"stdout","time":61.357598736,"data":"['H1_mean_pers', 'H1_std_pers']\n"}
+,{"stream_name":"stdout","time":61.357602638,"data":"h1_entropy            1 features\n"}
+,{"stream_name":"stdout","time":61.357606569,"data":"['H1_entropy']\n"}
+,{"stream_name":"stdout","time":61.357610484,"data":"h1_birth_death        2 features\n"}
+,{"stream_name":"stdout","time":61.357614175,"data":"['H1_mean_birth', 'H1_mean_death']\n"}
+,{"stream_name":"stdout","time":2180.020218363,"data":"h1_total_max       seed=0 val_PR=0.2692 val_ROC=0.8341 test_PR=0.2519 test_ROC=0.8334 MCC=0.2896 DCC4=0.115 elapsed=35.3m\n"}
+,{"stream_name":"stdout","time":3087.835404938,"data":"h1_total_max       seed=1 val_PR=0.2331 val_ROC=0.8132 test_PR=0.2350 test_ROC=0.8210 MCC=0.2854 DCC4=0.110 elapsed=50.4m\n"}
+,{"stream_name":"stdout","time":4960.55622404,"data":"h1_total_max       seed=2 val_PR=0.2665 val_ROC=0.8235 test_PR=0.2468 test_ROC=0.8320 MCC=0.2907 DCC4=0.115 elapsed=81.6m\n"}
+,{"stream_name":"stdout","time":7398.109960505,"data":"h1_total_max       seed=3 val_PR=0.2690 val_ROC=0.8292 test_PR=0.2603 test_ROC=0.8331 MCC=0.2897 DCC4=0.071 elapsed=122.3m\n"}
+,{"stream_name":"stdout","time":8255.211841243,"data":"h1_total_max       seed=4 val_PR=0.2175 val_ROC=0.8155 test_PR=0.2295 test_ROC=0.8211 MCC=0.2592 DCC4=0.148 elapsed=136.6m\n"}
+,{"stream_name":"stdout","time":10616.16762023,"data":"h1_total_max       seed=5 val_PR=0.2730 val_ROC=0.8266 test_PR=0.2656 test_ROC=0.8334 MCC=0.2851 DCC4=0.093 elapsed=175.9m\n"}
+,{"stream_name":"stdout","time":13077.338315306,"data":"h1_total_max       seed=6 val_PR=0.2626 val_ROC=0.8195 test_PR=0.2611 test_ROC=0.8347 MCC=0.2962 DCC4=0.099 elapsed=216.9m\n"}
+,{"stream_name":"stdout","time":15023.629936318,"data":"h1_total_max       seed=7 val_PR=0.2656 val_ROC=0.8266 test_PR=0.2467 test_ROC=0.8349 MCC=0.2907 DCC4=0.088 elapsed=249.4m\n"}
+,{"stream_name":"stdout","time":17462.214687419,"data":"h1_mean_std        seed=0 val_PR=0.2531 val_ROC=0.8217 test_PR=0.2604 test_ROC=0.8371 MCC=0.2941 DCC4=0.082 elapsed=290.0m\n"}
+,{"stream_name":"stdout","time":18438.059954635,"data":"h1_mean_std        seed=1 val_PR=0.2240 val_ROC=0.8106 test_PR=0.2409 test_ROC=0.8216 MCC=0.2786 DCC4=0.099 elapsed=306.3m\n"}
+,{"stream_name":"stdout","time":20678.570347056,"data":"h1_mean_std        seed=2 val_PR=0.2407 val_ROC=0.8195 test_PR=0.2437 test_ROC=0.8302 MCC=0.2960 DCC4=0.121 elapsed=343.6m\n"}
+,{"stream_name":"stdout","time":22318.076154832,"data":"h1_mean_std        seed=3 val_PR=0.2461 val_ROC=0.8180 test_PR=0.2489 test_ROC=0.8326 MCC=0.2995 DCC4=0.121 elapsed=370.9m\n"}
+,{"stream_name":"stdout","time":24042.170193275,"data":"h1_mean_std        seed=4 val_PR=0.2205 val_ROC=0.8062 test_PR=0.2459 test_ROC=0.8234 MCC=0.2811 DCC4=0.088 elapsed=399.7m\n"}
+,{"stream_name":"stdout","time":26468.801009699,"data":"h1_mean_std        seed=5 val_PR=0.2482 val_ROC=0.8266 test_PR=0.2557 test_ROC=0.8351 MCC=0.2891 DCC4=0.088 elapsed=440.1m\n"}
+,{"stream_name":"stdout","time":28907.795697327,"data":"h1_mean_std        seed=6 val_PR=0.2465 val_ROC=0.8253 test_PR=0.2497 test_ROC=0.8291 MCC=0.2844 DCC4=0.077 elapsed=480.8m\n"}
+,{"stream_name":"stdout","time":31007.464226403,"data":"h1_mean_std        seed=7 val_PR=0.2379 val_ROC=0.8218 test_PR=0.2529 test_ROC=0.8332 MCC=0.2843 DCC4=0.082 elapsed=515.8m\n"}
+,{"stream_name":"stdout","time":33241.692659294,"data":"h1_entropy         seed=0 val_PR=0.2445 val_ROC=0.8175 test_PR=0.2577 test_ROC=0.8243 MCC=0.2862 DCC4=0.082 elapsed=553.0m\n"}
+,{"stream_name":"stdout","time":35544.9858248,"data":"h1_entropy         seed=1 val_PR=0.2428 val_ROC=0.8156 test_PR=0.2423 test_ROC=0.8199 MCC=0.2787 DCC4=0.099 elapsed=591.4m\n"}
+,{"stream_name":"stdout","time":37790.11779789,"data":"h1_entropy         seed=2 val_PR=0.2352 val_ROC=0.8134 test_PR=0.2534 test_ROC=0.8301 MCC=0.2891 DCC4=0.099 elapsed=628.8m\n"}
+,{"stream_name":"stdout","time":40251.57760268,"data":"h1_entropy         seed=3 val_PR=0.2558 val_ROC=0.8307 test_PR=0.2413 test_ROC=0.8258 MCC=0.2886 DCC4=0.099 elapsed=669.8m\n"}
+,{"stream_name":"stdout","time":42741.92715397,"data":"h1_entropy         seed=4 val_PR=0.2351 val_ROC=0.8140 test_PR=0.2416 test_ROC=0.8216 MCC=0.2766 DCC4=0.066 elapsed=711.3m\n"}
+]

@@ -1,0 +1,100 @@
+[{"stream_name":"stderr","time":7.544963206,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.545025792,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":8.634615296,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.634650708,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.634656888,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.634662241000001,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.454672972000001,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.454713797,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.45471892,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.454722549,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":13.535969627,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m2.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.738518452,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m53.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m26.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":19.964553992,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.3 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.0/3.3 MB\u001b[0m \u001b[31m57.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.0/3.3 MB\u001b[0m \u001b[31m57.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/3.3 MB\u001b[0m \u001b[31m10.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.1/3.3 MB\u001b[0m \u001b[31m18.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.1/3.3 MB\u001b[0m \u001b[31m18.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.1/3.3 MB\u001b[0m \u001b[31m18.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.1/3.3 MB\u001b[0m \u001b[31m18.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━\u001b[0m \u001b[32m3.1/3.3 MB\u001b[0m \u001b[31m11.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━\u001b[0m \u001b[32m3.1/3.3 MB\u001b[0m \u001b[31m11.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━\u001b[0m \u001b[32m3.1/3.3 MB\u001b[0m \u001b[31m11.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m8.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m8.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":24.868122035,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/448.0 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m448.0/448.0 kB\u001b[0m \u001b[31m13.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":29.496878741,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.2 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m101.5 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m51.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":59.109251137,"data":"\u001b[?25hpython           : 3.12.13\n"}
+,{"stream_name":"stdout","time":59.109329891,"data":"torch            : 2.10.0+cpu\n"}
+,{"stream_name":"stdout","time":59.109339352,"data":"torch_geometric  : 2.6.1\n"}
+,{"stream_name":"stdout","time":59.109344542,"data":"biopython        : 1.84\n"}
+,{"stream_name":"stdout","time":59.109349207,"data":"gudhi            : 3.10.1\n"}
+,{"stream_name":"stdout","time":59.10935399,"data":"numpy / scipy    : 2.0.2 / 1.16.3\n"}
+,{"stream_name":"stdout","time":59.109358902,"data":"CUDA available   : False\n"}
+,{"stream_name":"stdout","time":59.318330817,"data":"RCSB reachable   : True\n"}
+,{"stream_name":"stdout","time":59.358427076,"data":"{\n"}
+,{"stream_name":"stdout","time":59.358463356,"data":"  \"raw_dir\": \"/tmp/pdb_raw\",\n"}
+,{"stream_name":"stdout","time":59.358469521,"data":"  \"proc_dir\": \"/kaggle/working/processed\",\n"}
+,{"stream_name":"stdout","time":59.358474847,"data":"  \"offline_dir\": \"/kaggle/input/pdb-subset\",\n"}
+,{"stream_name":"stdout","time":59.358479502,"data":"  \"contact_cutoff\": \"8.0\",\n"}
+,{"stream_name":"stdout","time":59.35848391,"data":"  \"max_neighbors\": \"32\",\n"}
+,{"stream_name":"stdout","time":59.358488565,"data":"  \"min_residues\": \"40\",\n"}
+,{"stream_name":"stdout","time":59.358492851,"data":"  \"max_residues\": \"1500\",\n"}
+,{"stream_name":"stdout","time":59.358497224,"data":"  \"ligand_cutoff\": \"4.5\",\n"}
+,{"stream_name":"stdout","time":59.358501902,"data":"  \"min_ligand_atoms\": \"6\",\n"}
+,{"stream_name":"stdout","time":59.358506549,"data":"  \"include_metals\": \"True\",\n"}
+,{"stream_name":"stdout","time":59.358511507,"data":"  \"min_positives\": \"3\",\n"}
+,{"stream_name":"stdout","time":59.358516517,"data":"  \"download_workers\": \"8\",\n"}
+,{"stream_name":"stdout","time":59.358521315,"data":"  \"seed\": \"1337\"\n"}
+,{"stream_name":"stdout","time":59.358526028,"data":"}\n"}
+,{"stream_name":"stdout","time":60.990192961,"data":"retrieved 32/32\n"}
+,{"stream_name":"stdout","time":60.990232438,"data":"\n"}
+,{"stream_name":"stdout","time":60.990238101,"data":"32 structures staged in /tmp/pdb_raw\n"}
+,{"stream_name":"stdout","time":61.969299327,"data":"  1A4W: 1 chain(s),   248 residues,   25 positives (10.1%)\n"}
+,{"stream_name":"stdout","time":62.196858687,"data":"  1AKE: 2 chain(s),   428 residues,   76 positives (17.8%)\n"}
+,{"stream_name":"stdout","time":62.543323333000004,"data":"  1ATP: 1 chain(s),   334 residues,   41 positives (12.3%)\n"}
+,{"stream_name":"stdout","time":62.543361217,"data":"  1BID: 1 chain(s),   264 residues,   14 positives (5.3%)\n"}
+,{"stream_name":"stdout","time":62.543365708,"data":"  1CBS: 1 chain(s),   137 residues,   20 positives (14.6%)\n"}
+,{"stream_name":"stdout","time":62.814090671,"data":"  1DHF: 2 chain(s),   364 residues,   39 positives (10.7%)\n"}
+,{"stream_name":"stdout","time":63.034948727,"data":"  1E66: 1 chain(s),   532 residues,   29 positives (5.5%)\n"}
+,{"stream_name":"stdout","time":63.288261321,"data":"  1EVE: 1 chain(s),   534 residues,   30 positives (5.6%)\n"}
+,{"stream_name":"stdout","time":63.288319761,"data":"  1FKF: 1 chain(s),   107 residues,   14 positives (13.1%)\n"}
+,{"stream_name":"stdout","time":63.288326844,"data":"  1HCK: 1 chain(s),   294 residues,   22 positives (7.5%)\n"}
+,{"stream_name":"stdout","time":63.540512542,"data":"  1HVR: 2 chain(s),   196 residues,   45 positives (23.0%)\n"}
+,{"stream_name":"stdout","time":63.540549617,"data":"  1KE5: 1 chain(s),   281 residues,   15 positives (5.3%)\n"}
+,{"stream_name":"stdout","time":63.756362928,"data":"  1M17: 1 chain(s),   312 residues,   17 positives (5.4%)\n"}
+,{"stream_name":"stdout","time":63.756413835000004,"data":"  1OKL: 1 chain(s),   255 residues,   14 positives (5.5%)\n"}
+,{"stream_name":"stdout","time":64.000226069,"data":"  1PHK: 1 chain(s),   277 residues,   22 positives (7.9%)\n"}
+,{"stream_name":"stdout","time":64.000261749,"data":"  1QPE: 1 chain(s),   270 residues,   27 positives (10.0%)\n"}
+,{"stream_name":"stdout","time":64.000267211,"data":"  1RBP: 1 chain(s),   174 residues,   21 positives (12.1%)\n"}
+,{"stream_name":"stdout","time":64.232385058,"data":"  1STP: 1 chain(s),   121 residues,   16 positives (13.2%)\n"}
+,{"stream_name":"stdout","time":64.232420131,"data":"  1UDT: 1 chain(s),   313 residues,   25 positives (8.0%)\n"}
+,{"stream_name":"stdout","time":64.450422508,"data":"  1XKK: 1 chain(s),   289 residues,   28 positives (9.7%)\n"}
+,{"stream_name":"stdout","time":64.698737686,"data":"  1YVF: 1 chain(s),   564 residues,   18 positives (3.2%)\n"}
+,{"stream_name":"stdout","time":64.698772754,"data":"  2C6O: 1 chain(s),   290 residues,   20 positives (6.9%)\n"}
+,{"stream_name":"stdout","time":64.932106353,"data":"  2GBP: 1 chain(s),   309 residues,   21 positives (6.8%)\n"}
+,{"stream_name":"stdout","time":64.932144866,"data":"  2OZ2: 2 chain(s),   430 residues,   43 positives (10.0%)\n"}
+,{"stream_name":"stdout","time":65.294989662,"data":"  2SRC: 1 chain(s),   449 residues,   36 positives (8.0%)\n"}
+,{"stream_name":"stdout","time":65.295025091,"data":"  3ERD: 2 chain(s),   482 residues,   40 positives (8.3%)\n"}
+,{"stream_name":"stdout","time":65.589016142,"data":"  3ERT: 1 chain(s),   246 residues,   22 positives (8.9%)\n"}
+,{"stream_name":"stdout","time":65.589063467,"data":"  3PTB: 1 chain(s),   223 residues,   20 positives (9.0%)\n"}
+,{"stream_name":"stdout","time":65.931042123,"data":"  4DFR: 2 chain(s),   318 residues,   38 positives (11.9%)\n"}
+,{"stream_name":"stdout","time":66.303248144,"data":"  4HHB: 4 chain(s),   574 residues,   83 positives (14.5%)\n"}
+,{"stream_name":"stdout","time":66.303308101,"data":"  5P21: 1 chain(s),   166 residues,   26 positives (15.7%)\n"}
+,{"stream_name":"stdout","time":66.303316424,"data":"  6LU7: 1 chain(s),   306 residues,   18 positives (5.9%)\n"}
+,{"stream_name":"stdout","time":66.303321351,"data":"\n"}
+,{"stream_name":"stdout","time":66.303325761,"data":"41 chain records from 32 structures\n"}
+,{"stream_name":"stdout","time":66.602086503,"data":"node feature dim : 27  (21 one-hot + 4 sin/cos + 2 mask)\n"}
+,{"stream_name":"stdout","time":66.602120667,"data":"edge feature dim : 2  (distance + log seq-separation)\n"}
+,{"stream_name":"stdout","time":66.602128233,"data":"Data(x=[248, 27], edge_index=[2, 2528], edge_attr=[2528, 2], y=[248], pos=[248, 3], lig_dist=[248], pdb_id='1A4W', chain_id='H', seq='IVEGSDAEIGMSPWQVMLFRKSPQELLCGASLISDRWVLTAAHCLLYPPWDKNFTENDLLVRIGKHSRTRYERNIEKISMLEKIYIHPRYNWRENLDRDIALMKLKKPVAFSDYIHPVCLPDRETAASLLQAGYKGRVTGWGNLKEGQPSVLQVVNLPIVERPVCKDSTRIRITDNMFCAGYKPDEGKRGDACEGDSGGPFVMKSPFNNRWYQMGIVSWGEGCDRDGKYGFYTHVFRLKKWIQKVIDQ', centroid=[1, 3], num_nodes=248)\n"}
+,{"stream_name":"stdout","time":66.80256771,"data":"chains           : 41\n"}
+,{"stream_name":"stdout","time":66.802605038,"data":"unique PDB IDs   : 32\n"}
+,{"stream_name":"stdout","time":66.802611172,"data":"residues         : 10,087  (min 98, med 237, max 564)\n"}
+,{"stream_name":"stdout","time":66.802616303,"data":"edges            : 97,124  (mean degree 9.6)\n"}
+,{"stream_name":"stdout","time":66.802621726,"data":"positives        : 925 / 10,087 = 9.17%\n"}
+,{"stream_name":"stdout","time":66.80262674,"data":"pos_weight (BCE) : 9.90   \u003c- Phase 5 uses this\n"}
+,{"stream_name":"stdout","time":66.802632391,"data":"integrity        : OK\n"}
+,{"stream_name":"stdout","time":67.267143366,"data":"SE(3) invariance : OK over 20 rigid motions (worst edge-set Jaccard 1.000000, max length drift 9.06e-06 A)\n"}
+,{"stream_name":"stdout","time":67.267178178,"data":"\n"}
+,{"stream_name":"stdout","time":67.267183964,"data":"saved -\u003e /kaggle/working/processed/phase1_graphs.pt  (3.7 MB)\n"}
+,{"stream_name":"stdout","time":67.663338135,"data":"positives with \u003e=1 positive neighbour: 96.0%  (expect \u003e90%)\n"}
+,{"stream_name":"stderr","time":72.079227738,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":72.079266282,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":72.285179112,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":72.285210338,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":73.075216329,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":73.501014656,"data":"[NbConvertApp] Writing 228084 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":76.737030661,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":77.959319646,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":77.959360104,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":77.959905922,"data":"[NbConvertApp] Writing 405206 bytes to __results__.html\n"}
+]

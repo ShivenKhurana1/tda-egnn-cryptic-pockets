@@ -1,0 +1,14 @@
+{
+  "id": "blackpearls1/phase227-geometry-ingestion",
+  "title": "Phase227 Geometry Ingestion",
+  "code_file": "phase227_geometry_ingestion.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": ["blackpearls1/phase159-cryptobench-anmmsf-graphs"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

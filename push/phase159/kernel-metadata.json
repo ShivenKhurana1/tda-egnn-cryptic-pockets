@@ -1,0 +1,15 @@
+{
+  "id": "blackpearls1/tda-egnn-phase159-cryptobench-anmmsf-ingestion",
+  "title": "TDA EGNN Phase159 CryptoBench ANMMSF Ingestion",
+  "code_file": "phase159_cryptobench_anmmsf_ingestion.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

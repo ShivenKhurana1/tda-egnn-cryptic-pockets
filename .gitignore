@@ -1,0 +1,30 @@
+# --- regenerable / heavy artifacts (documented in README.md) ---
+.DS_Store
+__pycache__/
+*.pyc
+# model weights and graph blobs
+*.pt
+*.pth
+*.ckpt
+# archives and downloaded tools
+*.zip
+*.tar.gz
+*.tgz
+cryptic-pocket/tools/
+# downloaded PDB/mmCIF structures (re-fetchable from RCSB)
+*.cif
+*.cif.gz
+*.pdb.gz
+cryptic-pocket/phase167_apo/
+cryptic-pocket/phase167_holo/
+cryptic-pocket/phase167_holo_test/
+# per-run checkpoint caches
+**/cache/
+# secrets, just in case
+.env
+*.key
+kaggle.json
+# per-residue prediction dumps >100MB (GitHub limit); regenerable by the phase167/183 scripts from the trained checkpoints
+cryptic-pocket/phase167_validation/phase167_experimental_site_predictions.csv
+cryptic-pocket/phase167_validation/phase183A_experimental_residue_validation.csv
+cryptic-pocket/phase167_validation/phase167_residue_predictions.csv

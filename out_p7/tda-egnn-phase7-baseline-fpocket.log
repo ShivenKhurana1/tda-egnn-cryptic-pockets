@@ -1,0 +1,101 @@
+[{"stream_name":"stderr","time":5.89441388,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":5.89445967,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":6.664124795,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.664159507,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.664169397,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.664172592,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.283534979,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.283571267,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.283576674,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.283581209,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":10.603358514,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m1.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":11.010991384,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.4/1.1 MB\u001b[0m \u001b[31m13.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m21.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m15.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":11.061535257,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.2 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━\u001b[0m \u001b[32m3.0/3.2 MB\u001b[0m \u001b[31m94.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m50.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":35.225825129,"data":"\u001b[?25hopenjdk version \"17.0.18\" 2026-01-20\n"}
+,{"stream_name":"stdout","time":40.808936476,"data":"P2Rank ready in 6s -\u003e /tmp/p2rank_2.4.2/prank\n"}
+,{"stream_name":"stdout","time":65.543457319,"data":"cuda | train 1441 val 308 test 307\n"}
+,{"stream_name":"stdout","time":209.075589422,"data":"val PR 0.3985\n"}
+,{"stream_name":"stdout","time":210.614512823,"data":"predictions for 307 test chains\n"}
+,{"stream_name":"stdout","time":217.208023273,"data":"prepared 292 structures\n"}
+,{"stream_name":"stdout","time":232.639559738,"data":"probe rc=0\n"}
+,{"stream_name":"stdout","time":232.639638863,"data":"P2Rank 2.4.2\n"}
+,{"stream_name":"stdout","time":232.639647446,"data":"\n"}
+,{"stream_name":"stdout","time":232.639652973,"data":"predicting pockets for proteins from dataset [probe.ds]\n"}
+,{"stream_name":"stdout","time":232.639658043,"data":"processing [1B9A.pdb] (1/1)\n"}
+,{"stream_name":"stdout","time":232.639662956,"data":"predicting pockets finished in 0 hours 0 minutes 12.442 seconds\n"}
+,{"stream_name":"stdout","time":232.639667897,"data":"results saved to directory [/tmp/p2out/probe]\n"}
+,{"stream_name":"stdout","time":232.639672792,"data":"\n"}
+,{"stream_name":"stdout","time":232.639677466,"data":"Finished successfully in 0 hours 0 minutes 14.029 seconds.\n"}
+,{"stream_name":"stdout","time":232.639682397,"data":"\n"}
+,{"stream_name":"stdout","time":232.639687035,"data":"probe csv outputs: ['1B9A.pdb_predictions.csv', '1B9A.pdb_residues.csv']\n"}
+,{"stream_name":"stdout","time":413.449590592,"data":"P2Rank rc=0 in 3.0 min\n"}
+,{"stream_name":"stdout","time":413.449665904,"data":"ng [9AUB.pdb] (273/292)\n"}
+,{"stream_name":"stdout","time":413.449672686,"data":"processing [9B86.pdb] (274/292)\n"}
+,{"stream_name":"stdout","time":413.449677936,"data":"processing [9C7A.pdb] (275/292)\n"}
+,{"stream_name":"stdout","time":413.449683124,"data":"processing [9CXO.pdb] (276/292)\n"}
+,{"stream_name":"stdout","time":413.44968817,"data":"processing [9DY3.pdb] (277/292)\n"}
+,{"stream_name":"stdout","time":413.449693314,"data":"processing [9ENQ.pdb] (278/292)\n"}
+,{"stream_name":"stdout","time":413.449698375,"data":"processing [9ET9.pdb] (279/292)\n"}
+,{"stream_name":"stdout","time":413.449703238,"data":"processing [9G48.pdb] (280/292)\n"}
+,{"stream_name":"stdout","time":413.449712251,"data":"processing [9GRT.pdb] (281/292)\n"}
+,{"stream_name":"stdout","time":413.449715849,"data":"processing [9HTU.pdb] (282/292)\n"}
+,{"stream_name":"stdout","time":413.449719287,"data":"processing [9KXG.pdb] (283/292)\n"}
+,{"stream_name":"stdout","time":413.449723336,"data":"processing [9L08.pdb] (284/292)\n"}
+,{"stream_name":"stdout","time":413.449739419,"data":"processing [9LZA.pdb] (285/292)\n"}
+,{"stream_name":"stdout","time":413.449745904,"data":"processing [9NS2.pdb] (286/292)\n"}
+,{"stream_name":"stdout","time":413.449751882,"data":"processing [9QN1.pdb] (287/292)\n"}
+,{"stream_name":"stdout","time":413.449757658,"data":"processing [9QS9.pdb] (288/292)\n"}
+,{"stream_name":"stdout","time":413.449762594,"data":"processing [9RFS.pdb] (289/292)\n"}
+,{"stream_name":"stdout","time":413.449767476,"data":"processing [9S6C.pdb] (290/292)\n"}
+,{"stream_name":"stdout","time":413.449772455,"data":"processing [9UZH.pdb] (291/292)\n"}
+,{"stream_name":"stdout","time":413.449777425,"data":"processing [9Y1L.pdb] (292/292)\n"}
+,{"stream_name":"stdout","time":413.449782518,"data":"predicting pockets finished in 0 hours 2 minutes 57.851 seconds\n"}
+,{"stream_name":"stdout","time":413.449818825,"data":"results saved to directory [/tmp/p2out/all]\n"}
+,{"stream_name":"stdout","time":413.449826156,"data":"\n"}
+,{"stream_name":"stdout","time":413.449830047,"data":"Finished successfully in 0 hours 2 minutes 59.388 seconds.\n"}
+,{"stream_name":"stdout","time":413.449834286,"data":"\n"}
+,{"stream_name":"stdout","time":413.449838056,"data":"residue-level outputs: 292\n"}
+,{"stream_name":"stdout","time":439.828249884,"data":"compared on 293 chains / 90,592 residues (5,939 pos, 6.56%) | skipped 14\n"}
+,{"stream_name":"stdout","time":439.828305127,"data":"\n"}
+,{"stream_name":"stdout","time":439.828313362,"data":"method                    PR-AUC   ROC-AUC    prec     rec      F1     MCC\n"}
+,{"stream_name":"stdout","time":439.828320088,"data":"--------------------------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":439.828326334,"data":"random                    0.0656    0.5000\n"}
+,{"stream_name":"stdout","time":440.470538806,"data":"P2Rank                    0.4589    0.8467   0.495   0.489   0.492   0.457\n"}
+,{"stream_name":"stdout","time":441.170405928,"data":"TopologicalEGNN           0.4209    0.8550   0.419   0.481   0.448   0.407\n"}
+,{"stream_name":"stdout","time":441.170918345,"data":"\n"}
+,{"stream_name":"stdout","time":441.172410995,"data":"--- equal selectivity (same fraction of residues called positive) ---\n"}
+,{"stream_name":"stdout","time":441.172424431,"data":"  top  5%: P2Rank prec 0.560 rec 0.427 MCC 0.458 | EGNN prec 0.494 rec 0.377 MCC 0.397\n"}
+,{"stream_name":"stdout","time":441.172430608,"data":"  top 10%: P2Rank prec 0.379 rec 0.578 MCC 0.422 | EGNN prec 0.363 rec 0.553 MCC 0.400\n"}
+,{"stream_name":"stdout","time":441.172436109,"data":"  top 20%: P2Rank prec 0.232 rec 0.709 MCC 0.337 | EGNN prec 0.236 rec 0.719 MCC 0.344\n"}
+,{"stream_name":"stdout","time":441.607602819,"data":"\n"}
+,{"stream_name":"stdout","time":441.607642761,"data":"per-chain PR-AUC: P2Rank 0.4812 | EGNN 0.4505\n"}
+,{"stream_name":"stdout","time":441.607649101,"data":"paired diff -0.0307 +-0.2481 | EGNN wins 125/293 chains | Wilcoxon p=4.30e-03\n"}
+,{"stream_name":"stderr","time":445.146288894,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":445.146334888,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":445.14634296,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":445.146420036,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":445.146538662,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":445.146742691,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":445.146859908,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":445.146875549,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":445.146881063,"data":"Exception encountered at \"In [6]\":\n"}
+,{"stream_name":"stderr","time":445.146886119,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":445.146891181,"data":"NameError                                 Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":445.146905715,"data":"/tmp/ipykernel_24/2723575736.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":445.146911194,"data":"     86       f\"chains | Wilcoxon p={wilcoxon(d_).pvalue:.2e}\")\n"}
+,{"stream_name":"stderr","time":445.146934185,"data":"     87 \n"}
+,{"stream_name":"stderr","time":445.146938498,"data":"---\u003e 88 json.dump({\"n_chains\":len(rows),\"n_res\":int(len(y)),\n"}
+,{"stream_name":"stderr","time":445.146946061,"data":"     89            \"p2rank_pr\":float(average_precision_score(y,p2)),\n"}
+,{"stream_name":"stderr","time":445.146950399,"data":"     90            \"p2rank_roc\":float(roc_auc_score(y,p2)),\n"}
+,{"stream_name":"stderr","time":445.146954321,"data":"\n"}
+,{"stream_name":"stderr","time":445.14695806,"data":"NameError: name 'json' is not defined\n"}
+,{"stream_name":"stderr","time":445.146962221,"data":"\n"}
+,{"stream_name":"stderr","time":447.607428054,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":447.607463622,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":447.776935691,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":447.776964055,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":448.463109373,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":448.831118609,"data":"[NbConvertApp] Writing 29338 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":451.676879984,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":452.703055953,"data":"[NbConvertApp] Writing 380413 bytes to __results__.html\n"}
+]

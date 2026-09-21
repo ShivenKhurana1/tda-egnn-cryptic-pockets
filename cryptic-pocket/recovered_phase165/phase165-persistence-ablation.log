@@ -1,0 +1,63 @@
+[{"stream_name":"stderr","time":10.34056712,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":10.340696248,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":11.922942845,"data":"0.01s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.92299584,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.923001723,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.923005704,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.945229905,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.945272795,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.945278076,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.945282207,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":17.994369832,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m2.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":18.198171949,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m35.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":62.447532764,"data":"\u001b[?25hUSING: /kaggle/input/notebooks/blackpearls1/tda-egnn-phase159-cryptobench-anmmsf-ingestion/phase159_cryptobench_anmmsf_graphs.pt\n"}
+,{"stream_name":"stdout","time":62.447575433,"data":"SIZE GB: 0.6506836423650384\n"}
+,{"stream_name":"stdout","time":66.539115282,"data":"node dim: 542\n"}
+,{"stream_name":"stdout","time":66.539161327,"data":"splits: {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":73.485475794,"data":"h0_persistence persistence dims= 7 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":73.485530779,"data":"h1_persistence persistence dims= 8 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":73.485537656,"data":"h2_persistence persistence dims= 8 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":73.485633533,"data":"total_max persistence dims= 6 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":73.485643275,"data":"mean_std persistence dims= 6 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":73.485661854,"data":"entropy persistence dims= 3 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":73.485699623,"data":"birth_death persistence dims= 5 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":73.485704336,"data":"counts persistence dims= 3 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":73.485707619,"data":"all_persistence persistence dims= 23 {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":73.513930817,"data":"h0_persistence        7 features\n"}
+,{"stream_name":"stdout","time":73.513972769,"data":"['H0_n_bars', 'H0_total_pers', 'H0_max_pers', 'H0_mean_pers', 'H0_std_pers', 'H0_entropy', 'H0_mean_death']\n"}
+,{"stream_name":"stdout","time":73.513979642,"data":"h1_persistence        8 features\n"}
+,{"stream_name":"stdout","time":73.513985056,"data":"['H1_n_bars', 'H1_total_pers', 'H1_max_pers', 'H1_mean_pers', 'H1_std_pers', 'H1_entropy', 'H1_mean_birth', 'H1_mean_death']\n"}
+,{"stream_name":"stdout","time":73.514000159,"data":"h2_persistence        8 features\n"}
+,{"stream_name":"stdout","time":73.514005096,"data":"['H2_n_bars', 'H2_total_pers', 'H2_max_pers', 'H2_mean_pers', 'H2_std_pers', 'H2_entropy', 'H2_mean_birth', 'H2_mean_death']\n"}
+,{"stream_name":"stdout","time":73.514010506,"data":"total_max             6 features\n"}
+,{"stream_name":"stdout","time":73.514043281,"data":"['H0_total_pers', 'H0_max_pers', 'H1_total_pers', 'H1_max_pers', 'H2_total_pers', 'H2_max_pers']\n"}
+,{"stream_name":"stdout","time":73.514048875,"data":"mean_std              6 features\n"}
+,{"stream_name":"stdout","time":73.514054359,"data":"['H0_mean_pers', 'H0_std_pers', 'H1_mean_pers', 'H1_std_pers', 'H2_mean_pers', 'H2_std_pers']\n"}
+,{"stream_name":"stdout","time":73.514059618,"data":"entropy               3 features\n"}
+,{"stream_name":"stdout","time":73.514064739,"data":"['H0_entropy', 'H1_entropy', 'H2_entropy']\n"}
+,{"stream_name":"stdout","time":73.514069683,"data":"birth_death           5 features\n"}
+,{"stream_name":"stdout","time":73.514074596,"data":"['H0_mean_death', 'H1_mean_birth', 'H1_mean_death', 'H2_mean_birth', 'H2_mean_death']\n"}
+,{"stream_name":"stdout","time":73.51407971,"data":"counts                3 features\n"}
+,{"stream_name":"stdout","time":73.514084773,"data":"['H0_n_bars', 'H1_n_bars', 'H2_n_bars']\n"}
+,{"stream_name":"stdout","time":73.5140897,"data":"all_persistence      23 features\n"}
+,{"stream_name":"stdout","time":73.514095539,"data":"['H0_n_bars', 'H0_total_pers', 'H0_max_pers', 'H0_mean_pers', 'H0_std_pers', 'H0_entropy', 'H0_mean_death', 'H1_n_bars', 'H1_total_pers', 'H1_max_pers', 'H1_mean_pers', 'H1_std_pers', 'H1_entropy', 'H1_mean_birth', 'H1_mean_death', 'H2_n_bars', 'H2_total_pers', 'H2_max_pers', 'H2_mean_pers', 'H2_std_pers', 'H2_entropy', 'H2_mean_birth', 'H2_mean_death']\n"}
+,{"stream_name":"stdout","time":2501.408744099,"data":"h0_persistence seed=0 val_PR=0.2685 val_ROC=0.8178 test_PR=0.2618 test_ROC=0.8314 MCC=0.3060 DCC4=0.104 elapsed=40.5m\n"}
+,{"stream_name":"stdout","time":4989.755011505,"data":"h0_persistence seed=1 val_PR=0.2898 val_ROC=0.8324 test_PR=0.2649 test_ROC=0.8304 MCC=0.2964 DCC4=0.093 elapsed=81.9m\n"}
+,{"stream_name":"stdout","time":7489.682048819,"data":"h0_persistence seed=2 val_PR=0.2743 val_ROC=0.8351 test_PR=0.2603 test_ROC=0.8336 MCC=0.2844 DCC4=0.121 elapsed=123.6m\n"}
+,{"stream_name":"stdout","time":8922.984580153,"data":"h0_persistence seed=3 val_PR=0.2693 val_ROC=0.8221 test_PR=0.2422 test_ROC=0.8224 MCC=0.2908 DCC4=0.082 elapsed=147.5m\n"}
+,{"stream_name":"stdout","time":11122.555863144,"data":"h0_persistence seed=4 val_PR=0.2535 val_ROC=0.8196 test_PR=0.2577 test_ROC=0.8315 MCC=0.2867 DCC4=0.110 elapsed=184.1m\n"}
+,{"stream_name":"stdout","time":13581.278979773,"data":"h0_persistence seed=5 val_PR=0.2689 val_ROC=0.8339 test_PR=0.2654 test_ROC=0.8353 MCC=0.2918 DCC4=0.060 elapsed=225.1m\n"}
+,{"stream_name":"stdout","time":14301.236614033,"data":"h0_persistence seed=6 val_PR=0.2098 val_ROC=0.8164 test_PR=0.2313 test_ROC=0.8139 MCC=0.2883 DCC4=0.176 elapsed=237.1m\n"}
+,{"stream_name":"stdout","time":16786.463612917,"data":"h0_persistence seed=7 val_PR=0.2602 val_ROC=0.8361 test_PR=0.2556 test_ROC=0.8381 MCC=0.2955 DCC4=0.088 elapsed=278.5m\n"}
+,{"stream_name":"stdout","time":19309.946266755,"data":"h1_persistence seed=0 val_PR=0.2980 val_ROC=0.8370 test_PR=0.2650 test_ROC=0.8343 MCC=0.2980 DCC4=0.137 elapsed=320.6m\n"}
+,{"stream_name":"stdout","time":21741.738909439,"data":"h1_persistence seed=1 val_PR=0.2738 val_ROC=0.8290 test_PR=0.2652 test_ROC=0.8350 MCC=0.2984 DCC4=0.088 elapsed=361.1m\n"}
+,{"stream_name":"stdout","time":24266.360205811,"data":"h1_persistence seed=2 val_PR=0.2759 val_ROC=0.8258 test_PR=0.2598 test_ROC=0.8400 MCC=0.3014 DCC4=0.104 elapsed=403.2m\n"}
+,{"stream_name":"stdout","time":26685.278680122,"data":"h1_persistence seed=3 val_PR=0.2857 val_ROC=0.8425 test_PR=0.2574 test_ROC=0.8426 MCC=0.2969 DCC4=0.126 elapsed=443.5m\n"}
+,{"stream_name":"stdout","time":29059.327280546,"data":"h1_persistence seed=4 val_PR=0.2854 val_ROC=0.8315 test_PR=0.2535 test_ROC=0.8320 MCC=0.2800 DCC4=0.104 elapsed=483.1m\n"}
+,{"stream_name":"stdout","time":31544.553247141,"data":"h1_persistence seed=5 val_PR=0.2958 val_ROC=0.8329 test_PR=0.2639 test_ROC=0.8380 MCC=0.3003 DCC4=0.088 elapsed=524.5m\n"}
+,{"stream_name":"stdout","time":33996.645988719,"data":"h1_persistence seed=6 val_PR=0.2816 val_ROC=0.8282 test_PR=0.2667 test_ROC=0.8382 MCC=0.2985 DCC4=0.099 elapsed=565.4m\n"}
+,{"stream_name":"stdout","time":36410.913070192,"data":"h1_persistence seed=7 val_PR=0.2850 val_ROC=0.8308 test_PR=0.2718 test_ROC=0.8410 MCC=0.3060 DCC4=0.066 elapsed=605.6m\n"}
+,{"stream_name":"stdout","time":38349.273418503,"data":"h2_persistence seed=0 val_PR=0.2959 val_ROC=0.8232 test_PR=0.2618 test_ROC=0.8290 MCC=0.2820 DCC4=0.066 elapsed=637.9m\n"}
+,{"stream_name":"stdout","time":40815.230501591,"data":"h2_persistence seed=1 val_PR=0.2875 val_ROC=0.8308 test_PR=0.2534 test_ROC=0.8291 MCC=0.2817 DCC4=0.066 elapsed=679.0m\n"}
+,{"stream_name":"stdout","time":43012.848668242,"data":"h2_persistence seed=2 val_PR=0.2910 val_ROC=0.8269 test_PR=0.2459 test_ROC=0.8306 MCC=0.2869 DCC4=0.077 elapsed=715.7m\n"}
+]

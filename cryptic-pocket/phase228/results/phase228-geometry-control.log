@@ -1,0 +1,109 @@
+[{"stream_name":"stderr","time":7.025580725,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.025655674,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.893230286,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.893280422,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.893286768,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.893291703,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.507194646,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.507227319,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.507234343,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.507239795,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.151595488,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m3.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":12.303338084,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m36.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":50.510637591,"data":"\u001b[?25hnode dim: 559 splits: {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":50.805905904,"data":"GPU: Tesla T4 PASS\n"}
+,{"stream_name":"stdout","time":53.603558994,"data":"esm_structure      side-channel features: 0\n"}
+,{"stream_name":"stdout","time":53.603606955,"data":"geom               side-channel features: 17\n"}
+,{"stream_name":"stdout","time":53.603613785,"data":"tda                side-channel features: 34\n"}
+,{"stream_name":"stdout","time":53.603618262,"data":"persistence        side-channel features: 23\n"}
+,{"stream_name":"stdout","time":53.603622886,"data":"geom_tda           side-channel features: 51\n"}
+,{"stream_name":"stdout","time":53.603627329,"data":"geom_persistence   side-channel features: 40\n"}
+,{"stream_name":"stdout","time":175.105385991,"data":"esm_structure  seed=0 val_PR=0.2021 val_ROC=0.8125 test_PR=0.2345 test_ROC=0.8193 MCC=0.2729 DCC4=0.077 elapsed=2.0m\n"}
+,{"stream_name":"stdout","time":298.226224907,"data":"esm_structure  seed=1 val_PR=0.2328 val_ROC=0.8156 test_PR=0.2323 test_ROC=0.8140 MCC=0.2629 DCC4=0.077 elapsed=4.1m\n"}
+,{"stream_name":"stdout","time":347.921040953,"data":"esm_structure  seed=2 val_PR=0.2195 val_ROC=0.8041 test_PR=0.2370 test_ROC=0.8114 MCC=0.2691 DCC4=0.165 elapsed=4.9m\n"}
+,{"stream_name":"stdout","time":394.299255237,"data":"esm_structure  seed=3 val_PR=0.2176 val_ROC=0.8051 test_PR=0.2389 test_ROC=0.8150 MCC=0.2810 DCC4=0.165 elapsed=5.7m\n"}
+,{"stream_name":"stdout","time":496.082373707,"data":"esm_structure  seed=4 val_PR=0.2269 val_ROC=0.8075 test_PR=0.2381 test_ROC=0.8155 MCC=0.2792 DCC4=0.126 elapsed=7.4m\n"}
+,{"stream_name":"stdout","time":619.439574923,"data":"esm_structure  seed=5 val_PR=0.2261 val_ROC=0.8157 test_PR=0.2419 test_ROC=0.8143 MCC=0.2738 DCC4=0.099 elapsed=9.4m\n"}
+,{"stream_name":"stdout","time":724.118026902,"data":"esm_structure  seed=6 val_PR=0.2179 val_ROC=0.8061 test_PR=0.2545 test_ROC=0.8209 MCC=0.2820 DCC4=0.126 elapsed=11.2m\n"}
+,{"stream_name":"stdout","time":825.884989172,"data":"esm_structure  seed=7 val_PR=0.2469 val_ROC=0.8092 test_PR=0.2264 test_ROC=0.8149 MCC=0.2614 DCC4=0.099 elapsed=12.9m\n"}
+,{"stream_name":"stdout","time":902.959061934,"data":"geom           seed=0 val_PR=0.2906 val_ROC=0.8513 test_PR=0.2688 test_ROC=0.8474 MCC=0.3064 DCC4=0.137 elapsed=14.2m\n"}
+,{"stream_name":"stdout","time":1026.332166331,"data":"geom           seed=1 val_PR=0.3025 val_ROC=0.8544 test_PR=0.2887 test_ROC=0.8528 MCC=0.3067 DCC4=0.121 elapsed=16.2m\n"}
+,{"stream_name":"stdout","time":1131.537509126,"data":"geom           seed=2 val_PR=0.3408 val_ROC=0.8640 test_PR=0.2876 test_ROC=0.8518 MCC=0.3094 DCC4=0.115 elapsed=18.0m\n"}
+,{"stream_name":"stdout","time":1254.968177988,"data":"geom           seed=3 val_PR=0.3064 val_ROC=0.8571 test_PR=0.2821 test_ROC=0.8546 MCC=0.3127 DCC4=0.093 elapsed=20.0m\n"}
+,{"stream_name":"stdout","time":1350.559262111,"data":"geom           seed=4 val_PR=0.3165 val_ROC=0.8532 test_PR=0.2864 test_ROC=0.8528 MCC=0.3173 DCC4=0.110 elapsed=21.6m\n"}
+,{"stream_name":"stdout","time":1473.570507642,"data":"geom           seed=5 val_PR=0.3338 val_ROC=0.8608 test_PR=0.2916 test_ROC=0.8548 MCC=0.3213 DCC4=0.143 elapsed=23.7m\n"}
+,{"stream_name":"stdout","time":1587.646119937,"data":"geom           seed=6 val_PR=0.2978 val_ROC=0.8531 test_PR=0.2840 test_ROC=0.8544 MCC=0.3143 DCC4=0.154 elapsed=25.6m\n"}
+,{"stream_name":"stdout","time":1683.153247015,"data":"geom           seed=7 val_PR=0.2979 val_ROC=0.8515 test_PR=0.2775 test_ROC=0.8492 MCC=0.3023 DCC4=0.159 elapsed=27.2m\n"}
+,{"stream_name":"stdout","time":1803.27233062,"data":"tda            seed=0 val_PR=0.3174 val_ROC=0.8573 test_PR=0.2637 test_ROC=0.8477 MCC=0.2935 DCC4=0.104 elapsed=29.2m\n"}
+,{"stream_name":"stdout","time":1895.489627411,"data":"tda            seed=1 val_PR=0.3016 val_ROC=0.8453 test_PR=0.2548 test_ROC=0.8461 MCC=0.2982 DCC4=0.104 elapsed=30.7m\n"}
+,{"stream_name":"stdout","time":2006.396458613,"data":"tda            seed=2 val_PR=0.2922 val_ROC=0.8518 test_PR=0.2657 test_ROC=0.8503 MCC=0.3051 DCC4=0.104 elapsed=32.5m\n"}
+,{"stream_name":"stdout","time":2071.276394765,"data":"tda            seed=3 val_PR=0.2980 val_ROC=0.8532 test_PR=0.2629 test_ROC=0.8421 MCC=0.2999 DCC4=0.159 elapsed=33.6m\n"}
+,{"stream_name":"stdout","time":2176.073410694,"data":"tda            seed=4 val_PR=0.2826 val_ROC=0.8489 test_PR=0.2671 test_ROC=0.8452 MCC=0.2965 DCC4=0.099 elapsed=35.4m\n"}
+,{"stream_name":"stdout","time":2292.725458897,"data":"tda            seed=5 val_PR=0.2748 val_ROC=0.8480 test_PR=0.2533 test_ROC=0.8477 MCC=0.3044 DCC4=0.099 elapsed=37.3m\n"}
+,{"stream_name":"stdout","time":2400.327227675,"data":"tda            seed=6 val_PR=0.3140 val_ROC=0.8542 test_PR=0.2567 test_ROC=0.8454 MCC=0.2957 DCC4=0.099 elapsed=39.1m\n"}
+,{"stream_name":"stdout","time":2517.249662052,"data":"tda            seed=7 val_PR=0.3081 val_ROC=0.8520 test_PR=0.2625 test_ROC=0.8486 MCC=0.2972 DCC4=0.110 elapsed=41.1m\n"}
+,{"stream_name":"stdout","time":2640.613482459,"data":"persistence    seed=0 val_PR=0.2839 val_ROC=0.8508 test_PR=0.2556 test_ROC=0.8455 MCC=0.2952 DCC4=0.132 elapsed=43.1m\n"}
+,{"stream_name":"stdout","time":2760.475790071,"data":"persistence    seed=1 val_PR=0.2853 val_ROC=0.8441 test_PR=0.2582 test_ROC=0.8478 MCC=0.3028 DCC4=0.132 elapsed=45.1m\n"}
+,{"stream_name":"stdout","time":2871.506540162,"data":"persistence    seed=2 val_PR=0.2661 val_ROC=0.8423 test_PR=0.2629 test_ROC=0.8474 MCC=0.3050 DCC4=0.099 elapsed=47.0m\n"}
+,{"stream_name":"stdout","time":2994.910890276,"data":"persistence    seed=3 val_PR=0.3154 val_ROC=0.8558 test_PR=0.2739 test_ROC=0.8502 MCC=0.3097 DCC4=0.093 elapsed=49.0m\n"}
+,{"stream_name":"stdout","time":3090.483069897,"data":"persistence    seed=4 val_PR=0.2965 val_ROC=0.8456 test_PR=0.2764 test_ROC=0.8479 MCC=0.3029 DCC4=0.099 elapsed=50.6m\n"}
+,{"stream_name":"stdout","time":3189.348849711,"data":"persistence    seed=5 val_PR=0.2879 val_ROC=0.8425 test_PR=0.2614 test_ROC=0.8469 MCC=0.2927 DCC4=0.137 elapsed=52.3m\n"}
+,{"stream_name":"stdout","time":3312.588607135,"data":"persistence    seed=6 val_PR=0.3158 val_ROC=0.8492 test_PR=0.2632 test_ROC=0.8454 MCC=0.3019 DCC4=0.115 elapsed=54.3m\n"}
+,{"stream_name":"stdout","time":3417.33239898,"data":"persistence    seed=7 val_PR=0.2951 val_ROC=0.8396 test_PR=0.2627 test_ROC=0.8425 MCC=0.2933 DCC4=0.143 elapsed=56.1m\n"}
+,{"stream_name":"stdout","time":3494.512291212,"data":"geom_tda       seed=0 val_PR=0.3077 val_ROC=0.8563 test_PR=0.2823 test_ROC=0.8518 MCC=0.3141 DCC4=0.176 elapsed=57.3m\n"}
+,{"stream_name":"stdout","time":3602.179255494,"data":"geom_tda       seed=1 val_PR=0.3083 val_ROC=0.8569 test_PR=0.2815 test_ROC=0.8543 MCC=0.3119 DCC4=0.093 elapsed=59.1m\n"}
+,{"stream_name":"stdout","time":3667.145209271,"data":"geom_tda       seed=2 val_PR=0.2898 val_ROC=0.8531 test_PR=0.2860 test_ROC=0.8535 MCC=0.3233 DCC4=0.110 elapsed=60.2m\n"}
+,{"stream_name":"stdout","time":3741.474580515,"data":"geom_tda       seed=3 val_PR=0.2957 val_ROC=0.8500 test_PR=0.2745 test_ROC=0.8493 MCC=0.3065 DCC4=0.121 elapsed=61.5m\n"}
+,{"stream_name":"stdout","time":3864.320111544,"data":"geom_tda       seed=4 val_PR=0.2854 val_ROC=0.8485 test_PR=0.2879 test_ROC=0.8529 MCC=0.3083 DCC4=0.088 elapsed=63.5m\n"}
+,{"stream_name":"stdout","time":3968.833993237,"data":"geom_tda       seed=5 val_PR=0.3048 val_ROC=0.8617 test_PR=0.2683 test_ROC=0.8483 MCC=0.2952 DCC4=0.132 elapsed=65.2m\n"}
+,{"stream_name":"stdout","time":4092.029689878,"data":"geom_tda       seed=6 val_PR=0.3082 val_ROC=0.8633 test_PR=0.3000 test_ROC=0.8577 MCC=0.3193 DCC4=0.165 elapsed=67.3m\n"}
+,{"stream_name":"stdout","time":4181.651173485,"data":"geom_tda       seed=7 val_PR=0.3014 val_ROC=0.8546 test_PR=0.2797 test_ROC=0.8534 MCC=0.3106 DCC4=0.159 elapsed=68.8m\n"}
+,{"stream_name":"stdout","time":4271.263238564,"data":"geom_persistence seed=0 val_PR=0.2875 val_ROC=0.8476 test_PR=0.2898 test_ROC=0.8525 MCC=0.3230 DCC4=0.132 elapsed=70.3m\n"}
+,{"stream_name":"stdout","time":4391.636598546,"data":"geom_persistence seed=1 val_PR=0.3054 val_ROC=0.8477 test_PR=0.2748 test_ROC=0.8532 MCC=0.3183 DCC4=0.121 elapsed=72.3m\n"}
+,{"stream_name":"stdout","time":4515.158337266,"data":"geom_persistence seed=2 val_PR=0.3042 val_ROC=0.8551 test_PR=0.2904 test_ROC=0.8578 MCC=0.3241 DCC4=0.132 elapsed=74.4m\n"}
+,{"stream_name":"stdout","time":4607.69270141,"data":"geom_persistence seed=3 val_PR=0.3054 val_ROC=0.8520 test_PR=0.2873 test_ROC=0.8532 MCC=0.3105 DCC4=0.143 elapsed=75.9m\n"}
+,{"stream_name":"stdout","time":4715.331701028,"data":"geom_persistence seed=4 val_PR=0.3204 val_ROC=0.8608 test_PR=0.2909 test_ROC=0.8583 MCC=0.3139 DCC4=0.115 elapsed=77.7m\n"}
+,{"stream_name":"stdout","time":4810.968752823,"data":"geom_persistence seed=5 val_PR=0.3100 val_ROC=0.8573 test_PR=0.2858 test_ROC=0.8536 MCC=0.3096 DCC4=0.088 elapsed=79.3m\n"}
+,{"stream_name":"stdout","time":4885.383483563,"data":"geom_persistence seed=6 val_PR=0.2837 val_ROC=0.8555 test_PR=0.2871 test_ROC=0.8515 MCC=0.3145 DCC4=0.181 elapsed=80.5m\n"}
+,{"stream_name":"stdout","time":4974.358666629,"data":"geom_persistence seed=7 val_PR=0.2838 val_ROC=0.8544 test_PR=0.2853 test_ROC=0.8541 MCC=0.3149 DCC4=0.082 elapsed=82.0m\n"}
+,{"stream_name":"stdout","time":4974.445275934,"data":"             arm  n_seeds  val_pr_auc_mean  val_pr_auc_std  test_pr_auc_mean  test_pr_auc_std  test_roc_auc_mean  test_roc_auc_std  test_mcc_mean  test_mcc_std  test_f1_mean  test_f1_std  test_precision_mean  test_precision_std  test_recall_mean  test_recall_std  test_dcc4_mean  test_dcc4_std  test_center_error_mean  test_center_error_std\n"}
+,{"stream_name":"stdout","time":4974.445304477,"data":"            geom        8         0.310776        0.018099          0.283323         0.007303           0.852241          0.002683       0.311301      0.006286      0.321012     0.006891             0.220052            0.006910          0.593906         0.012464        0.129121       0.022938               11.390728               0.283400\n"}
+,{"stream_name":"stdout","time":4974.445309589,"data":"        geom_tda        8         0.300178        0.008905          0.282543         0.009421           0.852648          0.002946       0.311158      0.008504      0.324154     0.012503             0.226604            0.016552          0.574365         0.028204        0.130495       0.033325               11.450475               0.575334\n"}
+,{"stream_name":"stdout","time":4974.445325057,"data":"geom_persistence        8         0.300047        0.013504          0.286423         0.005158           0.854273          0.002459       0.316099      0.005340      0.327830     0.007841             0.228506            0.011840          0.583750         0.030748        0.124313       0.031349               11.258179               0.441938\n"}
+,{"stream_name":"stdout","time":4974.44533138,"data":"             tda        8         0.298582        0.014908          0.260850         0.005191           0.846646          0.002504       0.298821      0.004105      0.312105     0.007583             0.216616            0.015358          0.566375         0.044821        0.109890       0.020348               11.635039               0.294219\n"}
+,{"stream_name":"stdout","time":4974.445337814,"data":"     persistence        8         0.293233        0.016591          0.264286         0.007215           0.846687          0.002263       0.300434      0.006076      0.313424     0.006671             0.216287            0.007731          0.570370         0.019346        0.118819       0.019688               11.715710               0.195001\n"}
+,{"stream_name":"stdout","time":4974.445344785,"data":"   esm_structure        8         0.223710        0.013040          0.237942         0.008184           0.815658          0.003034       0.272766      0.007871      0.294679     0.012515             0.216144            0.033431          0.492876         0.076868        0.116758       0.035090               11.477909               0.797983\n"}
+,{"stream_name":"stdout","time":4974.854473922,"data":"               a             b split  metric  mean_a  mean_b  mean_delta  a_wins    t_p  wilcoxon_p  cohens_d\n"}
+,{"stream_name":"stdout","time":4974.854510157,"data":"geom_persistence          geom   val  pr_auc  0.3000  0.3108     -0.0107       2 0.0701      0.1094   -0.7550\n"}
+,{"stream_name":"stdout","time":4974.854517386,"data":"geom_persistence          geom  test  pr_auc  0.2864  0.2833      0.0031       6 0.4160      0.4609    0.3056\n"}
+,{"stream_name":"stdout","time":4974.854522948,"data":"geom_persistence          geom  test roc_auc  0.8543  0.8522      0.0020       5 0.1613      0.2500    0.5537\n"}
+,{"stream_name":"stdout","time":4974.854529475,"data":"        geom_tda          geom   val  pr_auc  0.3002  0.3108     -0.0106       4 0.2533      0.3828   -0.4400\n"}
+,{"stream_name":"stdout","time":4974.854549181,"data":"        geom_tda          geom  test  pr_auc  0.2825  0.2833     -0.0008       4 0.8648      0.9453   -0.0625\n"}
+,{"stream_name":"stdout","time":4974.854565632,"data":"        geom_tda          geom  test roc_auc  0.8526  0.8522      0.0004       6 0.7913      0.7422    0.0972\n"}
+,{"stream_name":"stdout","time":4974.854568424,"data":"             tda          geom   val  pr_auc  0.2986  0.3108     -0.0122       3 0.3103      0.4609   -0.3866\n"}
+,{"stream_name":"stdout","time":4974.854571351,"data":"             tda          geom  test  pr_auc  0.2608  0.2833     -0.0225       0 0.0005      0.0078   -2.1211\n"}
+,{"stream_name":"stdout","time":4974.854574421,"data":"             tda          geom  test roc_auc  0.8466  0.8522     -0.0056       1 0.0101      0.0156   -1.2347\n"}
+,{"stream_name":"stdout","time":4974.854595331,"data":"     persistence          geom   val  pr_auc  0.2932  0.3108     -0.0175       2 0.1442      0.1953   -0.5813\n"}
+,{"stream_name":"stdout","time":4974.854599936,"data":"     persistence          geom  test  pr_auc  0.2643  0.2833     -0.0190       0 0.0005      0.0078   -2.1635\n"}
+,{"stream_name":"stdout","time":4974.854604357,"data":"     persistence          geom  test roc_auc  0.8467  0.8522     -0.0056       0 0.0002      0.0078   -2.4789\n"}
+,{"stream_name":"stdout","time":4974.854608848,"data":"            geom esm_structure   val  pr_auc  0.3108  0.2237      0.0871       8 0.0000      0.0078    4.0355\n"}
+,{"stream_name":"stdout","time":4974.854613578,"data":"            geom esm_structure  test  pr_auc  0.2833  0.2379      0.0454       8 0.0000      0.0078    4.9508\n"}
+,{"stream_name":"stdout","time":4974.85461824,"data":"            geom esm_structure  test roc_auc  0.8522  0.8157      0.0366       8 0.0000      0.0078    8.4343\n"}
+,{"stream_name":"stdout","time":4974.854622427,"data":"             tda esm_structure   val  pr_auc  0.2986  0.2237      0.0749       8 0.0000      0.0078    3.3979\n"}
+,{"stream_name":"stdout","time":4974.854628807,"data":"             tda esm_structure  test  pr_auc  0.2608  0.2379      0.0229       8 0.0006      0.0078    2.0829\n"}
+,{"stream_name":"stdout","time":4974.854636446,"data":"             tda esm_structure  test roc_auc  0.8466  0.8157      0.0310       8 0.0000      0.0078    6.8615\n"}
+,{"stream_name":"stdout","time":4974.854641146,"data":"        geom_tda           tda   val  pr_auc  0.3002  0.2986      0.0016       3 0.7315      0.9453    0.1263\n"}
+,{"stream_name":"stdout","time":4974.854645726,"data":"        geom_tda           tda  test  pr_auc  0.2825  0.2608      0.0217       8 0.0004      0.0078    2.2131\n"}
+,{"stream_name":"stdout","time":4974.854650654,"data":"        geom_tda           tda  test roc_auc  0.8526  0.8466      0.0060       8 0.0023      0.0078    1.6540\n"}
+,{"stream_name":"stdout","time":4974.854654486,"data":"geom_persistence   persistence   val  pr_auc  0.3000  0.2932      0.0068       5 0.4362      0.4609    0.2919\n"}
+,{"stream_name":"stdout","time":4974.854658344,"data":"geom_persistence   persistence  test  pr_auc  0.2864  0.2643      0.0221       8 0.0000      0.0078    3.1428\n"}
+,{"stream_name":"stdout","time":4974.854662312,"data":"geom_persistence   persistence  test roc_auc  0.8543  0.8467      0.0076       8 0.0002      0.0078    2.5826\n"}
+,{"stream_name":"stderr","time":4981.168272118,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":4981.168305723,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":4981.332536137,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":4981.332573586,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":4981.96557375,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":4982.307344354,"data":"[NbConvertApp] Writing 37409 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":4984.651441974,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":4985.522067015,"data":"[NbConvertApp] Writing 380536 bytes to __results__.html\n"}
+]

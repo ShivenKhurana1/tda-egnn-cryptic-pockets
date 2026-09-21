@@ -1,0 +1,23 @@
+{
+  "id": "blackpearls1/tda-egnn-phase153-cryptobench-final-analysis",
+  "title": "TDA EGNN Phase153 CryptoBench Final Analysis",
+  "code_file": "phase153_cryptobench_final_analysis.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase42-cryptobench-ingestion",
+    "blackpearls1/tda-egnn-phase122-cryptobench-transfer",
+    "blackpearls1/tda-egnn-phase128-transfer-transfer-8seed",
+    "blackpearls1/tda-egnn-phase45-cryptobench-esm650m",
+    "blackpearls1/tda-egnn-phase146-cryptobench-650m-transfer",
+    "blackpearls1/tda-egnn-phase48-cryptobench-esm3b",
+    "blackpearls1/tda-egnn-phase129-cryptobench-esm3b-transfer"
+  ]
+}

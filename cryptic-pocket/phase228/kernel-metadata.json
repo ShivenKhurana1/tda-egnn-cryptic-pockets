@@ -1,0 +1,15 @@
+{
+  "id": "blackpearls1/phase228-geometry-control",
+  "title": "Phase228 Geometry Control",
+  "code_file": "phase228_geometry_control.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": ["blackpearls1/phase159-cryptobench-anmmsf-graphs"],
+  "competition_sources": [],
+  "kernel_sources": ["blackpearls1/phase227-geometry-ingestion"]
+}

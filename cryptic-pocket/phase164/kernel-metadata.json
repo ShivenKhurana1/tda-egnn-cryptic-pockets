@@ -1,0 +1,19 @@
+{
+  "id": "blackpearls1/phase164-test",
+  "title": "Phase164 Test",
+  "code_file": "tda-egnn-phase164-cryptobench-tda-component-ablation.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [
+    "gpu"
+  ],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}

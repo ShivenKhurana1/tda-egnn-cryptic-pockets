@@ -1,0 +1,17 @@
+{
+  "id": "blackpearls1/tda-egnn-phase164-cryptobench-tda-component-ablation",
+  "title": "TDA EGNN Phase164 CryptoBench TDA Component Ablation",
+  "code_file": "phase164_cryptobench_tda_component_ablation.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "blackpearls1/phase159-cryptobench-anmmsf-graphs"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}

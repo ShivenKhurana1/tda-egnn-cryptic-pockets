@@ -1,0 +1,87 @@
+[{"stream_name":"stderr","time":5.805125804,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":5.805223411,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":6.576426227,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.576459885,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.576465519,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.576470084,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.154288689,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.154327219,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.154332663,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.154337243,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":10.337594706,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━\u001b[0m \u001b[32m61.4/63.1 kB\u001b[0m \u001b[31m2.3 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m1.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":10.541089817,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.3/1.1 MB\u001b[0m \u001b[31m9.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━\u001b[0m \u001b[32m1.0/1.1 MB\u001b[0m \u001b[31m14.5 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m13.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":15.789255113,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.3 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.1/3.3 MB\u001b[0m \u001b[31m1.8 MB/s\u001b[0m eta \u001b[36m0:00:02\u001b[0m\r\u001b[2K   \u001b[91m━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.2/3.3 MB\u001b[0m \u001b[31m2.6 MB/s\u001b[0m eta \u001b[36m0:00:02\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.7/3.3 MB\u001b[0m \u001b[31m6.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.0/3.3 MB\u001b[0m \u001b[31m8.7 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.9/3.3 MB\u001b[0m \u001b[31m11.1 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.1/3.3 MB\u001b[0m \u001b[31m11.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.1/3.3 MB\u001b[0m \u001b[31m11.9 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━\u001b[0m \u001b[32m3.1/3.3 MB\u001b[0m \u001b[31m11.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━\u001b[0m \u001b[32m3.1/3.3 MB\u001b[0m \u001b[31m11.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m9.7 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m9.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":19.708626754,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.2 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.1/3.2 MB\u001b[0m \u001b[31m2.7 MB/s\u001b[0m eta \u001b[36m0:00:02\u001b[0m\r\u001b[2K   \u001b[91m━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.3/3.2 MB\u001b[0m \u001b[31m4.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/3.2 MB\u001b[0m \u001b[31m10.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━\u001b[0m \u001b[32m2.8/3.2 MB\u001b[0m \u001b[31m20.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m19.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":28.216200685,"data":"\u001b[?25hgudhi 3.10.1 | torch 2.10.0+cu128 | CPUs 4\n"}
+,{"stream_name":"stdout","time":44.999322106,"data":"chains 41 | residues 10,087 | positives 925\n"}
+,{"stream_name":"stdout","time":47.183917005,"data":"structures: 32/32\n"}
+,{"stream_name":"stdout","time":48.043768009,"data":"aligned chains: 41/41\n"}
+,{"stream_name":"stdout","time":48.043798752,"data":"CA geometry drift vs Phase 1: 7.63e-06 A\n"}
+,{"stream_name":"stderr","time":48.149893636,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":48.149919744,"data":"\n"}
+,{"stream_name":"stderr","time":48.149926266,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stdout","time":116.049257432,"data":"\n"}
+,{"stream_name":"stdout","time":116.049298539,"data":"done in 67.9s | topo (10087, 35) | seq (10087, 27) | positives 925/10087\n"}
+,{"stream_name":"stdout","time":116.049305711,"data":"pruned 2 constant column(s): ['H0_mean_birth', 'H0_betti_r5']\n"}
+,{"stream_name":"stdout","time":116.049310879,"data":"topological features retained: 33  (Phase 2 had 30 live of 35)\n"}
+,{"stream_name":"stderr","time":116.050174752,"data":"[Parallel(n_jobs=4)]: Done  41 out of  41 | elapsed:  1.1min finished\n"}
+,{"stream_name":"stderr","time":116.050199759,"data":"\n"}
+,{"stream_name":"stderr","time":116.050205947,"data":"[Parallel(n_jobs=4)]: Done  41 out of  41 | elapsed:  1.1min finished\n"}
+,{"stream_name":"stdout","time":117.956579534,"data":"feature                 raw AUC  resid AUC  signal kept\n"}
+,{"stream_name":"stdout","time":117.956624143,"data":"-------------------------------------------------------\n"}
+,{"stream_name":"stdout","time":117.956631695,"data":"H0_entropy                0.613      0.263        209%\n"}
+,{"stream_name":"stdout","time":117.956638101,"data":"H1_entropy                0.566      0.267        355%\n"}
+,{"stream_name":"stdout","time":117.956643627,"data":"H0_n_bars                 0.621      0.269        191%\n"}
+,{"stream_name":"stdout","time":117.956649726,"data":"H2_total_pers             0.543      0.299        470%\n"}
+,{"stream_name":"stdout","time":117.956655784,"data":"H2_n_bars                 0.564      0.305        303%\n"}
+,{"stream_name":"stdout","time":117.95666203,"data":"H2_entropy                0.556      0.309        338%\n"}
+,{"stream_name":"stdout","time":117.956667492,"data":"H0_betti_r3               0.507      0.680       2519%\n"}
+,{"stream_name":"stdout","time":117.956672969,"data":"H2_mean_birth             0.710      0.654         73%\n"}
+,{"stream_name":"stdout","time":117.956678818,"data":"H1_n_bars                 0.593      0.350        161%\n"}
+,{"stream_name":"stdout","time":117.956684285,"data":"H2_mean_death             0.707      0.647         71%\n"}
+,{"stream_name":"stdout","time":117.956689129,"data":"H1_mean_birth             0.686      0.641         76%\n"}
+,{"stream_name":"stdout","time":117.956693884,"data":"H1_mean_death             0.687      0.635         72%\n"}
+,{"stream_name":"stdout","time":117.956698556,"data":"H2_betti_r5               0.513      0.366        997%\n"}
+,{"stream_name":"stdout","time":117.956703302,"data":"H1_total_pers             0.597      0.367        138%\n"}
+,{"stream_name":"stdout","time":117.956722846,"data":"\n"}
+,{"stream_name":"stdout","time":117.956726861,"data":"29/31 topological features keep |AUC-0.5| \u003e 0.05 after burial control\n"}
+,{"stream_name":"stdout","time":117.95673135,"data":"best surviving: H0_entropy at residual AUC 0.263\n"}
+,{"stream_name":"stdout","time":118.464749731,"data":"\n"}
+,{"stream_name":"stdout","time":118.464787103,"data":"=== logreg | 5-fold GroupKFold by PDB entry ===\n"}
+,{"stream_name":"stdout","time":118.464791584,"data":"feature set                ROC-AUC          PR-AUC\n"}
+,{"stream_name":"stdout","time":118.464795925,"data":"--------------------------------------------------\n"}
+,{"stream_name":"stdout","time":118.46480051,"data":"seq                   0.593 +-0.007     0.119 +-0.023\n"}
+,{"stream_name":"stdout","time":118.722699764,"data":"burial                0.750 +-0.027     0.276 +-0.060\n"}
+,{"stream_name":"stdout","time":119.40270773,"data":"topo                  0.800 +-0.033     0.339 +-0.050\n"}
+,{"stream_name":"stdout","time":119.402740784,"data":"seq+burial            0.757 +-0.020     0.262 +-0.055\n"}
+,{"stream_name":"stdout","time":127.940363067,"data":"seq+burial+topo       0.804 +-0.028     0.339 +-0.053\n"}
+,{"stream_name":"stdout","time":127.940437471,"data":"\n"}
+,{"stream_name":"stdout","time":127.940447405,"data":"  MARGINAL GAIN FROM TOPOLOGY (paired, per fold):\n"}
+,{"stream_name":"stdout","time":127.940452592,"data":"    ROC-AUC +0.0466 +-0.0146   folds improved: 5/5\n"}
+,{"stream_name":"stdout","time":127.94045737,"data":"    PR-AUC  +0.0772 +-0.0376   folds improved: 5/5\n"}
+,{"stream_name":"stdout","time":127.940462739,"data":"\n"}
+,{"stream_name":"stdout","time":127.94046793,"data":"=== hgb | 5-fold GroupKFold by PDB entry ===\n"}
+,{"stream_name":"stdout","time":127.940472974,"data":"feature set                ROC-AUC          PR-AUC\n"}
+,{"stream_name":"stdout","time":127.940478167,"data":"--------------------------------------------------\n"}
+,{"stream_name":"stdout","time":130.826177577,"data":"seq                   0.592 +-0.022     0.129 +-0.029\n"}
+,{"stream_name":"stdout","time":132.768046792,"data":"burial                0.737 +-0.030     0.284 +-0.055\n"}
+,{"stream_name":"stdout","time":136.373899949,"data":"topo                  0.775 +-0.045     0.338 +-0.045\n"}
+,{"stream_name":"stdout","time":139.365057575,"data":"seq+burial            0.769 +-0.026     0.334 +-0.053\n"}
+,{"stream_name":"stdout","time":144.349474321,"data":"seq+burial+topo       0.789 +-0.032     0.366 +-0.041\n"}
+,{"stream_name":"stdout","time":144.349563656,"data":"\n"}
+,{"stream_name":"stdout","time":144.349570015,"data":"  MARGINAL GAIN FROM TOPOLOGY (paired, per fold):\n"}
+,{"stream_name":"stdout","time":144.34957481,"data":"    ROC-AUC +0.0200 +-0.0117   folds improved: 4/5\n"}
+,{"stream_name":"stdout","time":144.349579349,"data":"    PR-AUC  +0.0322 +-0.0352   folds improved: 4/5\n"}
+,{"stream_name":"stdout","time":144.867632898,"data":"node feature dim : 27 -\u003e 60\n"}
+,{"stream_name":"stdout","time":144.867663366,"data":"saved -\u003e /kaggle/working/processed/phase2b_graphs.pt (6.4 MB)\n"}
+,{"stream_name":"stderr","time":149.712468247,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":149.712519854,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":149.856908858,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":149.856963158,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":150.451234395,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":150.755193657,"data":"[NbConvertApp] Writing 100244 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":153.147702342,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":154.017260506,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":154.017290889,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":154.017589762,"data":"[NbConvertApp] Writing 381748 bytes to __results__.html\n"}
+]

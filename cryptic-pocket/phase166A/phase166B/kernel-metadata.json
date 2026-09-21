@@ -1,0 +1,17 @@
+{
+  "id": "blackpearls1/phase166-full-tda-hard-generalization",
+  "title": "Phase166 full_tda Hard Generalization",
+  "code_file": "phase166_full_tda_hard_generalization.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase159-cryptobench-anmmsf-ingestion"
+  ],
+  "competition_sources": [],
+  "model_sources": []
+}

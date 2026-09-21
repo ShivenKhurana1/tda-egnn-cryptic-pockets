@@ -1,0 +1,5 @@
+Kaggle upload:
+  kaggle kernels push -p .
+
+Download after completion:
+  kaggle kernels output blackpearls1/tda-egnn-phase164-cryptobench-tda-component-ablation -p ./phase164_output
