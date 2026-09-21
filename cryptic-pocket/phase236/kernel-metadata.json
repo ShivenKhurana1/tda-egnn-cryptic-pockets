@@ -1,0 +1,21 @@
+{
+  "id": "blackpearls1/phase236-localization-geometry-control",
+  "title": "Phase236 Localization Geometry Control",
+  "code_file": "phase236_localization_geometry_control.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase6b-topology-scale",
+    "blackpearls1/tda-egnn-phase10-esm-boost",
+    "blackpearls1/tda-egnn-phase15-localized-sota-validation",
+    "blackpearls1/phase229-geometry-main-pool",
+    "blackpearls1/phase235-benchmark-geometry"
+  ]
+}
