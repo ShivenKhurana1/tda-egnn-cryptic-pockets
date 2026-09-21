@@ -25,9 +25,13 @@ exposure geometry:
 * Phase 225: the pocket-size correlation reported in the manuscript (partial rho 0.756) is inflated by PR-AUC's
   prevalence-dependent chance level; prevalence-free versions are about 0.30-0.36.
 * Phase 226: P2Rank 2.5.1 baseline on the same 185 proteins.
-* Phases 229-232 (in progress): the same geometry control on the main pipeline and on the manuscript's own
-  evaluation. The "185-protein holdout" in the manuscript is the Phase 166 embedding-cluster hard split, not the
-  official CryptoBench split.
+* Phases 232-233: the same control on the manuscript's own evaluation (Phase 166 hard split, 185 proteins, experimental
+  ligand-contact labels; the "185-protein holdout" is that split, not the official CryptoBench split). Geometry+persistence vs
+  geometry: PR-AUC +0.0008 (95% CI -0.005..+0.007, p = 0.79). Geometry beats P2Rank on ROC (0.796 vs 0.756).
+* `cryptic-pocket/phase167_validation/phase234_REVISED_MANUSCRIPT.md` is the revised write-up (the Phase 214 manuscript is
+  frozen and predates these controls; see `phase234_CHANGES_FROM_FROZEN.md`).
+* Phases 229-230 (in progress): the same control on the main pipeline (Phase 11 nested CV). Until it finishes, the COACH420/HOLO4K
+  and older CryptoBench topology results in `paper.md` are only tested against a 2-feature burial baseline.
 
 ## Not in this repository
 
