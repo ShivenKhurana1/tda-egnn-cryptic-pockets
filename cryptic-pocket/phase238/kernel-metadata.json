@@ -1,0 +1,15 @@
+{
+  "id": "blackpearls1/phase238-esm650m-ingestion",
+  "title": "Phase238 ESM650M Ingestion",
+  "code_file": "phase238_esm650m_ingestion.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": ["blackpearls1/tda-egnn-phase6b-topology-scale"]
+}

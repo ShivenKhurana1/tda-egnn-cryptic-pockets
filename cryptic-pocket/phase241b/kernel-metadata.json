@@ -1,0 +1,18 @@
+{
+  "id": "blackpearls1/phase241b-geometry-control-3b",
+  "title": "Phase241b Geometry Control 3B",
+  "code_file": "phase241b_geometry_control_3b.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/phase239-esm3b-ingestion",
+    "blackpearls1/phase229-geometry-main-pool"
+  ]
+}

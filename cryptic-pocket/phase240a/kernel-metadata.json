@@ -1,0 +1,18 @@
+{
+  "id": "blackpearls1/phase240a-geometry-control-650m",
+  "title": "Phase240a Geometry Control 650M",
+  "code_file": "phase240a_geometry_control_650m.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/phase238-esm650m-ingestion",
+    "blackpearls1/phase229-geometry-main-pool"
+  ]
+}

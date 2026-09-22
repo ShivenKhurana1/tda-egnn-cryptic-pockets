@@ -1,0 +1,15 @@
+{
+  "id": "blackpearls1/phase239-esm3b-ingestion",
+  "title": "Phase239 ESM3B Ingestion",
+  "code_file": "phase239_esm3b_ingestion.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": ["blackpearls1/tda-egnn-phase6b-topology-scale"]
+}
