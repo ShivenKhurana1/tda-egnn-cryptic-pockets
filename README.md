@@ -32,8 +32,12 @@ exposure geometry:
   frozen and predates these controls; see `phase234_CHANGES_FROM_FROZEN.md`).
 * Phases 229-230: the same control on the main pipeline (Phase 11 nested CV, 10 folds x 2 seeds, 2,055 chains). Geometry beats
   topology alone (test PR-AUC +0.0129, 10/10 folds); topology adds a small residual over geometry (+0.0097, 9/10 folds, t p = 0.017,
-  Wilcoxon p = 0.037; not significant in ROC-AUC). `paper.md` has been updated to match. The control was not repeated at the 650M/3B
-  scales, for COACH420/HOLO4K scoring, or for localization.
+  Wilcoxon p = 0.037; not significant in ROC-AUC).
+* Phases 235-237: the same control for localization (COACH420/HOLO4K, pooled DCC@4A, 8 seeds). Geometry beats topology alone
+  (+0.0305, 7/8 seeds). Geometry+topology vs geometry is null per-seed (+0.0051, 3/8 seeds) but a follow-up (Phase 237, reloading
+  the 32 checkpoints) shows a monotonic ensemble-size effect (69/70 disjoint 4-seed half-splits positive) and a two-way-bootstrapped
+  +0.0188 (95% CI -0.0096..+0.0456) -- directionally consistent with a small residual topology benefit, not formally confirmed.
+  `paper.md` has been updated to match. Not yet run: 650M/3B scales, the 7,513-chain pool, or CryptoBench's own localization head.
 
 ## Not in this repository
 

@@ -32,7 +32,13 @@ head, a trained-localization system that reaches distance-to-center-success
 (DCC@4Å) of 0.593 on COACH420 — a real win over a live, current run of the
 standard tool P2Rank (+0.072) — while landing at approximate statistical
 parity with P2Rank on HOLO4K (0.645 vs 0.658, not distinguishable from
-noise). On the CryptoBench cryptic-pocket benchmark, the same architecture,
+noise). A geometry control for localization, run at the original 2,055-chain
+scale, again finds geometry alone beats topology alone (+0.0305 pooled
+DCC@4Å, 7/8 seeds); geometry plus topology beyond geometry alone is null
+per seed (+0.0051, 3/8 seeds) but positive and increasingly consistent as
+ensemble size grows (69/70 disjoint 4-seed half-splits positive), landing
+at a two-way-bootstrapped +0.0188 (95% CI -0.0096 to +0.0456) that does not
+clear this project's confirmation bar. On the CryptoBench cryptic-pocket benchmark, the same architecture,
 extended across three ESM2 embedding scales (35M/650M/3B parameters) and
 combined with transfer learning from the main pipeline, a regularized
 logistic-regression meta-combiner across scales, and topology and transfer
@@ -419,14 +425,43 @@ crystal frame), the corrected, externally validated result on the full
 COACH420/HOLO4K benchmark was pooled DCC 0.5298 (COACH420 0.5115, n=174;
 HOLO4K 0.5331, n=968), with topology contributing **+0.0289** pooled DCC
 over a no-topology control (COACH420 +0.0920, HOLO4K +0.0176) — later
-confirmed with strong multi-seed evidence (8/8 seed-paired wins, mean delta
-+0.0528, ~3.4–4.1× the noise floor at the largest data scale). This is, to
-our knowledge, the first demonstration that persistent homology improves
-*where* a trained equivariant model believes a pocket center is, not only
-*whether* a residue is classified as part of one. That comparison was
-against a no-topology control; the geometry control described above was
-not repeated for localization, so how much of this localization gain is
-specific to topology rather than to local geometry is untested.
+confirmed with strong multi-seed evidence at the original 2,056-chain
+training scale (8/8 seed-paired wins, mean delta +0.0528, 3.37× the
+single-seed noise floor). This was, to our knowledge, the first
+demonstration that persistent homology improves *where* a trained
+equivariant model believes a pocket center is, not only *whether* a
+residue is classified as part of one.
+
+**Geometry control for localization (Phases 236–237).** Retraining the
+same 2,055-chain pool and scoring on the same 1,149-unit COACH420/HOLO4K
+benchmark with the 17-feature geometry block used for classification
+(identical 51-wide side channel across arms, 8 seeds each), geometry again
+outperforms topology alone: geometry minus topology is **+0.0305 pooled
+DCC@4Å** (7/8 seeds, paired t p=0.0075, Wilcoxon p=0.016), and geometry
+minus no-topology is +0.0855 (8/8 seeds, p=2.2e-5/0.0078) — both larger
+than topology's own +0.0549-over-no-topology gain in this rerun (8/8
+seeds, p=1.6e-4/0.0078, closely replicating the +0.0528 figure above). The
+primary, pre-specified comparison — geometry plus topology minus geometry
+alone — is **null per seed**: +0.0051, positive in only 3/8 seeds (paired t
+p=0.62, Wilcoxon p=0.92). A follow-up analysis (Phase 237) reloaded the
+same 32 checkpoints, with no retraining, and asked whether this reflects a
+true absence of benefit or a small effect swamped by single-seed noise: as
+ensemble size grows from 1 to 8 seeds, the geometry+topology-minus-geometry
+delta rises monotonically from +0.0051 to +0.0254 while its spread across
+seed subsets shrinks (positive in 3/8 single-seed pairs, 55/56 three-seed
+subsets, and 69/70 disjoint 4-versus-4-seed ensemble splits) — the
+signature of a real small effect obscured by seed noise, not a clean null.
+A stricter two-way bootstrap that resamples both seeds and benchmark
+structures together puts the 8-seed-ensemble delta at +0.0188 (95% CI
+-0.0096 to +0.0456, P(Δ>0)=0.90): directionally consistent with a small
+residual benefit but not clearing this project's two-test confirmation bar.
+Read together with the CryptoBench classification result above, the
+honest summary is that topology's most defensible, consistently
+reproduced contribution — on both classification and localization, on both
+benchmark families — is beating *no* structural features at all; beating a
+strong geometric baseline is a harder bar it clears only partially (main-
+pipeline classification) or suggestively but unconfirmed (main-pipeline
+localization), and not at all on CryptoBench classification.
 
 **Scaling the training pool** turned out to be the largest single lever for
 localization accuracy on the standard benchmarks. Across three
@@ -828,8 +863,13 @@ geometry features, topology adds a small residual +0.0097 PR-AUC on the
 main pipeline (9/10 folds; not significant in ROC-AUC) and nothing
 detectable on CryptoBench. With a trained localization head, the model
 also improved pocket-center localization over a no-topology control
-(+0.0289 to +0.0528 DCC depending on data scale, multi-seed confirmed);
-that comparison has not been repeated against geometry. The combination
+(+0.0289 to +0.0528 DCC depending on data scale, multi-seed confirmed). A
+geometry control for localization found the same pattern as classification:
+geometry alone beats topology alone (+0.0305 pooled DCC, 7/8 seeds), and
+geometry-plus-topology beyond geometry alone is null per seed (+0.0051,
+3/8 seeds) but trends positive and increasingly consistent as ensemble
+size grows, landing at a two-way-bootstrapped +0.0188 (95% CI -0.0096 to
++0.0456) that does not clear this project's confirmation bar. The combination
 of topology-fused equivariant message passing with a trained 3D
 localization objective is more specific than either ingredient's own prior
 art: published work fusing
@@ -863,14 +903,18 @@ into a further claimed improvement.
 Natural extensions of this specific line of work, grounded in gaps this
 project identified but did not close:
 
-- **Finish the geometry control.** The control was run at the ESM2-35M
-  scale on the 2,055-chain pool and on CryptoBench. It has not been
-  repeated for the 650M and 3B main-pipeline models, for COACH420/HOLO4K
-  benchmark scoring, or for pocket-center localization, where the claimed
-  topology gain (+0.0289 to +0.0528 DCC) was measured only against a
-  no-topology control. Whether the small residual topology effect on the
-  main pipeline grows, shrinks or vanishes with data scale, and which
-  topological properties (if any) it reflects, are open.
+- **Finish the geometry control.** The control has now been run at the
+  ESM2-35M scale on the 2,055-chain classification pool, on CryptoBench,
+  and on COACH420/HOLO4K localization, always with the same result shape:
+  geometry alone matches or beats topology alone, and topology's residual
+  contribution beyond geometry is either null (CryptoBench classification)
+  or a small, consistently-signed-but-per-seed-unconfirmed effect (main-
+  pipeline classification and localization). It has not been repeated for
+  the 650M and 3B main-pipeline embedding scales, at the larger 7,513-chain
+  training pool, or for CryptoBench's own localization head. Whether a
+  larger benchmark or more seeds would confirm the small residual topology
+  effect the ensemble-size and two-way-bootstrap analyses point to (Phase
+  237), and which topological properties (if any) it reflects, are open.
 - **A larger cryptic-pocket benchmark.** CryptoBench's 60-chain validation
   and 182-chain test splits are small enough to leave the ensemble's MCC
   gain statistically underpowered: a chain-level bootstrap over the

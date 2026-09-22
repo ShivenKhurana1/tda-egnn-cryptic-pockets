@@ -1,0 +1,79 @@
+[{"stream_name":"stderr","time":6.249347254,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.249410802,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.130692247,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.130734693,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.130739883,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.130743107,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.782852408,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.782885224,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.782891153,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.782895917,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.422155949,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m2.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":11.77866899,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m36.4 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m22.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":11.828754269000001,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.2 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m143.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m71.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":77.845082588,"data":"\u001b[?25hGPU: Tesla T4 (probe PASS)\n"}
+,{"stream_name":"stdout","time":77.845133606,"data":"device cuda | node dim 541 | train 1441 | val 308 | test 307\n"}
+,{"stream_name":"stdout","time":79.117076513,"data":"training chains with geometry: 2,055 (dropped 1); node dim 558 = 507 + 34 + 17\n"}
+,{"stream_name":"stdout","time":113.713114065,"data":"fetched 2,003/2,003 in 0.6 min\n"}
+,{"stream_name":"stdout","time":313.869654557,"data":"\n"}
+,{"stream_name":"stdout","time":313.869704581,"data":"true centers recovered: 2,055/2,055 (3.3 min) | geometry mismatches: 0 | no ligand: 0\n"}
+,{"stream_name":"stdout","time":313.869711087,"data":"training chains with recovered true centers: 2,055\n"}
+,{"stream_name":"stdout","time":313.869715076,"data":"deployment training: 1891 train / 164 val  (matches Phase 15/18's 2,056-chain setup)\n"}
+,{"stream_name":"stdout","time":511.626831992,"data":"  [no-topo  ] seed 0: val PR 0.4814  val DCC 0.3537  [3.3m]\n"}
+,{"stream_name":"stdout","time":681.911555739,"data":"  [no-topo  ] seed 1: val PR 0.4753  val DCC 0.2927  [6.1m]\n"}
+,{"stream_name":"stdout","time":860.22445943,"data":"  [no-topo  ] seed 2: val PR 0.4811  val DCC 0.3293  [9.1m]\n"}
+,{"stream_name":"stdout","time":1013.058813994,"data":"  [no-topo  ] seed 3: val PR 0.4796  val DCC 0.3354  [11.6m]\n"}
+,{"stream_name":"stdout","time":1233.890253802,"data":"  [no-topo  ] seed 4: val PR 0.4731  val DCC 0.3049  [15.3m]\n"}
+,{"stream_name":"stdout","time":1480.018709905,"data":"  [no-topo  ] seed 5: val PR 0.4776  val DCC 0.3354  [19.4m]\n"}
+,{"stream_name":"stdout","time":1692.298687042,"data":"  [no-topo  ] seed 6: val PR 0.4620  val DCC 0.3232  [23.0m]\n"}
+,{"stream_name":"stdout","time":1904.361755534,"data":"  [no-topo  ] seed 7: val PR 0.4791  val DCC 0.3537  [26.5m]\n"}
+,{"stream_name":"stdout","time":2050.478596959,"data":"  [full     ] seed 0: val PR 0.5707  val DCC 0.3963  [28.9m]\n"}
+,{"stream_name":"stdout","time":2222.303763235,"data":"  [full     ] seed 1: val PR 0.5678  val DCC 0.4268  [31.8m]\n"}
+,{"stream_name":"stdout","time":2419.782150563,"data":"  [full     ] seed 2: val PR 0.5651  val DCC 0.4146  [35.1m]\n"}
+,{"stream_name":"stdout","time":2616.881645909,"data":"  [full     ] seed 3: val PR 0.5797  val DCC 0.4085  [38.4m]\n"}
+,{"stream_name":"stdout","time":2805.362621834,"data":"  [full     ] seed 4: val PR 0.5570  val DCC 0.4146  [41.5m]\n"}
+,{"stream_name":"stdout","time":2985.347236467,"data":"  [full     ] seed 5: val PR 0.5744  val DCC 0.4024  [44.5m]\n"}
+,{"stream_name":"stdout","time":3157.181676449,"data":"  [full     ] seed 6: val PR 0.5668  val DCC 0.4085  [47.4m]\n"}
+,{"stream_name":"stdout","time":3320.379805685,"data":"  [full     ] seed 7: val PR 0.5655  val DCC 0.3780  [50.1m]\n"}
+,{"stream_name":"stdout","time":3492.653525876,"data":"  [geom     ] seed 0: val PR 0.5820  val DCC 0.4268  [53.0m]\n"}
+,{"stream_name":"stdout","time":3690.047223592,"data":"  [geom     ] seed 1: val PR 0.5744  val DCC 0.4329  [56.3m]\n"}
+,{"stream_name":"stdout","time":3870.146481871,"data":"  [geom     ] seed 2: val PR 0.5787  val DCC 0.4268  [59.3m]\n"}
+,{"stream_name":"stdout","time":4041.188595633,"data":"  [geom     ] seed 3: val PR 0.5696  val DCC 0.4695  [62.1m]\n"}
+,{"stream_name":"stdout","time":4229.567401315,"data":"  [geom     ] seed 4: val PR 0.5808  val DCC 0.4451  [65.2m]\n"}
+,{"stream_name":"stdout","time":4400.718018261,"data":"  [geom     ] seed 5: val PR 0.5842  val DCC 0.4512  [68.1m]\n"}
+,{"stream_name":"stdout","time":4589.098481449,"data":"  [geom     ] seed 6: val PR 0.5800  val DCC 0.4146  [71.2m]\n"}
+,{"stream_name":"stdout","time":4751.943683224,"data":"  [geom     ] seed 7: val PR 0.5851  val DCC 0.4390  [74.0m]\n"}
+,{"stream_name":"stdout","time":4924.119628405,"data":"  [geom+topo] seed 0: val PR 0.5826  val DCC 0.4085  [76.8m]\n"}
+,{"stream_name":"stdout","time":5104.202435552,"data":"  [geom+topo] seed 1: val PR 0.5955  val DCC 0.4268  [79.8m]\n"}
+,{"stream_name":"stdout","time":5275.428800723,"data":"  [geom+topo] seed 2: val PR 0.5828  val DCC 0.4207  [82.7m]\n"}
+,{"stream_name":"stdout","time":5464.041099512,"data":"  [geom+topo] seed 3: val PR 0.5913  val DCC 0.4268  [85.8m]\n"}
+,{"stream_name":"stdout","time":5618.240537944,"data":"  [geom+topo] seed 4: val PR 0.5947  val DCC 0.4024  [88.4m]\n"}
+,{"stream_name":"stdout","time":5806.837884928,"data":"  [geom+topo] seed 5: val PR 0.5829  val DCC 0.3841  [91.5m]\n"}
+,{"stream_name":"stdout","time":5970.028421281,"data":"  [geom+topo] seed 6: val PR 0.5912  val DCC 0.4268  [94.3m]\n"}
+,{"stream_name":"stdout","time":6124.66205166,"data":"  [geom+topo] seed 7: val PR 0.5932  val DCC 0.4207  [96.8m]\n"}
+,{"stream_name":"stdout","time":6164.937089564,"data":"benchmark chains: 2,082 cached, 2,082 with geometry (dropped 0 for every arm)\n"}
+,{"stream_name":"stdout","time":6528.492420268,"data":"inference (8 seeds x 4 arms x 1149 structures) in 6.1 min\n"}
+,{"stream_name":"stdout","time":6536.046580145,"data":"arm         pooled DCC mean     std    COACH420   HOLO4K\n"}
+,{"stream_name":"stdout","time":6536.046631685,"data":"no-topo              0.4441  0.0128      0.3736   0.4567\n"}
+,{"stream_name":"stdout","time":6536.046640159,"data":"full                 0.4990  0.0179      0.4576   0.5065\n"}
+,{"stream_name":"stdout","time":6536.046646492,"data":"geom                 0.5296  0.0199      0.5230   0.5307\n"}
+,{"stream_name":"stdout","time":6536.046652581,"data":"geom+topo            0.5347  0.0195      0.5036   0.5403\n"}
+,{"stream_name":"stdout","time":6536.584147296,"data":"\n"}
+,{"stream_name":"stdout","time":6536.584186844,"data":"comparison (a - b)         per-seed delta  wins      t p      W p        8-seed ensemble delta [95% bootstrap over structures]\n"}
+,{"stream_name":"stdout","time":6536.584193258,"data":"geom+topo - geom                  +0.0051   3/8  6.2e-01  9.2e-01    +0.0254 [+0.0044, +0.0473]  n=1142\n"}
+,{"stream_name":"stdout","time":6536.584198086,"data":"full - no-topo                    +0.0549   8/8  1.6e-04  7.8e-03    +0.0263 [+0.0009, +0.0525]  n=1142\n"}
+,{"stream_name":"stdout","time":6536.811078112,"data":"geom - no-topo                    +0.0855   8/8  2.2e-05  7.8e-03    +0.0482 [+0.0236, +0.0727]  n=1142\n"}
+,{"stream_name":"stdout","time":6536.811102094,"data":"geom - full                       +0.0305   7/8  7.5e-03  1.6e-02    +0.0219 [-0.0009, +0.0447]  n=1142\n"}
+,{"stream_name":"stdout","time":6536.811106328,"data":"geom+topo - full                  +0.0357   8/8  9.8e-04  7.8e-03    +0.0473 [+0.0280, +0.0674]  n=1142\n"}
+,{"stream_name":"stdout","time":6536.811110008,"data":"\n"}
+,{"stream_name":"stdout","time":6536.811113426,"data":"Phase 22 reference (old checkpoints, no geometry arm): full - no_topo = +0.0528 pooled DCC\n"}
+,{"stream_name":"stdout","time":6536.811128326,"data":"saved phase236_paired_stats.csv, phase236_summary.json, phase236_train_log.json\n"}
+,{"stream_name":"stderr","time":6543.153940486,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":6543.153999469,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":6543.328650587,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":6543.328698612,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":6544.006374578,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":6544.340495752,"data":"[NbConvertApp] Writing 40309 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":6546.909580421,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":6547.939532332,"data":"[NbConvertApp] Writing 428245 bytes to __results__.html\n"}
+]
