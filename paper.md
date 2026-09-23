@@ -42,7 +42,12 @@ DCC@4Å, 7/8 seeds); geometry plus topology beyond geometry alone is null
 per seed (+0.0051, 3/8 seeds) but positive and increasingly consistent as
 ensemble size grows (69/70 disjoint 4-seed half-splits positive), landing
 at a two-way-bootstrapped +0.0188 (95% CI -0.0096 to +0.0456) that does not
-clear this project's confirmation bar. On the CryptoBench cryptic-pocket benchmark, the same architecture,
+clear this project's confirmation bar. Repeating the localization control at
+650M and 3B embedding scale does not repeat classification's strengthening:
+geometry still matches or beats topology alone at every scale, and the
+topology residual over geometry is +0.0206 (650M; t p=0.037, Wilcoxon
+p=0.078) and -0.0007 (3B), pooling to +0.0084 (95% CI -0.0027 to +0.0194)
+across scales with no scale trend — not established for localization. On the CryptoBench cryptic-pocket benchmark, the same architecture,
 extended across three ESM2 embedding scales (35M/650M/3B parameters) and
 combined with transfer learning from the main pipeline, a regularized
 logistic-regression meta-combiner across scales, and topology and transfer
@@ -377,11 +382,10 @@ pretrained P2Rank 2.5.1 (ROC-AUC 0.796 vs. 0.756, p=1e-4). A plausible but
 untested reason the main pipeline retains a small topology residual while
 CryptoBench does not is the roughly three-fold larger training pool
 (2,055 vs. 700 chains); the two benchmarks also differ in label definition.
-Scope of this control: the classification arm was run at all three main-
-pipeline embedding scales (35M/650M/3B) on the same 2,055-chain pool; the
-CryptoBench arm and the localization arm (below) were run only at 35M.
-Whether the localization result would also strengthen at larger embedding
-scales, and whether the CryptoBench null would hold, are untested.
+Scope of this control: the classification arm and the localization arm
+(below) were each run at all three main-pipeline embedding scales
+(35M/650M/3B) on the same 2,055-chain pool; the CryptoBench arm was run
+only at 35M, so whether its null would hold at larger scale is untested.
 
 ### Ablations: what helped and what did not
 
@@ -498,17 +502,58 @@ A stricter two-way bootstrap that resamples both seeds and benchmark
 structures together puts the 8-seed-ensemble delta at +0.0188 (95% CI
 -0.0096 to +0.0456, P(Δ>0)=0.90): directionally consistent with a small
 residual benefit but not clearing this project's two-test confirmation bar.
-Read together with the classification results above, topology's most
-defensible, consistently reproduced contribution across every setting
-tested is beating *no* structural features at all. Beating a strong
-geometric baseline is a harder bar: it is clearly met by main-pipeline
+**Localization at larger embedding scales (Phases 244–247).** Because
+classification's residual strengthened with embedding scale (above), the
+same localization control was repeated at ESM2-650M and ESM2-3B: the
+COACH420/HOLO4K benchmark cache was re-embedded at each scale by decoding
+each chain's sequence losslessly from the existing cached one-hot block
+(no structure was re-fetched), rebuilt and checked column-for-column
+(1,341 and 2,621 features per residue), and 4 arms × 8 seeds were retrained
+on the corresponding 2,055-chain training blob (Phases 238/239).
+
+| Scale | No topology | Topology | Geometry | Geometry + topology |
+|---|---|---|---|---|
+| 35M | 0.4441 | 0.4990 | 0.5296 | 0.5347 |
+| 650M | 0.4790 | 0.5016 | 0.5385 | 0.5591 |
+| 3B | 0.4709 | 0.5164 | 0.5418 | 0.5412 |
+
+(pooled DCC@4Å, mean of 8 single-seed models; seed-to-seed standard
+deviation is 0.013–0.025.) The picture does **not** repeat
+classification's:
+
+- **Geometry still matches or beats topology alone at every scale:**
+  +0.0305 (35M, 7/8 seeds), +0.0369 (650M, 8/8 seeds; t p=0.0018,
+  Wilcoxon p=0.0078), +0.0254 (3B, 5/8 seeds; p=0.064/0.11 — the weakest of
+  the three, not significant on its own).
+- **Topology and geometry each still beat having neither**, replicating the
+  original +0.0528 finding in direction at every scale (topology minus
+  none: +0.0549, +0.0227, +0.0455; geometry minus none: +0.0855, +0.0595,
+  +0.0709), although topology's own gain is notably smaller at 650M.
+- **The pre-specified comparison — geometry plus topology minus geometry
+  alone — is not confirmed at any scale and does not trend with scale:**
+  +0.0051 (35M; 3/8 seeds; p=0.62/0.92), +0.0206 (650M; 6/8 seeds; paired
+  t p=0.037 but Wilcoxon p=0.078, so it fails this project's two-test bar),
+  and -0.0007 (3B; 4/8 seeds; p=0.94/1.0). Pooling all 24 seed-level
+  differences across the three scales gives +0.0084 (95% CI -0.0027 to
+  +0.0194; positive in 13/24; t p=0.13, Wilcoxon p=0.18), with no
+  relationship between the difference and embedding scale (Spearman
+  ρ=-0.16, p=0.45). The 8-seed-ensemble differences (+0.0254, +0.0053,
+  +0.0184) are equally inconsistent in size across scales. At 3B the
+  benchmarks also disagree in sign (COACH420: geometry 0.530 vs.
+  geometry+topology 0.489; HOLO4K: 0.544 vs. 0.551).
+
+**Honest reading.** Topology's most defensible, consistently reproduced
+contribution across every setting tested is beating *no* structural
+features at all. Beating a strong geometric baseline is a harder bar,
+and the two tasks differ: it is clearly met by main-pipeline
 classification at 650M and 3B embedding scale (confirmed on both PR-AUC
-and ROC-AUC), met only partially at 35M classification (PR-AUC only), met
-suggestively but unconfirmed for main-pipeline localization (35M only,
-untested at larger scale), and not met at all on CryptoBench
-classification (35M only). The scale-dependence found for classification
-raises the obvious question, untested here, of whether localization's
-suggestive-but-unconfirmed result would also firm up at 650M or 3B.
+and ROC-AUC), met only partially at 35M classification (PR-AUC only),
+**not established for localization at any scale** (an inconsistent
+effect of roughly +0.008 pooled whose interval includes zero and whose
+size and sign fluctuate across scales within the seed noise), and not met
+at all on CryptoBench classification (35M only). The classification
+residual firms up with embedding scale; the localization residual does
+not, so the two should not be described as one consistent topology effect.
 
 **Scaling the training pool** turned out to be the largest single lever for
 localization accuracy on the standard benchmarks. Across three
@@ -920,10 +965,11 @@ also improved pocket-center localization over a no-topology control
 (+0.0289 to +0.0528 DCC depending on data scale, multi-seed confirmed). A
 geometry control for localization found the same pattern as classification:
 geometry alone beats topology alone (+0.0305 pooled DCC, 7/8 seeds), and
-geometry-plus-topology beyond geometry alone is null per seed (+0.0051,
-3/8 seeds) but trends positive and increasingly consistent as ensemble
-size grows, landing at a two-way-bootstrapped +0.0188 (95% CI -0.0096 to
-+0.0456) that does not clear this project's confirmation bar. The combination
+geometry-plus-topology beyond geometry alone is not established at any
+of the three embedding scales tested (per-seed +0.0051, +0.0206 and
+-0.0007 at 35M/650M/3B; pooled +0.0084, 95% CI -0.0027 to +0.0194, with no
+scale trend) — in contrast to classification, where the residual is
+confirmed at 650M and 3B. The combination
 of topology-fused equivariant message passing with a trained 3D
 localization objective is more specific than either ingredient's own prior
 art: published work fusing
@@ -963,14 +1009,18 @@ project identified but did not close:
   for COACH420/HOLO4K localization. Geometry alone matches or beats
   topology alone in every setting. Topology's residual contribution beyond
   geometry is null on CryptoBench classification, confirmed on both
-  PR-AUC and ROC-AUC at 650M and 3B main-pipeline classification, and only
-  partially confirmed (35M classification, PR-AUC only) or suggestive-but-
-  unconfirmed (localization, 35M only) elsewhere. The clearest open
-  question this raises: does localization's small residual also firm up
-  at 650M/3B the way classification's did? Also untested: the larger
+  PR-AUC and ROC-AUC at 650M and 3B main-pipeline classification, only
+  partially confirmed at 35M classification (PR-AUC only), and not
+  established for localization at any of the three scales (pooled
+  +0.0084, 95% CI -0.0027 to +0.0194). Still untested: the larger
   7,513-chain training pool, CryptoBench at 650M/3B, and CryptoBench's own
-  localization head. Which specific topological property (if any) drives
-  the confirmed residual remains unidentified.
+  localization head. Two questions matter most. First, why classification's
+  residual strengthens with embedding scale while localization's does not,
+  which no experiment here explains. Second, which specific topological
+  property (if any) drives the confirmed classification residual, which
+  remains unidentified; a localization study with more seeds (the
+  pooled interval above is wide enough to include an effect of about +0.02)
+  would also be needed to rule a small localization effect in or out.
 - **A larger cryptic-pocket benchmark.** CryptoBench's 60-chain validation
   and 182-chain test splits are small enough to leave the ensemble's MCC
   gain statistically underpowered: a chain-level bootstrap over the

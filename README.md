@@ -43,8 +43,12 @@ exposure geometry:
   more robust: 650M +0.0091 PR-AUC (8/10 folds, t p=0.0037, W p=0.0098) and +0.0032 ROC-AUC (9/10, p=0.015/0.037,
   both CONFIRMED); 3B +0.0115 PR-AUC (10/10, p=1.9e-4/0.0020) and +0.0040 ROC-AUC (9/10, p=0.0026/0.014, both
   CONFIRMED) -- versus 35M's PR-AUC-only confirmation. Geometry still matches or beats topology alone at every scale.
-  `paper.md` has been updated to match. Not yet run: the 7,513-chain pool, CryptoBench at 650M/3B, or localization at
-  650M/3B.
+  `paper.md` has been updated to match.
+* Phases 244-247: the same localization control at ESM2-650M and 3B (benchmark cache re-embedded by lossless one-hot decode,
+  no structure re-fetch). Does NOT repeat classification's strengthening: geometry still matches/beats topology alone at every
+  scale, and geometry+topology vs geometry is +0.0051 / +0.0206 / -0.0007 per seed at 35M/650M/3B (none confirmed by both tests;
+  pooled +0.0084, 95% CI -0.0027..+0.0194, no scale trend). The classification residual is real at 650M/3B; the localization
+  residual is not established at any scale. Not yet run: the 7,513-chain pool, CryptoBench at 650M/3B.
 
 ## Not in this repository
 
