@@ -56,17 +56,24 @@ md("## Cell 5 — Training machinery (Phase 22, verbatim except side-channel wid
 code(s236(10))
 md("## Cell 6 — Arms; train 4 arms x 8 seeds")
 code(s236(12).replace("loc236_{arm.replace('+','_')}_seed{seed}", f"loc{PHASE}_{{arm.replace('+','_')}}_seed{{seed}}"))
-md(f"## Cell 7 — Load the re-embedded {CFG['label']} benchmark cache (Phase {'244' if SCALE=='650m' else '245'}) and its geometry (Phase 235, scale-independent)")
+md(f"## Cell 7 — Load the re-embedded {CFG['label']} benchmark cache (Phase {'244' if SCALE=='650m' else '245'}, saved as two shards by benchmark source to keep the save step's memory down) and its geometry (Phase 235, scale-independent)")
 code(f'''
-bench = torch.load(locate("{CFG["bench_cache"]}"), map_location="cpu", weights_only=False)
-raw_cache = bench["cache"]
+raw_cache = {{}}
+n_pre_bench = None
+for src in ("coach420", "holo4k"):
+    shard = torch.load(locate("{CFG["bench_cache"].removesuffix(".pt")}." + src + ".pt"), map_location="cpu", weights_only=False)
+    n_pre_bench = shard["n_pre"] if n_pre_bench is None else n_pre_bench
+    assert shard["n_pre"] == n_pre_bench, "shard n_pre mismatch between coach420 and holo4k"
+    for k, e in shard["cache"].items():
+        e["x"] = e["x"].astype(np.float32)   # stored fp16 for the save step; cast back up for scoring
+        raw_cache[k] = e
 geo_bm = torch.load(locate("phase235_benchmark_geometry.pt"), map_location="cpu", weights_only=False)
 blob6b_bench = torch.load(locate("phase6b_graphs.pt"), map_location="cpu", weights_only=False)
 mu_b, sd_b = blob6b_bench["topo_mean"], blob6b_bench["topo_std"]
 del blob6b_bench
 valid_keys = {{k for k in raw_cache if k in geo_bm["feats"]}}
 print(f"benchmark chains: {{len(raw_cache):,}} cached ({CFG['label']}), {{len(valid_keys):,}} with geometry (dropped {{len(raw_cache)-len(valid_keys)}} for every arm)")
-assert bench["n_pre"] == N_PRE, f"benchmark N_PRE {{bench['n_pre']}} != training N_PRE {{N_PRE}}"
+assert n_pre_bench == N_PRE, f"benchmark N_PRE {{n_pre_bench}} != training N_PRE {{N_PRE}}"
 ''')
 md("## Cell 8 — Score all arms and seeds (Phase 22/236 scoring, arm masks applied to the benchmark features)")
 code(s236(16))

@@ -114,7 +114,9 @@ for bi in range(0, len(keys), BATCH):
         onehot = e["x"][:, :21]; dihedral = e["x"][:, 21:N_PRE_OLD]; topo = e["x"][:, N_PRE_OLD:]
         if esm_e.shape[0] != onehot.shape[0] or not np.isfinite(esm_e).all():
             n_bad += 1; continue
-        x_new = np.concatenate([onehot, dihedral, esm_e.astype(np.float32), topo], axis=1)
+        # stored as float16: halves memory (the model casts back up on load), and the source values
+        # are already fp16-precision (the embedding came straight off a fp16 model)
+        x_new = np.concatenate([onehot, dihedral, esm_e, topo], axis=1).astype(np.float16)
         entry = dict(e); entry["x"] = x_new
         new_cache[k] = entry
         e["x"] = None   # old (smaller) ESM-35M array no longer needed -- shrink raw_cache as we go
@@ -127,14 +129,22 @@ n_res = sum(len(s) for s in seqs.values())
 print(f"\\nembedded+reassembled {{len(new_cache):,}}/{{len(keys):,}} chains / {{n_res:,}} residues "
       f"in {{(time.time()-t0)/60:.1f}} min ({{n_bad}} failed alignment/finite check)")
 assert n_bad == 0, "some chains failed to reassemble -- investigate before Phase 246/247"
-del esm; torch.cuda.empty_cache(); gc.collect()
+del esm, raw_cache, seqs; torch.cuda.empty_cache(); gc.collect()
+
+import resource
+peak_mb = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
+print(f"peak RSS so far: {{peak_mb:,.0f}} MB")
 ''')
-md("## Cell 4 — Save")
+md("## Cell 4 — Save (float16, in two shards by benchmark source, to keep any single write's peak memory down)")
 code(r'''
-torch.save(dict(cache=new_cache, esm_dim=int(ESM_DIM), n_pre=21+6+int(ESM_DIM), topo_dim=TOPO_DIM),
-           "/kaggle/working/__OUT__")
-print("saved -> /kaggle/working/__OUT__")
-'''.replace("__OUT__", CFG["out"]))
+import resource
+for src in ("coach420", "holo4k"):
+    shard = {k: v for k, v in new_cache.items() if k[0] == src}
+    torch.save(dict(cache=shard, esm_dim=int(ESM_DIM), n_pre=21+6+int(ESM_DIM), topo_dim=TOPO_DIM),
+               f"/kaggle/working/__OUT_STEM__.{src}.pt")
+    print(f"saved {len(shard):,} chains -> /kaggle/working/__OUT_STEM__.{src}.pt  "
+          f"(peak RSS {resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024:,.0f} MB)")
+'''.replace("__OUT_STEM__", CFG["out"].removesuffix(".pt")))
 
 nb = {"cells": C, "metadata": {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
       "language_info": {"name": "python", "version": "3.11"}}, "nbformat": 4, "nbformat_minor": 5}
