@@ -1,0 +1,17 @@
+{
+  "id": "blackpearls1/phase244-bench-esm650m",
+  "title": "Phase244 Bench ESM650M",
+  "code_file": "phase244_bench_esm650m.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase15-localized-sota-validation"
+  ]
+}

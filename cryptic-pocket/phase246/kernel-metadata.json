@@ -1,0 +1,21 @@
+{
+  "id": "blackpearls1/phase246-localization-geometry-650m",
+  "title": "Phase246 Localization Geometry 650M",
+  "code_file": "phase246_localization_geometry_control_650m.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/phase238-esm650m-ingestion",
+    "blackpearls1/phase244-bench-esm650m",
+    "blackpearls1/phase229-geometry-main-pool",
+    "blackpearls1/phase235-benchmark-geometry",
+    "blackpearls1/tda-egnn-phase6b-topology-scale"
+  ]
+}

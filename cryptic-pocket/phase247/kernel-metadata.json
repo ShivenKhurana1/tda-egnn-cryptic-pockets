@@ -1,0 +1,21 @@
+{
+  "id": "blackpearls1/phase247-localization-geometry-3b",
+  "title": "Phase247 Localization Geometry 3B",
+  "code_file": "phase247_localization_geometry_control_3b.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/phase239-esm3b-ingestion",
+    "blackpearls1/phase245-bench-esm3b",
+    "blackpearls1/phase229-geometry-main-pool",
+    "blackpearls1/phase235-benchmark-geometry",
+    "blackpearls1/tda-egnn-phase6b-topology-scale"
+  ]
+}

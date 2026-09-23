@@ -1,0 +1,17 @@
+{
+  "id": "blackpearls1/phase245-bench-esm3b",
+  "title": "Phase245 Bench ESM3B",
+  "code_file": "phase245_bench_esm3b.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase15-localized-sota-validation"
+  ]
+}
