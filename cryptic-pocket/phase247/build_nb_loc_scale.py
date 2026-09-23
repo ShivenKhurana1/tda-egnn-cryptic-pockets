@@ -55,7 +55,8 @@ code(s236(8))
 md("## Cell 5 — Training machinery (Phase 22, verbatim except side-channel width)")
 code(s236(10))
 md("## Cell 6 — Arms; train 4 arms x 8 seeds")
-code(s236(12).replace("loc236_{arm.replace('+','_')}_seed{seed}", f"loc{PHASE}_{{arm.replace('+','_')}}_seed{{seed}}"))
+code(s236(12).replace("loc236_{arm.replace('+','_')}_seed{seed}", f"loc{PHASE}_{{arm.replace('+','_')}}_seed{{seed}}")
+             .replace("phase236_train_log.json", f"phase{PHASE}_train_log.json"))
 md(f"## Cell 7 — Load the re-embedded {CFG['label']} benchmark cache (Phase {'244' if SCALE=='650m' else '245'}, saved as two shards by benchmark source to keep the save step's memory down) and its geometry (Phase 235, scale-independent)")
 code(f'''
 raw_cache = {{}}

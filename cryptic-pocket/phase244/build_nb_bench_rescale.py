@@ -111,7 +111,10 @@ for bi in range(0, len(keys), BATCH):
     embs = embed_batch([seqs[k] for k in chunk])
     for k, esm_e in zip(chunk, embs):
         e = raw_cache[k]
-        onehot = e["x"][:, :21]; dihedral = e["x"][:, 21:N_PRE_OLD]; topo = e["x"][:, N_PRE_OLD:]
+        # BUG (fixed): this used to slice dihedral as [:, 21:N_PRE_OLD], which is 21:507 -- that
+        # captures dihedral(6) PLUS the old ESM-35M embedding(480) together, not just dihedral.
+        # dihedral is exactly 6 columns, always at [21:27]; [27:N_PRE_OLD] is the old ESM block, discarded.
+        onehot = e["x"][:, :21]; dihedral = e["x"][:, 21:27]; topo = e["x"][:, N_PRE_OLD:]
         if esm_e.shape[0] != onehot.shape[0] or not np.isfinite(esm_e).all():
             n_bad += 1; continue
         # stored as float16: halves memory (the model casts back up on load), and the source values
