@@ -1,0 +1,16 @@
+{
+  "id": "blackpearls1/phase252-coach-geometry",
+  "title": "Phase252 Coach Geometry",
+  "code_file": "phase252_coach_geometry.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase53-scaled3-coach420"
+  ]
+}

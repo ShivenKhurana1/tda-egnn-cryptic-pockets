@@ -1,0 +1,21 @@
+{
+  "id": "blackpearls1/phase254-loc-score-scale3",
+  "title": "Phase254 Loc Score Scale3",
+  "code_file": "phase254_loc_score_scale3.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/phase253a-loc-train-scale3",
+    "blackpearls1/phase253b-loc-train-scale3",
+    "blackpearls1/tda-egnn-phase53-scaled3-coach420",
+    "blackpearls1/phase252-coach-geometry",
+    "blackpearls1/tda-egnn-phase51-topology-scale3"
+  ]
+}

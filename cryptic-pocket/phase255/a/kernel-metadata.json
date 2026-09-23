@@ -1,0 +1,20 @@
+{
+  "id": "blackpearls1/phase255a-cls-geometry-scale3",
+  "title": "Phase255a Cls Geometry Scale3",
+  "code_file": "phase255a_cls_geometry_scale3.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase52-esm-dihedral-scale3",
+    "blackpearls1/phase250a-geometry-scale3",
+    "blackpearls1/phase250b-geometry-scale3",
+    "blackpearls1/phase250c-geometry-scale3"
+  ]
+}
