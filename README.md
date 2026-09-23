@@ -33,11 +33,18 @@ exposure geometry:
 * Phases 229-230: the same control on the main pipeline (Phase 11 nested CV, 10 folds x 2 seeds, 2,055 chains). Geometry beats
   topology alone (test PR-AUC +0.0129, 10/10 folds); topology adds a small residual over geometry (+0.0097, 9/10 folds, t p = 0.017,
   Wilcoxon p = 0.037; not significant in ROC-AUC).
-* Phases 235-237: the same control for localization (COACH420/HOLO4K, pooled DCC@4A, 8 seeds). Geometry beats topology alone
-  (+0.0305, 7/8 seeds). Geometry+topology vs geometry is null per-seed (+0.0051, 3/8 seeds) but a follow-up (Phase 237, reloading
-  the 32 checkpoints) shows a monotonic ensemble-size effect (69/70 disjoint 4-seed half-splits positive) and a two-way-bootstrapped
-  +0.0188 (95% CI -0.0096..+0.0456) -- directionally consistent with a small residual topology benefit, not formally confirmed.
-  `paper.md` has been updated to match. Not yet run: 650M/3B scales, the 7,513-chain pool, or CryptoBench's own localization head.
+* Phases 235-237: the same control for localization (COACH420/HOLO4K, pooled DCC@4A, 8 seeds, 35M only). Geometry
+  beats topology alone (+0.0305, 7/8 seeds). Geometry+topology vs geometry is null per-seed (+0.0051, 3/8 seeds) but
+  a follow-up (Phase 237, reloading the 32 checkpoints) shows a monotonic ensemble-size effect (69/70 disjoint 4-seed
+  half-splits positive) and a two-way-bootstrapped +0.0188 (95% CI -0.0096..+0.0456) -- directionally consistent, not
+  formally confirmed.
+* Phases 238-241: the same classification control re-run at ESM2-650M and ESM2-3B, holding the 2,055-chain pool fixed
+  (isolates embedding scale). The residual topology-beyond-geometry effect does NOT shrink with scale -- it becomes
+  more robust: 650M +0.0091 PR-AUC (8/10 folds, t p=0.0037, W p=0.0098) and +0.0032 ROC-AUC (9/10, p=0.015/0.037,
+  both CONFIRMED); 3B +0.0115 PR-AUC (10/10, p=1.9e-4/0.0020) and +0.0040 ROC-AUC (9/10, p=0.0026/0.014, both
+  CONFIRMED) -- versus 35M's PR-AUC-only confirmation. Geometry still matches or beats topology alone at every scale.
+  `paper.md` has been updated to match. Not yet run: the 7,513-chain pool, CryptoBench at 650M/3B, or localization at
+  650M/3B.
 
 ## Not in this repository
 

@@ -22,11 +22,15 @@ burial features gave a statistically significant classification gain
 that most of this gain is ordinary local geometry: against 17 plain
 per-residue geometry features (neighbor counts, solvent exposure,
 half-sphere exposure, local shape, ray-cast buriedness, hull and residue
-depth), geometry alone outperforms topology alone (+0.0129 PR-AUC, 10/10
-folds), and topology adds only a small residual on top of geometry
-(+0.0097 PR-AUC, 9/10 folds, paired t p=0.017, Wilcoxon p=0.037; not
-significant in ROC-AUC). The same control on CryptoBench finds no added
-benefit from topology (+0.0008 PR-AUC, 95% CI -0.005 to +0.007). Separately,
+depth), geometry alone outperforms topology alone at every embedding scale
+tested (35M/650M/3B), and topology adds a residual on top of geometry that
+is confirmed by both a paired t-test and a Wilcoxon test at 650M
+(+0.0091 PR-AUC, 8/10 folds; +0.0032 ROC-AUC, 9/10 folds) and at 3B
+(+0.0115 PR-AUC, 10/10 folds; +0.0040 ROC-AUC, 9/10 folds), though only on
+PR-AUC at the original 35M scale (+0.0097, 9/10 folds; ROC-AUC not
+significant) — the effect grows more robust, not less, with embedding
+scale. The same control on CryptoBench (35M only) finds no added benefit
+from topology (+0.0008 PR-AUC, 95% CI -0.005 to +0.007). Separately,
 after fixing a coordinate-frame bug and training a dedicated localization
 head, a trained-localization system that reaches distance-to-center-success
 (DCC@4Å) of 0.593 on COACH420 — a real win over a live, current run of the
@@ -322,7 +326,44 @@ comparisons below are paired over the 10 independent folds.)
   topology (+0.0226 PR-AUC, 10/10 folds, p=4.8e-5) than topology adds to
   geometry.
 
-The same control on CryptoBench found no benefit from topology at all. On
+**Does the residual survive larger embeddings? (Phases 238–241.)** The
+2,055-chain pool was re-embedded at ESM2-650M and ESM2-3B — holding
+training-pool size fixed and varying only embedding scale, the same
+design CryptoBench used to isolate its own embedding-scale lever — and
+the full 10-fold × 2-seed × 4-arm control was rerun at each scale.
+
+| Scale | Arm | Test PR-AUC | Test ROC-AUC |
+|---|---|---|---|
+| 650M | no-topology | 0.4796 ± 0.0169 | 0.8687 ± 0.0118 |
+| 650M | topology | 0.5192 ± 0.0201 | 0.8856 ± 0.0105 |
+| 650M | geometry | 0.5242 ± 0.0189 | 0.8854 ± 0.0108 |
+| 650M | geometry + topology | 0.5332 ± 0.0202 | 0.8886 ± 0.0120 |
+| 3B | no-topology | 0.4754 ± 0.0180 | 0.8630 ± 0.0129 |
+| 3B | topology | 0.5134 ± 0.0192 | 0.8817 ± 0.0101 |
+| 3B | geometry | 0.5217 ± 0.0170 | 0.8844 ± 0.0107 |
+| 3B | geometry + topology | 0.5332 ± 0.0194 | 0.8884 ± 0.0098 |
+
+The primary comparison — geometry plus topology minus geometry alone — is
+**confirmed by both tests at both larger scales**, and grows rather than
+shrinks: 650M gives +0.0091 PR-AUC (95% CI +0.0038 to +0.0144; 8/10
+folds; paired t p=0.0037, Wilcoxon p=0.0098) and +0.0032 ROC-AUC (9/10
+folds; p=0.015/0.037); 3B gives +0.0115 PR-AUC (95% CI +0.0072 to
++0.0158; 10/10 folds; p=1.9e-4/0.0020) and +0.0040 ROC-AUC (9/10 folds;
+p=0.0026/0.014). Both are stronger than the 35M result above, where only
+PR-AUC cleared this project's two-test bar. Geometry continues to match
+or beat topology alone at every scale (650M: geometry ahead by 0.0050
+PR-AUC, p=0.0049/0.0059, tied on ROC-AUC; 3B: geometry ahead by 0.0082
+PR-AUC, p=0.047/0.064, borderline). Absolute performance also rises with
+scale (test PR-AUC for geometry+topology: 0.517 at 35M, 0.533 at both
+650M and 3B), but the *residual specifically attributable to topology
+beyond geometry* rises with it rather than being absorbed by the richer
+embedding — the opposite of what we expected going in, since a language
+model with more capacity might have been expected to make hand-crafted
+topological features redundant. We do not have a mechanistic account of
+why; it is reported as a robust, scale-confirmed empirical finding, not
+an explained one.
+
+The same control on CryptoBench (run only at the 35M scale) found no benefit from topology at all. On
 the official split (8 seeds, benchmark labels), geometry plus persistence
 features minus geometry alone was -0.011 validation PR-AUC (paired t
 p=0.070, Wilcoxon p=0.109), +0.003 test PR-AUC (p=0.42 / 0.46), and geometry
@@ -336,9 +377,11 @@ pretrained P2Rank 2.5.1 (ROC-AUC 0.796 vs. 0.756, p=1e-4). A plausible but
 untested reason the main pipeline retains a small topology residual while
 CryptoBench does not is the roughly three-fold larger training pool
 (2,055 vs. 700 chains); the two benchmarks also differ in label definition.
-Scope of this control: it was run at the ESM2-35M scale on the 2,055-chain
-pool and on CryptoBench; it was not repeated for the 650M/3B models, for
-COACH420/HOLO4K benchmark scoring, or for localization.
+Scope of this control: the classification arm was run at all three main-
+pipeline embedding scales (35M/650M/3B) on the same 2,055-chain pool; the
+CryptoBench arm and the localization arm (below) were run only at 35M.
+Whether the localization result would also strengthen at larger embedding
+scales, and whether the CryptoBench null would hold, are untested.
 
 ### Ablations: what helped and what did not
 
@@ -455,13 +498,17 @@ A stricter two-way bootstrap that resamples both seeds and benchmark
 structures together puts the 8-seed-ensemble delta at +0.0188 (95% CI
 -0.0096 to +0.0456, P(Δ>0)=0.90): directionally consistent with a small
 residual benefit but not clearing this project's two-test confirmation bar.
-Read together with the CryptoBench classification result above, the
-honest summary is that topology's most defensible, consistently
-reproduced contribution — on both classification and localization, on both
-benchmark families — is beating *no* structural features at all; beating a
-strong geometric baseline is a harder bar it clears only partially (main-
-pipeline classification) or suggestively but unconfirmed (main-pipeline
-localization), and not at all on CryptoBench classification.
+Read together with the classification results above, topology's most
+defensible, consistently reproduced contribution across every setting
+tested is beating *no* structural features at all. Beating a strong
+geometric baseline is a harder bar: it is clearly met by main-pipeline
+classification at 650M and 3B embedding scale (confirmed on both PR-AUC
+and ROC-AUC), met only partially at 35M classification (PR-AUC only), met
+suggestively but unconfirmed for main-pipeline localization (35M only,
+untested at larger scale), and not met at all on CryptoBench
+classification (35M only). The scale-dependence found for classification
+raises the obvious question, untested here, of whether localization's
+suggestive-but-unconfirmed result would also firm up at 650M or 3B.
 
 **Scaling the training pool** turned out to be the largest single lever for
 localization accuracy on the standard benchmarks. Across three
@@ -791,19 +838,23 @@ multiple training scales, and across a decisive nested cross-validation
 design. The geometry control reported above shows that this gain is not
 specific to topology. Seventeen conventional per-residue geometry features
 give an equal or larger gain on both benchmarks (+0.0672 vs. +0.0543
-PR-AUC on the main pipeline), and topology adds either nothing detectable
-(CryptoBench: +0.0008 PR-AUC, 95% CI -0.005 to +0.007) or a small residual
-(main pipeline: +0.0097 PR-AUC, significant for PR-AUC but not ROC-AUC)
-beyond them. The earlier reading, that persistent homology encodes cavity
-*shape* in a way that raw coordinates and language-model embeddings do not,
-is therefore not supported as a topology-specific mechanism: burial,
-exposure and local shape, however computed, carry most of the signal, and
-the persistent-homology block is one, slightly less efficient, way of
-supplying it. What remains is a small positive contribution on the larger
-main-pipeline pool that we cannot yet attribute to any particular
-topological property, and whose smaller size on the 700-chain CryptoBench
-training set may reflect data volume or the differing label definitions
-rather than the task itself.
+PR-AUC on the main pipeline), and topology adds either nothing detectable on CryptoBench (+0.0008
+PR-AUC, 95% CI -0.005 to +0.007, 35M only) or a real, scale-confirmed
+residual on the main pipeline that *strengthens* with embedding scale
+(+0.0097 PR-AUC at 35M, significant only on PR-AUC; +0.0091 at 650M and
++0.0115 at 3B, both confirmed on PR-AUC and ROC-AUC) beyond them. The
+earlier reading, that persistent homology encodes cavity *shape* in a way
+that raw coordinates and language-model embeddings do not, is therefore
+only partly supported: most of the classification gain is ordinary
+burial, exposure and local shape, however computed, and the
+persistent-homology block is one, slightly less efficient, way of
+supplying it — but a smaller residual contribution survives even a 3B-
+parameter embedding, and grows rather than shrinks as the embedding gets
+larger, which is not what we expected of a redundant feature. We cannot
+yet attribute this residual to any particular topological property (H0
+versus H1 versus H2), and its absence on the smaller, differently labeled
+700-chain CryptoBench training set may reflect data volume, the label
+definition, or the task itself.
 
 Transfer learning from the larger, more diverse main-pipeline training pool
 to CryptoBench's comparatively small 700-chain training set produced a
@@ -859,9 +910,12 @@ Fusing persistent homology features into an E(n)-equivariant graph neural
 network improves protein binding-site classification over sequence and
 two-feature burial baselines (+0.0423 PR-AUC, p<1e-5), but a stronger
 control shows most of this is ordinary local geometry: against 17 plain
-geometry features, topology adds a small residual +0.0097 PR-AUC on the
-main pipeline (9/10 folds; not significant in ROC-AUC) and nothing
-detectable on CryptoBench. With a trained localization head, the model
+geometry features, topology adds a residual beyond geometry that is
+confirmed on both PR-AUC and ROC-AUC at 650M and 3B embedding scale
+(+0.0091 to +0.0115 PR-AUC) and on PR-AUC only at the original 35M scale
+(+0.0097) — the effect strengthens, not weakens, as embedding scale grows
+— while adding nothing detectable on CryptoBench (35M only). With a
+trained localization head, the model
 also improved pocket-center localization over a no-topology control
 (+0.0289 to +0.0528 DCC depending on data scale, multi-seed confirmed). A
 geometry control for localization found the same pattern as classification:
@@ -903,18 +957,20 @@ into a further claimed improvement.
 Natural extensions of this specific line of work, grounded in gaps this
 project identified but did not close:
 
-- **Finish the geometry control.** The control has now been run at the
-  ESM2-35M scale on the 2,055-chain classification pool, on CryptoBench,
-  and on COACH420/HOLO4K localization, always with the same result shape:
-  geometry alone matches or beats topology alone, and topology's residual
-  contribution beyond geometry is either null (CryptoBench classification)
-  or a small, consistently-signed-but-per-seed-unconfirmed effect (main-
-  pipeline classification and localization). It has not been repeated for
-  the 650M and 3B main-pipeline embedding scales, at the larger 7,513-chain
-  training pool, or for CryptoBench's own localization head. Whether a
-  larger benchmark or more seeds would confirm the small residual topology
-  effect the ensemble-size and two-way-bootstrap analyses point to (Phase
-  237), and which topological properties (if any) it reflects, are open.
+- **Finish the geometry control.** The control has now been run at all
+  three main-pipeline embedding scales for classification (35M/650M/3B, on
+  the 2,055-chain pool), at 35M for CryptoBench classification, and at 35M
+  for COACH420/HOLO4K localization. Geometry alone matches or beats
+  topology alone in every setting. Topology's residual contribution beyond
+  geometry is null on CryptoBench classification, confirmed on both
+  PR-AUC and ROC-AUC at 650M and 3B main-pipeline classification, and only
+  partially confirmed (35M classification, PR-AUC only) or suggestive-but-
+  unconfirmed (localization, 35M only) elsewhere. The clearest open
+  question this raises: does localization's small residual also firm up
+  at 650M/3B the way classification's did? Also untested: the larger
+  7,513-chain training pool, CryptoBench at 650M/3B, and CryptoBench's own
+  localization head. Which specific topological property (if any) drives
+  the confirmed residual remains unidentified.
 - **A larger cryptic-pocket benchmark.** CryptoBench's 60-chain validation
   and 182-chain test splits are small enough to leave the ensemble's MCC
   gain statistically underpowered: a chain-level bootstrap over the
