@@ -74,8 +74,9 @@ if torch.cuda.is_available():
     except RuntimeError as e: print("GPU unusable:", e)
 DEVICE = torch.device("cuda" if GPU_OK else "cpu")
 ''')
-md(f"## Cell 3 — ESM2-{SCALE.upper()} embeddings for the decoded sequences")
+md(f"## Cell 3 — ESM2-{SCALE.upper()} embeddings, fused with reassembly (memory-lean: never holds a full-size copy of the embeddings twice)")
 code(f'''
+import gc
 from transformers import AutoTokenizer, AutoModel
 
 ESM_NAME = "{CFG["esm_name"]}"   # {CFG["comment"]}
@@ -95,39 +96,41 @@ def embed_batch(chunk_seqs, max_len={CFG["max_len"]}):
         embs.append(out[i, 1:1+n, :].float().cpu().numpy())
     return embs
 
+# Reassembly is fused into the same loop as embedding: each chain's embedding is consumed and
+# discarded immediately, so peak memory never holds a second full-size copy of the embedding matrix
+# (Phase 244/245's first attempt built a separate `new_esm` dict for ALL chains, then a `new_cache`
+# duplicating it again inside the concatenated x arrays -- that held 2 full copies simultaneously
+# and OOM-killed the kernel silently after finishing all real work, right before the save).
 keys = sorted(seqs, key=lambda k: len(seqs[k]))
 BATCH = {CFG["batch"]}
 t0 = time.time()
-new_esm = {{}}
+new_cache = {{}}
+n_bad = 0
 for bi in range(0, len(keys), BATCH):
     chunk = keys[bi:bi+BATCH]
     embs = embed_batch([seqs[k] for k in chunk])
-    for k, e in zip(chunk, embs):
-        new_esm[k] = e
+    for k, esm_e in zip(chunk, embs):
+        e = raw_cache[k]
+        onehot = e["x"][:, :21]; dihedral = e["x"][:, 21:N_PRE_OLD]; topo = e["x"][:, N_PRE_OLD:]
+        if esm_e.shape[0] != onehot.shape[0] or not np.isfinite(esm_e).all():
+            n_bad += 1; continue
+        x_new = np.concatenate([onehot, dihedral, esm_e.astype(np.float32), topo], axis=1)
+        entry = dict(e); entry["x"] = x_new
+        new_cache[k] = entry
+        e["x"] = None   # old (smaller) ESM-35M array no longer needed -- shrink raw_cache as we go
     if bi % (BATCH*200) == 0:
         print(f"  {{bi}}/{{len(keys)}}  [{{(time.time()-t0)/60:.1f}}m]")
+    if bi % (BATCH*400) == 0:
+        gc.collect()
 
 n_res = sum(len(s) for s in seqs.values())
-print(f"\\nembedded {{len(new_esm):,}} chains / {{n_res:,}} residues in {{(time.time()-t0)/60:.1f}} min "
-      f"({{1000*(time.time()-t0)/n_res:.2f}} ms/residue)")
-del esm; torch.cuda.empty_cache()
-''')
-md("## Cell 4 — Reassemble and save")
-code(r'''
-new_cache = {}
-n_bad = 0
-for k, e in raw_cache.items():
-    onehot = e["x"][:, :21]; dihedral = e["x"][:, 21:N_PRE_OLD]; topo = e["x"][:, N_PRE_OLD:]
-    esm_e = new_esm[k]
-    if esm_e.shape[0] != onehot.shape[0]:
-        n_bad += 1; continue
-    x_new = np.concatenate([onehot, dihedral, esm_e.astype(np.float32), topo], axis=1)
-    if not np.isfinite(x_new).all():
-        n_bad += 1; continue
-    new_cache[k] = dict(e); new_cache[k]["x"] = x_new
-
-print(f"reassembled {len(new_cache):,}/{len(raw_cache):,} chains ({n_bad} failed alignment/finite check)")
+print(f"\\nembedded+reassembled {{len(new_cache):,}}/{{len(keys):,}} chains / {{n_res:,}} residues "
+      f"in {{(time.time()-t0)/60:.1f}} min ({{n_bad}} failed alignment/finite check)")
 assert n_bad == 0, "some chains failed to reassemble -- investigate before Phase 246/247"
+del esm; torch.cuda.empty_cache(); gc.collect()
+''')
+md("## Cell 4 — Save")
+code(r'''
 torch.save(dict(cache=new_cache, esm_dim=int(ESM_DIM), n_pre=21+6+int(ESM_DIM), topo_dim=TOPO_DIM),
            "/kaggle/working/__OUT__")
 print("saved -> /kaggle/working/__OUT__")
