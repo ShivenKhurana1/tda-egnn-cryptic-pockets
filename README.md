@@ -50,6 +50,15 @@ exposure geometry:
   pooled +0.0084, 95% CI -0.0027..+0.0194, no scale trend). The classification residual is real at 650M/3B; the localization
   residual is not established at any scale. Not yet run: the 7,513-chain pool, CryptoBench at 650M/3B.
 
+* Phases 250-254: the localization control with 3.5x more training data (the 7,513-chain round-3 pool; COACH420, 413 structures
+  with a ligand). Adding topology to geometry is NEGATIVE: -0.0242 per seed (geometry better in 7/8 seeds), two-way bootstrap
+  -0.0217 (95% CI -0.068..+0.024). Geometry alone is the best arm (8-model ensemble DCC 0.620 vs 0.586 for topology).
+  Topology still beats no topology (+0.094, 8/8 seeds).
+* Phase 255 (classification control at the 7,513-chain pool): INCOMPLETE. Only folds 0-3 of 10 finished before Kaggle's
+  30-hour weekly GPU quota ran out; folds 4-9 (kernels 255c/d/e) are queued behind a retry script. The finished folds point the
+  same way as the smaller pool (geometry+topology better than geometry in 4/4 folds, +0.007 PR-AUC) but four folds cannot
+  meet the project's two-test rule, so they are not reported in `paper.md` as a result.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
