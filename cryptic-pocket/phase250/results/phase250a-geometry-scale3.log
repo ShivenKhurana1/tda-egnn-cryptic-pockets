@@ -1,0 +1,69 @@
+[{"stream_name":"stderr","time":8.132631742,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":8.132726807,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":9.322594679,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.322634855,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.32264141,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.322645725,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.153919674,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.153956647,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.15396413,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.153969434,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":14.493387356,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m2.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":14.849901957,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m34.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":15.054936744,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.2 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.2/3.2 MB\u001b[0m \u001b[31m62.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.3/3.2 MB\u001b[0m \u001b[31m22.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.5/3.2 MB\u001b[0m \u001b[31m15.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.9/3.2 MB\u001b[0m \u001b[31m13.4 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m20.5 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m17.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":82.794862302,"data":"\u001b[?25h7513 chains in the pool; 2505 in this chunk; 738260 residues\n"}
+,{"stream_name":"stdout","time":146.009510334,"data":"fetched 2505/2505 in 1.1 min (81 as mmCIF); missing: []\n"}
+,{"stream_name":"stderr","time":146.063660106,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":146.063699895,"data":"\n"}
+,{"stream_name":"stderr","time":146.064000305,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":182.045779016,"data":"[Parallel(n_jobs=4)]: Done  10 tasks      | elapsed:   35.8s\n"}
+,{"stream_name":"stderr","time":182.045817291,"data":"\n"}
+,{"stream_name":"stderr","time":182.045824318,"data":"[Parallel(n_jobs=4)]: Done  10 tasks      | elapsed:   35.8s\n"}
+,{"stream_name":"stderr","time":312.806580331,"data":"[Parallel(n_jobs=4)]: Done  64 tasks      | elapsed:  2.8min\n"}
+,{"stream_name":"stderr","time":312.806676972,"data":"\n"}
+,{"stream_name":"stderr","time":312.808694568,"data":"[Parallel(n_jobs=4)]: Done  64 tasks      | elapsed:  2.8min\n"}
+,{"stream_name":"stderr","time":489.531921177,"data":"[Parallel(n_jobs=4)]: Done 154 tasks      | elapsed:  5.7min\n"}
+,{"stream_name":"stderr","time":489.531972554,"data":"\n"}
+,{"stream_name":"stderr","time":489.531980604,"data":"[Parallel(n_jobs=4)]: Done 154 tasks      | elapsed:  5.7min\n"}
+,{"stream_name":"stderr","time":696.248200666,"data":"[Parallel(n_jobs=4)]: Done 280 tasks      | elapsed:  9.2min\n"}
+,{"stream_name":"stderr","time":696.248274397,"data":"\n"}
+,{"stream_name":"stderr","time":696.24828163,"data":"[Parallel(n_jobs=4)]: Done 280 tasks      | elapsed:  9.2min\n"}
+,{"stream_name":"stderr","time":925.732253978,"data":"[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed: 13.0min\n"}
+,{"stream_name":"stderr","time":925.732301025,"data":"\n"}
+,{"stream_name":"stderr","time":925.737601878,"data":"[Parallel(n_jobs=4)]: Done 442 tasks      | elapsed: 13.0min\n"}
+,{"stream_name":"stderr","time":1163.281602827,"data":"[Parallel(n_jobs=4)]: Done 640 tasks      | elapsed: 17.0min\n"}
+,{"stream_name":"stderr","time":1163.281802902,"data":"\n"}
+,{"stream_name":"stderr","time":1163.281813577,"data":"[Parallel(n_jobs=4)]: Done 640 tasks      | elapsed: 17.0min\n"}
+,{"stream_name":"stderr","time":1412.531882109,"data":"[Parallel(n_jobs=4)]: Done 874 tasks      | elapsed: 21.1min\n"}
+,{"stream_name":"stderr","time":1412.531962529,"data":"\n"}
+,{"stream_name":"stderr","time":1412.531970585,"data":"[Parallel(n_jobs=4)]: Done 874 tasks      | elapsed: 21.1min\n"}
+,{"stream_name":"stderr","time":1668.888874472,"data":"[Parallel(n_jobs=4)]: Done 1144 tasks      | elapsed: 25.4min\n"}
+,{"stream_name":"stderr","time":1668.888934869,"data":"\n"}
+,{"stream_name":"stderr","time":1668.888997223,"data":"[Parallel(n_jobs=4)]: Done 1144 tasks      | elapsed: 25.4min\n"}
+,{"stream_name":"stderr","time":1913.423924621,"data":"[Parallel(n_jobs=4)]: Done 1450 tasks      | elapsed: 29.5min\n"}
+,{"stream_name":"stderr","time":1913.424055929,"data":"\n"}
+,{"stream_name":"stderr","time":1913.424081426,"data":"[Parallel(n_jobs=4)]: Done 1450 tasks      | elapsed: 29.5min\n"}
+,{"stream_name":"stderr","time":2136.803562253,"data":"[Parallel(n_jobs=4)]: Done 1792 tasks      | elapsed: 33.2min\n"}
+,{"stream_name":"stderr","time":2136.803615124,"data":"\n"}
+,{"stream_name":"stderr","time":2136.806670136,"data":"[Parallel(n_jobs=4)]: Done 1792 tasks      | elapsed: 33.2min\n"}
+,{"stream_name":"stderr","time":2321.76698915,"data":"[Parallel(n_jobs=4)]: Done 2170 tasks      | elapsed: 36.3min\n"}
+,{"stream_name":"stderr","time":2321.767032953,"data":"\n"}
+,{"stream_name":"stderr","time":2321.767052959,"data":"[Parallel(n_jobs=4)]: Done 2170 tasks      | elapsed: 36.3min\n"}
+,{"stream_name":"stdout","time":2429.517866402,"data":"done in 38.1 min on 4 cores\n"}
+,{"stream_name":"stdout","time":2429.51791414,"data":"accepted 2503/2505; failed 2\n"}
+,{"stream_name":"stdout","time":2429.517921517,"data":"  FAIL ('43YY', 'A') node count mismatch: structure 398 vs graph 403\n"}
+,{"stream_name":"stdout","time":2429.517927618,"data":"  FAIL ('4CT3', 'K') node count mismatch: structure 164 vs graph 163\n"}
+,{"stream_name":"stdout","time":2429.51793389,"data":"Counter({'node count mismatch': 2})\n"}
+,{"stream_name":"stderr","time":2429.519266308,"data":"[Parallel(n_jobs=4)]: Done 2505 out of 2505 | elapsed: 38.1min finished\n"}
+,{"stream_name":"stderr","time":2429.51938966,"data":"\n"}
+,{"stream_name":"stderr","time":2429.519396353,"data":"[Parallel(n_jobs=4)]: Done 2505 out of 2505 | elapsed: 38.1min finished\n"}
+,{"stream_name":"stdout","time":2430.397269286,"data":"saved -\u003e phase250a_geometry_scale3.pt\n"}
+,{"stream_name":"stderr","time":2437.631607414,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2437.631680374,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2437.911598804,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2437.9116486,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2438.831382781,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":2439.292230001,"data":"[NbConvertApp] Writing 24367 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":2442.831973965,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2444.103516785,"data":"[NbConvertApp] Writing 353652 bytes to __results__.html\n"}
+]

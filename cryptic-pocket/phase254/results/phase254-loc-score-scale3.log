@@ -1,0 +1,78 @@
+[{"stream_name":"stderr","time":7.276763575,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.2768487969999995,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":8.18410257,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.18413315,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.184137815,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.184141388,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.806526427,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.806554085,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.806559103,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.806563248,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.675330073,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━\u001b[0m \u001b[32m61.4/63.1 kB\u001b[0m \u001b[31m2.3 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m1.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":12.929098104,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.3/1.1 MB\u001b[0m \u001b[31m9.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━\u001b[0m \u001b[32m0.8/1.1 MB\u001b[0m \u001b[31m12.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m12.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":56.071735875,"data":"\u001b[?25hbenchmark chains: 420 cached, 420 with geometry; training chains used: 7178\n"}
+,{"stream_name":"stdout","time":56.071770937,"data":"x width 541 (expect 541 )\n"}
+,{"stream_name":"stdout","time":58.893160428,"data":"{'no-topo': 8, 'full': 8, 'geom': 8, 'geom+topo': 8} checkpoints loaded\n"}
+,{"stream_name":"stdout","time":125.912400802,"data":"scored 420 structures x 4 arms x 8 seeds in 1.1 min\n"}
+,{"stream_name":"stdout","time":125.912451566,"data":"structures with a ligand: 413 of 420\n"}
+,{"stream_name":"stdout","time":128.440269712,"data":"arm         DCC mean(8 seeds)     std  8-seed ensemble\n"}
+,{"stream_name":"stdout","time":128.44031091,"data":"no-topo                0.4401  0.0259           0.5012\n"}
+,{"stream_name":"stdout","time":128.440316647,"data":"full                   0.5342  0.0248           0.5860\n"}
+,{"stream_name":"stdout","time":128.440320765,"data":"geom                   0.5681  0.0169           0.6199\n"}
+,{"stream_name":"stdout","time":128.440324842,"data":"geom+topo              0.5439  0.0213           0.5884\n"}
+,{"stream_name":"stdout","time":128.440329372,"data":"\n"}
+,{"stream_name":"stdout","time":128.440333556,"data":"comparison (a - b)       per-seed delta  wins      t p      W p   ensemble delta [95% bootstrap over structures]\n"}
+,{"stream_name":"stdout","time":128.440337623,"data":"geom+topo - geom                -0.0242   1/8  8.6e-02  5.5e-02   -0.0315 [-0.0630, +0.0000] n=413\n"}
+,{"stream_name":"stdout","time":128.440341444,"data":"full - no-topo                  +0.0941   8/8  7.9e-04  7.8e-03   +0.0847 [+0.0436, +0.1259] n=413\n"}
+,{"stream_name":"stdout","time":128.440345306,"data":"geom - no-topo                  +0.1280   8/8  9.3e-06  7.8e-03   +0.1186 [+0.0775, +0.1598] n=413\n"}
+,{"stream_name":"stdout","time":128.440349108,"data":"geom - full                     +0.0339   6/8  4.8e-02  4.7e-02   +0.0339 [-0.0024, +0.0702] n=413\n"}
+,{"stream_name":"stdout","time":128.440356473,"data":"geom+topo - full                +0.0097   5/8  3.4e-01  4.6e-01   +0.0024 [-0.0315, +0.0363] n=413\n"}
+,{"stream_name":"stdout","time":128.440359418,"data":"Phase 86 reference (8 seeds, COACH420 pooled DCC): full 0.5932, no_topo 0.4286\n"}
+,{"stream_name":"stdout","time":130.486163311,"data":"        a       b  k  n_subsets  mean_delta     sd  frac_positive\n"}
+,{"stream_name":"stdout","time":130.486224042,"data":"geom+topo    geom  1          8     -0.0242 0.0321         0.1250\n"}
+,{"stream_name":"stdout","time":130.486238854,"data":"geom+topo    geom  2         28     -0.0177 0.0232         0.2143\n"}
+,{"stream_name":"stdout","time":130.486241911,"data":"geom+topo    geom  3         56     -0.0191 0.0201         0.1607\n"}
+,{"stream_name":"stdout","time":130.48624691,"data":"geom+topo    geom  4         70     -0.0217 0.0173         0.1000\n"}
+,{"stream_name":"stdout","time":130.486249346,"data":"geom+topo    geom  6         28     -0.0256 0.0129         0.0000\n"}
+,{"stream_name":"stdout","time":130.48625413,"data":"geom+topo    geom  8          1     -0.0315 0.0000         0.0000\n"}
+,{"stream_name":"stdout","time":130.486257801,"data":"     full no-topo  1          8      0.0941 0.0442         1.0000\n"}
+,{"stream_name":"stdout","time":130.486262556,"data":"     full no-topo  2         28      0.0910 0.0258         1.0000\n"}
+,{"stream_name":"stdout","time":130.486266398,"data":"     full no-topo  3         56      0.0927 0.0173         1.0000\n"}
+,{"stream_name":"stdout","time":130.486286699,"data":"     full no-topo  4         70      0.0909 0.0150         1.0000\n"}
+,{"stream_name":"stdout","time":130.486294917,"data":"     full no-topo  6         28      0.0828 0.0113         1.0000\n"}
+,{"stream_name":"stdout","time":130.486303373,"data":"     full no-topo  8          1      0.0847 0.0000         1.0000\n"}
+,{"stream_name":"stdout","time":130.486307191,"data":"     geom no-topo  1          8      0.1280 0.0299         1.0000\n"}
+,{"stream_name":"stdout","time":130.486312722,"data":"     geom no-topo  2         28      0.1191 0.0208         1.0000\n"}
+,{"stream_name":"stdout","time":130.48633771,"data":"     geom no-topo  3         56      0.1233 0.0203         1.0000\n"}
+,{"stream_name":"stdout","time":130.486342318,"data":"     geom no-topo  4         70      0.1247 0.0179         1.0000\n"}
+,{"stream_name":"stdout","time":130.486345742,"data":"     geom no-topo  6         28      0.1189 0.0112         1.0000\n"}
+,{"stream_name":"stdout","time":130.486349137,"data":"     geom no-topo  8          1      0.1186 0.0000         1.0000\n"}
+,{"stream_name":"stdout","time":130.486355459,"data":"     geom    full  1          8      0.0339 0.0374         0.7500\n"}
+,{"stream_name":"stdout","time":130.486357731,"data":"     geom    full  2         28      0.0281 0.0215         0.8929\n"}
+,{"stream_name":"stdout","time":130.48636573,"data":"     geom    full  3         56      0.0306 0.0179         0.9107\n"}
+,{"stream_name":"stdout","time":130.486377983,"data":"     geom    full  4         70      0.0338 0.0134         1.0000\n"}
+,{"stream_name":"stdout","time":130.486386997,"data":"     geom    full  6         28      0.0361 0.0113         1.0000\n"}
+,{"stream_name":"stdout","time":130.486395492,"data":"     geom    full  8          1      0.0339 0.0000         1.0000\n"}
+,{"stream_name":"stdout","time":130.486399489,"data":"geom+topo    full  1          8      0.0097 0.0249         0.6250\n"}
+,{"stream_name":"stdout","time":130.486406735,"data":"geom+topo    full  2         28      0.0104 0.0222         0.6429\n"}
+,{"stream_name":"stdout","time":130.486413755,"data":"geom+topo    full  3         56      0.0115 0.0169         0.7143\n"}
+,{"stream_name":"stdout","time":130.486419843,"data":"geom+topo    full  4         70      0.0121 0.0130         0.8429\n"}
+,{"stream_name":"stdout","time":130.486424232,"data":"geom+topo    full  6         28      0.0105 0.0103         0.8214\n"}
+,{"stream_name":"stdout","time":130.486431298,"data":"geom+topo    full  8          1      0.0024 0.0000         1.0000\n"}
+,{"stream_name":"stdout","time":130.486437084,"data":"\n"}
+,{"stream_name":"stdout","time":130.486445069,"data":"Disjoint 4+4 splits, geom+topo - geom: 70 half-ensemble deltas, mean -0.0217, sd 0.0173, positive 7/70\n"}
+,{"stream_name":"stdout","time":132.616249524,"data":"geom+topo - geom       two-way bootstrap ensemble delta -0.0217  95% [-0.0678, +0.0240]  P(delta\u003e0) = 0.168\n"}
+,{"stream_name":"stdout","time":134.562294184,"data":"full - no-topo         two-way bootstrap ensemble delta +0.0887  95% [+0.0386, +0.1404]  P(delta\u003e0) = 1.000\n"}
+,{"stream_name":"stdout","time":136.541973469,"data":"geom - no-topo         two-way bootstrap ensemble delta +0.1201  95% [+0.0610, +0.1768]  P(delta\u003e0) = 1.000\n"}
+,{"stream_name":"stdout","time":138.539731091,"data":"geom - full            two-way bootstrap ensemble delta +0.0307  95% [-0.0146, +0.0751]  P(delta\u003e0) = 0.897\n"}
+,{"stream_name":"stdout","time":140.31932032,"data":"geom+topo - full       two-way bootstrap ensemble delta +0.0098  95% [-0.0344, +0.0510]  P(delta\u003e0) = 0.654\n"}
+,{"stream_name":"stdout","time":140.31935391,"data":"saved phase254_paired_stats.csv, phase254_ensemble_size.csv, phase254_summary.json\n"}
+,{"stream_name":"stderr","time":145.570009446,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":145.570041338,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":145.736530244,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":145.736580892,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":146.361071155,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":146.670747013,"data":"[NbConvertApp] Writing 27039 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":149.063709873,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":149.927587919,"data":"[NbConvertApp] Writing 369620 bytes to __results__.html\n"}
+]
