@@ -1,0 +1,19 @@
+{
+  "id": "blackpearls1/phase257f7nt-cls-cpu",
+  "title": "Phase257 f7nt Cls Cpu",
+  "code_file": "phase257f7nt_cls_cpu.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase52-esm-dihedral-scale3",
+    "blackpearls1/phase250a-geometry-scale3",
+    "blackpearls1/phase250b-geometry-scale3",
+    "blackpearls1/phase250c-geometry-scale3"
+  ]
+}
