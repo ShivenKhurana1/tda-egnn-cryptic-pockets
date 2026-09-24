@@ -104,7 +104,7 @@ print("saved phase257___NAME___records.json:", [(r["seed"], round(r["test_pr"], 
 out = {"cells": C, "metadata": nb["metadata"], "nbformat": 4, "nbformat_minor": 5}
 d = ROOT_OUT / NAME; d.mkdir(parents=True, exist_ok=True)
 o = d / f"phase257{NAME}_cls_cpu.ipynb"; o.write_text(json.dumps(out, indent=1) + "\n")
-meta = {"id": f"blackpearls1/phase257{NAME}-cls-cpu", "title": f"Phase257 {NAME} Cls Cpu", "code_file": o.name, "language": "python",
+meta = {"id": f"blackpearls1/phase257-{NAME}-cls-cpu", "title": f"Phase257 {NAME} Cls Cpu", "code_file": o.name, "language": "python",
         "kernel_type": "notebook", "is_private": True, "enable_gpu": False, "enable_tpu": False, "enable_internet": True,
         "dataset_sources": [], "competition_sources": [],
         "kernel_sources": ["blackpearls1/tda-egnn-phase52-esm-dihedral-scale3", "blackpearls1/phase250a-geometry-scale3",
