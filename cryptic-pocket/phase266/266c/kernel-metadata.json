@@ -1,0 +1,19 @@
+{
+  "id": "blackpearls1/phase266c-cb3b-transfer-clean",
+  "title": "Phase266c Cb3b Transfer Clean",
+  "code_file": "phase266c_cb3b_transfer_clean.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase48-cryptobench-esm3b",
+    "blackpearls1/phase227-geometry-ingestion",
+    "blackpearls1/phase266b-pretrain-3b-clean"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "blackpearls1/phase266b-pretrain-3b-clean",
+  "title": "Phase266b Pretrain 3b Clean",
+  "code_file": "phase266b_pretrain_3b_clean.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase96-esm-dihedral-esm3b-v3",
+    "blackpearls1/phase251-clean-centers",
+    "blackpearls1/phase250a-geometry-scale3",
+    "blackpearls1/phase250b-geometry-scale3",
+    "blackpearls1/phase250c-geometry-scale3",
+    "blackpearls1/phase266a-pool-exclusions"
+  ]
+}
