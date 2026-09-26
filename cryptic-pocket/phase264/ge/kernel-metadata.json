@@ -1,0 +1,19 @@
+{
+  "id": "blackpearls1/phase264-ge-cb3b-transfer-geometry",
+  "title": "Phase264 ge Cb3b Transfer Geometry",
+  "code_file": "phase264ge_cb3b_transfer_geometry.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase48-cryptobench-esm3b",
+    "blackpearls1/phase227-geometry-ingestion",
+    "blackpearls1/phase263-ge-pretrain-3b-geometry"
+  ]
+}
