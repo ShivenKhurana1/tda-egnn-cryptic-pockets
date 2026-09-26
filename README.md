@@ -54,10 +54,13 @@ exposure geometry:
   with a ligand). Adding topology to geometry is NEGATIVE: -0.0242 per seed (geometry better in 7/8 seeds), two-way bootstrap
   -0.0217 (95% CI -0.068..+0.024). Geometry alone is the best arm (8-model ensemble DCC 0.620 vs 0.586 for topology).
   Topology still beats no topology (+0.094, 8/8 seeds).
-* Phase 255 (classification control at the 7,513-chain pool): INCOMPLETE. Only folds 0-3 of 10 finished before Kaggle's
-  30-hour weekly GPU quota ran out; folds 4-9 (kernels 255c/d/e) are queued behind a retry script. The finished folds point the
-  same way as the smaller pool (geometry+topology better than geometry in 4/4 folds, +0.007 PR-AUC) but four folds cannot
-  meet the project's two-test rule, so they are not reported in `paper.md` as a result.
+* Phases 255/257 (classification control at the 7,513-chain pool, 10-fold CV, folds 0-3 on GPU, 4-9 on CPU): complete.
+  Geometry+topology minus geometry = +0.0035 PR-AUC (CI -0.0008..+0.0078, not confirmed) and +0.0018 ROC-AUC (confirmed, tiny).
+  Geometry alone beats no-topology by +0.062 PR-AUC in 10/10 folds. A same-fold CPU-vs-GPU check (f0/f1) was still running.
+* Phase 262 (CryptoBench, ESM2-3B, official split, from scratch, 8 seeds x 4 arms): geometry +0.021 test PR-AUC over no-topology
+  (7/8 seeds, t p=0.041, Wilcoxon p=0.078); topology adds nothing on top. Still below the 3B transfer model (ROC 0.911).
+* Phases 260/261 (local, no new training): P2Rank blend (+0.014 protein PR-AUC) and multi-candidate localization (best of 3
+  clustered guesses: 74% within 10 A, 60.8% within 8 A; single guess 20.4% within 4 A vs P2Rank top-1 13.8%).
 
 ## Not in this repository
 

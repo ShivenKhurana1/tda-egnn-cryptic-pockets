@@ -382,14 +382,38 @@ hard split scored against ligand-contact residues), geometry plus
 persistence minus geometry was +0.0008 protein-level PR-AUC (95% bootstrap
 CI -0.005 to +0.007, p=0.79). Geometry alone gave PR-AUC 0.352 against
 0.345 for topology and 0.301 for neither, and modestly outperformed a
-pretrained P2Rank 2.5.1 (ROC-AUC 0.796 vs. 0.756, p=1e-4). A plausible but
-untested reason the main pipeline retains a small topology residual while
-CryptoBench does not is the roughly three-fold larger training pool
-(2,055 vs. 700 chains); the two benchmarks also differ in label definition.
-Scope of this control: the classification arm and the localization arm
-(below) were each run at all three main-pipeline embedding scales
-(35M/650M/3B) on the same 2,055-chain pool; the CryptoBench arm was run
-only at 35M, so whether its null would hold at larger scale is untested.
+pretrained P2Rank 2.5.1 (ROC-AUC 0.796 vs. 0.756, p=1e-4). Training-pool
+size does not explain the difference between the main pipeline and CryptoBench:
+when the main-pipeline pool was enlarged 3.65-fold to 7,513 chains and
+evaluated by 10-fold cross-validation (all ten folds, two seeds per fold,
+35M embeddings), the topology residual over geometry shrank rather than
+grew: geometry plus topology minus geometry was +0.0035 PR-AUC (95% CI
+-0.0008 to +0.0078; geometry+topology better in 7 of 10 folds; paired t
+p=0.097, Wilcoxon p=0.084; not confirmed) and +0.0018 ROC-AUC (CI +0.0004
+to +0.0032; 8 of 10 folds; t p=0.015, Wilcoxon p=0.020; confirmed but
+tiny). Geometry alone is again far above no topology (PR-AUC 0.558 vs.
+0.496, ROC-AUC 0.898 vs. 0.873, 10 of 10 folds) and above topology alone
+(0.558 vs. 0.542 PR-AUC, 10 of 10 folds). So at this scale 17 plain
+geometry features deliver more of the gain than topology does (+0.062 vs.
++0.046 PR-AUC over no topology), and what topology adds on top is at most a
+few thousandths of PR-AUC. (Folds
+0-3 were trained on GPU and folds 4-9 on CPU because the weekly GPU quota ran
+out; every fold shows the same direction, but a same-fold CPU-vs-GPU check was
+still running when this was written.)
+The control was also run on the strongest CryptoBench setting (ESM2-3B, official
+split, 8 seeds per arm, trained from scratch). There, geometry alone raised
+test PR-AUC from 0.348 to 0.369 (+0.021; 7 of 8 seeds; t p=0.041, Wilcoxon
+p=0.078, so not confirmed) and ROC-AUC from 0.872 to 0.881 (p=0.028 / 0.039),
+and adding topology on top of geometry gave nothing (PR-AUC -0.005, p=0.21 /
+0.20). Topology alone did not improve PR-AUC over no topology (+0.002).
+Geometry did not improve pocket-center accuracy (DCC@4 Å 0.217 vs. 0.219).
+These from-scratch 3B models (ensemble ROC-AUC 0.891-0.895) remain below the
+transfer-learned 3B model reported earlier (0.911), so the geometry gain
+here is a modest addition to a weaker starting point, not a new best result.
+Scope of this control: classification and localization were each run at all
+three main-pipeline embedding scales (35M/650M/3B) on the 2,055-chain pool,
+classification also at 7,513 chains (35M), and CryptoBench at 35M and (from
+scratch only) 3B; CryptoBench with 3B transfer learning plus geometry is untested.
 
 ### Ablations: what helped and what did not
 
@@ -1068,13 +1092,11 @@ project identified but did not close:
   partially confirmed at 35M classification (PR-AUC only), and not
   established for localization at any of the three scales (pooled
   +0.0084, 95% CI -0.0027 to +0.0194; and -0.0242 per seed at 7,513
-  chains). The classification control at the 7,513-chain pool was started
-  but not completed: only 4 of its 10 cross-validation folds finished
-  before a weekly compute quota ran out, and those folds are not reported
-  here as a result (the geometry-plus-topology advantage was positive in
-  all 4, but four folds cannot meet this project's two-test rule). Still
-  untested: the remaining 6 folds, CryptoBench at 650M/3B, and CryptoBench's own
-  localization head. Two questions matter most. First, why classification's
+  chains). The classification control at the 7,513-chain pool is now
+  complete (10 folds): the topology residual over geometry is +0.0035
+  PR-AUC (not confirmed) and +0.0018 ROC-AUC (confirmed, tiny). Still
+  untested: CryptoBench at 650M and with 3B transfer learning plus geometry,
+  and a same-fold GPU-vs-CPU check of the 7,513-chain result. Two questions matter most. First, why classification's
   residual strengthens with embedding scale while localization's does not,
   which no experiment here explains. Second, which specific topological
   property (if any) drives the confirmed classification residual, which

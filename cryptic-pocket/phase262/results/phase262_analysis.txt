@@ -1,0 +1,37 @@
+Per-seed mean +- std (8 seeds), official CryptoBench test split
+  no-topo    PR 0.3477+-0.0141  ROC 0.8718+-0.0085  MCC 0.3850+-0.0113  DCC4 0.2191+-0.0409
+  full       PR 0.3492+-0.0139  ROC 0.8796+-0.0057  MCC 0.3904+-0.0128  DCC4 0.2370+-0.0337
+  geom       PR 0.3686+-0.0119  ROC 0.8813+-0.0083  MCC 0.4060+-0.0122  DCC4 0.2170+-0.0342
+  geom+topo  PR 0.3641+-0.0132  ROC 0.8847+-0.0040  MCC 0.4035+-0.0092  DCC4 0.2370+-0.0159
+
+8-seed ENSEMBLE
+  no-topo    pr 0.3770  roc 0.8835  mcc 0.4095  dcc4 0.2692
+  full       pr 0.3783  roc 0.8921  mcc 0.4124  dcc4 0.2802
+  geom       pr 0.3870  roc 0.8911  mcc 0.4226  dcc4 0.2363
+  geom+topo  pr 0.3889  roc 0.8954  mcc 0.4222  dcc4 0.2637
+
+Paired over seeds (a - b)
+  geom+topo - geom     pr    0.3641 vs 0.3686  delta -0.0045  2/8 seeds  t p=2.1e-01  W p=2.0e-01
+  geom+topo - geom     roc   0.8847 vs 0.8813  delta +0.0034  4/8 seeds  t p=2.7e-01  W p=6.4e-01
+  geom+topo - geom     mcc   0.4035 vs 0.4060  delta -0.0025  2/8 seeds  t p=4.9e-01  W p=4.6e-01
+  geom+topo - geom     dcc4  0.2370 vs 0.2170  delta +0.0199  6/8 seeds  t p=1.8e-01  W p=2.5e-01
+  geom      - no-topo  pr    0.3686 vs 0.3477  delta +0.0209  7/8 seeds  t p=4.1e-02  W p=7.8e-02
+  geom      - no-topo  roc   0.8813 vs 0.8718  delta +0.0095  6/8 seeds  t p=2.8e-02  W p=3.9e-02
+  geom      - no-topo  mcc   0.4060 vs 0.3850  delta +0.0210  7/8 seeds  t p=3.4e-02  W p=5.5e-02
+  geom      - no-topo  dcc4  0.2170 vs 0.2191  delta -0.0021  4/8 seeds  t p=9.2e-01  W p=8.4e-01
+  full      - no-topo  pr    0.3492 vs 0.3477  delta +0.0015  4/8 seeds  t p=8.6e-01  W p=8.4e-01
+  full      - no-topo  roc   0.8796 vs 0.8718  delta +0.0078  7/8 seeds  t p=1.6e-02  W p=2.3e-02
+  full      - no-topo  mcc   0.3904 vs 0.3850  delta +0.0054  4/8 seeds  t p=5.0e-01  W p=5.5e-01
+  full      - no-topo  dcc4  0.2370 vs 0.2191  delta +0.0179  7/8 seeds  t p=8.5e-02  W p=7.8e-02
+  geom+topo - full     pr    0.3641 vs 0.3492  delta +0.0149  7/8 seeds  t p=4.5e-03  W p=1.6e-02
+  geom+topo - full     roc   0.8847 vs 0.8796  delta +0.0052  7/8 seeds  t p=3.2e-02  W p=2.3e-02
+  geom+topo - full     mcc   0.4035 vs 0.3904  delta +0.0132  8/8 seeds  t p=2.9e-03  W p=7.8e-03
+  geom+topo - full     dcc4  0.2370 vs 0.2370  delta +0.0000  4/8 seeds  t p=1.0e+00  W p=9.5e-01
+  geom+topo - no-topo  pr    0.3641 vs 0.3477  delta +0.0163  6/8 seeds  t p=1.0e-01  W p=1.1e-01
+  geom+topo - no-topo  roc   0.8847 vs 0.8718  delta +0.0130  8/8 seeds  t p=3.8e-03  W p=7.8e-03
+  geom+topo - no-topo  mcc   0.4035 vs 0.3850  delta +0.0185  6/8 seeds  t p=3.1e-02  W p=5.5e-02
+  geom+topo - no-topo  dcc4  0.2370 vs 0.2191  delta +0.0179  5/8 seeds  t p=3.9e-01  W p=3.1e-01
+
+Ensemble geom+topo - geom, protein-bootstrap 95% CI: PR [-0.0085,+0.0118]  DCC4 [-0.0165,+0.0769]
+
+Ensemble geom - no-topo, protein-bootstrap 95% CI: PR [-0.0063,+0.0235]  DCC4 [-0.0934,+0.0221]
