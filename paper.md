@@ -413,7 +413,29 @@ here is a modest addition to a weaker starting point, not a new best result.
 Scope of this control: classification and localization were each run at all
 three main-pipeline embedding scales (35M/650M/3B) on the 2,055-chain pool,
 classification also at 7,513 chains (35M), and CryptoBench at 35M and (from
-scratch only) 3B; CryptoBench with 3B transfer learning plus geometry is untested.
+scratch only) 3B, and with 3B transfer learning (next paragraph).
+Geometry does not help once the model is pretrained. We retrained the
+main-pipeline 3B checkpoints with the 17 geometry features (7,178 clean
+chains, 8 seeds per arm) and repeated the CryptoBench 3B transfer with each
+seed fine-tuned from its matching checkpoint. Geometry plus topology minus
+topology alone was -0.003 test PR-AUC (2 of 8 seeds better; t p=0.53), +0.004
+ROC-AUC (p=0.11), +0.003 MCC and +0.013 pocket-center hit rate at 4 Å (p=0.21);
+geometry alone was equally indistinguishable from topology alone. The
+8-seed ensembles are essentially tied (ROC-AUC 0.9120 topology, 0.9138
+geometry, 0.9128 both). Pretraining, not the feature set, carries the gain:
+transfer beat from-scratch training by +0.058 PR-AUC and +0.021 ROC-AUC
+(8 of 8 seeds, Wilcoxon p=0.0078) for the topology arm, and by +0.041 PR-AUC
+for the geometry-plus-topology arm. Leakage check: the pretraining pool was
+cleaned only against COACH420, and an MMseqs2 check (30% identity, 80%
+coverage) shows that 135 of the 182 official test chains (74%) have a
+homolog in it (539 of 700 training chains). The transfer gain survives on the
+47 test chains with no such homolog (+0.108 PR-AUC, +0.024 ROC-AUC, 8 of 8
+seeds), so the homolog overlap does not explain it, although the 47-chain
+subset is small. On that subset topology-only transfer was better than
+geometry plus topology on PR-AUC (0.469 vs. 0.437, 0/8 seeds; p=0.008),
+which we do not over-read (47 chains, one subset). The reported 0.911
+transfer results (Table below) are therefore not an artifact of pool
+overlap, but they were not homology-clean by construction.
 
 ### Ablations: what helped and what did not
 
@@ -1095,8 +1117,9 @@ project identified but did not close:
   chains). The classification control at the 7,513-chain pool is now
   complete (10 folds): the topology residual over geometry is +0.0035
   PR-AUC (not confirmed) and +0.0018 ROC-AUC (confirmed, tiny). Still
-  untested: CryptoBench at 650M and with 3B transfer learning plus geometry,
-  and a same-fold GPU-vs-CPU check of the 7,513-chain result. Two questions matter most. First, why classification's
+  untested: CryptoBench at 650M, and a same-fold GPU-vs-CPU check of the
+  7,513-chain result. Geometry-aware 3B transfer is now tested and gives no
+  gain over topology-only transfer. Two questions matter most. First, why classification's
   residual strengthens with embedding scale while localization's does not,
   which no experiment here explains. Second, which specific topological
   property (if any) drives the confirmed classification residual, which

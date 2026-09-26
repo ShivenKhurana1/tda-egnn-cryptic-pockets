@@ -62,6 +62,10 @@ exposure geometry:
 * Phases 260/261 (local, no new training): P2Rank blend (+0.014 protein PR-AUC) and multi-candidate localization (best of 3
   clustered guesses: 74% within 10 A, 60.8% within 8 A; single guess 20.4% within 4 A vs P2Rank top-1 13.8%).
 
+* Phases 263/264/265 (geometry-aware 3B transfer; ESM2-3B, official CryptoBench split, 8 seeds/arm): geometry adds nothing to transfer
+  (geom+topo - topology-only: -0.003 PR-AUC, p=0.53; ensemble ROC 0.912-0.914 for all arms). Transfer itself beats from-scratch by +0.058 PR-AUC.
+  MMseqs2 leak check: 135/182 test chains have a >=30%-identity homolog in the pretraining pool; the transfer gain survives on the 47 that do not.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
