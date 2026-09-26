@@ -1,0 +1,18 @@
+{
+  "id": "blackpearls1/phase262-no-cb3b-geometry",
+  "title": "Phase262 no Cb3b Geometry",
+  "code_file": "phase262no_cb3b_geometry.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase48-cryptobench-esm3b",
+    "blackpearls1/phase227-geometry-ingestion"
+  ]
+}
