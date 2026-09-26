@@ -10,7 +10,7 @@ import ast, builtins, json, sys
 from pathlib import Path
 
 FOLD = int(sys.argv[1]); ARM = sys.argv[2]; ROOT_OUT = Path(sys.argv[3]).resolve()
-assert FOLD in range(4, 10)
+assert FOLD in range(0, 10)
 NAME = f"f{FOLD}{ {'no-topo': 'nt', 'full': 'fu', 'geom': 'ge', 'geom+topo': 'gt'}[ARM] }"
 HERE = Path(__file__).resolve().parent
 nb = json.load(open(HERE.parent / "phase255" / "a" / "phase255a_cls_geometry_scale3.ipynb"))
