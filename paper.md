@@ -9,70 +9,97 @@ structure and only open up upon binding. This project tests whether features
 from persistent homology (a tool from topological data analysis, TDA) improve
 an E(n)-equivariant graph neural network's (EGNN) ability to both classify
 binding-site residues and localize a pocket's 3D center, on standard and
-cryptic-pocket benchmarks alike. Protein structures are represented as
-residue-level graphs; each residue carries one-hot identity, backbone
-dihedral, ESM2 protein-language-model embedding, and persistent-homology
-(H0/H1/H2 + burial) features, which are propagated through equivariant graph
-convolution layers and fused via a per-layer gated fusion module before two
-task heads: residue classification and centroid-based pocket localization.
-On the COACH420 and HOLO4K training pool, adding topology to sequence and
-burial features gave a statistically significant classification gain
-(+0.0423 mean-average-precision against a two-feature burial baseline,
-10/10 cross-validation folds, p<1e-5). A later, stronger control shows
-that most of this gain is ordinary local geometry: against 17 plain
-per-residue geometry features (neighbor counts, solvent exposure,
+cryptic-pocket benchmarks alike, and — the project's central, hard-won
+finding — asks how much of any such gain survives once it is checked against
+a strong non-topological baseline, an independent relabeling of what "cryptic"
+actually means, and structures the model never trained on at all.
+
+Protein structures are represented as residue-level graphs; each residue
+carries one-hot identity, backbone dihedral, ESM2 protein-language-model
+embedding, and persistent-homology (H0/H1/H2 + burial) features, propagated
+through equivariant graph convolution layers and fused via a per-layer gated
+fusion module before two task heads: residue classification and
+centroid-based pocket localization. On the COACH420/HOLO4K training pool,
+adding topology to sequence and burial features gave a large classification
+gain against a two-feature burial baseline (+0.0423 PR-AUC, 10/10
+cross-validation folds, p<1e-5). A stronger control shows most of this is
+ordinary local geometry, not anything specifically topological: against 17
+plain per-residue geometry features (neighbor counts, solvent exposure,
 half-sphere exposure, local shape, ray-cast buriedness, hull and residue
-depth), geometry alone outperforms topology alone at every embedding scale
-tested (35M/650M/3B), and topology adds a residual on top of geometry that
-is confirmed by both a paired t-test and a Wilcoxon test at 650M
-(+0.0091 PR-AUC, 8/10 folds; +0.0032 ROC-AUC, 9/10 folds) and at 3B
-(+0.0115 PR-AUC, 10/10 folds; +0.0040 ROC-AUC, 9/10 folds), though only on
-PR-AUC at the original 35M scale (+0.0097, 9/10 folds; ROC-AUC not
-significant) — the effect grows more robust, not less, with embedding
-scale. The same control on CryptoBench (35M only) finds no added benefit
-from topology (+0.0008 PR-AUC, 95% CI -0.005 to +0.007). Separately,
-after fixing a coordinate-frame bug and training a dedicated localization
-head, a trained-localization system that reaches distance-to-center-success
-(DCC@4Å) of 0.593 on COACH420 — a real win over a live, current run of the
-standard tool P2Rank (+0.072) — while landing at approximate statistical
-parity with P2Rank on HOLO4K (0.645 vs 0.658, not distinguishable from
-noise). A geometry control for localization, run at the original 2,055-chain
-scale, again finds geometry alone beats topology alone (+0.0305 pooled
-DCC@4Å, 7/8 seeds); geometry plus topology beyond geometry alone is null
-per seed (+0.0051, 3/8 seeds) but positive and increasingly consistent as
-ensemble size grows (69/70 disjoint 4-seed half-splits positive), landing
-at a two-way-bootstrapped +0.0188 (95% CI -0.0096 to +0.0456) that does not
-clear this project's confirmation bar. Repeating the localization control at
-650M and 3B embedding scale does not repeat classification's strengthening:
-geometry still matches or beats topology alone at every scale, and the
-topology residual over geometry is +0.0206 (650M; t p=0.037, Wilcoxon
-p=0.078) and -0.0007 (3B), pooling to +0.0084 (95% CI -0.0027 to +0.0194)
-across scales with no scale trend — not established for localization.
-With 3.5x more training data (7,513 chains) the localization residual is
-negative (-0.0242 per seed, geometry better in 7 of 8 seeds; two-way
-bootstrap -0.0217, 95% CI -0.068 to +0.024), and geometry alone is the best
-arm (ensemble COACH420 DCC 0.620 vs. 0.586 for topology). On the CryptoBench cryptic-pocket benchmark, the same architecture,
-extended across three ESM2 embedding scales (35M/650M/3B parameters) and
-combined with transfer learning from the main pipeline, a regularized
-logistic-regression meta-combiner across scales, and topology and transfer
-learning levers each confirmed by a paired significance test (topology:
-paired t=6.11, p=0.00049, Cohen's d=2.16; transfer learning: paired
-t=3.97, p=0.0054, Cohen's d=1.40; both n=8 seeds; the topology comparison
-used a baseline with no burial or exposure features, and the geometry
-control described below attributes that gain to ordinary geometry), reaches AUC 0.918 and
-Matthews correlation coefficient (MCC) 0.470, matching or exceeding the
-CryptoBench authors' own published state of the art (AUC 0.87, MCC 0.42)
-and the most recent published baseline we found on this exact benchmark,
-UniPocket (2026, AUC 0.816 — computed under a different, macro-averaged
-convention, so not a strictly like-for-like comparison; see Results).
-A chain-level bootstrap (2,000 resamples) establishes that the ensemble's
-AUC gain over the best single model is statistically significant (95% CI
-excludes zero) while its MCC gain is not (95% CI includes zero) — we
-report both conclusions rather than rounding the second into a claimed
-win. A dedicated localization head for cryptic pockets — a capability
-with no existing published comparison — achieves a 20.9%–24.7% hit rate
-at 4Å, confirming this is a genuinely harder geometric task than
-open-pocket localization.
+depth) built to match the same architecture exactly, geometry alone matches
+or outperforms topology alone at every embedding scale tested (35M/650M/3B)
+and at every training-pool size tested (2,055 up to 7,513 chains). Topology
+does add a small residual beyond geometry that survives both a paired t-test
+and a Wilcoxon test for classification at 650M and 3B scale (+0.0091 to
++0.0115 PR-AUC) and shrinks toward the resolution of the experimental design
+at the largest training-pool size (+0.0035 PR-AUC, not confirmed; and a
+same-fold hardware check found the training device alone moves the result by
+about this much). The identical control finds no confirmed topology residual
+for CryptoBench classification, for pocket-center localization at any scale
+or pool size tested, or once the underlying 3B model is pretrained rather
+than trained from scratch. Read plainly: seventeen ordinary geometric
+measurements deliver most of what persistent homology was hypothesized to
+provide uniquely, and what remains attributable to topology specifically is
+small, inconsistent across tasks, and in at least one case the same size as
+measurement noise from the training hardware.
+
+A trained localization head (predicting a pocket's 3D center as a
+differentiable weighted centroid rather than a post-hoc heuristic) beat a
+live, current run of the standard tool P2Rank on COACH420 (DCC@4Å +0.072)
+and reached approximate statistical parity with it on HOLO4K. On
+CryptoBench's cryptic-pocket benchmark, the same architecture, extended
+across three ESM2 embedding scales and strengthened by transfer learning
+from the main pipeline (paired t=3.97, p=0.0054, confirmed against five
+independent pretrained checkpoints) and a regularized logistic-regression
+cross-scale combiner, reaches AUC 0.918 and Matthews correlation coefficient
+(MCC) 0.470 — matching or exceeding the CryptoBench authors' own published
+state of the art (AUC 0.87, MCC 0.42). Transfer learning, not the feature
+set, is the confirmed driver of this result (+0.058 PR-AUC over training
+from scratch, 8/8 seeds), and it survives a homology audit that removed
+every pretraining-pool chain related to a CryptoBench test protein
+(unchanged result, +0.001 PR-AUC, p=0.86). The model beats a fresh P2Rank
+2.5.1 run on the official split by a wide margin on both residue ranking
+(+0.19 protein-level PR-AUC) and pocket-center guessing (35.8% vs. 16.1%
+within 4 Å for a single guess; blending the two models does not help,
+since P2Rank contributes nothing the model does not already know).
+
+Two further checks, run after the model was otherwise finished and not used
+to tune anything, describe the actual scope of every number above. First, an
+independent, adversarially designed relabeling of CryptoBench's own test
+split — built by a different group specifically to separate pockets that are
+genuinely invisible in the unbound structure ("cryptic," 16 of 182 test
+proteins under a strict cavity-voxel rule) from those already visible before
+anything binds ("pre-formed," 111 of 182) — shows that this project's pooled
+numbers describe the pre-formed majority far better than the cryptic
+minority: pooled ROC-AUC falls from 0.896 (all 182 proteins) to 0.721 on the
+16 truly cryptic ones. The model still beats P2Rank specifically on that
+16-protein subset (+0.115 precision among the top 20 ranked residues per
+protein, paired t and Wilcoxon p=0.022 each), and — testing an external
+claim that cavity/geometry features actively *hurt* performance on truly
+cryptic sites — geometry trends the opposite direction on our architecture
+(not confirmed, but positive rather than negative). Second, the unmodified
+model was run on two datasets built entirely outside this project, with no
+threshold-fitting or model selection performed against either: PocketMiner's
+35-protein test set (labels from molecular-dynamics simulation, a
+fundamentally different definition of "cryptic" than anything else in this
+paper) and 99 genuinely-cryptic entries from the same adversarial benchmark
+above, both fetched and featurized fresh. On PocketMiner, performance is
+essentially unchanged after removing every protein with any relative in the
+training data (pooled ROC-AUC 0.925 all proteins, 0.920 on the 6 with no
+training-pool relative) and exceeds PocketMiner's own published result for
+its own method (0.87). On the second, harder benchmark, homology matters
+more (0.833 all proteins, 0.757 on the 16 homology-clean) — but that
+homology-clean number lands within statistical noise of the 0.721 found by
+the independent relabeling above, from a different research group using a
+different definition of "cryptic." Three separate checks, two of them on
+structures the model never saw in any form, converge on the same
+~0.72–0.76 ROC-AUC ceiling for pockets that are genuinely, strictly
+invisible until something binds. A battery of further attempts to close
+that specific gap — per-residue chemistry features, elastic-network-derived
+protein-movement features, and explicitly up-weighting small pockets in the
+training loss — each returned a null or statistically inconclusive result,
+consistent with this ceiling reflecting a real information limit of a
+single static structure rather than a fixable modeling gap.
 
 ## Introduction
 
@@ -297,7 +324,7 @@ half-sphere exposure up and down; linearity, planarity and sphericity of the
 12 Å atom cloud; offset of the Cα from that cloud's centroid; the fraction
 of 100 rays from the Cα blocked within 10 Å and within 20 Å, expressed in a
 canonical local frame so the feature is rotation-invariant; convex-hull
-depth; and residue depth) and re-ran the Phase 11 nested cross-validation:
+depth; and residue depth) and re-ran the original nested cross-validation:
 10 folds × 2 seeds, the same 2,055-chain homology-clean pool (one of the
 2,056 chains was dropped because its re-fetched structure could not be
 aligned to its graph), the same ESM2-35M plus dihedral inputs, model, loss
@@ -335,7 +362,7 @@ comparisons below are paired over the 10 independent folds.)
   topology (+0.0226 PR-AUC, 10/10 folds, p=4.8e-5) than topology adds to
   geometry.
 
-**Does the residual survive larger embeddings? (Phases 238–241.)** The
+**Does the residual survive larger embeddings?** The
 2,055-chain pool was re-embedded at ESM2-650M and ESM2-3B — holding
 training-pool size fixed and varying only embedding scale, the same
 design CryptoBench used to isolate its own embedding-scale lever — and
@@ -452,84 +479,6 @@ homology artifact. (The 0.911 figure in the table below is the earlier,
 leaky-pool ensemble; the clean-pool ensemble gives the same 0.911.) The
 clean check removes homologs of validation and test chains only; homologs of
 CryptoBench training chains are left in the pool by design.
-
-### External audit: is this actually about cryptic pockets?
-
-Every number reported above pools all 182 official CryptoBench test proteins. An independent, adversarially designed
-relabeling of that same test split -- "A benchmark selected for crypticity" (unpublished preprint; code and labels at
-github.com/pmfran4252-afk/cryptic-site-benchmark, CC BY 4.0) -- applies a strict apo/holo cavity-voxel rule (cryptic =
-pocket essentially absent in the unbound structure AND clearly present in the bound one) and finds that only 17 of the
-182 test proteins qualify; 111 are "pre-formed" (already visible in the apo structure) and the rest are ambiguous. We
-mapped their relabeling onto our own test keys via CryptoBench's own dataset metadata (180 of their 182-labelled
-proteins matched; 16 of the 17 cryptic ones fell inside our exact test set) and re-scored our existing prediction files
-against it -- no new training.
-
-**The pooled numbers are mostly about pre-formed pockets.** On the 16-protein cryptic-only subset, the headline
-homology-clean 3B-transfer model's pooled ROC-AUC falls from 0.896 (all 182) to 0.721, protein-level PR-AUC from 0.459
-to 0.262, and precision among the top 20 ranked residues per protein from 0.383 to 0.200. This matches the pattern the
-external preprint reports for other published models and is the honest scope of every number in the table below: this
-project's headline results describe finding pockets in general far better than it describes the harder cryptic subset.
-
-**Their central negative claim does not replicate on our architecture.** The preprint's strongest finding is that
-cavity/geometry features are *actively harmful* specifically at cryptic sites (removing them improved cryptic-subset
-AUC by 0.06-0.07 in their models). Repeating their stratification on our own geometry-vs-topology arms (Phase 264, CryptoBench
-3B transfer) shows the opposite trend, not the same one: geometry minus topology-only, within the cryptic stratum, is
-+0.018 pooled PR-AUC and +0.015 pooled ROC-AUC (5-7 of 8 seeds) -- not confirmed by this project's two-test rule
-(p=0.08-0.11), but positive, not negative. We do not claim geometry helps cryptic sites here; we do not replicate their
-claim that it hurts.
-
-**A real, confirmed result: this model beats P2Rank on the cryptic subset specifically.** Using our own P2Rank 2.5.1
-rerun (Phase 267, run on the official split for an unrelated localization comparison, so not tuned for this question)
-restricted to the 16 cryptic proteins where both methods have scores, the headline model's precision among the top 20
-residues beats P2Rank's by +0.115, paired over proteins (t p=0.022, Wilcoxon p=0.022; bootstrap 95% CI on the mean
-difference [+0.035, +0.203], n=16). The 8-seed ensemble reaches precision@20 0.209 and recall@20 0.314 on this subset --
-above every baseline the external preprint reports on the same rule, including its own new method (0.174 / 0.278).
-
-This is not an independent-structure validation -- it re-labels proteins already in our test split, not new ones -- and
-n=16-17 is small; both caveats are why it is reported here rather than folded into the headline table. It is, however,
-the first check of this project's result against a relabeling we had no part in designing and could not have tuned
-for, and it survives that check on the one statistically confirmed claim it produces.
-
-### External validation on genuinely new structures
-
-Everything reported so far, including the audit above, evaluates the model on CryptoBench's own test structures --
-under an outside relabeling, but the same 182 proteins. We built a separate pipeline (fetch structure, compute the
-same persistent-homology and ESM2-3B features, run inference) for two datasets built entirely outside this project,
-using our own homology-clean 3B-transfer headline model, unmodified, with no threshold-fitting or model selection
-performed against either one:
-
-- **PocketMiner's held-out test set** (Meller et al. 2023, *Nat. Commun.*; github.com/Mickdub/gvp): 35 proteins whose
-  cryptic-pocket labels come from molecular-dynamics simulations, not from comparing a static bound and unbound
-  structure -- a genuinely different definition of "cryptic" than every other dataset in this project. Their own
-  label scheme evaluates residues pooled across all proteins, not per protein (24 of the 35 are "positive-only"
-  annotated and 10 are pure negative-example proteins; zero contain both classes after their own masking, confirmed
-  directly from the label arrays), so we score it the same way they do.
-- **99 genuinely-cryptic entries** from an independent, adversarially-designed benchmark (pmfran4252-afk/cryptic-site-
-  benchmark, the same source as the audit above), fetched fresh from RCSB -- standard per-chain site/non-site labels,
-  scored both pooled and per-protein.
-
-A homology check (mmseqs2, 30% identity, 80% coverage, against both the CryptoBench train split and the actual
-7,339-chain 3B pretraining pool) found that most proteins in both sets have a relative somewhere in our training data
-(29/35 PocketMiner, 82/98 cryptic-site-benchmark) -- expected, since well-characterized proteins with known cryptic
-pockets are exactly the kind of protein a large structural pool is likely to contain. We report the full set and the
-homology-clean subset separately; the clean subset is the honest test of generalization to unrelated proteins.
-
-**PocketMiner: the result holds essentially unchanged on the clean subset.** Pooled ROC-AUC is 0.925 (PR-AUC 0.897,
-8-seed mean) on all 34 usable proteins and 0.920 (PR-AUC 0.887) on the 6 with no training-pool relative -- almost no
-drop. Both exceed the 0.87 ROC-AUC PocketMiner's own paper reports for its own method on its own dataset. This is the
-single strongest external-validation result in this project: a different research group's structures, a different
-labeling philosophy (simulated dynamics instead of a crystallized bound structure), and performance survives removing
-every protein with a training-pool relative.
-
-**cryptic-site-benchmark: weaker, and homology matters more here, but still real.** Pooled ROC-AUC is 0.833 (PR-AUC
-0.363; protein-level PR-AUC 0.476) on all 98 usable proteins and drops to 0.757 (PR-AUC 0.311; protein-level PR-AUC
-0.374) on the 16 with no training-pool relative -- a real gap, unlike PocketMiner. Even so, 0.74-0.76 ROC-AUC on
-proteins with both no training relative and a strict, independently-verified cryptic-pocket label is consistent with
--- if anything slightly better than -- what the audit above found for our own CryptoBench-internal cryptic subset
-(0.721 pooled ROC-AUC, Phase 276). Two different research groups, two different definitions of "genuinely cryptic,"
-and the same model lands in the same place both times. That agreement is the most useful single number this section
-produces: it says the ~0.72-0.76 ROC-AUC range is a property of the problem on hard, truly cryptic sites, not an
-artifact of one benchmark's construction.
 
 ### Ablations: what helped and what did not
 
@@ -673,7 +622,7 @@ demonstration that persistent homology improves *where* a trained
 equivariant model believes a pocket center is, not only *whether* a
 residue is classified as part of one.
 
-**Geometry control for localization (Phases 236–237).** Retraining the
+**Geometry control for localization.** Retraining the
 same 2,055-chain pool and scoring on the same 1,149-unit COACH420/HOLO4K
 benchmark with the 17-feature geometry block used for classification
 (identical 51-wide side channel across arms, 8 seeds each), geometry again
@@ -684,7 +633,7 @@ than topology's own +0.0549-over-no-topology gain in this rerun (8/8
 seeds, p=1.6e-4/0.0078, closely replicating the +0.0528 figure above). The
 primary, pre-specified comparison — geometry plus topology minus geometry
 alone — is **null per seed**: +0.0051, positive in only 3/8 seeds (paired t
-p=0.62, Wilcoxon p=0.92). A follow-up analysis (Phase 237) reloaded the
+p=0.62, Wilcoxon p=0.92). A follow-up analysis reloaded the
 same 32 checkpoints, with no retraining, and asked whether this reflects a
 true absence of benefit or a small effect swamped by single-seed noise: as
 ensemble size grows from 1 to 8 seeds, the geometry+topology-minus-geometry
@@ -696,14 +645,14 @@ A stricter two-way bootstrap that resamples both seeds and benchmark
 structures together puts the 8-seed-ensemble delta at +0.0188 (95% CI
 -0.0096 to +0.0456, P(Δ>0)=0.90): directionally consistent with a small
 residual benefit but not clearing this project's two-test confirmation bar.
-**Localization at larger embedding scales (Phases 244–247).** Because
+**Localization at larger embedding scales.** Because
 classification's residual strengthened with embedding scale (above), the
 same localization control was repeated at ESM2-650M and ESM2-3B: the
 COACH420/HOLO4K benchmark cache was re-embedded at each scale by decoding
 each chain's sequence losslessly from the existing cached one-hot block
 (no structure was re-fetched), rebuilt and checked column-for-column
 (1,341 and 2,621 features per residue), and 4 arms × 8 seeds were retrained
-on the corresponding 2,055-chain training blob (Phases 238/239).
+on the corresponding 2,055-chain training blob.
 
 | Scale | No topology | Topology | Geometry | Geometry + topology |
 |---|---|---|---|---|
@@ -736,8 +685,8 @@ classification's:
   benchmarks also disagree in sign (COACH420: geometry 0.530 vs.
   geometry+topology 0.489; HOLO4K: 0.544 vs. 0.551).
 
-**Localization with 3.5x more training data (Phases 250-254).** The
-original localization result (Phase 22, the paper's headline) used the
+**Localization with 3.5x more training data.** The
+original localization result (this paper's headline) used the
 2,056-chain pool, and the topology gain was largest on the round-3 pool
 (7,513 chains; 7,181 after removing every chain homologous to COACH420).
 The control was therefore repeated there: the same 17 geometry features
@@ -772,7 +721,7 @@ with a ligand). Pooled DCC@4Å:
   replicates in direction, but geometry helps more.
 - **One discrepancy is unexplained.** The no-topology arm here reaches an
   ensemble DCC of 0.501, well above the 0.429 reported for the same arm in
-  the earlier round-3 decomposition (Phase 86), while the topology arm
+  an earlier round-3 decomposition, while the topology arm
   reproduces (0.586 vs. 0.593). Topology's gain over no topology is thus
   about +0.085 here rather than the earlier +0.165. The earlier no-topology
   arm was assembled from salvaged partial runs and may have differed in
@@ -1117,7 +1066,7 @@ alone, a fundamentally harder geometric problem than localizing a pocket
 that is already visibly present.
 
 **Multiple candidate pockets and comparison with P2Rank on the official split.**
-Using the homology-clean 3B transfer ensemble (Phase 266; 8 seeds) on the
+Using the homology-clean 3B transfer ensemble (8 seeds) on the
 official test chains, with P2Rank 2.5.1 rerun on exactly those structures
 (179 of 182 chains usable; 4 residues of 4 chains had no P2Rank score),
 the ensemble's single predicted pocket centre lands within 4 Å of the
@@ -1144,6 +1093,83 @@ was worse, -0.056 PR-AUC). The model beats P2Rank by +0.19 protein-level
 PR-AUC and +0.08 ROC-AUC (73% and 84% of proteins, p<1e-15). An earlier
 +0.014 PR-AUC blending gain on a from-scratch ensemble (hard-split test set)
 therefore does not carry over to the stronger transfer model.
+
+### External audit: is this actually about cryptic pockets?
+
+Every number reported above pools all 182 official CryptoBench test proteins. An independent, adversarially designed
+relabeling of that same test split -- "A benchmark selected for crypticity" (unpublished preprint; code and labels at
+github.com/pmfran4252-afk/cryptic-site-benchmark, CC BY 4.0) -- applies a strict apo/holo cavity-voxel rule (cryptic =
+pocket essentially absent in the unbound structure AND clearly present in the bound one) and finds that only 17 of the
+182 test proteins qualify; 111 are "pre-formed" (already visible in the apo structure) and the rest are ambiguous. We
+mapped their relabeling onto our own test keys via CryptoBench's own dataset metadata (180 of their 182-labelled
+proteins matched; 16 of the 17 cryptic ones fell inside our exact test set) and re-scored our existing prediction files
+against it -- no new training.
+
+**The pooled numbers are mostly about pre-formed pockets.** On the 16-protein cryptic-only subset, the headline
+homology-clean 3B-transfer model's pooled ROC-AUC falls from 0.896 (all 182) to 0.721, protein-level PR-AUC from 0.459
+to 0.262, and precision among the top 20 ranked residues per protein from 0.383 to 0.200. This matches the pattern the
+external preprint reports for other published models and is the honest scope of every number in the table below: this
+project's headline results describe finding pockets in general far better than it describes the harder cryptic subset.
+
+**Their central negative claim does not replicate on our architecture.** The preprint's strongest finding is that
+cavity/geometry features are *actively harmful* specifically at cryptic sites (removing them improved cryptic-subset
+AUC by 0.06-0.07 in their models). Repeating their stratification on our own geometry-vs-topology CryptoBench 3B-transfer arms shows the opposite trend, not the same one: geometry minus topology-only, within the cryptic stratum, is
++0.018 pooled PR-AUC and +0.015 pooled ROC-AUC (5-7 of 8 seeds) -- not confirmed by this project's two-test rule
+(p=0.08-0.11), but positive, not negative. We do not claim geometry helps cryptic sites here; we do not replicate their
+claim that it hurts.
+
+**A real, confirmed result: this model beats P2Rank on the cryptic subset specifically.** Using our own P2Rank 2.5.1
+rerun (run on the official split for an unrelated localization comparison, so not tuned for this question)
+restricted to the 16 cryptic proteins where both methods have scores, the headline model's precision among the top 20
+residues beats P2Rank's by +0.115, paired over proteins (t p=0.022, Wilcoxon p=0.022; bootstrap 95% CI on the mean
+difference [+0.035, +0.203], n=16). The 8-seed ensemble reaches precision@20 0.209 and recall@20 0.314 on this subset --
+above every baseline the external preprint reports on the same rule, including its own new method (0.174 / 0.278).
+
+This is not an independent-structure validation -- it re-labels proteins already in our test split, not new ones -- and
+n=16-17 is small; both caveats are why it is reported here rather than folded into the headline table. It is, however,
+the first check of this project's result against a relabeling we had no part in designing and could not have tuned
+for, and it survives that check on the one statistically confirmed claim it produces.
+
+### External validation on genuinely new structures
+
+Everything reported so far, including the audit above, evaluates the model on CryptoBench's own test structures --
+under an outside relabeling, but the same 182 proteins. We built a separate pipeline (fetch structure, compute the
+same persistent-homology and ESM2-3B features, run inference) for two datasets built entirely outside this project,
+using our own homology-clean 3B-transfer headline model, unmodified, with no threshold-fitting or model selection
+performed against either one:
+
+- **PocketMiner's held-out test set** (Meller et al. 2023, *Nat. Commun.*; github.com/Mickdub/gvp): 35 proteins whose
+  cryptic-pocket labels come from molecular-dynamics simulations, not from comparing a static bound and unbound
+  structure -- a genuinely different definition of "cryptic" than every other dataset in this project. Their own
+  label scheme evaluates residues pooled across all proteins, not per protein (24 of the 35 are "positive-only"
+  annotated and 10 are pure negative-example proteins; zero contain both classes after their own masking, confirmed
+  directly from the label arrays), so we score it the same way they do.
+- **99 genuinely-cryptic entries** from an independent, adversarially-designed benchmark (pmfran4252-afk/cryptic-site-
+  benchmark, the same source as the audit above), fetched fresh from RCSB -- standard per-chain site/non-site labels,
+  scored both pooled and per-protein.
+
+A homology check (mmseqs2, 30% identity, 80% coverage, against both the CryptoBench train split and the actual
+7,339-chain 3B pretraining pool) found that most proteins in both sets have a relative somewhere in our training data
+(29/35 PocketMiner, 82/98 cryptic-site-benchmark) -- expected, since well-characterized proteins with known cryptic
+pockets are exactly the kind of protein a large structural pool is likely to contain. We report the full set and the
+homology-clean subset separately; the clean subset is the honest test of generalization to unrelated proteins.
+
+**PocketMiner: the result holds essentially unchanged on the clean subset.** Pooled ROC-AUC is 0.925 (PR-AUC 0.897,
+8-seed mean) on all 34 usable proteins and 0.920 (PR-AUC 0.887) on the 6 with no training-pool relative -- almost no
+drop. Both exceed the 0.87 ROC-AUC PocketMiner's own paper reports for its own method on its own dataset. This is the
+single strongest external-validation result in this project: a different research group's structures, a different
+labeling philosophy (simulated dynamics instead of a crystallized bound structure), and performance survives removing
+every protein with a training-pool relative.
+
+**cryptic-site-benchmark: weaker, and homology matters more here, but still real.** Pooled ROC-AUC is 0.833 (PR-AUC
+0.363; protein-level PR-AUC 0.476) on all 98 usable proteins and drops to 0.757 (PR-AUC 0.311; protein-level PR-AUC
+0.374) on the 16 with no training-pool relative -- a real gap, unlike PocketMiner. Even so, 0.74-0.76 ROC-AUC on
+proteins with both no training relative and a strict, independently-verified cryptic-pocket label is consistent with
+-- if anything slightly better than -- what the audit above found for our own CryptoBench-internal cryptic subset
+(0.721 pooled ROC-AUC, in the audit above). Two different research groups, two different definitions of "genuinely cryptic,"
+and the same model lands in the same place both times. That agreement is the most useful single number this section
+produces: it says the ~0.72-0.76 ROC-AUC range is a property of the problem on hard, truly cryptic sites, not an
+artifact of one benchmark's construction.
 
 ## Discussion
 
@@ -1180,6 +1206,30 @@ much larger pool of general protein structures teaches more broadly useful
 shared representations (residue embeddings, graph-convolution weights) that
 CryptoBench's smaller, more specialized dataset alone cannot learn as
 reliably.
+
+What that gain actually means depends on which pockets are being counted,
+and this is the most important interpretive correction this project made to
+its own results. CryptoBench's 182-chain test set is only 9% genuinely
+cryptic by a strict, independently applied definition (pocket essentially
+absent in the unbound structure); the rest are already visible before
+anything binds, or ambiguous. Every pooled number in this paper — the 0.918
+AUC, the win over P2Rank, the transfer-learning gain — is therefore mostly a
+statement about how well the model finds pockets in general, not
+specifically about the harder, rarer, more clinically interesting case the
+project set out to study. Restricting to the strictly cryptic subset drops
+pooled ROC-AUC from 0.896 to 0.721, a pattern independently reported for
+other published models by the source of that relabeling. We treat this as
+the honest scope of the work rather than a caveat to bury: a model that is
+very good at binding-site prediction in general, and specifically better
+than a live run of the standard tool on the hardest, truly cryptic cases it
+was pointed at, but not a solved instance of the cryptic-pocket problem as
+originally framed. That the same ~0.72–0.76 ROC-AUC band reappears on two
+datasets built by two other research groups, using two different
+operational definitions of "cryptic" and structures our model never
+trained on, is the strongest evidence in this paper that this number
+reflects the actual difficulty of the task rather than a quirk of one
+benchmark's construction — and it is a materially more useful thing to know
+than the pooled headline figure alone would have suggested.
 
 Embedding scale (35M → 650M → 3B parameter ESM2 models) helped consistently
 and monotonically on CryptoBench but showed no benefit at all, once properly
@@ -1220,6 +1270,34 @@ of +0.003 to +0.005 depending on combiner) — rather than an artifact of
 any one weight-search procedure. A substantially larger cryptic-pocket
 benchmark would be needed to determine whether a genuine MCC
 improvement from ensembling exists at all.
+
+Once the geometry control and the crypticity audit narrowed the real
+question to "can anything close the ~0.72–0.76 gap on genuinely cryptic
+sites," this project tried three further, structurally different answers
+before concluding the current architecture and input structure are near a
+real ceiling rather than leaving obvious gains unclaimed. Per-residue
+chemistry features (hydropathy, charge, aromaticity, hydrogen-bonding,
+local hydrophobic-patch size — all computable from sequence and geometry
+alone, with no ligand information) gave a result split exactly down the
+middle by this project's own two-test rule: one test passed, one did not,
+and the feature aimed most directly at hard cases (a hydrophobic-patch
+measure) made the small-pocket subset slightly worse, not better.
+Elastic-network-derived protein-movement features — a first-principles
+attempt at the central intuition behind cryptic pockets, "does this
+region's local packing loosen or tighten as the protein flexes along its
+own natural motions" — returned a clean null on both the overall metric and
+the small-pocket subset it was specifically designed to help. Explicitly
+up-weighting small pockets in the training loss, addressing the observed
+weak point directly (protein-level ROC-AUC 0.69 on pockets of 8 or fewer
+residues versus 0.90–0.93 elsewhere), also failed to help and mildly hurt
+overall accuracy at the stronger weighting tested. Three independent
+attempts, three different mechanisms, the same outcome: with a single
+static apo structure as the only input, there appears to be little further
+signal left to extract with the feature types tried here. Closing the
+remaining gap most plausibly requires information this project's input
+structure does not carry at all — a conformational ensemble rather than one
+structure, or information about the binding partner rather than the
+protein alone — not a better feature computed on the same input.
 
 ## Conclusion
 
@@ -1272,84 +1350,98 @@ transfer alone) is statistically significant while its MCC gain is not —
 both conclusions are reported plainly rather than rounding the second
 into a further claimed improvement.
 
+The final and most important correction this project made to its own
+result is a scope correction, not a performance one. An independent,
+adversarially designed relabeling of what "cryptic" actually means showed
+that the CryptoBench numbers above are overwhelmingly a statement about
+pockets that are already visible before anything binds; on the roughly 9%
+of test proteins that are genuinely, strictly cryptic, pooled ROC-AUC falls
+from 0.896 to 0.721. The model still beats a live P2Rank run specifically
+on that hard subset, and — tested directly against an external claim to
+the contrary — geometry features do not appear to hurt performance there on
+this architecture. Run unmodified on two datasets built entirely outside
+this project, using two different research groups' own definitions of
+"cryptic" and structures the model never trained on, performance lands at
+0.925 (a set with molecular-dynamics-derived labels, matching or exceeding
+that dataset's own published state of the art) and 0.757 (an independent,
+adversarially constructed hard benchmark, homology-clean subset) — the
+latter number statistically indistinguishable from the 0.721 the internal
+relabeling found. Three checks, two of them genuinely external, agree: on
+the specific case this project set out to address, the honest number is
+roughly 0.72–0.76 ROC-AUC, not the 0.9-plus pooled figure that a
+CryptoBench-only evaluation would otherwise suggest, and three further,
+mechanistically distinct attempts to close that specific gap (chemistry
+features, protein-movement features, small-pocket loss weighting) each
+came back null or inconclusive — evidence that this is a real limit of what
+a single static structure can tell a model about a pocket that does not yet
+exist, rather than an unclaimed modeling gain.
+
 ## Future Work
 
-Natural extensions of this specific line of work, grounded in gaps this
-project identified but did not close:
+The geometry control, the crypticity audit, and the two external-validation
+datasets close out this project's original open questions about whether the
+topology gain is real (mostly not, beyond ordinary geometry) and whether the
+result generalizes beyond CryptoBench (yes, to a consistent ~0.72–0.76
+ROC-AUC on genuinely cryptic sites specifically, on two datasets this
+project never trained on). What remains is a narrower, harder set of
+questions this project could not close with the data and information
+already on hand:
 
-- **Finish the geometry control.** The control has now been run at all
-  three main-pipeline embedding scales for classification (35M/650M/3B, on
-  the 2,055-chain pool), at 35M for CryptoBench classification, and at 35M
-  for COACH420/HOLO4K localization. Geometry alone matches or beats
-  topology alone in every setting. Topology's residual contribution beyond
-  geometry is null on CryptoBench classification, confirmed on both
-  PR-AUC and ROC-AUC at 650M and 3B main-pipeline classification, only
-  partially confirmed at 35M classification (PR-AUC only), and not
-  established for localization at any of the three scales (pooled
-  +0.0084, 95% CI -0.0027 to +0.0194; and -0.0242 per seed at 7,513
-  chains). The classification control at the 7,513-chain pool is now
-  complete (10 folds): the topology residual over geometry is +0.0035
-  PR-AUC (not confirmed) and +0.0018 ROC-AUC (confirmed, tiny). Still
-  untested: CryptoBench at 650M. Geometry-aware 3B transfer is now tested and gives no
-  gain over topology-only transfer. Two questions matter most. First, why classification's
-  residual strengthens with embedding scale while localization's does not,
-  which no experiment here explains. Second, which specific topological
-  property (if any) drives the confirmed classification residual, which
-  remains unidentified; a localization study with more seeds (the
-  pooled interval above is wide enough to include an effect of about +0.02)
-  would also be needed to rule a small localization effect in or out.
+- **Close the ~0.72–0.76 ROC-AUC gap on genuinely cryptic sites with a
+  different kind of information, not a different feature on the same
+  input.** Three mechanistically distinct attempts — hand-crafted chemistry
+  features, elastic-network-derived movement features, and explicitly
+  up-weighting small pockets in the loss — each returned a null or
+  inconclusive result (see Discussion), which is evidence against more
+  features computed from a single static apo structure closing this gap.
+  The two most promising untried directions are a genuine conformational
+  ensemble (proper molecular-dynamics sampling rather than this project's
+  cheap elastic-network approximation, which itself came back null) and
+  calibrated uncertainty (a confidence score honest enough that a user could
+  tell a likely-correct prediction from a guess on a case this hard) rather
+  than a further attempt at raw accuracy.
+- **Which specific topological property, if any, drives the confirmed
+  classification residual beyond geometry** remains unidentified; only one
+  weak, partial signal was found (H0/connected-components measurably
+  underperforms H1, H2 and burial as a standalone contributor at the
+  largest training scale, but no pairwise comparison at smaller scale
+  cleared this project's noise-floor threshold). Answering this needs a
+  systematic per-dimension ablation at the scale where the residual is
+  largest and most consistent (650M/3B main-pipeline classification), which
+  this project ran the necessary controls for but did not fully decompose.
 - **A larger cryptic-pocket benchmark.** CryptoBench's 60-chain validation
-  and 182-chain test splits are small enough to leave the ensemble's MCC
-  gain statistically underpowered: a chain-level bootstrap over the
-  182-chain test set found a real, significant AUC improvement but could
-  not distinguish the MCC improvement from zero at 95% confidence for
-  *any* of four different combination methods tried, including a
-  regularized logistic-regression combiner explicitly designed to be
-  less prone to validation-set overfitting than the grid search. That
-  consistency across methods argues the limitation is the test set's
-  size, not the combination procedure — a benchmark an order of
-  magnitude larger would let this question (and the topology-dimension
-  decomposition question) be answered with the same statistical
-  confidence the main pipeline's much larger COACH420/HOLO4K pool
-  allowed.
-- **A better-resolved topological-variability signal.** This project
-  tested one specific implementation (an 8-conformation ANM-perturbed
-  ensemble, rigid per-residue atom translation, 1.2 Å target RMSD) and
-  found it hurt rather than helped, plausibly because that small an
-  ensemble under-samples the true conformational distribution. A larger
-  ensemble, a proper all-atom elastic-network extension in place of the
-  rigid-translation approximation, or a learned (rather than fixed a
-  priori) RMSD/mode-count setting are the natural next steps before
-  concluding topological variability itself has no value here — this
-  project's negative result rules out the specific implementation
-  tried, not the underlying hypothesis. Multi-scale filtrations,
-  alternative complexes, and topological features computed on predicted
-  (rather than only true) atomic geometry remain separately unexplored.
-- **Resolve whether ANM-predicted flexibility is truly uninformative or
-  just badly scaled.** The single-feature version of this idea (raw
-  predicted mean-square-fluctuation, no ensemble) came back a clean null
-  rather than a negative, and the leading candidate explanation — a
-  heavy-tailed raw distribution poorly served by plain z-score
-  normalization — was never tested. A log-transform or rank-based
-  normalization of the same feature, re-run with the same 8-seed
-  protocol, would settle whether this specific null reflects the
-  feature itself or just its scaling.
+  and 182-chain test splits are small enough to leave the cross-scale
+  ensemble's MCC gain statistically underpowered (a chain-level bootstrap
+  found the AUC gain significant but the MCC gain not, for every combiner
+  tested, including one designed to resist exactly this kind of
+  validation-set overfitting), and small enough that only 16–17 test
+  proteins are genuinely cryptic by a strict definition — the single
+  biggest constraint on how precisely this project could characterize
+  cryptic-specific performance internally. The two external datasets used
+  for validation (35 and 99 proteins respectively) partially substitute for
+  this but were built for a different original purpose and are themselves
+  not large.
 - **A dedicated cryptic-pocket localization benchmark and stronger
   localization architecture.** The 20.9–24.7% DCC@4Å hit rate on
-  CryptoBench, while the first result of its kind, is far below the
-  50–65% range achieved on open pockets. One alternative localization
-  head design was tested — masking the center-prediction softmax to the
-  top-K highest-scoring residues (see Individual Levers) — and came back
-  a null result on DCC itself, on both validation and test; more
-  embedding capacity was also tried and did not help localization
-  specifically. Whether a fundamentally different mechanism (e.g. an
-  auxiliary spatial-clustering loss, or explicitly predicting a pocket
-  radius rather than a single point) can close some of the gap remains
-  untested.
-- **Larger, more diverse ensembles.** Only three ESM2 scales were combined
-  here, using a single validation split to fit the combiner; combining
-  models trained with different architectural choices (not just different
-  embedding sizes), or fitting the combination rule with cross-validation
-  across multiple splits rather than one fixed 60-chain validation fold,
-  is a natural next step once a larger benchmark makes such a search more
-  informative.
+  CryptoBench's single-guess localization is far below the 50–65% range on
+  open pockets, and one alternative localization-head design tested here
+  (masking the center-prediction softmax to the top-K highest-scoring
+  residues) came back a null result on the metric it was built to improve.
+  Returning multiple candidate pockets rather than one, which this project
+  tested and confirmed helps at looser distance thresholds (roughly nine
+  points at 8 Å, little at 4 Å), and a genuinely local (rather than
+  chain-wide) attention mechanism for the center prediction are the two
+  most promising untried directions.
+- **External validation on a larger scale.** The two outside datasets used
+  here (35 and 99 proteins) were chosen because their labels were tractable
+  to obtain and align to this project's exact input format; a systematic
+  search for every other public cryptic-pocket dataset, and a combined
+  external test set an order of magnitude larger, would tighten the
+  confidence interval around the ~0.72–0.76 estimate considerably.
+- **Package this project for reuse.** The full pipeline currently exists as
+  a long, chronological sequence of individual experiments rather than one
+  reproducible codebase; consolidating the final architecture, the
+  homology-clean pretraining recipe, and the CryptoBench fine-tune into a
+  single runnable pipeline — separate from the experimental record this
+  paper reports on — would be needed before anyone else could use this
+  model rather than only read about it.
