@@ -1,0 +1,82 @@
+[{"stream_name":"stderr","time":6.676547351,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.676619037,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.556099205,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.556128363,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.556134287,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.556139096,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.163534928,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.163575903,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.163581389,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.163585795,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.795781977,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m2.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":12.252172655,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/44.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.1/44.1 kB\u001b[0m \u001b[31m1.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.214289269,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m35.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m20.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.316219978,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.3 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━\u001b[0m \u001b[32m2.7/3.3 MB\u001b[0m \u001b[31m81.4 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m49.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.36737642,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.2 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m160.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m72.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.519697397,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/10.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m5.6/10.0 MB\u001b[0m \u001b[31m212.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m10.0/10.0 MB\u001b[0m \u001b[31m185.7 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m10.0/10.0 MB\u001b[0m \u001b[31m185.7 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m10.0/10.0 MB\u001b[0m \u001b[31m94.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.519740986,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/566.4 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m566.4/566.4 kB\u001b[0m \u001b[31m24.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.62178357,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.0/3.0 MB\u001b[0m \u001b[31m188.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.0/3.0 MB\u001b[0m \u001b[31m70.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":36.812705146,"data":"\u001b[?25hGPU: Tesla T4 (probe PASS)\n"}
+,{"stream_name":"stdout","time":37.076979952,"data":"test proteins: 35  |  label dict entries: 35\n"}
+,{"stream_name":"stdout","time":37.312975224,"data":"apo-structures files available: 61\n"}
+,{"stream_name":"stdout","time":43.561523816,"data":"resolved and fetched 35/35 structures\n"}
+,{"stream_name":"stdout","time":45.195239566,"data":"aligned 34/35 chains to their exact label-array length; length mismatches: [('1btp', 220, 223)]\n"}
+,{"stream_name":"stdout","time":45.195280359,"data":"  6hb0A  n= 292  masked_out=277  positives= 15 / evaluated= 15\n"}
+,{"stream_name":"stdout","time":45.195291811,"data":"  2laoA  n= 238  masked_out=223  positives= 15 / evaluated= 15\n"}
+,{"stream_name":"stdout","time":45.195295342,"data":"  1urpA  n= 271  masked_out=258  positives= 13 / evaluated= 13\n"}
+,{"stream_name":"stdout","time":45.195329006,"data":"  6ypkA  n= 327  masked_out=303  positives= 24 / evaluated= 24\n"}
+,{"stream_name":"stdout","time":45.195336789,"data":"  3ugkA  n= 372  masked_out=330  positives= 42 / evaluated= 42\n"}
+,{"stream_name":"stdout","time":45.19534215,"data":"  5g1mA  n= 333  masked_out=314  positives= 19 / evaluated= 19\n"}
+,{"stream_name":"stdout","time":45.195346667,"data":"  5nzmA  n= 483  masked_out=456  positives= 27 / evaluated= 27\n"}
+,{"stream_name":"stdout","time":45.195351046,"data":"  4v38A  n= 388  masked_out=365  positives= 23 / evaluated= 23\n"}
+,{"stream_name":"stdout","time":45.195355368,"data":"  2w9tA  n= 159  masked_out=119  positives= 40 / evaluated= 40\n"}
+,{"stream_name":"stdout","time":45.195359657,"data":"  2hq8B  n= 182  masked_out=157  positives= 25 / evaluated= 25\n"}
+,{"stream_name":"stdout","time":45.195364163,"data":"  4r72A  n= 318  masked_out=294  positives= 24 / evaluated= 24\n"}
+,{"stream_name":"stdout","time":45.195372982,"data":"  5za4A  n= 488  masked_out=464  positives= 24 / evaluated= 24\n"}
+,{"stream_name":"stdout","time":45.195389632,"data":"  2ceyA  n= 306  masked_out=288  positives= 18 / evaluated= 18\n"}
+,{"stream_name":"stdout","time":45.195394879,"data":"  1kmoA  n= 661  masked_out=639  positives= 22 / evaluated= 22\n"}
+,{"stream_name":"stdout","time":45.195399462,"data":"  5niaA  n= 609  masked_out=582  positives= 27 / evaluated= 27\n"}
+,{"stream_name":"stdout","time":45.195403696,"data":"  2fjyA  n= 136  masked_out=117  positives= 19 / evaluated= 19\n"}
+,{"stream_name":"stdout","time":45.195408445,"data":"  3p53A  n= 486  masked_out=470  positives= 16 / evaluated= 16\n"}
+,{"stream_name":"stdout","time":45.195413162,"data":"  1kx9B  n= 102  masked_out= 70  positives= 32 / evaluated= 32\n"}
+,{"stream_name":"stdout","time":45.195418246,"data":"  1tvqA  n= 125  masked_out= 90  positives= 35 / evaluated= 35\n"}
+,{"stream_name":"stdout","time":45.195422319,"data":"  2zkuB  n= 561  masked_out=530  positives= 31 / evaluated= 31\n"}
+,{"stream_name":"stdout","time":45.195426482,"data":"  3nx1A  n= 162  masked_out=151  positives= 11 / evaluated= 11\n"}
+,{"stream_name":"stdout","time":45.195430866,"data":"  4i92A  n= 289  masked_out=270  positives= 19 / evaluated= 19\n"}
+,{"stream_name":"stdout","time":45.195435173,"data":"  3qxwB  n= 124  masked_out=104  positives= 20 / evaluated= 20\n"}
+,{"stream_name":"stdout","time":45.195439448,"data":"  5h9aA  n= 139  masked_out=117  positives= 22 / evaluated= 22\n"}
+,{"stream_name":"stdout","time":45.195443539,"data":"  2fd7A  n=  46  masked_out=  0  positives=  0 / evaluated= 46\n"}
+,{"stream_name":"stdout","time":45.195447827,"data":"  4tqlA  n= 235  masked_out= 20  positives=  0 / evaluated=215\n"}
+,{"stream_name":"stdout","time":45.195452029,"data":"  2alpA  n= 198  masked_out= 20  positives=  0 / evaluated=178\n"}
+,{"stream_name":"stdout","time":45.195456586,"data":"  1ammA  n= 174  masked_out= 26  positives=  0 / evaluated=148\n"}
+,{"stream_name":"stdout","time":45.195476389,"data":"  4ape   n= 330  masked_out=228  positives=  0 / evaluated=102\n"}
+,{"stream_name":"stdout","time":45.195480531,"data":"  5uoj   n= 352  masked_out=246  positives=  0 / evaluated=106\n"}
+,{"stream_name":"stdout","time":45.195485593,"data":"  3gz0   n= 257  masked_out=206  positives=  0 / evaluated= 51\n"}
+,{"stream_name":"stdout","time":45.195489027,"data":"  2oss   n= 127  masked_out= 47  positives=  0 / evaluated= 80\n"}
+,{"stream_name":"stdout","time":45.195492223,"data":"  5zn5   n= 327  masked_out=193  positives=  0 / evaluated=134\n"}
+,{"stream_name":"stdout","time":45.195495807,"data":"  5x8ua  n= 244  masked_out=132  positives=  0 / evaluated=112\n"}
+,{"stream_name":"stdout","time":199.882581037,"data":"topology computed for 34 chains in 2.6 min\n"}
+,{"stream_name":"stdout","time":246.218845141,"data":"reusing training-time topology stats: 34 columns, N_PRE=2587, ESM_DIM=2560\n"}
+,{"stream_name":"stdout","time":249.695701928,"data":"dihedrals recovered for 34/34 chains\n"}
+,{"stream_name":"stderr","time":338.167014855,"data":"Some weights of EsmModel were not initialized from the model checkpoint at facebook/esm2_t36_3B_UR50D and are newly initialized: ['esm.pooler.dense.bias', 'esm.pooler.dense.weight']\n"}
+,{"stream_name":"stderr","time":338.167073382,"data":"You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.\n"}
+,{"stream_name":"stderr","time":338.167080707,"data":"\n"}
+,{"stream_name":"stderr","time":338.167090666,"data":"Some weights of EsmModel were not initialized from the model checkpoint at facebook/esm2_t36_3B_UR50D and are newly initialized: ['esm.pooler.dense.bias', 'esm.pooler.dense.weight']\n"}
+,{"stream_name":"stderr","time":338.167095209,"data":"You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.\n"}
+,{"stream_name":"stdout","time":345.584997448,"data":"facebook/esm2_t36_3B_UR50D: hidden 2560, device cuda, dtype torch.float16\n"}
+,{"stream_name":"stdout","time":346.195651008,"data":"  0/34  [0.0m]\n"}
+,{"stream_name":"stdout","time":348.241538068,"data":"  20/34  [0.0m]\n"}
+,{"stream_name":"stdout","time":351.000226464,"data":"\n"}
+,{"stream_name":"stdout","time":351.000268083,"data":"ESM2 embeddings for 34 chains / 9,841 residues in 0.1 min (0.55 ms/residue)\n"}
+,{"stream_name":"stdout","time":351.371473736,"data":"built 34 graphs (0 dropped)\n"}
+,{"stream_name":"stdout","time":351.371509245,"data":"evaluated residues 1735 | positives 563 (32.45%)\n"}
+,{"stream_name":"stdout","time":351.371515456,"data":"saved -\u003e phase277_pocketminer_graphs.pt\n"}
+,{"stream_name":"stderr","time":357.166935205,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":357.166965617,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":357.333104068,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":357.333130214,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":357.943450968,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":358.262170144,"data":"[NbConvertApp] Writing 137272 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":360.525979553,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":361.490246467,"data":"[NbConvertApp] Writing 470884 bytes to __results__.html\n"}
+]

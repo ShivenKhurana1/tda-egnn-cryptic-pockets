@@ -1,0 +1,112 @@
+[{"stream_name":"stderr","time":6.672749355,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.672822576,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":7.542993239,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.543026509,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.543030076,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.543032671,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.137139378,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.137168647,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.137173821,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.13717762,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.873156659,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m1.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":12.277154673,"data":"\u001b[?25h\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/44.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.1/44.1 kB\u001b[0m \u001b[31m2.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.239069409,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m36.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m20.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.289755239,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.3 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m191.5 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.3/3.3 MB\u001b[0m \u001b[31m79.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.39145458,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.2 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m134.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m64.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.544303602,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/10.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.4/10.0 MB\u001b[0m \u001b[31m101.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━\u001b[0m \u001b[32m7.3/10.0 MB\u001b[0m \u001b[31m108.6 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m10.0/10.0 MB\u001b[0m \u001b[31m115.1 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m10.0/10.0 MB\u001b[0m \u001b[31m73.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.595082117,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/566.4 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m566.4/566.4 kB\u001b[0m \u001b[31m21.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":13.645812421,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.0 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m3.0/3.0 MB\u001b[0m \u001b[31m126.3 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.0/3.0 MB\u001b[0m \u001b[31m61.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":35.834204666,"data":"\u001b[?25hGPU: Tesla T4 (probe PASS)\n"}
+,{"stream_name":"stdout","time":35.834271052,"data":"cryptic entries: 99\n"}
+,{"stream_name":"stdout","time":37.504900587,"data":"fetched 98/98 apo structures\n"}
+,{"stream_name":"stdout","time":59.202067399,"data":"usable chains: 99/99; failures: 0\n"}
+,{"stream_name":"stdout","time":59.202112401,"data":"chains with a partially-matched site: 0 []\n"}
+,{"stream_name":"stdout","time":59.202119907,"data":"residues 21,762 | cryptic-site residues 1,533 (7.04%)\n"}
+,{"stream_name":"stderr","time":59.25806563,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":59.258089312,"data":"\n"}
+,{"stream_name":"stderr","time":59.25823533,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":116.607952854,"data":"[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:   57.1s\n"}
+,{"stream_name":"stderr","time":116.608038651,"data":"\n"}
+,{"stream_name":"stderr","time":116.610144432,"data":"[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:   57.1s\n"}
+,{"stream_name":"stderr","time":193.657015779,"data":"[Parallel(n_jobs=4)]: Done  99 out of  99 | elapsed:  2.2min finished\n"}
+,{"stream_name":"stderr","time":193.657054256,"data":"\n"}
+,{"stream_name":"stderr","time":193.657079208,"data":"[Parallel(n_jobs=4)]: Done  99 out of  99 | elapsed:  2.2min finished\n"}
+,{"stream_name":"stdout","time":193.65801690199999,"data":"topology computed for 99 chains in 2.2 min\n"}
+,{"stream_name":"stdout","time":238.467862593,"data":"reusing training-time topology stats: 34 columns, N_PRE=2587\n"}
+,{"stream_name":"stderr","time":238.696359014,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":238.696400752,"data":"\n"}
+,{"stream_name":"stderr","time":238.696407291,"data":"[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.\n"}
+,{"stream_name":"stderr","time":248.846472471,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":248.84651881,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":248.857604254,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":248.85762924,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":249.049489412,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":249.049525566,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":249.049531305,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":249.049536896,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":249.049549788,"data":"\n"}
+,{"stream_name":"stderr","time":249.051125693,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":249.051146606,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":249.051151736,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":249.051156807,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":251.267720559,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":251.267771393,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":251.471537165,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":251.471605213,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":251.471609861,"data":"\n"}
+,{"stream_name":"stderr","time":251.471613846,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":251.471617884,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":251.971228599,"data":"[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:   13.3s\n"}
+,{"stream_name":"stderr","time":251.971279918,"data":"\n"}
+,{"stream_name":"stderr","time":251.971284509,"data":"[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:   13.3s\n"}
+,{"stream_name":"stderr","time":254.062595271,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue SAM is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":254.062629676,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":254.265581862,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue SAM is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":254.265633054,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":254.265639767,"data":"\n"}
+,{"stream_name":"stderr","time":254.265750015,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue SAM is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":254.26579344,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":254.505714167,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue FLC is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":254.505748644,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":254.709199033,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue FLC is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":254.709251052,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":254.709257266,"data":"\n"}
+,{"stream_name":"stderr","time":254.711193303,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue FLC is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":254.711215887,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":255.867257007,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":255.867323213,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":256.070671162,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":256.070706906,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":256.070712685,"data":"\n"}
+,{"stream_name":"stderr","time":256.073151887,"data":"/usr/local/lib/python3.12/dist-packages/Bio/PDB/Polypeptide.py:322: UserWarning: Assuming residue CA is an unknown modified amino acid\n"}
+,{"stream_name":"stderr","time":256.073175697,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":259.805477762,"data":"\n"}
+,{"stream_name":"stdout","time":259.805539239,"data":"dihedrals recovered for 99/99 chains in 0.4 min\n"}
+,{"stream_name":"stderr","time":259.806666205,"data":"[Parallel(n_jobs=4)]: Done  99 out of  99 | elapsed:   21.3s finished\n"}
+,{"stream_name":"stderr","time":259.806686626,"data":"\n"}
+,{"stream_name":"stderr","time":259.806690683,"data":"[Parallel(n_jobs=4)]: Done  99 out of  99 | elapsed:   21.3s finished\n"}
+,{"stream_name":"stderr","time":342.092500606,"data":"Some weights of EsmModel were not initialized from the model checkpoint at facebook/esm2_t36_3B_UR50D and are newly initialized: ['esm.pooler.dense.bias', 'esm.pooler.dense.weight']\n"}
+,{"stream_name":"stderr","time":342.092552406,"data":"You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.\n"}
+,{"stream_name":"stderr","time":342.092557605,"data":"\n"}
+,{"stream_name":"stderr","time":342.092561029,"data":"Some weights of EsmModel were not initialized from the model checkpoint at facebook/esm2_t36_3B_UR50D and are newly initialized: ['esm.pooler.dense.bias', 'esm.pooler.dense.weight']\n"}
+,{"stream_name":"stderr","time":342.092564667,"data":"You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.\n"}
+,{"stream_name":"stdout","time":382.516294328,"data":"facebook/esm2_t36_3B_UR50D: hidden 2560, device cuda, dtype torch.float16\n"}
+,{"stream_name":"stdout","time":383.15245457,"data":"  0/99  [0.0m]\n"}
+,{"stream_name":"stdout","time":384.322359702,"data":"  20/99  [0.0m]\n"}
+,{"stream_name":"stdout","time":386.040201594,"data":"  40/99  [0.1m]\n"}
+,{"stream_name":"stdout","time":388.013325504,"data":"  60/99  [0.1m]\n"}
+,{"stream_name":"stdout","time":390.647929131,"data":"  80/99  [0.1m]\n"}
+,{"stream_name":"stdout","time":394.375196624,"data":"\n"}
+,{"stream_name":"stdout","time":394.375236622,"data":"ESM2 embeddings for 99 chains / 21,762 residues in 0.2 min (0.55 ms/residue)\n"}
+,{"stream_name":"stdout","time":395.029342595,"data":"built 99 graphs (0 dropped)\n"}
+,{"stream_name":"stdout","time":395.029375242,"data":"residues 21762 | positives 1533 (7.04%)\n"}
+,{"stream_name":"stdout","time":395.061375558,"data":"saved -\u003e phase277b_csb_cryptic_graphs.pt\n"}
+,{"stream_name":"stderr","time":400.862153253,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":400.862186665,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":401.07079855,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":401.070882968,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":402.045672316,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":402.367434613,"data":"[NbConvertApp] Writing 169296 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":404.65709908,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":405.559933004,"data":"[NbConvertApp] Writing 516826 bytes to __results__.html\n"}
+]

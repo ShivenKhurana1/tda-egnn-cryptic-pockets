@@ -1,0 +1,13 @@
+########## PocketMiner (34 usable of 35; MD-simulation-derived labels; POOLED evaluation only -- see docstring) ##########
+  [all ] 34 proteins, 1735 evaluated residues, 563 positive | per-seed mean over 8 seeds: pooled PR-AUC 0.8968 +- 0.0158  ROC-AUC 0.9252 +- 0.0124
+  [clean] 6 proteins, 365 evaluated residues, 104 positive | per-seed mean over 8 seeds: pooled PR-AUC 0.8870 +- 0.0528  ROC-AUC 0.9198 +- 0.0254
+
+########## cryptic-site-benchmark cryptic subset (99 chains; standard per-chain site/non-site labels) ##########
+  [all ] 98 proteins, 21666 residues, 1523 positive | pooled PR-AUC 0.3633 +- 0.0216  ROC-AUC 0.8326 +- 0.0155  |  protein-level PR-AUC 0.4763  ROC-AUC 0.8249
+  [clean] 16 proteins, 3143 residues, 270 positive | pooled PR-AUC 0.3105 +- 0.0216  ROC-AUC 0.7573 +- 0.0244  |  protein-level PR-AUC 0.3744  ROC-AUC 0.7403
+
+8-seed ENSEMBLE (mean probability across seeds)
+  pocketminer  [all ] n= 34 proteins  pooled PR 0.9205  ROC 0.9418
+  pocketminer  [clean] n=  6 proteins  pooled PR 0.9093  ROC 0.9367
+  csb_cryptic  [all ] n= 98 proteins  pooled PR 0.4077  ROC 0.8570
+  csb_cryptic  [clean] n= 16 proteins  pooled PR 0.3391  ROC 0.7813

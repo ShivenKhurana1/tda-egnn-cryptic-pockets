@@ -1,0 +1,18 @@
+{
+  "id": "blackpearls1/phase277c-external-homology",
+  "title": "Phase277c External Homology",
+  "code_file": "phase277c_homology.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase48-cryptobench-esm3b",
+    "blackpearls1/tda-egnn-phase96-esm-dihedral-esm3b-v3",
+    "blackpearls1/phase266a-pool-exclusions"
+  ]
+}

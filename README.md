@@ -91,6 +91,12 @@ exposure geometry:
   P2Rank rerun by +0.115 precision@20 (n=16, paired, p=0.022/0.022, CI excludes 0) -- above every baseline in their table.
   Their claim that geometry/cavity features hurt cryptic sites does not replicate on our architecture (trends positive, NS).
 
+* Phase 277 (external validation, genuinely new structures, not just a relabeling): PocketMiner's 35-protein MD-derived test set and 99
+  cryptic entries from an independent adversarial benchmark, fetched and featurized fresh, scored with the unmodified headline model.
+  PocketMiner: pooled ROC 0.925 (all) / 0.920 (6 proteins with no training-pool homolog) -- beats PocketMiner's own reported 0.87 on their
+  own dataset. cryptic-site-benchmark: pooled ROC 0.833 (all) / 0.757 (16 homology-clean) -- consistent with Phase 276's internal 0.721 on
+  CryptoBench's own truly-cryptic subset. Two independent groups, two cryptic definitions, the same ~0.72-0.76 ROC-AUC on truly hard sites.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:

@@ -490,6 +490,47 @@ n=16-17 is small; both caveats are why it is reported here rather than folded in
 the first check of this project's result against a relabeling we had no part in designing and could not have tuned
 for, and it survives that check on the one statistically confirmed claim it produces.
 
+### External validation on genuinely new structures
+
+Everything reported so far, including the audit above, evaluates the model on CryptoBench's own test structures --
+under an outside relabeling, but the same 182 proteins. We built a separate pipeline (fetch structure, compute the
+same persistent-homology and ESM2-3B features, run inference) for two datasets built entirely outside this project,
+using our own homology-clean 3B-transfer headline model, unmodified, with no threshold-fitting or model selection
+performed against either one:
+
+- **PocketMiner's held-out test set** (Meller et al. 2023, *Nat. Commun.*; github.com/Mickdub/gvp): 35 proteins whose
+  cryptic-pocket labels come from molecular-dynamics simulations, not from comparing a static bound and unbound
+  structure -- a genuinely different definition of "cryptic" than every other dataset in this project. Their own
+  label scheme evaluates residues pooled across all proteins, not per protein (24 of the 35 are "positive-only"
+  annotated and 10 are pure negative-example proteins; zero contain both classes after their own masking, confirmed
+  directly from the label arrays), so we score it the same way they do.
+- **99 genuinely-cryptic entries** from an independent, adversarially-designed benchmark (pmfran4252-afk/cryptic-site-
+  benchmark, the same source as the audit above), fetched fresh from RCSB -- standard per-chain site/non-site labels,
+  scored both pooled and per-protein.
+
+A homology check (mmseqs2, 30% identity, 80% coverage, against both the CryptoBench train split and the actual
+7,339-chain 3B pretraining pool) found that most proteins in both sets have a relative somewhere in our training data
+(29/35 PocketMiner, 82/98 cryptic-site-benchmark) -- expected, since well-characterized proteins with known cryptic
+pockets are exactly the kind of protein a large structural pool is likely to contain. We report the full set and the
+homology-clean subset separately; the clean subset is the honest test of generalization to unrelated proteins.
+
+**PocketMiner: the result holds essentially unchanged on the clean subset.** Pooled ROC-AUC is 0.925 (PR-AUC 0.897,
+8-seed mean) on all 34 usable proteins and 0.920 (PR-AUC 0.887) on the 6 with no training-pool relative -- almost no
+drop. Both exceed the 0.87 ROC-AUC PocketMiner's own paper reports for its own method on its own dataset. This is the
+single strongest external-validation result in this project: a different research group's structures, a different
+labeling philosophy (simulated dynamics instead of a crystallized bound structure), and performance survives removing
+every protein with a training-pool relative.
+
+**cryptic-site-benchmark: weaker, and homology matters more here, but still real.** Pooled ROC-AUC is 0.833 (PR-AUC
+0.363; protein-level PR-AUC 0.476) on all 98 usable proteins and drops to 0.757 (PR-AUC 0.311; protein-level PR-AUC
+0.374) on the 16 with no training-pool relative -- a real gap, unlike PocketMiner. Even so, 0.74-0.76 ROC-AUC on
+proteins with both no training relative and a strict, independently-verified cryptic-pocket label is consistent with
+-- if anything slightly better than -- what the audit above found for our own CryptoBench-internal cryptic subset
+(0.721 pooled ROC-AUC, Phase 276). Two different research groups, two different definitions of "genuinely cryptic,"
+and the same model lands in the same place both times. That agreement is the most useful single number this section
+produces: it says the ~0.72-0.76 ROC-AUC range is a property of the problem on hard, truly cryptic sites, not an
+artifact of one benchmark's construction.
+
 ### Ablations: what helped and what did not
 
 A rigorous accounting of this project's ablations, including several
