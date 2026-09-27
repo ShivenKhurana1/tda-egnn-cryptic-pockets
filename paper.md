@@ -162,7 +162,7 @@ head evaluated by distance-to-center success rather than only residue
 classification, and doing so for cryptic pockets from a single apo
 structure with no simulation required. The broader binding-site-prediction
 landscape is larger still — DeepPocket, PUResNet, IF-SitePred, and GrASP
-are all actively benchmarked cavity-detection tools (Aggarwal et al.,
+are all actively benchmarked cavity-detection tools (Utgés and Barton,
 *J. Cheminformatics* 2024, compares several of them on cryptic sites) —
 but that comparison evaluates pocket-level recall after re-scoring
 geometric cavity detections, a different task and metric from the
