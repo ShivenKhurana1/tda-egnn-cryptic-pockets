@@ -56,7 +56,7 @@ exposure geometry:
   Topology still beats no topology (+0.094, 8/8 seeds).
 * Phases 255/257 (classification control at the 7,513-chain pool, 10-fold CV, folds 0-3 on GPU, 4-9 on CPU): complete.
   Geometry+topology minus geometry = +0.0035 PR-AUC (CI -0.0008..+0.0078, not confirmed) and +0.0018 ROC-AUC (confirmed, tiny).
-  Geometry alone beats no-topology by +0.062 PR-AUC in 10/10 folds. A same-fold CPU-vs-GPU check (f0/f1) was still running.
+  Geometry alone beats no-topology by +0.062 PR-AUC in 10/10 folds. Same-fold CPU-vs-GPU check (folds 0/1): CPU is 0.002 lower PR-AUC / 0.001 lower ROC-AUC, about the size of the topology residual itself.
 * Phase 262 (CryptoBench, ESM2-3B, official split, from scratch, 8 seeds x 4 arms): geometry +0.021 test PR-AUC over no-topology
   (7/8 seeds, t p=0.041, Wilcoxon p=0.078); topology adds nothing on top. Still below the 3B transfer model (ROC 0.911).
 * Phases 260/261 (local, no new training): P2Rank blend (+0.014 protein PR-AUC) and multi-candidate localization (best of 3
