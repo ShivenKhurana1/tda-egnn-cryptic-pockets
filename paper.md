@@ -468,6 +468,21 @@ explicitly negative or null findings:
   from adding topology is real, but the specific mechanistic claim that the
   gating layer learns to discriminate where topology should be trusted is
   not supported and was retracted from this project's claims.
+- **Small-pocket loss weighting (negative).** On the 49 official test
+  chains whose pocket has 8 or fewer residues, the transfer model is far
+  weaker than elsewhere (protein-level ROC-AUC 0.69 vs. 0.90-0.93; pocket
+  centre within 4 Å for 8% of chains vs. 36-50%; mean centre error 16.9 Å vs.
+  5.4-7.5 Å). Up-weighting proteins with small pockets in the loss (weight
+  (median pocket size / size)^beta, clipped to [1, max]; beta 0.5/max 3 and
+  beta 1.0/max 6, applied to the residue and centre terms; 8 seeds each,
+  fine-tuned from the same homology-clean 3B checkpoints as the unweighted
+  baseline) did not help: small-pocket ROC-AUC +0.002 (p=0.55) and +0.006
+  (p=0.14), small-pocket DCC@4 Å -0.013 and -0.005. The stronger weighting
+  slightly hurt overall performance (pooled PR-AUC -0.008, p=0.002 / Wilcoxon
+  0.008; DCC@4 Å -0.024, p=0.004). The small-pocket gap therefore does not
+  come from loss imbalance; with 8 or fewer positive residues there is little
+  signal for the model to learn from, and a different kind of information
+  (not a re-weighting) would be needed.
 - **Catalytic-residue transfer (negative, not harmful).** Testing whether
   the topology gain transfers to *catalytic* residues (Catalytic Site Atlas
   labels, a much sparser and more specific class than general binding-site

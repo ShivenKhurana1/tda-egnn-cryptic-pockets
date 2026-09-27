@@ -74,6 +74,10 @@ exposure geometry:
   guess hits within 4 A for 35.8% vs P2Rank top-1 16.1%; hybrid best-of-3 hits 37.4% (4 A) / 71.5% (8 A) vs P2Rank best-of-3 25.3% / 57.5%
   (paired p=0.007 / 0.001). Blend with P2Rank adds nothing to the transfer model (stack weight ~0; PR-AUC -0.004).
 
+* Phase 269 (small-pocket loss weighting, 2 strengths x 8 seeds, clean-pool 3B transfer): NEGATIVE. Small-pocket (<=8 residue) test ROC-AUC
+  +0.002 / +0.006 (p=0.55 / 0.14); the stronger weight slightly hurt pooled PR-AUC (-0.008, p=0.002) and DCC@4 (-0.024). The small-pocket gap
+  (ROC 0.69 vs 0.90-0.93; DCC@4 8% vs 36-50%) is a signal limit, not a loss-balance problem.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
