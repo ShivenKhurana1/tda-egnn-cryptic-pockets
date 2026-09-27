@@ -1,0 +1,19 @@
+{
+  "id": "blackpearls1/phase272ff-cb3b-transfer-flex",
+  "title": "Phase272ff Cb3b Transfer Flex",
+  "code_file": "phase272ff_cb3b_transfer_flex.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase48-cryptobench-esm3b",
+    "blackpearls1/phase270-flex-features",
+    "blackpearls1/phase271ff-pretrain-3b-flex"
+  ]
+}

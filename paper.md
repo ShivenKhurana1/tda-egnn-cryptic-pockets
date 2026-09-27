@@ -473,6 +473,23 @@ explicitly negative or null findings:
   from adding topology is real, but the specific mechanistic claim that the
   gating layer learns to discriminate where topology should be trusted is
   not supported and was retracted from this project's claims.
+- **Protein-movement (elastic-network) features (null, not adopted).** A
+  richer test of the flexibility hypothesis than the earlier single-column
+  or perturbed-topology attempts (see below): 10 features per residue from
+  a Cα-level elastic network built on the apo structure alone, including
+  rank-scaled predicted fluctuation, how collective a residue's motion is,
+  distance to the nearest structural hinge, and — aimed directly at the
+  "could this open up" question — how much each residue's local
+  neighbourhood loosens or tightens when the structure is nudged along its
+  5 slowest natural motions. Verified rotation/translation-invariant to
+  machine precision before use. Added to the homology-clean 3B pretraining
+  pool (7,004 chains) and to CryptoBench, matched-control design (topology
+  alone vs. topology plus the 10 movement columns, identical 44-wide side
+  channel, both arms fine-tuned from their own pretrained checkpoints, 8
+  seeds each). Result: pooled test PR-AUC +0.0042 (p=0.60), ROC-AUC +0.0059
+  (p=0.089) — in the same direction as hoped but not confirmed, and no
+  better on the small-pocket stratum where the idea predicted the most
+  benefit (ROC-AUC -0.006, p=0.19). Not adopted.
 - **Small-pocket loss weighting (negative).** On the 49 official test
   chains whose pocket has 8 or fewer residues, the transfer model is far
   weaker than elsewhere (protein-level ROC-AUC 0.69 vs. 0.90-0.93; pocket

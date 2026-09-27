@@ -78,6 +78,9 @@ exposure geometry:
   +0.002 / +0.006 (p=0.55 / 0.14); the stronger weight slightly hurt pooled PR-AUC (-0.008, p=0.002) and DCC@4 (-0.024). The small-pocket gap
   (ROC 0.69 vs 0.90-0.93; DCC@4 8% vs 36-50%) is a signal limit, not a loss-balance problem.
 
+* Phases 270-272 (protein-movement / elastic-network features, matched control, homology-clean 3B pretraining + transfer, 8 seeds): NULL.
+  Pooled test PR-AUC +0.0042 (p=0.60), ROC-AUC +0.0059 (p=0.089); no improvement on the small-pocket stratum the idea targeted (ROC -0.006). Not adopted.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
