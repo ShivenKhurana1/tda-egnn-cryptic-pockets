@@ -1,0 +1,53 @@
+test chains per stratum: {'<=8': 49, '9-15': 58, '>=16': 75, 'all': 182}
+
+per-seed means (8 seeds)
+metric            base      chem   ref266c
+<=8|roc         0.6894    0.7008    0.6893
+<=8|pr          0.1853    0.1846    0.1833
+<=8|dcc4        0.0765    0.0510    0.0638
+<=8|dcc8        0.2347    0.2321    0.2092
+<=8|err        17.0494   17.5159   17.3978
+9-15|roc        0.9051    0.8986    0.9022
+9-15|dcc4       0.2823    0.2780    0.2866
+>=16|roc        0.9163    0.9195    0.9142
+>=16|dcc4       0.4433    0.4550    0.4600
+all|dcc4        0.2933    0.2898    0.2981
+all|dcc8        0.6140    0.6099    0.5968
+pooled|pr       0.4017    0.4129    0.4082
+pooled|roc      0.8985    0.8996    0.8961
+pooled|mcc      0.4330    0.4422    0.4368
+
+paired over seeds, arm - matched control (ref266c row = sanity check on the control itself)
+  chem <=8|roc     0.6894 -> 0.7008 delta +0.0114 5/8  t p=3.0e-01 W p=3.8e-01
+  chem <=8|pr      0.1853 -> 0.1846 delta -0.0006 3/8  t p=9.1e-01 W p=7.4e-01
+  chem <=8|dcc4    0.0765 -> 0.0510 delta -0.0255 1/8  t p=2.8e-02 W p=5.5e-02
+  chem <=8|dcc8    0.2347 -> 0.2321 delta -0.0026 2/8  t p=8.9e-01 W p=8.5e-01
+  chem <=8|err     17.0494 -> 17.5159 delta +0.4665 5/8  t p=8.9e-02 W p=1.1e-01
+  chem 9-15|roc    0.9051 -> 0.8986 delta -0.0064 2/8  t p=2.2e-01 W p=2.5e-01
+  chem 9-15|dcc4   0.2823 -> 0.2780 delta -0.0043 4/8  t p=8.3e-01 W p=1.0e+00
+  chem >=16|roc    0.9163 -> 0.9195 delta +0.0033 6/8  t p=3.3e-01 W p=4.6e-01
+  chem >=16|dcc4   0.4433 -> 0.4550 delta +0.0117 4/8  t p=5.1e-01 W p=7.3e-01
+  chem all|dcc4    0.2933 -> 0.2898 delta -0.0034 4/8  t p=7.2e-01 W p=7.4e-01
+  chem all|dcc8    0.6140 -> 0.6099 delta -0.0041 2/8  t p=5.4e-01 W p=5.3e-01
+  chem pooled|pr   0.4017 -> 0.4129 delta +0.0112 6/8  t p=4.6e-02 W p=5.5e-02
+  chem pooled|roc  0.8985 -> 0.8996 delta +0.0011 4/8  t p=7.5e-01 W p=8.4e-01
+  chem pooled|mcc  0.4330 -> 0.4422 delta +0.0092 7/8  t p=1.8e-01 W p=1.5e-01
+  ref266c <=8|roc     0.6894 -> 0.6893 delta -0.0001 5/8  t p=9.9e-01 W p=9.5e-01
+  ref266c <=8|pr      0.1853 -> 0.1833 delta -0.0020 5/8  t p=7.7e-01 W p=6.4e-01
+  ref266c <=8|dcc4    0.0765 -> 0.0638 delta -0.0128 2/8  t p=4.2e-01 W p=5.3e-01
+  ref266c <=8|dcc8    0.2347 -> 0.2092 delta -0.0255 2/8  t p=1.5e-01 W p=1.3e-01
+  ref266c <=8|err     17.0494 -> 17.3978 delta +0.3484 6/8  t p=2.2e-01 W p=3.1e-01
+  ref266c 9-15|roc    0.9051 -> 0.9022 delta -0.0028 3/8  t p=6.1e-01 W p=6.4e-01
+  ref266c 9-15|dcc4   0.2823 -> 0.2866 delta +0.0043 2/8  t p=7.9e-01 W p=1.0e+00
+  ref266c >=16|roc    0.9163 -> 0.9142 delta -0.0021 4/8  t p=7.6e-01 W p=8.4e-01
+  ref266c >=16|dcc4   0.4433 -> 0.4600 delta +0.0167 4/8  t p=4.0e-01 W p=3.5e-01
+  ref266c all|dcc4    0.2933 -> 0.2981 delta +0.0048 4/8  t p=6.4e-01 W p=7.4e-01
+  ref266c all|dcc8    0.6140 -> 0.5968 delta -0.0172 2/8  t p=2.4e-01 W p=2.5e-01
+  ref266c pooled|pr   0.4017 -> 0.4082 delta +0.0065 4/8  t p=3.4e-01 W p=6.4e-01
+  ref266c pooled|roc  0.8985 -> 0.8961 delta -0.0025 4/8  t p=6.7e-01 W p=6.4e-01
+  ref266c pooled|mcc  0.4330 -> 0.4368 delta +0.0038 3/8  t p=6.0e-01 W p=1.0e+00
+
+8-seed ensembles (small-pocket stratum, all)
+  base  <=8|roc 0.6940  <=8|dcc4 0.0816  <=8|dcc8 0.2449  all|dcc4 0.3407  all|dcc8 0.6374  pooled|pr 0.4348  pooled|roc 0.9107  pooled|mcc 0.4663
+  chem  <=8|roc 0.7086  <=8|dcc4 0.0408  <=8|dcc8 0.2245  all|dcc4 0.3187  all|dcc8 0.6264  pooled|pr 0.4440  pooled|roc 0.9129  pooled|mcc 0.4614
+  ref266c <=8|roc 0.6934  <=8|dcc4 0.0816  <=8|dcc8 0.2449  all|dcc4 0.3571  all|dcc8 0.6209  pooled|pr 0.4422  pooled|roc 0.9114  pooled|mcc 0.4633

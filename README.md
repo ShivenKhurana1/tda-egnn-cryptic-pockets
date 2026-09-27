@@ -81,6 +81,10 @@ exposure geometry:
 * Phases 270-272 (protein-movement / elastic-network features, matched control, homology-clean 3B pretraining + transfer, 8 seeds): NULL.
   Pooled test PR-AUC +0.0042 (p=0.60), ROC-AUC +0.0059 (p=0.089); no improvement on the small-pocket stratum the idea targeted (ROC -0.006). Not adopted.
 
+* Phases 273-275 (per-residue chemistry features -- hydropathy/charge/aromaticity/H-bond/hydrophobic-patch, matched control, same design as
+  Phases 270-272, 8 seeds): INCONCLUSIVE. Pooled PR-AUC +0.0112 (t p=0.046, Wilcoxon p=0.055 -- split verdict, not confirmed); ROC-AUC +0.0011 (p=0.75);
+  small-pocket DCC@4 went down (-0.026, also split-verdict). Not adopted.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:

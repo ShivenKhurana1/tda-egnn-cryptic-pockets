@@ -1,0 +1,20 @@
+{
+  "id": "blackpearls1/phase274ch-pretrain-3b-chem",
+  "title": "Phase274ch Pretrain 3b Chem",
+  "code_file": "phase274ch_pretrain_3b_chem.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase96-esm-dihedral-esm3b-v3",
+    "blackpearls1/phase251-clean-centers",
+    "blackpearls1/phase266a-pool-exclusions",
+    "blackpearls1/phase273-chem-features"
+  ]
+}

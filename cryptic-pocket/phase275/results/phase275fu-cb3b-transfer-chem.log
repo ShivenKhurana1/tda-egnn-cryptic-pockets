@@ -1,0 +1,34 @@
+[{"stream_name":"stderr","time":5.314516565,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":5.314588917,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":6.059833458,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.059859651,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.059865055,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.059869045,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":6.617080296,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.617123773,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.617130894,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.617135369,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":9.641359955,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m3.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":9.794036258,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m39.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":61.221938537,"data":"\u001b[?25hGPU: Tesla T4 (probe PASS)\n"}
+,{"stream_name":"stdout","time":61.221971444,"data":"device cuda | node dim 2621 | pos_weight 20.73 | train 700 | val 60 | test 182\n"}
+,{"stream_name":"stdout","time":63.709109635,"data":"pool geometry stats loaded; pretrain n_train 7004\n"}
+,{"stream_name":"stdout","time":64.168282919,"data":"node dim 2637 = 2587 + 34 + 16; splits {'train': 700, 'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":117.174145424,"data":"  [full] seed 0: val PR 0.4104  [0.9m]\n"}
+,{"stream_name":"stdout","time":157.514737319,"data":"  [full] seed 1: val PR 0.4026  [1.6m]\n"}
+,{"stream_name":"stdout","time":197.903932269,"data":"  [full] seed 2: val PR 0.4155  [2.2m]\n"}
+,{"stream_name":"stdout","time":238.115386196,"data":"  [full] seed 3: val PR 0.3914  [2.9m]\n"}
+,{"stream_name":"stdout","time":287.112734531,"data":"  [full] seed 4: val PR 0.4006  [3.7m]\n"}
+,{"stream_name":"stdout","time":344.688797599,"data":"  [full] seed 5: val PR 0.4165  [4.7m]\n"}
+,{"stream_name":"stdout","time":393.501153629,"data":"  [full] seed 6: val PR 0.4205  [5.5m]\n"}
+,{"stream_name":"stdout","time":437.82777285,"data":"  [full] seed 7: val PR 0.4020  [6.2m]\n"}
+,{"stream_name":"stdout","time":437.828772689,"data":"done\n"}
+,{"stream_name":"stderr","time":443.42761989,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":443.42765436,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":443.570900649,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":443.570941025,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":444.148791994,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":444.444401846,"data":"[NbConvertApp] Writing 19266 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":446.710111301,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":447.522188681,"data":"[NbConvertApp] Writing 347059 bytes to __results__.html\n"}
+]

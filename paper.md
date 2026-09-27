@@ -473,6 +473,24 @@ explicitly negative or null findings:
   from adding topology is real, but the specific mechanistic claim that the
   gating layer learns to discriminate where topology should be trusted is
   not supported and was retracted from this project's claims.
+- **Per-residue chemistry features (inconclusive, not adopted).** 16
+  features per residue derived from amino-acid identity and Cα geometry
+  alone (no ligand information): hydropathy, volume, formal charge,
+  aromaticity, hydrogen-bond donor/acceptor counts (self and 10 Å
+  neighbourhood-averaged), local net and absolute charge, a
+  charge-heterogeneity term, and the size of the nearest hydrophobic
+  patch (residues with positive hydropathy connected at 6 Å). Verified
+  rotation/translation-invariant to machine precision. Same matched-control
+  design as the movement-feature test (homology-clean 3B pretraining pool,
+  8 seeds, fine-tuned on CryptoBench). Pooled test PR-AUC +0.0112 (paired t
+  p=0.046, Wilcoxon p=0.055 — one test crosses this project's 0.05 bar, the
+  other does not, so this is **not confirmed** by the pre-registered
+  two-test rule); ROC-AUC +0.0011 (p=0.75). On the small-pocket stratum the
+  hydrophobic-patch feature was aimed at, centre-within-4Å accuracy went
+  down rather than up (-0.026, t p=0.028, Wilcoxon p=0.055 — again split
+  between the two tests). Read together: a small, inconsistent effect that
+  does not meet this project's bar for a confirmed result in either
+  direction. Not adopted.
 - **Protein-movement (elastic-network) features (null, not adopted).** A
   richer test of the flexibility hypothesis than the earlier single-column
   or perturbed-topology attempts (see below): 10 features per residue from

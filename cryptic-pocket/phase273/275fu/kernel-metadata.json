@@ -1,0 +1,19 @@
+{
+  "id": "blackpearls1/phase275fu-cb3b-transfer-chem",
+  "title": "Phase275fu Cb3b Transfer Chem",
+  "code_file": "phase275fu_cb3b_transfer_chem.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase48-cryptobench-esm3b",
+    "blackpearls1/phase273-chem-features",
+    "blackpearls1/phase274fu-pretrain-3b-chem"
+  ]
+}
