@@ -453,6 +453,43 @@ leaky-pool ensemble; the clean-pool ensemble gives the same 0.911.) The
 clean check removes homologs of validation and test chains only; homologs of
 CryptoBench training chains are left in the pool by design.
 
+### External audit: is this actually about cryptic pockets?
+
+Every number reported above pools all 182 official CryptoBench test proteins. An independent, adversarially designed
+relabeling of that same test split -- "A benchmark selected for crypticity" (unpublished preprint; code and labels at
+github.com/pmfran4252-afk/cryptic-site-benchmark, CC BY 4.0) -- applies a strict apo/holo cavity-voxel rule (cryptic =
+pocket essentially absent in the unbound structure AND clearly present in the bound one) and finds that only 17 of the
+182 test proteins qualify; 111 are "pre-formed" (already visible in the apo structure) and the rest are ambiguous. We
+mapped their relabeling onto our own test keys via CryptoBench's own dataset metadata (180 of their 182-labelled
+proteins matched; 16 of the 17 cryptic ones fell inside our exact test set) and re-scored our existing prediction files
+against it -- no new training.
+
+**The pooled numbers are mostly about pre-formed pockets.** On the 16-protein cryptic-only subset, the headline
+homology-clean 3B-transfer model's pooled ROC-AUC falls from 0.896 (all 182) to 0.721, protein-level PR-AUC from 0.459
+to 0.262, and precision among the top 20 ranked residues per protein from 0.383 to 0.200. This matches the pattern the
+external preprint reports for other published models and is the honest scope of every number in the table below: this
+project's headline results describe finding pockets in general far better than it describes the harder cryptic subset.
+
+**Their central negative claim does not replicate on our architecture.** The preprint's strongest finding is that
+cavity/geometry features are *actively harmful* specifically at cryptic sites (removing them improved cryptic-subset
+AUC by 0.06-0.07 in their models). Repeating their stratification on our own geometry-vs-topology arms (Phase 264, CryptoBench
+3B transfer) shows the opposite trend, not the same one: geometry minus topology-only, within the cryptic stratum, is
++0.018 pooled PR-AUC and +0.015 pooled ROC-AUC (5-7 of 8 seeds) -- not confirmed by this project's two-test rule
+(p=0.08-0.11), but positive, not negative. We do not claim geometry helps cryptic sites here; we do not replicate their
+claim that it hurts.
+
+**A real, confirmed result: this model beats P2Rank on the cryptic subset specifically.** Using our own P2Rank 2.5.1
+rerun (Phase 267, run on the official split for an unrelated localization comparison, so not tuned for this question)
+restricted to the 16 cryptic proteins where both methods have scores, the headline model's precision among the top 20
+residues beats P2Rank's by +0.115, paired over proteins (t p=0.022, Wilcoxon p=0.022; bootstrap 95% CI on the mean
+difference [+0.035, +0.203], n=16). The 8-seed ensemble reaches precision@20 0.209 and recall@20 0.314 on this subset --
+above every baseline the external preprint reports on the same rule, including its own new method (0.174 / 0.278).
+
+This is not an independent-structure validation -- it re-labels proteins already in our test split, not new ones -- and
+n=16-17 is small; both caveats are why it is reported here rather than folded into the headline table. It is, however,
+the first check of this project's result against a relabeling we had no part in designing and could not have tuned
+for, and it survives that check on the one statistically confirmed claim it produces.
+
 ### Ablations: what helped and what did not
 
 A rigorous accounting of this project's ablations, including several

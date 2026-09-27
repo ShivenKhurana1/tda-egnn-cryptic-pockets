@@ -85,6 +85,12 @@ exposure geometry:
   Phases 270-272, 8 seeds): INCONCLUSIVE. Pooled PR-AUC +0.0112 (t p=0.046, Wilcoxon p=0.055 -- split verdict, not confirmed); ROC-AUC +0.0011 (p=0.75);
   small-pocket DCC@4 went down (-0.026, also split-verdict). Not adopted.
 
+* Phase 276 (external audit, no new training): an independent relabeling of the CryptoBench test split ("A benchmark
+  selected for crypticity", github.com/pmfran4252-afk/cryptic-site-benchmark) finds only 17/182 test proteins are truly
+  cryptic by a strict apo/holo rule; on those, our headline model's pooled ROC falls 0.896->0.721 but it beats our own
+  P2Rank rerun by +0.115 precision@20 (n=16, paired, p=0.022/0.022, CI excludes 0) -- above every baseline in their table.
+  Their claim that geometry/cavity features hurt cryptic sites does not replicate on our architecture (trends positive, NS).
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:

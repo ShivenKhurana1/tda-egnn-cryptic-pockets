@@ -1,0 +1,1082 @@
+{
+ "7qoq_A": {
+  "label": null,
+  "apo_vox": 57,
+  "holo_vox": 128,
+  "uniprot": "K5B7Z4"
+ },
+ "8i84_B": {
+  "label": "preformed",
+  "apo_vox": 390,
+  "holo_vox": 392,
+  "uniprot": "D2B3F1"
+ },
+ "5igh_A": {
+  "label": "preformed",
+  "apo_vox": 556,
+  "holo_vox": 743,
+  "uniprot": "Q47396"
+ },
+ "7w19_A": {
+  "label": "preformed",
+  "apo_vox": 667,
+  "holo_vox": 285,
+  "uniprot": "A5Y459"
+ },
+ "5uxa_A": {
+  "label": "preformed",
+  "apo_vox": 864,
+  "holo_vox": 51,
+  "uniprot": "O32553"
+ },
+ "3h8a_B": {
+  "label": null,
+  "apo_vox": 229,
+  "holo_vox": 0,
+  "uniprot": "P0A6P9"
+ },
+ "6isu_A": {
+  "label": "preformed",
+  "apo_vox": 71,
+  "holo_vox": 153,
+  "uniprot": "P15374"
+ },
+ "5yhb_A": {
+  "label": "preformed",
+  "apo_vox": 94,
+  "holo_vox": 37,
+  "uniprot": "P11041"
+ },
+ "3rwv_A": {
+  "label": "preformed",
+  "apo_vox": 96,
+  "holo_vox": 263,
+  "uniprot": "Q9NZD2"
+ },
+ "2i3a_D": {
+  "label": "preformed",
+  "apo_vox": 160,
+  "holo_vox": 217,
+  "uniprot": "P9WPZ9"
+ },
+ "4oqo_B": {
+  "label": "preformed",
+  "apo_vox": 107,
+  "holo_vox": 38,
+  "uniprot": "P24627"
+ },
+ "3gdg_B": {
+  "label": "preformed",
+  "apo_vox": 543,
+  "holo_vox": 397,
+  "uniprot": "P0C0Y5"
+ },
+ "1kx9_A": {
+  "label": null,
+  "apo_vox": 40,
+  "holo_vox": 555,
+  "uniprot": "Q9NG96"
+ },
+ "1kxr_A": {
+  "label": "preformed",
+  "apo_vox": 221,
+  "holo_vox": 161,
+  "uniprot": "P97571"
+ },
+ "1ute_A": {
+  "label": "cryptic",
+  "apo_vox": 20,
+  "holo_vox": 57,
+  "uniprot": "P09889"
+ },
+ "7f4y_B": {
+  "label": "preformed",
+  "apo_vox": 726,
+  "holo_vox": 723,
+  "uniprot": "Q38087"
+ },
+ "7nlx_A": {
+  "label": "preformed",
+  "apo_vox": 301,
+  "holo_vox": 168,
+  "uniprot": "P9WQ01"
+ },
+ "1se8_A": {
+  "label": null,
+  "apo_vox": 82,
+  "holo_vox": 2,
+  "uniprot": "Q9RY51"
+ },
+ "7xgf_E": {
+  "label": "preformed",
+  "apo_vox": 107,
+  "holo_vox": 285,
+  "uniprot": "Q07817"
+ },
+ "5yj2_C": {
+  "label": "cryptic",
+  "apo_vox": 0,
+  "holo_vox": 176,
+  "uniprot": "Q45697"
+ },
+ "7e5q_B": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "P39597"
+ },
+ "5e0v_A": {
+  "label": "cryptic",
+  "apo_vox": 0,
+  "holo_vox": 51,
+  "uniprot": "P12004"
+ },
+ "6jq9_B": {
+  "label": "preformed",
+  "apo_vox": 420,
+  "holo_vox": 231,
+  "uniprot": "A0A109PTH9"
+ },
+ "7o1i_A": {
+  "label": "cryptic",
+  "apo_vox": 0,
+  "holo_vox": 754,
+  "uniprot": "O53872"
+ },
+ "3ly8_A": {
+  "label": "cryptic",
+  "apo_vox": 0,
+  "holo_vox": 400,
+  "uniprot": "P23890"
+ },
+ "1bzj_A": {
+  "label": "cryptic",
+  "apo_vox": 0,
+  "holo_vox": 57,
+  "uniprot": "P18031"
+ },
+ "7c63_A": {
+  "label": "preformed",
+  "apo_vox": 280,
+  "holo_vox": 218,
+  "uniprot": "Q53W80"
+ },
+ "7x0i_B": {
+  "label": "preformed",
+  "apo_vox": 313,
+  "holo_vox": 84,
+  "uniprot": "A3DE73"
+ },
+ "5ysb_B": {
+  "label": "preformed",
+  "apo_vox": 264,
+  "holo_vox": 413,
+  "uniprot": "Q92AS8"
+ },
+ "3k01_A": {
+  "label": "preformed",
+  "apo_vox": 418,
+  "holo_vox": 517,
+  "uniprot": "B0B0V1"
+ },
+ "5kcg_B": {
+  "label": "preformed",
+  "apo_vox": 322,
+  "holo_vox": 489,
+  "uniprot": "A0A1B0UHJ4"
+ },
+ "8b9p_A": {
+  "label": "preformed",
+  "apo_vox": 195,
+  "holo_vox": 30,
+  "uniprot": "Q9BYF1"
+ },
+ "3bjp_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 4,
+  "uniprot": "Q00511"
+ },
+ "4uc8_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "P03418"
+ },
+ "5b0e_B": {
+  "label": "cryptic",
+  "apo_vox": 0,
+  "holo_vox": 86,
+  "uniprot": "I6WU39"
+ },
+ "5yqp_A": {
+  "label": "preformed",
+  "apo_vox": 190,
+  "holo_vox": 400,
+  "uniprot": "P38800"
+ },
+ "1nd7_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "Q9H0M0"
+ },
+ "4fkm_B": {
+  "label": "preformed",
+  "apo_vox": 257,
+  "holo_vox": 358,
+  "uniprot": "A0A0H3JWU6"
+ },
+ "2phz_A": {
+  "label": "preformed",
+  "apo_vox": 160,
+  "holo_vox": 172,
+  "uniprot": "P40409"
+ },
+ "3mwg_B": {
+  "label": "preformed",
+  "apo_vox": 178,
+  "holo_vox": 170,
+  "uniprot": "A0A0H3JJC6"
+ },
+ "2vl2_C": {
+  "label": null,
+  "apo_vox": 85,
+  "holo_vox": 0,
+  "uniprot": "P30044"
+ },
+ "6bty_B": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "O00443"
+ },
+ "2fhz_B": {
+  "label": "preformed",
+  "apo_vox": 139,
+  "holo_vox": 105,
+  "uniprot": "P18000"
+ },
+ "5caz_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "Q01641"
+ },
+ "3n4u_A": {
+  "label": "preformed",
+  "apo_vox": 593,
+  "holo_vox": 446,
+  "uniprot": "O68183"
+ },
+ "6fc2_C": {
+  "label": "preformed",
+  "apo_vox": 166,
+  "holo_vox": 70,
+  "uniprot": "P07260"
+ },
+ "4hye_A": {
+  "label": null,
+  "apo_vox": 15,
+  "holo_vox": 0,
+  "uniprot": "Q8DNC2"
+ },
+ "1i7n_A": {
+  "label": "preformed",
+  "apo_vox": 64,
+  "holo_vox": 310,
+  "uniprot": "Q63537"
+ },
+ "1vsn_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "P43235"
+ },
+ "2d05_A": {
+  "label": "preformed",
+  "apo_vox": 194,
+  "holo_vox": 299,
+  "uniprot": "P33673"
+ },
+ "1ksg_B": {
+  "label": "preformed",
+  "apo_vox": 163,
+  "holo_vox": 398,
+  "uniprot": "O43924"
+ },
+ "3flg_A": {
+  "label": "preformed",
+  "apo_vox": 70,
+  "holo_vox": 42,
+  "uniprot": "Q9UBC3"
+ },
+ "3t8b_A": {
+  "label": null,
+  "apo_vox": 32,
+  "holo_vox": 14,
+  "uniprot": "P9WNP5"
+ },
+ "4gpi_C": {
+  "label": null,
+  "apo_vox": 48,
+  "holo_vox": 303,
+  "uniprot": "P18669"
+ },
+ "4gv9_A": {
+  "label": null,
+  "apo_vox": 28,
+  "holo_vox": 4,
+  "uniprot": "P13699"
+ },
+ "4kmy_A": {
+  "label": "preformed",
+  "apo_vox": 246,
+  "holo_vox": 243,
+  "uniprot": "P14207"
+ },
+ "4mwi_A": {
+  "label": "preformed",
+  "apo_vox": 121,
+  "holo_vox": 337,
+  "uniprot": "Q8NB16"
+ },
+ "1lbe_B": {
+  "label": "preformed",
+  "apo_vox": 340,
+  "holo_vox": 455,
+  "uniprot": "P29241"
+ },
+ "1zm0_A": {
+  "label": null,
+  "apo_vox": 83,
+  "holo_vox": 0,
+  "uniprot": "P08567"
+ },
+ "4dnc_B": {
+  "label": "preformed",
+  "apo_vox": 196,
+  "holo_vox": 215,
+  "uniprot": "Q9H7Z6"
+ },
+ "4ttp_A": {
+  "label": "preformed",
+  "apo_vox": 166,
+  "holo_vox": 211,
+  "uniprot": "Q5ZVH3"
+ },
+ "5i3t_E": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "E1XUJ2"
+ },
+ "6cqe_B": {
+  "label": "preformed",
+  "apo_vox": 308,
+  "holo_vox": 283,
+  "uniprot": "Q92918"
+ },
+ "2aka_A": {
+  "label": "preformed",
+  "apo_vox": 634,
+  "holo_vox": 433,
+  "uniprot": "P08799"
+ },
+ "3ugk_A": {
+  "label": "preformed",
+  "apo_vox": 414,
+  "holo_vox": 547,
+  "uniprot": "P38998"
+ },
+ "6eqj_A": {
+  "label": "preformed",
+  "apo_vox": 69,
+  "holo_vox": 381,
+  "uniprot": "P46976"
+ },
+ "1xtc_A": {
+  "label": "preformed",
+  "apo_vox": 71,
+  "holo_vox": 454,
+  "uniprot": "P01555"
+ },
+ "8aeq_A": {
+  "label": "preformed",
+  "apo_vox": 219,
+  "holo_vox": 108,
+  "uniprot": "A9WIU3"
+ },
+ "2dfp_A": {
+  "label": "preformed",
+  "apo_vox": 229,
+  "holo_vox": 198,
+  "uniprot": "P04058"
+ },
+ "5tvi_V": {
+  "label": "cryptic",
+  "apo_vox": 18,
+  "holo_vox": 354,
+  "uniprot": "A0A247D6Y2"
+ },
+ "2v6m_D": {
+  "label": "preformed",
+  "apo_vox": 529,
+  "holo_vox": 251,
+  "uniprot": "Q5SJA1"
+ },
+ "2rfj_B": {
+  "label": "cryptic",
+  "apo_vox": 19,
+  "holo_vox": 160,
+  "uniprot": "Q58F21"
+ },
+ "7x0g_B": {
+  "label": null,
+  "apo_vox": 257,
+  "holo_vox": 0,
+  "uniprot": "A3DCF2"
+ },
+ "6vle_A": {
+  "label": "preformed",
+  "apo_vox": 176,
+  "holo_vox": 138,
+  "uniprot": "Q9BYC5"
+ },
+ "5acv_B": {
+  "label": null,
+  "apo_vox": 54,
+  "holo_vox": 232,
+  "uniprot": "Q9K2N0"
+ },
+ "6g6y_A": {
+  "label": null,
+  "apo_vox": 37,
+  "holo_vox": 520,
+  "uniprot": "P52732"
+ },
+ "5wbm_B": {
+  "label": "preformed",
+  "apo_vox": 222,
+  "holo_vox": 181,
+  "uniprot": "P50053"
+ },
+ "2i3r_A": {
+  "label": "preformed",
+  "apo_vox": 110,
+  "holo_vox": 68,
+  "uniprot": "P23467"
+ },
+ "7kay_A": {
+  "label": "preformed",
+  "apo_vox": 977,
+  "holo_vox": 693,
+  "uniprot": "A0A0D6GJV1"
+ },
+ "7yjc_A": {
+  "label": null,
+  "apo_vox": 40,
+  "holo_vox": 0,
+  "uniprot": "Q9Y251"
+ },
+ "1dq2_A": {
+  "label": null,
+  "apo_vox": 65,
+  "holo_vox": 0,
+  "uniprot": "P55915"
+ },
+ "5tc0_B": {
+  "label": "preformed",
+  "apo_vox": 230,
+  "holo_vox": 396,
+  "uniprot": "Q12866"
+ },
+ "1pu5_C": {
+  "label": "preformed",
+  "apo_vox": 365,
+  "holo_vox": 322,
+  "uniprot": "P17900"
+ },
+ "4jfr_C": {
+  "label": null,
+  "apo_vox": 258,
+  "holo_vox": 29,
+  "uniprot": "Q8DCF5"
+ },
+ "9atc_A": {
+  "label": "preformed",
+  "apo_vox": 317,
+  "holo_vox": 108,
+  "uniprot": "P0A786"
+ },
+ "3v55_A": {
+  "label": null,
+  "apo_vox": 31,
+  "holo_vox": 210,
+  "uniprot": "Q9UDY8"
+ },
+ "4bg8_A": {
+  "label": "preformed",
+  "apo_vox": 226,
+  "holo_vox": 568,
+  "uniprot": "Q8TX37"
+ },
+ "2zj7_A": {
+  "label": "preformed",
+  "apo_vox": 113,
+  "holo_vox": 247,
+  "uniprot": "Q9RBY1"
+ },
+ "4qvk_B": {
+  "label": "preformed",
+  "apo_vox": 236,
+  "holo_vox": 201,
+  "uniprot": "Q9HGR1"
+ },
+ "2qbv_A": {
+  "label": "preformed",
+  "apo_vox": 181,
+  "holo_vox": 116,
+  "uniprot": "P9WIC1"
+ },
+ "6a98_C": {
+  "label": "preformed",
+  "apo_vox": 233,
+  "holo_vox": 272,
+  "uniprot": "A0A1P8VSL7"
+ },
+ "2iyt_A": {
+  "label": null,
+  "apo_vox": 59,
+  "holo_vox": 286,
+  "uniprot": "P9WPY3"
+ },
+ "3st6_C": {
+  "label": "preformed",
+  "apo_vox": 127,
+  "holo_vox": 335,
+  "uniprot": "P9WFX1"
+ },
+ "1h13_A": {
+  "label": "preformed",
+  "apo_vox": 250,
+  "holo_vox": 643,
+  "uniprot": "Q8RJN8"
+ },
+ "1m5w_D": {
+  "label": "preformed",
+  "apo_vox": 185,
+  "holo_vox": 98,
+  "uniprot": "P0A794"
+ },
+ "1g59_A": {
+  "label": "preformed",
+  "apo_vox": 232,
+  "holo_vox": 316,
+  "uniprot": "P27000"
+ },
+ "1p4v_A": {
+  "label": null,
+  "apo_vox": 20,
+  "holo_vox": 0,
+  "uniprot": "Q47898"
+ },
+ "5ey7_B": {
+  "label": "preformed",
+  "apo_vox": 268,
+  "holo_vox": 176,
+  "uniprot": "A0A0H3AER7"
+ },
+ "2pkf_A": {
+  "label": "preformed",
+  "apo_vox": 467,
+  "holo_vox": 105,
+  "uniprot": "P9WID5"
+ },
+ "3idh_A": {
+  "label": "preformed",
+  "apo_vox": 228,
+  "holo_vox": 216,
+  "uniprot": "P35557"
+ },
+ "4jax_F": {
+  "label": "preformed",
+  "apo_vox": 421,
+  "holo_vox": 49,
+  "uniprot": "P33284"
+ },
+ "3w90_A": {
+  "label": "preformed",
+  "apo_vox": 387,
+  "holo_vox": 236,
+  "uniprot": "Q5SL35"
+ },
+ "2w8n_A": {
+  "label": "cryptic",
+  "apo_vox": 17,
+  "holo_vox": 64,
+  "uniprot": "P51649"
+ },
+ "6o4f_H": {
+  "label": "preformed",
+  "apo_vox": 92,
+  "holo_vox": 176,
+  "uniprot": "P49419"
+ },
+ "6f52_A": {
+  "label": "preformed",
+  "apo_vox": 193,
+  "holo_vox": 107,
+  "uniprot": "P56463"
+ },
+ "5hij_A": {
+  "label": "preformed",
+  "apo_vox": 474,
+  "holo_vox": 95,
+  "uniprot": "F6KV61"
+ },
+ "2vqz_F": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "P31345"
+ },
+ "6fgj_B": {
+  "label": "preformed",
+  "apo_vox": 231,
+  "holo_vox": 391,
+  "uniprot": "W8U368"
+ },
+ "1xgd_A": {
+  "label": "preformed",
+  "apo_vox": 83,
+  "holo_vox": 204,
+  "uniprot": "P15121"
+ },
+ "3uyi_A": {
+  "label": "preformed",
+  "apo_vox": 660,
+  "holo_vox": 57,
+  "uniprot": "Q3L181"
+ },
+ "4ikv_A": {
+  "label": "preformed",
+  "apo_vox": 231,
+  "holo_vox": 161,
+  "uniprot": "Q5KYD1"
+ },
+ "8j11_X": {
+  "label": null,
+  "apo_vox": 5,
+  "holo_vox": 0,
+  "uniprot": "P02791"
+ },
+ "8u3n_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "A0A3E2YLT4"
+ },
+ "2h7s_A": {
+  "label": "preformed",
+  "apo_vox": 87,
+  "holo_vox": 103,
+  "uniprot": "P00183"
+ },
+ "4cmw_B": {
+  "label": "preformed",
+  "apo_vox": 346,
+  "holo_vox": 496,
+  "uniprot": "P9WJ61"
+ },
+ "7v8k_B": {
+  "label": "preformed",
+  "apo_vox": 255,
+  "holo_vox": 97,
+  "uniprot": "A0A7J6JUK2"
+ },
+ "4uum_A": {
+  "label": "preformed",
+  "apo_vox": 617,
+  "holo_vox": 209,
+  "uniprot": "O96445"
+ },
+ "1p4o_B": {
+  "label": "preformed",
+  "apo_vox": 341,
+  "holo_vox": 407,
+  "uniprot": "P08069"
+ },
+ "4ilg_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "P32357"
+ },
+ "8h27_A": {
+  "label": "preformed",
+  "apo_vox": 264,
+  "holo_vox": 176,
+  "uniprot": "Q2FXG9"
+ },
+ "1cwq_A": {
+  "label": null,
+  "apo_vox": 37,
+  "holo_vox": 0,
+  "uniprot": "P02945"
+ },
+ "5zj4_D": {
+  "label": "preformed",
+  "apo_vox": 87,
+  "holo_vox": 93,
+  "uniprot": "Q9L1E4"
+ },
+ "2x47_A": {
+  "label": "preformed",
+  "apo_vox": 139,
+  "holo_vox": 163,
+  "uniprot": "Q9BQ69"
+ },
+ "1rtc_A": {
+  "label": null,
+  "apo_vox": 3,
+  "holo_vox": 2,
+  "uniprot": "P02879"
+ },
+ "1p9o_A": {
+  "label": "preformed",
+  "apo_vox": 232,
+  "holo_vox": 413,
+  "uniprot": "Q9HAB8"
+ },
+ "7f2m_B": {
+  "label": "cryptic",
+  "apo_vox": 0,
+  "holo_vox": 370,
+  "uniprot": "Q08499"
+ },
+ "4r0x_A": {
+  "label": null,
+  "apo_vox": 52,
+  "holo_vox": 83,
+  "uniprot": "Q13451"
+ },
+ "3fzo_A": {
+  "label": "preformed",
+  "apo_vox": 166,
+  "holo_vox": 305,
+  "uniprot": "Q14289"
+ },
+ "3nx1_B": {
+  "label": "cryptic",
+  "apo_vox": 27,
+  "holo_vox": 147,
+  "uniprot": "C6F3U5"
+ },
+ "6tx0_B": {
+  "label": "cryptic",
+  "apo_vox": 0,
+  "holo_vox": 61,
+  "uniprot": "Q9Y3Z3"
+ },
+ "3vgm_A": {
+  "label": "preformed",
+  "apo_vox": 375,
+  "holo_vox": 279,
+  "uniprot": "B1VZT1"
+ },
+ "8vxu_B": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "U2EQ00"
+ },
+ "2pwz_G": {
+  "label": "preformed",
+  "apo_vox": 362,
+  "holo_vox": 261,
+  "uniprot": "P61889"
+ },
+ "5hto_E": {
+  "label": "preformed",
+  "apo_vox": 562,
+  "holo_vox": 456,
+  "uniprot": "Q4PRK9"
+ },
+ "5sc2_A": {
+  "label": null,
+  "apo_vox": 1,
+  "holo_vox": 0,
+  "uniprot": "P15379"
+ },
+ "1evy_A": {
+  "label": "preformed",
+  "apo_vox": 681,
+  "holo_vox": 442,
+  "uniprot": "P90551"
+ },
+ "8bre_B": {
+  "label": "preformed",
+  "apo_vox": 190,
+  "holo_vox": 388,
+  "uniprot": "Q9I5Q5"
+ },
+ "4zoe_B": {
+  "label": "preformed",
+  "apo_vox": 150,
+  "holo_vox": 34,
+  "uniprot": "Q92AS9"
+ },
+ "8aqi_B": {
+  "label": "preformed",
+  "apo_vox": 84,
+  "holo_vox": 194,
+  "uniprot": "Q9GV45"
+ },
+ "1xjf_A": {
+  "label": "preformed",
+  "apo_vox": 573,
+  "holo_vox": 581,
+  "uniprot": "O33839"
+ },
+ "4rvt_B": {
+  "label": "preformed",
+  "apo_vox": 237,
+  "holo_vox": 259,
+  "uniprot": "O95819"
+ },
+ "7de1_A": {
+  "label": null,
+  "apo_vox": 5,
+  "holo_vox": 0,
+  "uniprot": "P0DTC9"
+ },
+ "1x2g_C": {
+  "label": "preformed",
+  "apo_vox": 261,
+  "holo_vox": 576,
+  "uniprot": "P32099"
+ },
+ "4aem_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "Q3LHN3"
+ },
+ "7x0f_A": {
+  "label": "cryptic",
+  "apo_vox": 26,
+  "holo_vox": 126,
+  "uniprot": "Q9I1H0"
+ },
+ "6n5j_B": {
+  "label": "cryptic",
+  "apo_vox": 0,
+  "holo_vox": 70,
+  "uniprot": "P10121"
+ },
+ "7c48_A": {
+  "label": "preformed",
+  "apo_vox": 339,
+  "holo_vox": 294,
+  "uniprot": "P96356"
+ },
+ "1q4k_A": {
+  "label": null,
+  "apo_vox": 1,
+  "holo_vox": 0,
+  "uniprot": "P53350"
+ },
+ "1uka_A": {
+  "label": "preformed",
+  "apo_vox": 177,
+  "holo_vox": 247,
+  "uniprot": "P96965"
+ },
+ "1xqv_A": {
+  "label": null,
+  "apo_vox": 53,
+  "holo_vox": 0,
+  "uniprot": "P96084"
+ },
+ "7qzr_D": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "P05164"
+ },
+ "8ias_B": {
+  "label": "preformed",
+  "apo_vox": 66,
+  "holo_vox": 144,
+  "uniprot": "Q8DQ84"
+ },
+ "6ksc_A": {
+  "label": null,
+  "apo_vox": 3,
+  "holo_vox": 0,
+  "uniprot": "P9WNV1"
+ },
+ "4j4e_F": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "P81180"
+ },
+ "4zm7_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "B3Y002"
+ },
+ "6du4_A": {
+  "label": "preformed",
+  "apo_vox": 162,
+  "holo_vox": 61,
+  "uniprot": "Q86W50"
+ },
+ "3f4k_A": {
+  "label": "preformed",
+  "apo_vox": 156,
+  "holo_vox": 30,
+  "uniprot": "Q8A3I2"
+ },
+ "3a0x_A": {
+  "label": "preformed",
+  "apo_vox": 232,
+  "holo_vox": 252,
+  "uniprot": "Q9X180"
+ },
+ "4amv_B": {
+  "label": null,
+  "apo_vox": 306,
+  "holo_vox": 0,
+  "uniprot": "P17169"
+ },
+ "7ndl_B": {
+  "label": "preformed",
+  "apo_vox": 97,
+  "holo_vox": 187,
+  "uniprot": "Q06210"
+ },
+ "3tpo_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "P52293"
+ },
+ "1bk2_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "P07751"
+ },
+ "1rjb_A": {
+  "label": "preformed",
+  "apo_vox": 122,
+  "holo_vox": 246,
+  "uniprot": "P36888"
+ },
+ "3pbf_A": {
+  "label": "cryptic",
+  "apo_vox": 0,
+  "holo_vox": 41,
+  "uniprot": "P08427"
+ },
+ "3wb9_C": {
+  "label": "preformed",
+  "apo_vox": 818,
+  "holo_vox": 353,
+  "uniprot": "Q67PI3"
+ },
+ "5loc_A": {
+  "label": "preformed",
+  "apo_vox": 538,
+  "holo_vox": 325,
+  "uniprot": "P04964"
+ },
+ "1k47_D": {
+  "label": "preformed",
+  "apo_vox": 214,
+  "holo_vox": 158,
+  "uniprot": "Q8DR49"
+ },
+ "7nc8_D": {
+  "label": "preformed",
+  "apo_vox": 245,
+  "holo_vox": 213,
+  "uniprot": "B0Y813"
+ },
+ "6hei_A": {
+  "label": "preformed",
+  "apo_vox": 141,
+  "holo_vox": 373,
+  "uniprot": "Q96RU2"
+ },
+ "1e6k_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "P0AE67"
+ },
+ "4p2f_A": {
+  "label": null,
+  "apo_vox": 67,
+  "holo_vox": 0,
+  "uniprot": "P9WQ35"
+ },
+ "8onn_E": {
+  "label": "preformed",
+  "apo_vox": 435,
+  "holo_vox": 129,
+  "uniprot": "D5EHC5"
+ },
+ "6w10_A": {
+  "label": "preformed",
+  "apo_vox": 200,
+  "holo_vox": 79,
+  "uniprot": "Q91XB0"
+ },
+ "3i8s_B": {
+  "label": null,
+  "apo_vox": 103,
+  "holo_vox": 13,
+  "uniprot": "P33650"
+ },
+ "5z18_C": {
+  "label": "preformed",
+  "apo_vox": 263,
+  "holo_vox": 147,
+  "uniprot": "Q6W7J7"
+ },
+ "4e1y_A": {
+  "label": "preformed",
+  "apo_vox": 158,
+  "holo_vox": 208,
+  "uniprot": "Q9KWU1"
+ },
+ "6nei_B": {
+  "label": null,
+  "apo_vox": 538,
+  "holo_vox": 3,
+  "uniprot": "Q5C9L2"
+ },
+ "2xsa_A": {
+  "label": "preformed",
+  "apo_vox": 67,
+  "holo_vox": 105,
+  "uniprot": "Q2CEE3"
+ },
+ "5o8b_A": {
+  "label": null,
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "uniprot": "P42212"
+ },
+ "3jzg_A": {
+  "label": "cryptic",
+  "apo_vox": 0,
+  "holo_vox": 79,
+  "uniprot": "O75530"
+ }
+}

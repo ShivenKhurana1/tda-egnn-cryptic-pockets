@@ -1,0 +1,1082 @@
+[
+ {
+  "gid": "P07751",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P18031",
+  "apo_vox": 0,
+  "holo_vox": 57,
+  "label": "cryptic"
+ },
+ {
+  "gid": "P02945",
+  "apo_vox": 37,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P55915",
+  "apo_vox": 65,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P0AE67",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P90551",
+  "apo_vox": 681,
+  "holo_vox": 442,
+  "label": "preformed"
+ },
+ {
+  "gid": "P27000",
+  "apo_vox": 232,
+  "holo_vox": 316,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q8RJN8",
+  "apo_vox": 250,
+  "holo_vox": 643,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q63537",
+  "apo_vox": 64,
+  "holo_vox": 310,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q8DR49",
+  "apo_vox": 214,
+  "holo_vox": 158,
+  "label": "preformed"
+ },
+ {
+  "gid": "O43924",
+  "apo_vox": 163,
+  "holo_vox": 398,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9NG96",
+  "apo_vox": 40,
+  "holo_vox": 555,
+  "label": null
+ },
+ {
+  "gid": "P97571",
+  "apo_vox": 221,
+  "holo_vox": 161,
+  "label": "preformed"
+ },
+ {
+  "gid": "P29241",
+  "apo_vox": 340,
+  "holo_vox": 455,
+  "label": "preformed"
+ },
+ {
+  "gid": "P0A794",
+  "apo_vox": 185,
+  "holo_vox": 98,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9H0M0",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P08069",
+  "apo_vox": 341,
+  "holo_vox": 407,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q47898",
+  "apo_vox": 20,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "Q9HAB8",
+  "apo_vox": 232,
+  "holo_vox": 413,
+  "label": "preformed"
+ },
+ {
+  "gid": "P17900",
+  "apo_vox": 365,
+  "holo_vox": 322,
+  "label": "preformed"
+ },
+ {
+  "gid": "P53350",
+  "apo_vox": 1,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P36888",
+  "apo_vox": 122,
+  "holo_vox": 246,
+  "label": "preformed"
+ },
+ {
+  "gid": "P02879",
+  "apo_vox": 3,
+  "holo_vox": 2,
+  "label": null
+ },
+ {
+  "gid": "Q9RY51",
+  "apo_vox": 82,
+  "holo_vox": 2,
+  "label": null
+ },
+ {
+  "gid": "P96965",
+  "apo_vox": 177,
+  "holo_vox": 247,
+  "label": "preformed"
+ },
+ {
+  "gid": "P09889",
+  "apo_vox": 20,
+  "holo_vox": 57,
+  "label": "cryptic"
+ },
+ {
+  "gid": "P43235",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P32099",
+  "apo_vox": 261,
+  "holo_vox": 576,
+  "label": "preformed"
+ },
+ {
+  "gid": "P15121",
+  "apo_vox": 83,
+  "holo_vox": 204,
+  "label": "preformed"
+ },
+ {
+  "gid": "O33839",
+  "apo_vox": 573,
+  "holo_vox": 581,
+  "label": "preformed"
+ },
+ {
+  "gid": "P96084",
+  "apo_vox": 53,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P01555",
+  "apo_vox": 71,
+  "holo_vox": 454,
+  "label": "preformed"
+ },
+ {
+  "gid": "P08567",
+  "apo_vox": 83,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P08799",
+  "apo_vox": 634,
+  "holo_vox": 433,
+  "label": "preformed"
+ },
+ {
+  "gid": "P33673",
+  "apo_vox": 194,
+  "holo_vox": 299,
+  "label": "preformed"
+ },
+ {
+  "gid": "P04058",
+  "apo_vox": 229,
+  "holo_vox": 198,
+  "label": "preformed"
+ },
+ {
+  "gid": "P18000",
+  "apo_vox": 139,
+  "holo_vox": 105,
+  "label": "preformed"
+ },
+ {
+  "gid": "P00183",
+  "apo_vox": 87,
+  "holo_vox": 103,
+  "label": "preformed"
+ },
+ {
+  "gid": "P9WPZ9",
+  "apo_vox": 160,
+  "holo_vox": 217,
+  "label": "preformed"
+ },
+ {
+  "gid": "P23467",
+  "apo_vox": 110,
+  "holo_vox": 68,
+  "label": "preformed"
+ },
+ {
+  "gid": "P9WPY3",
+  "apo_vox": 59,
+  "holo_vox": 286,
+  "label": null
+ },
+ {
+  "gid": "P40409",
+  "apo_vox": 160,
+  "holo_vox": 172,
+  "label": "preformed"
+ },
+ {
+  "gid": "P9WID5",
+  "apo_vox": 467,
+  "holo_vox": 105,
+  "label": "preformed"
+ },
+ {
+  "gid": "P61889",
+  "apo_vox": 362,
+  "holo_vox": 261,
+  "label": "preformed"
+ },
+ {
+  "gid": "P9WIC1",
+  "apo_vox": 181,
+  "holo_vox": 116,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q58F21",
+  "apo_vox": 19,
+  "holo_vox": 160,
+  "label": "cryptic"
+ },
+ {
+  "gid": "Q5SJA1",
+  "apo_vox": 529,
+  "holo_vox": 251,
+  "label": "preformed"
+ },
+ {
+  "gid": "P30044",
+  "apo_vox": 85,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P31345",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P51649",
+  "apo_vox": 17,
+  "holo_vox": 64,
+  "label": "cryptic"
+ },
+ {
+  "gid": "Q9BQ69",
+  "apo_vox": 139,
+  "holo_vox": 163,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q2CEE3",
+  "apo_vox": 67,
+  "holo_vox": 105,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9RBY1",
+  "apo_vox": 113,
+  "holo_vox": 247,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9X180",
+  "apo_vox": 232,
+  "holo_vox": 252,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q00511",
+  "apo_vox": 0,
+  "holo_vox": 4,
+  "label": null
+ },
+ {
+  "gid": "Q8A3I2",
+  "apo_vox": 156,
+  "holo_vox": 30,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9UBC3",
+  "apo_vox": 70,
+  "holo_vox": 42,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q14289",
+  "apo_vox": 166,
+  "holo_vox": 305,
+  "label": "preformed"
+ },
+ {
+  "gid": "P0C0Y5",
+  "apo_vox": 543,
+  "holo_vox": 397,
+  "label": "preformed"
+ },
+ {
+  "gid": "P0A6P9",
+  "apo_vox": 229,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P33650",
+  "apo_vox": 103,
+  "holo_vox": 13,
+  "label": null
+ },
+ {
+  "gid": "P35557",
+  "apo_vox": 228,
+  "holo_vox": 216,
+  "label": "preformed"
+ },
+ {
+  "gid": "O75530",
+  "apo_vox": 0,
+  "holo_vox": 79,
+  "label": "cryptic"
+ },
+ {
+  "gid": "B0B0V1",
+  "apo_vox": 418,
+  "holo_vox": 517,
+  "label": "preformed"
+ },
+ {
+  "gid": "P23890",
+  "apo_vox": 0,
+  "holo_vox": 400,
+  "label": "cryptic"
+ },
+ {
+  "gid": "A0A0H3JJC6",
+  "apo_vox": 178,
+  "holo_vox": 170,
+  "label": "preformed"
+ },
+ {
+  "gid": "O68183",
+  "apo_vox": 593,
+  "holo_vox": 446,
+  "label": "preformed"
+ },
+ {
+  "gid": "C6F3U5",
+  "apo_vox": 27,
+  "holo_vox": 147,
+  "label": "cryptic"
+ },
+ {
+  "gid": "P08427",
+  "apo_vox": 0,
+  "holo_vox": 41,
+  "label": "cryptic"
+ },
+ {
+  "gid": "Q9NZD2",
+  "apo_vox": 96,
+  "holo_vox": 263,
+  "label": "preformed"
+ },
+ {
+  "gid": "P9WFX1",
+  "apo_vox": 127,
+  "holo_vox": 335,
+  "label": "preformed"
+ },
+ {
+  "gid": "P9WNP5",
+  "apo_vox": 32,
+  "holo_vox": 14,
+  "label": null
+ },
+ {
+  "gid": "P52293",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P38998",
+  "apo_vox": 414,
+  "holo_vox": 547,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q3L181",
+  "apo_vox": 660,
+  "holo_vox": 57,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9UDY8",
+  "apo_vox": 31,
+  "holo_vox": 210,
+  "label": null
+ },
+ {
+  "gid": "B1VZT1",
+  "apo_vox": 375,
+  "holo_vox": 279,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q5SL35",
+  "apo_vox": 387,
+  "holo_vox": 236,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q67PI3",
+  "apo_vox": 818,
+  "holo_vox": 353,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q3LHN3",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P17169",
+  "apo_vox": 306,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "Q8TX37",
+  "apo_vox": 226,
+  "holo_vox": 568,
+  "label": "preformed"
+ },
+ {
+  "gid": "P9WJ61",
+  "apo_vox": 346,
+  "holo_vox": 496,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9H7Z6",
+  "apo_vox": 196,
+  "holo_vox": 215,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9KWU1",
+  "apo_vox": 158,
+  "holo_vox": 208,
+  "label": "preformed"
+ },
+ {
+  "gid": "A0A0H3JWU6",
+  "apo_vox": 257,
+  "holo_vox": 358,
+  "label": "preformed"
+ },
+ {
+  "gid": "P18669",
+  "apo_vox": 48,
+  "holo_vox": 303,
+  "label": null
+ },
+ {
+  "gid": "P13699",
+  "apo_vox": 28,
+  "holo_vox": 4,
+  "label": null
+ },
+ {
+  "gid": "Q8DNC2",
+  "apo_vox": 15,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "Q5KYD1",
+  "apo_vox": 231,
+  "holo_vox": 161,
+  "label": "preformed"
+ },
+ {
+  "gid": "P32357",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P81180",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P33284",
+  "apo_vox": 421,
+  "holo_vox": 49,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q8DCF5",
+  "apo_vox": 258,
+  "holo_vox": 29,
+  "label": null
+ },
+ {
+  "gid": "P14207",
+  "apo_vox": 246,
+  "holo_vox": 243,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q8NB16",
+  "apo_vox": 121,
+  "holo_vox": 337,
+  "label": "preformed"
+ },
+ {
+  "gid": "P24627",
+  "apo_vox": 107,
+  "holo_vox": 38,
+  "label": "preformed"
+ },
+ {
+  "gid": "P9WQ35",
+  "apo_vox": 67,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "Q9HGR1",
+  "apo_vox": 236,
+  "holo_vox": 201,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q13451",
+  "apo_vox": 52,
+  "holo_vox": 83,
+  "label": null
+ },
+ {
+  "gid": "O95819",
+  "apo_vox": 237,
+  "holo_vox": 259,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q5ZVH3",
+  "apo_vox": 166,
+  "holo_vox": 211,
+  "label": "preformed"
+ },
+ {
+  "gid": "P03418",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "O96445",
+  "apo_vox": 617,
+  "holo_vox": 209,
+  "label": "preformed"
+ },
+ {
+  "gid": "B3Y002",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "Q92AS9",
+  "apo_vox": 150,
+  "holo_vox": 34,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9K2N0",
+  "apo_vox": 54,
+  "holo_vox": 232,
+  "label": null
+ },
+ {
+  "gid": "I6WU39",
+  "apo_vox": 0,
+  "holo_vox": 86,
+  "label": "cryptic"
+ },
+ {
+  "gid": "Q01641",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P12004",
+  "apo_vox": 0,
+  "holo_vox": 51,
+  "label": "cryptic"
+ },
+ {
+  "gid": "A0A0H3AER7",
+  "apo_vox": 268,
+  "holo_vox": 176,
+  "label": "preformed"
+ },
+ {
+  "gid": "F6KV61",
+  "apo_vox": 474,
+  "holo_vox": 95,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q4PRK9",
+  "apo_vox": 562,
+  "holo_vox": 456,
+  "label": "preformed"
+ },
+ {
+  "gid": "E1XUJ2",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "Q47396",
+  "apo_vox": 556,
+  "holo_vox": 743,
+  "label": "preformed"
+ },
+ {
+  "gid": "A0A1B0UHJ4",
+  "apo_vox": 322,
+  "holo_vox": 489,
+  "label": "preformed"
+ },
+ {
+  "gid": "P04964",
+  "apo_vox": 538,
+  "holo_vox": 325,
+  "label": "preformed"
+ },
+ {
+  "gid": "P42212",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P15379",
+  "apo_vox": 1,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "Q12866",
+  "apo_vox": 230,
+  "holo_vox": 396,
+  "label": "preformed"
+ },
+ {
+  "gid": "A0A247D6Y2",
+  "apo_vox": 18,
+  "holo_vox": 354,
+  "label": "cryptic"
+ },
+ {
+  "gid": "O32553",
+  "apo_vox": 864,
+  "holo_vox": 51,
+  "label": "preformed"
+ },
+ {
+  "gid": "P50053",
+  "apo_vox": 222,
+  "holo_vox": 181,
+  "label": "preformed"
+ },
+ {
+  "gid": "P11041",
+  "apo_vox": 94,
+  "holo_vox": 37,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q45697",
+  "apo_vox": 0,
+  "holo_vox": 176,
+  "label": "cryptic"
+ },
+ {
+  "gid": "P38800",
+  "apo_vox": 190,
+  "holo_vox": 400,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q92AS8",
+  "apo_vox": 264,
+  "holo_vox": 413,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q6W7J7",
+  "apo_vox": 263,
+  "holo_vox": 147,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9L1E4",
+  "apo_vox": 87,
+  "holo_vox": 93,
+  "label": "preformed"
+ },
+ {
+  "gid": "A0A1P8VSL7",
+  "apo_vox": 233,
+  "holo_vox": 272,
+  "label": "preformed"
+ },
+ {
+  "gid": "O00443",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "Q92918",
+  "apo_vox": 308,
+  "holo_vox": 283,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q86W50",
+  "apo_vox": 162,
+  "holo_vox": 61,
+  "label": "preformed"
+ },
+ {
+  "gid": "P46976",
+  "apo_vox": 69,
+  "holo_vox": 381,
+  "label": "preformed"
+ },
+ {
+  "gid": "P56463",
+  "apo_vox": 193,
+  "holo_vox": 107,
+  "label": "preformed"
+ },
+ {
+  "gid": "P07260",
+  "apo_vox": 166,
+  "holo_vox": 70,
+  "label": "preformed"
+ },
+ {
+  "gid": "W8U368",
+  "apo_vox": 231,
+  "holo_vox": 391,
+  "label": "preformed"
+ },
+ {
+  "gid": "P52732",
+  "apo_vox": 37,
+  "holo_vox": 520,
+  "label": null
+ },
+ {
+  "gid": "Q96RU2",
+  "apo_vox": 141,
+  "holo_vox": 373,
+  "label": "preformed"
+ },
+ {
+  "gid": "P15374",
+  "apo_vox": 71,
+  "holo_vox": 153,
+  "label": "preformed"
+ },
+ {
+  "gid": "A0A109PTH9",
+  "apo_vox": 420,
+  "holo_vox": 231,
+  "label": "preformed"
+ },
+ {
+  "gid": "P9WNV1",
+  "apo_vox": 3,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P10121",
+  "apo_vox": 0,
+  "holo_vox": 70,
+  "label": "cryptic"
+ },
+ {
+  "gid": "Q5C9L2",
+  "apo_vox": 538,
+  "holo_vox": 3,
+  "label": null
+ },
+ {
+  "gid": "P49419",
+  "apo_vox": 92,
+  "holo_vox": 176,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9Y3Z3",
+  "apo_vox": 0,
+  "holo_vox": 61,
+  "label": "cryptic"
+ },
+ {
+  "gid": "Q9BYC5",
+  "apo_vox": 176,
+  "holo_vox": 138,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q91XB0",
+  "apo_vox": 200,
+  "holo_vox": 79,
+  "label": "preformed"
+ },
+ {
+  "gid": "P96356",
+  "apo_vox": 339,
+  "holo_vox": 294,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q53W80",
+  "apo_vox": 280,
+  "holo_vox": 218,
+  "label": "preformed"
+ },
+ {
+  "gid": "P0DTC9",
+  "apo_vox": 5,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P39597",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "Q08499",
+  "apo_vox": 0,
+  "holo_vox": 370,
+  "label": "cryptic"
+ },
+ {
+  "gid": "Q38087",
+  "apo_vox": 726,
+  "holo_vox": 723,
+  "label": "preformed"
+ },
+ {
+  "gid": "A0A0D6GJV1",
+  "apo_vox": 977,
+  "holo_vox": 693,
+  "label": "preformed"
+ },
+ {
+  "gid": "B0Y813",
+  "apo_vox": 245,
+  "holo_vox": 213,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q06210",
+  "apo_vox": 97,
+  "holo_vox": 187,
+  "label": "preformed"
+ },
+ {
+  "gid": "P9WQ01",
+  "apo_vox": 301,
+  "holo_vox": 168,
+  "label": "preformed"
+ },
+ {
+  "gid": "O53872",
+  "apo_vox": 0,
+  "holo_vox": 754,
+  "label": "cryptic"
+ },
+ {
+  "gid": "K5B7Z4",
+  "apo_vox": 57,
+  "holo_vox": 128,
+  "label": null
+ },
+ {
+  "gid": "P05164",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "A0A7J6JUK2",
+  "apo_vox": 255,
+  "holo_vox": 97,
+  "label": "preformed"
+ },
+ {
+  "gid": "A5Y459",
+  "apo_vox": 667,
+  "holo_vox": 285,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9I1H0",
+  "apo_vox": 26,
+  "holo_vox": 126,
+  "label": "cryptic"
+ },
+ {
+  "gid": "A3DCF2",
+  "apo_vox": 257,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "A3DE73",
+  "apo_vox": 313,
+  "holo_vox": 84,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q07817",
+  "apo_vox": 107,
+  "holo_vox": 285,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9Y251",
+  "apo_vox": 40,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "A9WIU3",
+  "apo_vox": 219,
+  "holo_vox": 108,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9GV45",
+  "apo_vox": 84,
+  "holo_vox": 194,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9BYF1",
+  "apo_vox": 195,
+  "holo_vox": 30,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q9I5Q5",
+  "apo_vox": 190,
+  "holo_vox": 388,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q2FXG9",
+  "apo_vox": 264,
+  "holo_vox": 176,
+  "label": "preformed"
+ },
+ {
+  "gid": "D2B3F1",
+  "apo_vox": 390,
+  "holo_vox": 392,
+  "label": "preformed"
+ },
+ {
+  "gid": "Q8DQ84",
+  "apo_vox": 66,
+  "holo_vox": 144,
+  "label": "preformed"
+ },
+ {
+  "gid": "P02791",
+  "apo_vox": 5,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "D5EHC5",
+  "apo_vox": 435,
+  "holo_vox": 129,
+  "label": "preformed"
+ },
+ {
+  "gid": "A0A3E2YLT4",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "U2EQ00",
+  "apo_vox": 0,
+  "holo_vox": 0,
+  "label": null
+ },
+ {
+  "gid": "P0A786",
+  "apo_vox": 317,
+  "holo_vox": 108,
+  "label": "preformed"
+ }
+]
