@@ -1,0 +1,55 @@
+[{"stream_name":"stderr","time":8.74257473,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":8.742658846,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":9.897995749,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.89802941,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.898034907,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.898039074,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.706739388,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.706781067,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.70678726,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.706795953,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":15.207290403,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━\u001b[0m \u001b[32m61.4/63.1 kB\u001b[0m \u001b[31m4.2 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m1.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":15.614639189,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━━━━━━━━━━━━━\u001b[0m \u001b[32m0.8/1.1 MB\u001b[0m \u001b[31m25.7 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m17.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":15.767897387,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/3.2 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.8/3.2 MB\u001b[0m \u001b[31m217.8 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[90m╺\u001b[0m\u001b[90m━━\u001b[0m \u001b[32m3.0/3.2 MB\u001b[0m \u001b[31m44.0 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m31.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":38.812871972,"data":"\u001b[?25hopenjdk version \"17.0.18\" 2026-01-20\r\n"}
+,{"stream_name":"stdout","time":85.195989503,"data":"242 val+test chains: {'val': 60, 'test': 182}\n"}
+,{"stream_name":"stdout","time":95.855265355,"data":"fetched 242/242; missing []\n"}
+,{"stream_name":"stdout","time":179.66695687,"data":"aligned 242/242 chains\n"}
+,{"stream_name":"stdout","time":293.673581468,"data":"prank rc 0 1.8 min\n"}
+,{"stream_name":"stdout","time":293.673642016,"data":"42)\n"}
+,{"stream_name":"stdout","time":293.673649732,"data":"processing [8aqi.cif] (230/242)\n"}
+,{"stream_name":"stdout","time":293.673654825,"data":"processing [8b9p.cif] (231/242)\n"}
+,{"stream_name":"stdout","time":293.673659662,"data":"processing [8bre.cif] (232/242)\n"}
+,{"stream_name":"stdout","time":293.673664556,"data":"processing [8cql.cif] (233/242)\n"}
+,{"stream_name":"stdout","time":293.673669251,"data":"processing [8h27.cif] (234/242)\n"}
+,{"stream_name":"stdout","time":293.67367391,"data":"processing [8i84.cif] (235/242)\n"}
+,{"stream_name":"stdout","time":293.673678504,"data":"processing [8ias.cif] (236/242)\n"}
+,{"stream_name":"stdout","time":293.673683209,"data":"processing [8j11.cif] (237/242)\n"}
+,{"stream_name":"stdout","time":293.673687853,"data":"processing [8jqk.cif] (238/242)\n"}
+,{"stream_name":"stdout","time":293.673692638,"data":"processing [8onn.cif] (239/242)\n"}
+,{"stream_name":"stdout","time":293.673695839,"data":"processing [8u3n.cif] (240/242)\n"}
+,{"stream_name":"stdout","time":293.673698867,"data":"processing [8vxu.cif] (241/242)\n"}
+,{"stream_name":"stdout","time":293.673701867,"data":"processing [9atc.cif] (242/242)\n"}
+,{"stream_name":"stdout","time":293.673704813,"data":"predicting pockets finished in 0 hours 1 minutes 43.755 seconds\n"}
+,{"stream_name":"stdout","time":293.673709316,"data":"results saved to directory [/kaggle/working/p2rank_out]\n"}
+,{"stream_name":"stdout","time":293.6737143,"data":"\n"}
+,{"stream_name":"stdout","time":293.673719341,"data":"Finished successfully in 0 hours 1 minutes 45.573 seconds.\n"}
+,{"stream_name":"stdout","time":293.673724385,"data":"\n"}
+,{"stream_name":"stdout","time":293.673729454,"data":"g/apo_cifs/8onn.cif] to [/kaggle/working/p2rank_out/visualizations/data/8onn.cif]\n"}
+,{"stream_name":"stdout","time":293.673734873,"data":"[INFO] PredictionVisualizer - copying [/kaggle/working/apo_cifs/8u3n.cif] to [/kaggle/working/p2rank_out/visualizations/data/8u3n.cif]\n"}
+,{"stream_name":"stdout","time":293.673739886,"data":"[INFO] PredictionVisualizer - copying [/kaggle/working/apo_cifs/8vxu.cif] to [/kaggle/working/p2rank_out/visualizations/data/8vxu.cif]\n"}
+,{"stream_name":"stdout","time":293.673744932,"data":"[INFO] Console - predicting pockets finished in 0 hours 1 minutes 43.755 seconds\n"}
+,{"stream_name":"stdout","time":293.673749729,"data":"[INFO] Console - results saved to directory [/kaggle/working/p2rank_out]\n"}
+,{"stream_name":"stdout","time":293.673754578,"data":"[INFO] Console - \n"}
+,{"stream_name":"stdout","time":293.67375946,"data":"[INFO] Console - Finished successfully in 0 hours 1 minutes 45.573 seconds.\n"}
+,{"stream_name":"stdout","time":293.673764324,"data":"\n"}
+,{"stream_name":"stdout","time":329.957552846,"data":"P2Rank aligned for 242/242 chains; failures 0; chains with unmatched residues 4; total unmatched nodes 4 of 74554\n"}
+,{"stream_name":"stderr","time":335.420000418,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":335.420046284,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":335.638506593,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":335.638538262,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":336.364479857,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":336.742028086,"data":"[NbConvertApp] Writing 22033 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":339.688971493,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":340.871754757,"data":"[NbConvertApp] Writing 363202 bytes to __results__.html\n"}
+]

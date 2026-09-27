@@ -983,6 +983,35 @@ so the model must infer a pocket's future location from shape precursors
 alone, a fundamentally harder geometric problem than localizing a pocket
 that is already visibly present.
 
+**Multiple candidate pockets and comparison with P2Rank on the official split.**
+Using the homology-clean 3B transfer ensemble (Phase 266; 8 seeds) on the
+official test chains, with P2Rank 2.5.1 rerun on exactly those structures
+(179 of 182 chains usable; 4 residues of 4 chains had no P2Rank score),
+the ensemble's single predicted pocket centre lands within 4 Å of the
+experimental pocket for 35.8% of chains (within 8 Å: 62.6%; mean error 9.1 Å),
+against 16.1% (37.4% within 8 Å) for P2Rank's top-ranked pocket on the same
+174 like-for-like chains (paired sign test at 4 Å: 42 chains hit only by the
+model vs. 9 only by P2Rank, p<0.001). Returning up to three candidates
+raises the model's rate: a hybrid list (the model's own centre first, then up
+to two further residue-cluster centres more than 8 Å away) hits within 4 Å for
+37.4% of chains and within 8 Å for 71.5% (10 Å: 78.8%), against
+25.3% / 57.5% (10 Å: 69.5%) for P2Rank's best of three pockets (like-for-like
+sign tests: 4 Å, 35 vs. 15, p=0.007; 8 Å, 35 vs. 12, p=0.001). The clustering
+parameters were chosen on the 60 validation chains only (grid of 9; the
+test chains were scored once). Clustering by itself, without the model's
+own centre, is not better at 4 Å (25.1%), so the gain at tight thresholds
+comes from the learned centre and the extra candidates mainly help at 8 Å
+and beyond. The threshold matters for the claim: at 4 Å, a second and third
+guess add little (35.8% to 37.4%); at 8 Å they add roughly nine points.
+Blending with P2Rank does not help this model: a logistic stack fit on the
+validation chains puts essentially zero weight on P2Rank's score (coefficient
+-0.04 against 1.77 on the model's logit), and the blend was not better than
+the model alone (protein-level PR-AUC -0.004, ROC-AUC -0.001; rank-averaging
+was worse, -0.056 PR-AUC). The model beats P2Rank by +0.19 protein-level
+PR-AUC and +0.08 ROC-AUC (73% and 84% of proteins, p<1e-15). An earlier
++0.014 PR-AUC blending gain on a from-scratch ensemble (hard-split test set)
+therefore does not carry over to the stronger transfer model.
+
 ## Discussion
 
 Adding persistent-homology features to sequence and burial features

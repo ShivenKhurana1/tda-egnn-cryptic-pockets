@@ -70,6 +70,10 @@ exposure geometry:
   checkpoints on 7,004 chains, refit CryptoBench. All 182 test chains now homology-clean: per-seed PR 0.408 / ROC 0.896 / DCC4 0.298
   (ensemble ROC 0.911), same as leaky-pool transfer (p=0.86) and +0.059 PR-AUC over from-scratch (8/8 seeds). The transfer gain is not a leak.
 
+* Phases 267/268 (multi-candidate localization + P2Rank blend on the official split, clean-pool transfer ensemble, 179 test chains): single
+  guess hits within 4 A for 35.8% vs P2Rank top-1 16.1%; hybrid best-of-3 hits 37.4% (4 A) / 71.5% (8 A) vs P2Rank best-of-3 25.3% / 57.5%
+  (paired p=0.007 / 0.001). Blend with P2Rank adds nothing to the transfer model (stack weight ~0; PR-AUC -0.004).
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
