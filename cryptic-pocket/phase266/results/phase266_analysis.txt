@@ -1,0 +1,23 @@
+All 182 official test chains (all homology-clean w.r.t. the clean-transfer pool)
+  C-clean-transfer   PR 0.4082+-0.0116  ROC 0.8961  MCC 0.4368  DCC4 0.2981
+  T-leaky-transfer   PR 0.4074+-0.0085  ROC 0.9005  MCC 0.4363  DCC4 0.2837
+  S-scratch-full     PR 0.3492+-0.0139  ROC 0.8796  MCC 0.3904  DCC4 0.2370
+  N-scratch-no-topo  PR 0.3477+-0.0141  ROC 0.8718  MCC 0.3850  DCC4 0.2191
+paired over seeds (a - b)
+  C-clean-transfer  - S-scratch-full     pr    0.4082 vs 0.3492 delta +0.0590 8/8  t p=1.6e-05 W p=7.8e-03
+  C-clean-transfer  - S-scratch-full     roc   0.8961 vs 0.8796 delta +0.0165 8/8  t p=6.3e-04 W p=7.8e-03
+  C-clean-transfer  - S-scratch-full     mcc   0.4368 vs 0.3904 delta +0.0465 8/8  t p=2.4e-05 W p=7.8e-03
+  C-clean-transfer  - S-scratch-full     dcc4  0.2981 vs 0.2370 delta +0.0611 8/8  t p=1.9e-04 W p=7.8e-03
+  C-clean-transfer  - N-scratch-no-topo  pr    0.4082 vs 0.3477 delta +0.0605 8/8  t p=5.7e-05 W p=7.8e-03
+  C-clean-transfer  - N-scratch-no-topo  roc   0.8961 vs 0.8718 delta +0.0243 7/8  t p=5.3e-04 W p=1.6e-02
+  C-clean-transfer  - N-scratch-no-topo  mcc   0.4368 vs 0.3850 delta +0.0518 8/8  t p=1.5e-04 W p=7.8e-03
+  C-clean-transfer  - N-scratch-no-topo  dcc4  0.2981 vs 0.2191 delta +0.0790 8/8  t p=2.6e-04 W p=7.8e-03
+  C-clean-transfer  - T-leaky-transfer   pr    0.4082 vs 0.4074 delta +0.0008 5/8  t p=8.6e-01 W p=1.0e+00
+  C-clean-transfer  - T-leaky-transfer   roc   0.8961 vs 0.9005 delta -0.0044 3/8  t p=1.6e-01 W p=3.1e-01
+  C-clean-transfer  - T-leaky-transfer   mcc   0.4368 vs 0.4363 delta +0.0005 5/8  t p=9.4e-01 W p=8.4e-01
+  C-clean-transfer  - T-leaky-transfer   dcc4  0.2981 vs 0.2837 delta +0.0144 5/8  t p=2.5e-01 W p=2.5e-01
+8-seed ensembles
+  C-clean-transfer   pr 0.4422  roc 0.9114  mcc 0.4633  dcc4 0.3571
+  T-leaky-transfer   pr 0.4370  roc 0.9120  mcc 0.4725  dcc4 0.3022
+  S-scratch-full     pr 0.3783  roc 0.8921  mcc 0.4124  dcc4 0.2802
+  N-scratch-no-topo  pr 0.3770  roc 0.8835  mcc 0.4095  dcc4 0.2692

@@ -433,9 +433,20 @@ homolog in it (539 of 700 training chains). The transfer gain survives on the
 seeds), so the homolog overlap does not explain it, although the 47-chain
 subset is small. On that subset topology-only transfer was better than
 geometry plus topology on PR-AUC (0.469 vs. 0.437, 0/8 seeds; p=0.008),
-which we do not over-read (47 chains, one subset). The reported 0.911
-transfer results (Table below) are therefore not an artifact of pool
-overlap, but they were not homology-clean by construction.
+which we do not over-read (47 chains, one subset). We then removed the
+174 pool chains (of 7,178) that have a homolog of any CryptoBench validation
+or test chain and repeated the whole transfer (retrained 3B checkpoints on the
+remaining 7,004 chains, 8 seeds, topology-only arm). On all 182 test chains,
+now homology-clean relative to pretraining, clean-pool transfer scored PR-AUC
+0.408, ROC-AUC 0.896, MCC 0.437 and DCC@4 Å 0.298 per seed (8-seed ensemble ROC-AUC
+0.911, DCC@4 Å 0.357), which is statistically the same as the leaky-pool
+transfer (PR-AUC +0.001, p=0.86; ROC-AUC -0.004, p=0.16) and still beats
+from-scratch training by +0.059 PR-AUC, +0.017 ROC-AUC and +0.061 DCC@4 Å (8 of 8
+seeds each, Wilcoxon p=0.0078). Transfer learning's gain is therefore not a
+homology artifact. (The 0.911 figure in the table below is the earlier,
+leaky-pool ensemble; the clean-pool ensemble gives the same 0.911.) The
+clean check removes homologs of validation and test chains only; homologs of
+CryptoBench training chains are left in the pool by design.
 
 ### Ablations: what helped and what did not
 

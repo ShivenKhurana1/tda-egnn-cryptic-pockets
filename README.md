@@ -66,6 +66,10 @@ exposure geometry:
   (geom+topo - topology-only: -0.003 PR-AUC, p=0.53; ensemble ROC 0.912-0.914 for all arms). Transfer itself beats from-scratch by +0.058 PR-AUC.
   MMseqs2 leak check: 135/182 test chains have a >=30%-identity homolog in the pretraining pool; the transfer gain survives on the 47 that do not.
 
+* Phase 266 (homology-clean transfer): removed the 174 pool chains homologous (>=30% id) to any CryptoBench val/test chain, retrained 3B
+  checkpoints on 7,004 chains, refit CryptoBench. All 182 test chains now homology-clean: per-seed PR 0.408 / ROC 0.896 / DCC4 0.298
+  (ensemble ROC 0.911), same as leaky-pool transfer (p=0.86) and +0.059 PR-AUC over from-scratch (8/8 seeds). The transfer gain is not a leak.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
