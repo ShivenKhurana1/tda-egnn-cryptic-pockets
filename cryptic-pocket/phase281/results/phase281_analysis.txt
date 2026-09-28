@@ -1,0 +1,9 @@
+8 proteins with MD results
+
+pooled: 2394 residues, 71 true site residues (3.0%)
+feature          pooled AUC   mean per-protein AUC
+rmsf                  0.500                  0.577
+nbr_mean_delta        0.424                  0.430
+nbr_std               0.642                  0.563
+nbr_min_delta         0.369                  0.396
+nbr_max_delta         0.516                  0.465

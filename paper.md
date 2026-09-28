@@ -96,10 +96,16 @@ structures the model never saw in any form, converge on the same
 ~0.72–0.76 ROC-AUC ceiling for pockets that are genuinely, strictly
 invisible until something binds. A battery of further attempts to close
 that specific gap — per-residue chemistry features, elastic-network-derived
-protein-movement features, and explicitly up-weighting small pockets in the
-training loss — each returned a null or statistically inconclusive result,
-consistent with this ceiling reflecting a real information limit of a
-single static structure rather than a fixable modeling gap.
+protein-movement features, explicitly up-weighting small pockets in the
+training loss, extending training with 1,997 real chains from a second
+benchmark, and (after solving a real GPU-infrastructure problem along the
+way) a genuine molecular-dynamics pilot on the hardest, independently-
+confirmed cryptic test proteins — each returned a null, negative, or
+statistically inconclusive result (the MD pilot's own single most standard
+metric, Cα-RMSF, landed at exactly chance, AUC 0.500, though on only 8 of
+17 planned proteins before a platform time limit ended the run), consistent
+with this ceiling reflecting a real information limit of a single static
+structure rather than a fixable modeling gap.
 
 ## Introduction
 
@@ -1309,14 +1315,54 @@ the small-pocket subset it was specifically designed to help. Explicitly
 up-weighting small pockets in the training loss, addressing the observed
 weak point directly (protein-level ROC-AUC 0.69 on pockets of 8 or fewer
 residues versus 0.90–0.93 elsewhere), also failed to help and mildly hurt
-overall accuracy at the stronger weighting tested. Three independent
-attempts, three different mechanisms, the same outcome: with a single
-static apo structure as the only input, there appears to be little further
-signal left to extract with the feature types tried here. Closing the
-remaining gap most plausibly requires information this project's input
-structure does not carry at all — a conformational ensemble rather than one
-structure, or information about the binding partner rather than the
-protein alone — not a better feature computed on the same input.
+overall accuracy at the stronger weighting tested. Separately, extending
+CryptoBench's 700-chain training set with 1,997 real, independently-labelled,
+homology-clean apo/holo pairs from a second benchmark (same recipe, 8
+seeds, no other change) made performance measurably *worse* (test PR-AUC
+-0.0272, MCC -0.0253, both confirmed by this project's two-test rule) —
+more correctly-labelled data, naively pooled across two differently-curated
+benchmarks, is not a free win either. Four independent attempts, four
+different mechanisms, the same outcome: with a single static apo structure
+as the only input, there appears to be little further signal left to
+extract with the feature types tried here.
+
+The next most plausible remaining lever was a genuine conformational
+ensemble rather than a linear elastic-network approximation of one, so we
+ran a small pilot: real, GPU-accelerated, unbiased molecular dynamics
+(OpenMM, 5 ns production per protein after 200 ps equilibration, apo
+structure only, the single target chain, explicit solvent) on the 17
+CryptoBench test proteins independently confirmed genuinely cryptic. Making
+this work at all required solving an infrastructure problem first: neither
+pip's OpenMM wheel (CPU-only, no CUDA platform; 0.17 ns/hour, 118 hours for
+a 20 ns run) nor this compute platform's preinstalled package manager (which
+turned out to share a name with, but not be, the intended tool) could
+produce a working GPU build; a self-contained conda-forge install bootstrapped
+from scratch found a real CUDA platform and reached 15 ns/hour, an ~88-fold
+speedup and the only reason this pilot was feasible at all. Even so, the
+platform's own session ceiling was the binding constraint in practice: of
+the 17 proteins queued, 8 completed their full trajectory before the run
+was cancelled after roughly 14 hours, an infrastructure limit beyond every
+precedent this project had previously encountered. Per-residue Cα-RMSF
+(rigid-body motion removed by iterative Kabsch alignment, verified on
+synthetic data before use) and the change in local heavy-atom neighbour
+count relative to the starting structure were checked, pooled across the
+2,394 residues of the 8 completed proteins, for raw predictive power
+against the true site-residue label — the same pre-commitment check used to
+reject the earlier elastic-network approximation and a geometric crypticity
+proxy elsewhere in this project. The result was weak to null: RMSF, the
+single most standard MD flexibility metric, showed no discriminative power
+at all (pooled AUC 0.500, exactly chance), and the neighbourhood-change
+features were mixed and modest (pooled AUC 0.37-0.64 depending on which
+summary statistic). With only 8 of the planned 17 proteins and roughly 14
+GPU-hours already spent to get them, this pilot is underpowered to rule the
+idea out definitively, but it gives no indication that scaling it up would
+be a good use of the compute it would require, and we do not recommend
+pursuing short unbiased MD further as this project's next step. Closing the
+remaining gap most plausibly requires either much longer sampling or
+enhanced-sampling methods this project did not have the infrastructure or
+time budget to run, or information the input structure does not carry at
+all regardless of how it is sampled — most concretely, information about
+the binding partner rather than the protein alone.
 
 ## Conclusion
 
@@ -1408,17 +1454,24 @@ already on hand:
 
 - **Close the ~0.72–0.76 ROC-AUC gap on genuinely cryptic sites with a
   different kind of information, not a different feature on the same
-  input.** Three mechanistically distinct attempts — hand-crafted chemistry
-  features, elastic-network-derived movement features, and explicitly
-  up-weighting small pockets in the loss — each returned a null or
-  inconclusive result (see Discussion), which is evidence against more
-  features computed from a single static apo structure closing this gap.
-  The two most promising untried directions are a genuine conformational
-  ensemble (proper molecular-dynamics sampling rather than this project's
-  cheap elastic-network approximation, which itself came back null) and
-  calibrated uncertainty (a confidence score honest enough that a user could
-  tell a likely-correct prediction from a guess on a case this hard) rather
-  than a further attempt at raw accuracy.
+  input.** Five mechanistically distinct attempts — hand-crafted chemistry
+  features, an elastic-network movement approximation, explicitly
+  up-weighting small pockets in the loss, extending training with a second
+  benchmark's data, and a real (if underpowered, 8-of-17-protein) short
+  unbiased molecular-dynamics pilot — each returned a null, negative, or
+  inconclusive result (see Discussion), which is real evidence against more
+  features computed from a single static apo structure, or more of the same
+  kind of training data, closing this gap. What remains untried is *properly
+  powered and properly long* MD (this project's pilot ran 5 ns per protein,
+  likely too short to sample genuine pocket-opening events, and stopped at
+  8 of 17 proteins when the compute platform's own session limit was hit)
+  or enhanced-sampling methods (metadynamics, mixed-solvent MD) that reach
+  the relevant timescale far more cheaply than brute-force unbiased
+  sampling — both would need dedicated infrastructure and compute budget
+  this project did not have. Calibrated uncertainty (a confidence score
+  honest enough that a user could tell a likely-correct prediction from a
+  guess on a case this hard) remains a promising, much cheaper alternative
+  to a further attempt at raw accuracy.
 - **Which specific topological property, if any, drives the confirmed
   classification residual beyond geometry** remains unidentified; only one
   weak, partial signal was found (H0/connected-components measurably

@@ -99,6 +99,11 @@ exposure geometry:
 * Phase 280 (extend CryptoBench training with 1,997 homology-clean chains from a second benchmark, same recipe, 8 seeds): NEGATIVE and
   confirmed. Test PR-AUC -0.0272 (0/8 seeds, p=0.005/0.008), MCC -0.0253 (p=0.018/0.016). Real, correctly-labelled extra training data,
   naively pooled with no recipe re-tuning, measurably hurt this model. Not adopted.
+* Phase 278/281 (real GPU-accelerated MD pilot, 17 truly-cryptic CryptoBench test proteins, 5ns each after fixing a real infra problem --
+  pip's OpenMM has no CUDA platform; the box's "mamba" is an unrelated tool; a from-scratch conda-forge bootstrap got CUDA working, 15ns/hr,
+  88x speedup): WEAK/NULL, underpowered. Session was cancelled by the platform after ~14h with only 8/17 proteins done. Pooled AUC of real
+  MD features vs the true site label: RMSF 0.500 (exactly chance), neighbour-count-delta features 0.37-0.64 (mixed, modest). Not pursued
+  further at this scale; a properly long/enhanced-sampling MD run remains untested and would need real dedicated infrastructure.
 
 ## Not in this repository
 
