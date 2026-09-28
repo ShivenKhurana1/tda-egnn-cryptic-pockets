@@ -1,0 +1,32 @@
+validation: 19562 residues, 846 positive (4.32%)
+test:       54992 residues, 2597 positive (4.72%)
+
+=== pooled, all test residues ===
+  raw probabilities            n= 54992  Brier 0.0900  log-loss 0.2999  ECE 0.1661
+  isotonic-calibrated          n= 54992  Brier 0.0330  log-loss 0.1242  ECE 0.0029
+
+reliability (10 quantile bins of RAW probability): predicted vs actual positive rate
+  n= 5500  raw pred 0.0153  cal pred 0.0009  actual 0.0022
+  n= 5500  raw pred 0.0270  cal pred 0.0017  actual 0.0029
+  n= 5499  raw pred 0.0387  cal pred 0.0033  actual 0.0029
+  n= 5499  raw pred 0.0544  cal pred 0.0034  actual 0.0035
+  n= 5499  raw pred 0.0775  cal pred 0.0045  actual 0.0058
+  n= 5499  raw pred 0.1141  cal pred 0.0062  actual 0.0102
+  n= 5499  raw pred 0.1777  cal pred 0.0088  actual 0.0160
+  n= 5499  raw pred 0.2915  cal pred 0.0275  actual 0.0327
+  n= 5499  raw pred 0.4992  cal pred 0.0772  actual 0.0651
+  n= 5499  raw pred 0.8382  cal pred 0.3235  actual 0.3310
+
+=== stratified by crypticity (external audit labels) ===
+  cryptic raw                  n=  4895  Brier 0.0887  log-loss 0.3008  ECE 0.1535
+  cryptic isotonic(fit on val) n=  4895  Brier 0.0315  log-loss 0.1490  ECE 0.0212
+  preformed raw                n= 36497  Brier 0.0806  log-loss 0.2738  ECE 0.1525
+  preformed isotonic(fit on val) n= 36497  Brier 0.0331  log-loss 0.1172  ECE 0.0075
+
+=== stratified by pocket size ===
+  small (<=8 residues) raw     n= 14869  Brier 0.1059  log-loss 0.3465  ECE 0.2031
+  small (<=8 residues) isotonic(fit on val) n= 14869  Brier 0.0228  log-loss 0.1041  ECE 0.0252
+  larger (>8 residues) raw     n= 40123  Brier 0.0841  log-loss 0.2826  ECE 0.1525
+  larger (>8 residues) isotonic(fit on val) n= 40123  Brier 0.0368  log-loss 0.1317  ECE 0.0106
+
+saved -> cryptic-pocket/phase282/results/phase282_calibration.csv

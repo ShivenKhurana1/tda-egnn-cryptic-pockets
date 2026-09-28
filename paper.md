@@ -105,7 +105,15 @@ statistically inconclusive result (the MD pilot's own single most standard
 metric, Cα-RMSF, landed at exactly chance, AUC 0.500, though on only 8 of
 17 planned proteins before a platform time limit ended the run), consistent
 with this ceiling reflecting a real information limit of a single static
-structure rather than a fixable modeling gap.
+structure rather than a fixable modeling gap. Separately, and unlike every
+attempt above, checking whether the model's raw predicted probabilities can
+be trusted at face value (a question no discrimination metric answers)
+found them badly and specifically overconfident -- at the model's own
+highest-confidence decile, the true positive rate is less than half what
+it claims (0.331 actual vs. 0.838 predicted) -- and found that isotonic
+regression fit on the existing 60-chain validation set fixes nearly all of
+it (expected calibration error 0.166 to 0.0029, a 57-fold reduction) without
+changing any ranking-based result in this paper.
 
 ## Introduction
 
@@ -1196,6 +1204,47 @@ and the same model lands in the same place both times. That agreement is the mos
 produces: it says the ~0.72-0.76 ROC-AUC range is a property of the problem on hard, truly cryptic sites, not an
 artifact of one benchmark's construction.
 
+### Calibration: does the model's confidence mean what it says?
+
+Every metric reported above (PR-AUC, ROC-AUC, MCC, precision@20) measures discrimination -- whether the model ranks
+true site residues above non-site residues -- and none of them checks whether the predicted probability itself is
+trustworthy: whether a residue the model scores 0.5 is actually a pocket residue roughly half the time. That is a
+different, practically important question, since a real user deciding whether to act on a single prediction needs
+the number itself to mean something, not just its rank. We checked this for the headline homology-clean 3B-transfer
+model's 8-seed ensemble, using only predictions this project had already produced (no new training).
+
+**The raw probabilities are badly, and specifically overconfidently, miscalibrated.** Sorting the 182 test chains'
+54,992 residues into ten equal-sized bins by raw predicted probability and comparing the mean prediction in each bin
+to the true positive rate: at the model's highest-confidence decile (mean predicted probability 0.838), the true
+positive rate is 0.331 -- less than half what the model claims. At predicted probability 0.50 (the conventional
+decision threshold), the true rate is 0.065. Expected calibration error (ECE, 15 quantile bins) on the raw
+probabilities is 0.166; Brier score 0.090; log-loss 0.300. This is the expected, known cost of the class-weighted
+loss (`pos_weight` 20.73) used throughout this project to handle the ~4.7% positive rate: the same reweighting that
+helps the model rank rare positives correctly systematically inflates the probabilities it outputs, and nothing in
+this project's earlier evaluation (which only ever thresholded or ranked, never took a probability at face value)
+would have caught it.
+
+**A trivial, already-available fix resolves nearly all of it.** Isotonic regression fit on the existing 60-chain
+CryptoBench validation set (used for nothing else in this calibration check) and applied to the held-out test set
+drops ECE from 0.166 to 0.0029 (a 57-fold reduction), Brier score from 0.090 to 0.033, and log-loss from 0.300 to
+0.124. Because isotonic regression is a monotonic transform, it changes none of this project's discrimination results
+(every PR-AUC, ROC-AUC, and ranking-based comparison reported elsewhere in this paper is completely unaffected); it
+only fixes what the probability number means.
+
+**The fix generalizes to this project's own known-hardest subgroups, though not quite as completely.** Calibration
+fit on the whole validation set, evaluated separately on the strictly-cryptic test residues (the external audit's
+subset) and on small-pocket chains (<=8 residues, this project's other established weak point): cryptic-subset ECE
+falls from 0.154 (raw) to 0.021 (calibrated); pre-formed-subset ECE from 0.153 to 0.0075; small-pocket ECE, the worst
+in every setting (0.203 raw, the most severely miscalibrated group, matching its status as the hardest), falls to
+0.025 -- an 8-fold improvement, but still the residual worst-calibrated stratum, meaning a single pooled calibration
+curve helps everywhere but does not fully equalize calibration quality across difficulty levels. A subgroup-specific
+calibration (fit separately for small pockets) is a natural, cheap follow-up this project did not pursue.
+
+We read this as a genuine, low-cost improvement worth adopting rather than a caveat: any deployment of this model
+that reports a probability, rather than only a rank or a thresholded call, should apply this calibration first, and
+the fact that it was never checked before this point is itself a reminder that a model's discrimination metrics say
+nothing about whether its stated confidence can be trusted.
+
 ## Discussion
 
 Adding persistent-homology features to sequence and burial features
@@ -1434,12 +1483,23 @@ latter number statistically indistinguishable from the 0.721 the internal
 relabeling found. Three checks, two of them genuinely external, agree: on
 the specific case this project set out to address, the honest number is
 roughly 0.72–0.76 ROC-AUC, not the 0.9-plus pooled figure that a
-CryptoBench-only evaluation would otherwise suggest, and three further,
+CryptoBench-only evaluation would otherwise suggest, and five further,
 mechanistically distinct attempts to close that specific gap (chemistry
-features, protein-movement features, small-pocket loss weighting) each
-came back null or inconclusive — evidence that this is a real limit of what
-a single static structure can tell a model about a pocket that does not yet
-exist, rather than an unclaimed modeling gain.
+features, protein-movement features, small-pocket loss weighting, extra
+training data from a second benchmark, and a real molecular-dynamics pilot)
+each came back null, negative, or inconclusive — evidence that this is a
+real limit of what a single static structure can tell a model about a
+pocket that does not yet exist, rather than an unclaimed modeling gain. One
+genuine improvement did come from this final stretch of work, and it is
+not an accuracy gain at all: the model's raw predicted probabilities turned
+out to be badly overconfident (at its own highest-confidence decile, the
+true hit rate is less than half what it claims), a problem no
+discrimination metric in this paper would have caught, and a simple,
+already-available calibration step fixes nearly all of it (expected
+calibration error 0.166 to 0.0029) without touching any ranking-based
+result reported elsewhere. Whether this model's numbers can be trusted and
+whether it ranks correctly are different questions, and this project had
+only ever checked the second one until this point.
 
 ## Future Work
 
@@ -1468,10 +1528,15 @@ already on hand:
   or enhanced-sampling methods (metadynamics, mixed-solvent MD) that reach
   the relevant timescale far more cheaply than brute-force unbiased
   sampling — both would need dedicated infrastructure and compute budget
-  this project did not have. Calibrated uncertainty (a confidence score
-  honest enough that a user could tell a likely-correct prediction from a
-  guess on a case this hard) remains a promising, much cheaper alternative
-  to a further attempt at raw accuracy.
+  this project did not have.
+- **Subgroup-specific calibration.** A single isotonic fit on the pooled
+  60-chain validation set resolved most of the raw probabilities' severe
+  overconfidence (Discussion), but the residual miscalibration is not
+  evenly spread: the small-pocket stratum remains the worst-calibrated
+  group even after correction (ECE 0.025, versus 0.0029 pooled). Fitting a
+  separate calibration curve per difficulty stratum (cryptic/pre-formed,
+  small/large pocket), rather than one global curve, is a natural,
+  essentially free follow-up that this project did not pursue.
 - **Which specific topological property, if any, drives the confirmed
   classification residual beyond geometry** remains unidentified; only one
   weak, partial signal was found (H0/connected-components measurably
