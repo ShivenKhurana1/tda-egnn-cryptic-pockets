@@ -108,7 +108,10 @@ exposure geometry:
   model's own top decile, 0.838 predicted vs 0.331 actual positive rate; ECE 0.166). Isotonic regression fit on the existing 60-chain
   validation set fixes nearly all of it (ECE 0.166 -> 0.0029, Brier 0.090 -> 0.033) without changing any ranking/AUC result. Holds up
   reasonably on the hardest subgroups too (cryptic ECE 0.154->0.021; small-pocket ECE 0.203->0.025, still the worst-calibrated group).
-  Adopted as a recommended post-processing step for any deployment that reports a probability rather than only a rank.
+  Follow-up (still Phase 282): fitting a SEPARATE isotonic curve per pocket-size stratum (small <=8 residues vs larger, both fit on the
+  validation split only) closes most of that residual gap -- small-pocket ECE 0.025 -> 0.0039, larger 0.0106 -> 0.0048 -- at no cost to
+  the pooled test number (ECE 0.0029 vs 0.0030, a wash; Brier/log-loss both improve slightly). Bonus: also improves the cryptic/pre-formed
+  breakdown it never saw during fitting. Adopted as the recommended calibration (size-stratified, not pooled) for any deployment.
 
 ## Not in this repository
 

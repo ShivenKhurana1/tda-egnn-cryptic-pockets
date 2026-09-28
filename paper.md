@@ -1237,13 +1237,27 @@ subset) and on small-pocket chains (<=8 residues, this project's other establish
 falls from 0.154 (raw) to 0.021 (calibrated); pre-formed-subset ECE from 0.153 to 0.0075; small-pocket ECE, the worst
 in every setting (0.203 raw, the most severely miscalibrated group, matching its status as the hardest), falls to
 0.025 -- an 8-fold improvement, but still the residual worst-calibrated stratum, meaning a single pooled calibration
-curve helps everywhere but does not fully equalize calibration quality across difficulty levels. A subgroup-specific
-calibration (fit separately for small pockets) is a natural, cheap follow-up this project did not pursue.
+curve helps everywhere but does not fully equalize calibration quality across difficulty levels.
+
+**Fitting a separate calibration curve per pocket-size stratum closes most of that residual gap.** Rather than one
+isotonic fit on all 60 validation chains, we fit two -- one on the 17 small-pocket validation chains (5,246 residues,
+104 positive), one on the 43 larger ones (14,316 residues, 742 positive) -- and applied each to the matching test
+stratum. (Crypticity-stratified fitting was not attempted: the external audit's cryptic/pre-formed labels exist only
+for the test split, so there is no validation-set ground truth to fit a cryptic-specific curve against.) On the
+small-pocket test residues this cut ECE further, from 0.025 (pooled fit) to 0.0039 -- a further 6.5-fold improvement,
+now closer to the larger-pocket stratum's own result (0.0106 pooled -> 0.0048 stratified) than to where it started.
+Critically, this did not cost anything on the pooled test set as a whole: overall ECE is unchanged within noise
+(0.0029 pooled fit vs. 0.0030 stratified), while Brier score and log-loss both improve slightly (0.0330 -> 0.0314;
+0.1242 -> 0.1209). As a bonus neither fit targeted directly, the size-stratified calibration also improves the
+cryptic/pre-formed breakdown it never saw during fitting (cryptic ECE 0.021 -> 0.017; pre-formed 0.0075 -> 0.0030),
+consistent with pocket size and crypticity being correlated in this dataset. Stratifying by pocket size before
+calibrating is therefore a strict improvement over the pooled fit -- better on the hardest subgroup, no worse
+overall -- and is the version we recommend over the single pooled curve.
 
 We read this as a genuine, low-cost improvement worth adopting rather than a caveat: any deployment of this model
-that reports a probability, rather than only a rank or a thresholded call, should apply this calibration first, and
-the fact that it was never checked before this point is itself a reminder that a model's discrimination metrics say
-nothing about whether its stated confidence can be trusted.
+that reports a probability, rather than only a rank or a thresholded call, should apply size-stratified calibration
+first, and the fact that it was never checked before this point is itself a reminder that a model's discrimination
+metrics say nothing about whether its stated confidence can be trusted.
 
 ## Discussion
 
@@ -1529,14 +1543,20 @@ already on hand:
   the relevant timescale far more cheaply than brute-force unbiased
   sampling — both would need dedicated infrastructure and compute budget
   this project did not have.
-- **Subgroup-specific calibration.** A single isotonic fit on the pooled
-  60-chain validation set resolved most of the raw probabilities' severe
-  overconfidence (Discussion), but the residual miscalibration is not
-  evenly spread: the small-pocket stratum remains the worst-calibrated
-  group even after correction (ECE 0.025, versus 0.0029 pooled). Fitting a
-  separate calibration curve per difficulty stratum (cryptic/pre-formed,
-  small/large pocket), rather than one global curve, is a natural,
-  essentially free follow-up that this project did not pursue.
+- **Crypticity-stratified calibration, if the ground truth becomes
+  available.** Size-stratified calibration (Discussion) closed most of the
+  pooled fit's residual gap on the small-pocket stratum (ECE 0.025 to
+  0.0039) at no cost to the overall pooled number, and this project now
+  recommends it as the default. A crypticity-specific fit (cryptic vs.
+  pre-formed) was not attempted for the same reason a crypticity-aware
+  training up-weighting scheme was never tried in the training-loss
+  ablations above: the external audit's strict cryptic/pre-formed labels
+  exist only for CryptoBench's 182-chain test split, not its 60-chain
+  validation split, so there is no validation-set ground truth to fit or
+  select a crypticity-specific calibration curve against. Extending the
+  crypticity audit's method to the validation split -- or to CryptoBench's
+  700-chain training split, which would also enable the up-weighting idea
+  flagged elsewhere in this paper -- remains open.
 - **Which specific topological property, if any, drives the confirmed
   classification residual beyond geometry** remains unidentified; only one
   weak, partial signal was found (H0/connected-components measurably

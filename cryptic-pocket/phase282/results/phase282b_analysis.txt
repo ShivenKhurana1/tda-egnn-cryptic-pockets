@@ -1,0 +1,27 @@
+validation: 17 small chains, 43 larger chains
+test:       49 small chains, 133 larger chains
+
+=== small-pocket test residues (<=8): pooled-fit vs size-stratified-fit ===
+  raw                                n= 14869  Brier 0.1059  log-loss 0.3465  ECE 0.2031
+  pooled isotonic (Phase 282 baseline) n= 14869  Brier 0.0228  log-loss 0.1041  ECE 0.0252
+  size-stratified isotonic (this follow-up) n= 14869  Brier 0.0179  log-loss 0.0866  ECE 0.0039
+
+=== larger-pocket test residues (>8): pooled-fit vs size-stratified-fit ===
+  raw                                n= 40123  Brier 0.0841  log-loss 0.2826  ECE 0.1525
+  pooled isotonic (Phase 282 baseline) n= 40123  Brier 0.0368  log-loss 0.1317  ECE 0.0106
+  size-stratified isotonic (this follow-up) n= 40123  Brier 0.0365  log-loss 0.1336  ECE 0.0048
+
+=== pooled overall test residues: does size-stratified calibration hurt or help the headline (unstratified) number? ===
+  raw                                n= 54992  Brier 0.0900  log-loss 0.2999  ECE 0.1661
+  pooled isotonic                    n= 54992  Brier 0.0330  log-loss 0.1242  ECE 0.0029
+  size-stratified isotonic           n= 54992  Brier 0.0314  log-loss 0.1209  ECE 0.0030
+
+=== context only: effect on the cryptic / pre-formed test breakdown (fit never used crypticity labels) ===
+  cryptic raw                        n=  4895  Brier 0.0887  log-loss 0.3008  ECE 0.1535
+  cryptic pooled isotonic            n=  4895  Brier 0.0315  log-loss 0.1490  ECE 0.0212
+  cryptic size-stratified isotonic   n=  4895  Brier 0.0283  log-loss 0.1447  ECE 0.0169
+  preformed raw                      n= 36497  Brier 0.0806  log-loss 0.2738  ECE 0.1525
+  preformed pooled isotonic          n= 36497  Brier 0.0331  log-loss 0.1172  ECE 0.0075
+  preformed size-stratified isotonic n= 36497  Brier 0.0323  log-loss 0.1157  ECE 0.0030
+
+saved -> cryptic-pocket/phase282/results/phase282b_stratified_calibration.csv
