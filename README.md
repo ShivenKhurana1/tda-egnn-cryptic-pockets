@@ -112,6 +112,18 @@ exposure geometry:
   validation split only) closes most of that residual gap -- small-pocket ECE 0.025 -> 0.0039, larger 0.0106 -> 0.0048 -- at no cost to
   the pooled test number (ECE 0.0029 vs 0.0030, a wash; Brier/log-loss both improve slightly). Bonus: also improves the cryptic/pre-formed
   breakdown it never saw during fitting. Adopted as the recommended calibration (size-stratified, not pooled) for any deployment.
+* Phase 283 (extend the crypticity audit to the validation split): MODEST POSITIVE, real but not a new recommendation. Built a grid-based
+  cavity-voxel detector (ray-buriedness over a 3D grid, apo-only) as a proxy for the external audit's tool; validated against its published
+  apo-side voxel counts on all 128 labelled test chains (Spearman r=0.256 p=0.0035, pooled AUC 0.740 cryptic-vs-preformed -- real, clearly
+  above the earlier-rejected Phase 279 proxy's AUC 0.611, but a 5-fold-CV threshold only reaches 0.23 precision/0.57 recall given the ~13%
+  cryptic base rate, so NOT trusted as a hard per-chain relabel). Used instead as a soft stratifier: fit separate isotonic curves on
+  validation chains split by this proxy, applied to test chains by their own proxy score. Beats the pooled calibration fit on every metric
+  and every true-labelled stratum (cryptic ECE 0.0212->0.0167, preformed 0.0075->0.0048, pooled 0.0056->0.0035) -- closes the "crypticity-
+  stratified calibration remains open" item. But it does NOT beat the already-adopted size-stratified fit (0.0167 vs 0.0169 on cryptic,
+  essentially tied), because pocket size and this crypticity proxy are highly correlated on validation (Spearman r=0.876) -- the proxy
+  counts cavity voxels near the site residues, so more site residues mechanically means more counted cavity. Recommendation unchanged:
+  keep size-stratified calibration as the default. Provisional validation-split crypticity-proxy scores saved to
+  `cryptic-pocket/phase283/results/phase283_val_crypticity_proxy_labels.json` for any future use.
 
 ## Not in this repository
 

@@ -1259,6 +1259,36 @@ that reports a probability, rather than only a rank or a thresholded call, shoul
 first, and the fact that it was never checked before this point is itself a reminder that a model's discrimination
 metrics say nothing about whether its stated confidence can be trusted.
 
+**Extending the crypticity audit to validation, and what a crypticity-proxy calibration adds beyond pocket size.**
+The external crypticity audit above only ever labeled the 182-chain test split; the 60-chain validation split used
+to fit calibration curves has no cryptic/pre-formed ground truth, which is why the size-stratified fit above could
+not attempt a crypticity-specific curve. To close this gap we built our own geometric cavity-voxel detector --
+ray-buriedness sampling over a 3D grid, reusing this project's Fibonacci-sphere ray-marching primitive -- as an
+apo-only proxy for the external tool's consensus-pocket-voxel concept (no equivalent cavity-detection software is
+available to us). Validated against the external tool's own published apo-side voxel counts, on the 128 test chains
+it labels cryptic or pre-formed: Spearman r=0.256 (p=0.0035), pooled ROC-AUC 0.740 for cryptic-vs-pre-formed
+discrimination -- real signal, clearly above the ROC-AUC-0.611 geometric proxy an earlier attempt (a local
+atom-density delta, apo vs. holo) had already been rejected as too weak, but not strong enough to trust as a hard
+per-chain relabeling: a threshold fit by Youden's J and evaluated by 5-fold cross-validation on the same 128 chains
+reaches only 0.23 precision at 0.57 recall, a direct consequence of how rare true cryptic sites are (17/128, ~13%)
+even in an already crypticity-enriched benchmark.
+
+Used as a soft, continuous stratifier rather than a hard label -- fitting one isotonic curve on the validation
+chains this proxy scores as more cryptic-like, one on the rest, then applying each curve to test chains by their
+*own* proxy score, never their true label -- calibration improves on every metric and every truly-labeled stratum
+against the pooled fit: cryptic-residue ECE 0.0212 to 0.0167, Brier 0.0315 to 0.0285; pre-formed ECE 0.0075 to
+0.0048; pooled-overall ECE 0.0056 to 0.0035. This confirms crypticity carries real, usable calibration-relevant
+information and closes the item flagged as open above. It is not, however, an improvement over the size-stratified
+fit already adopted: the two land within noise of each other on every stratum (e.g. cryptic ECE 0.0167 for the
+crypticity proxy vs. 0.0169 for size-stratification), and checking why shows the reason -- pocket size and this
+crypticity proxy are themselves highly correlated on the validation set (Spearman r=0.876), because the proxy counts
+cavity voxels within 4 Å of the site residues, so a chain with more site residues mechanically tends to register a
+larger counted cavity. The two stratifications are largely measuring the same axis of difficulty, not independent
+ones. We report this as a genuine, if modest, positive result -- the crypticity audit now extends to validation, and
+crypticity-aware calibration does work -- rather than a new practical recommendation: the simpler, already-deployed
+size-stratified calibration captures essentially the same benefit without any extra geometry computation, so it
+remains what we recommend.
+
 ## Discussion
 
 Adding persistent-homology features to sequence and burial features
@@ -1513,7 +1543,12 @@ already-available calibration step fixes nearly all of it (expected
 calibration error 0.166 to 0.0029) without touching any ranking-based
 result reported elsewhere. Whether this model's numbers can be trusted and
 whether it ranks correctly are different questions, and this project had
-only ever checked the second one until this point.
+only ever checked the second one until this point. A follow-up built a
+validated geometric proxy to extend the crypticity audit to the validation
+split for the first time and confirmed that crypticity-aware calibration
+also works, closing that specific open question -- but it turned out to be
+largely redundant with the pocket-size stratification already adopted, so
+the practical recommendation did not change.
 
 ## Future Work
 
@@ -1543,20 +1578,26 @@ already on hand:
   the relevant timescale far more cheaply than brute-force unbiased
   sampling — both would need dedicated infrastructure and compute budget
   this project did not have.
-- **Crypticity-stratified calibration, if the ground truth becomes
-  available.** Size-stratified calibration (Discussion) closed most of the
-  pooled fit's residual gap on the small-pocket stratum (ECE 0.025 to
-  0.0039) at no cost to the overall pooled number, and this project now
-  recommends it as the default. A crypticity-specific fit (cryptic vs.
-  pre-formed) was not attempted for the same reason a crypticity-aware
-  training up-weighting scheme was never tried in the training-loss
-  ablations above: the external audit's strict cryptic/pre-formed labels
-  exist only for CryptoBench's 182-chain test split, not its 60-chain
-  validation split, so there is no validation-set ground truth to fit or
-  select a crypticity-specific calibration curve against. Extending the
-  crypticity audit's method to the validation split -- or to CryptoBench's
-  700-chain training split, which would also enable the up-weighting idea
-  flagged elsewhere in this paper -- remains open.
+- **Extend the crypticity audit to CryptoBench's 700-chain training
+  split, to finally test crypticity-aware training up-weighting.** The
+  audit extension above (Results) closed the validation half of this gap:
+  a validated geometric cavity-voxel proxy (ROC-AUC 0.740 vs. the external
+  tool's real labels, n=128) now gives every validation chain a soft
+  crypticity score, and crypticity-proxy-stratified calibration built on it
+  works, though it turns out to be largely redundant with the
+  already-adopted size-stratified fit (Results). What that extension did
+  *not* touch is the training split: a crypticity-aware loss up-weighting
+  scheme -- give cryptic-scoring training chains more weight, on the
+  hypothesis that they are the harder, more informative examples -- was
+  never tried in the training-loss ablations above, for the same reason a
+  crypticity-specific calibration curve wasn't: no crypticity signal existed
+  for training chains at all. The same proxy detector built here could be
+  run over the 700-chain training split (a straightforward compute cost,
+  not a methods problem) to finally test that idea, though the finding that
+  the proxy is highly correlated with pocket size (Results) means any such
+  up-weighting scheme should be checked against a plain small-pocket
+  up-weighting baseline (already tried, Discussion, and found negative)
+  before crediting crypticity specifically for any gain.
 - **Which specific topological property, if any, drives the confirmed
   classification residual beyond geometry** remains unidentified; only one
   weak, partial signal was found (H0/connected-components measurably

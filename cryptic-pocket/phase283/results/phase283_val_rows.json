@@ -1,0 +1,422 @@
+[
+ {
+  "key": "1gqz_A",
+  "pdb": "1gqz",
+  "chain": "A",
+  "my_apo": 554,
+  "n_site_atoms": 131
+ },
+ {
+  "key": "1j8f_C",
+  "pdb": "1j8f",
+  "chain": "C",
+  "my_apo": 783,
+  "n_site_atoms": 298
+ },
+ {
+  "key": "1ms4_B",
+  "pdb": "1ms4",
+  "chain": "B",
+  "my_apo": 81,
+  "n_site_atoms": 37
+ },
+ {
+  "key": "1nzo_A",
+  "pdb": "1nzo",
+  "chain": "A",
+  "my_apo": 225,
+  "n_site_atoms": 77
+ },
+ {
+  "key": "1py3_C",
+  "pdb": "1py3",
+  "chain": "C",
+  "my_apo": 203,
+  "n_site_atoms": 111
+ },
+ {
+  "key": "1qht_A",
+  "pdb": "1qht",
+  "chain": "A",
+  "my_apo": 473,
+  "n_site_atoms": 145
+ },
+ {
+  "key": "1rxd_C",
+  "pdb": "1rxd",
+  "chain": "C",
+  "my_apo": 136,
+  "n_site_atoms": 66
+ },
+ {
+  "key": "1u4p_A",
+  "pdb": "1u4p",
+  "chain": "A",
+  "my_apo": 27,
+  "n_site_atoms": 45
+ },
+ {
+  "key": "1xhx_B",
+  "pdb": "1xhx",
+  "chain": "B",
+  "my_apo": 347,
+  "n_site_atoms": 121
+ },
+ {
+  "key": "2akr_A",
+  "pdb": "2akr",
+  "chain": "A",
+  "my_apo": 77,
+  "n_site_atoms": 34
+ },
+ {
+  "key": "2nxj_A",
+  "pdb": "2nxj",
+  "chain": "A",
+  "my_apo": 416,
+  "n_site_atoms": 134
+ },
+ {
+  "key": "2psf_B",
+  "pdb": "2psf",
+  "chain": "B",
+  "my_apo": 386,
+  "n_site_atoms": 113
+ },
+ {
+  "key": "2yyg_A",
+  "pdb": "2yyg",
+  "chain": "A",
+  "my_apo": 438,
+  "n_site_atoms": 111
+ },
+ {
+  "key": "2yzg_C",
+  "pdb": "2yzg",
+  "chain": "C",
+  "my_apo": 240,
+  "n_site_atoms": 59
+ },
+ {
+  "key": "2z15_B",
+  "pdb": "2z15",
+  "chain": "B",
+  "my_apo": 73,
+  "n_site_atoms": 61
+ },
+ {
+  "key": "3a06_B",
+  "pdb": "3a06",
+  "chain": "B",
+  "my_apo": 176,
+  "n_site_atoms": 64
+ },
+ {
+  "key": "3bv9_B",
+  "pdb": "3bv9",
+  "chain": "B",
+  "my_apo": 519,
+  "n_site_atoms": 179
+ },
+ {
+  "key": "3ofj_A",
+  "pdb": "3ofj",
+  "chain": "A",
+  "my_apo": 553,
+  "n_site_atoms": 153
+ },
+ {
+  "key": "3qas_A",
+  "pdb": "3qas",
+  "chain": "A",
+  "my_apo": 500,
+  "n_site_atoms": 173
+ },
+ {
+  "key": "3zhz_B",
+  "pdb": "3zhz",
+  "chain": "B",
+  "my_apo": 481,
+  "n_site_atoms": 190
+ },
+ {
+  "key": "4d1n_A",
+  "pdb": "4d1n",
+  "chain": "A",
+  "my_apo": 14,
+  "n_site_atoms": 32
+ },
+ {
+  "key": "4ei8_A",
+  "pdb": "4ei8",
+  "chain": "A",
+  "my_apo": 519,
+  "n_site_atoms": 150
+ },
+ {
+  "key": "4hon_B",
+  "pdb": "4hon",
+  "chain": "B",
+  "my_apo": 472,
+  "n_site_atoms": 100
+ },
+ {
+  "key": "4iws_A",
+  "pdb": "4iws",
+  "chain": "A",
+  "my_apo": 185,
+  "n_site_atoms": 51
+ },
+ {
+  "key": "4nqt_A",
+  "pdb": "4nqt",
+  "chain": "A",
+  "my_apo": 93,
+  "n_site_atoms": 33
+ },
+ {
+  "key": "4oyz_A",
+  "pdb": "4oyz",
+  "chain": "A",
+  "my_apo": 365,
+  "n_site_atoms": 93
+ },
+ {
+  "key": "4qas_A",
+  "pdb": "4qas",
+  "chain": "A",
+  "my_apo": 502,
+  "n_site_atoms": 179
+ },
+ {
+  "key": "4xbx_B",
+  "pdb": "4xbx",
+  "chain": "B",
+  "my_apo": 537,
+  "n_site_atoms": 116
+ },
+ {
+  "key": "5bca_A",
+  "pdb": "5bca",
+  "chain": "A",
+  "my_apo": 401,
+  "n_site_atoms": 95
+ },
+ {
+  "key": "5d27_A",
+  "pdb": "5d27",
+  "chain": "A",
+  "my_apo": 197,
+  "n_site_atoms": 89
+ },
+ {
+  "key": "5dv9_A",
+  "pdb": "5dv9",
+  "chain": "A",
+  "my_apo": 813,
+  "n_site_atoms": 212
+ },
+ {
+  "key": "5ihb_A",
+  "pdb": "5ihb",
+  "chain": "A",
+  "my_apo": 158,
+  "n_site_atoms": 73
+ },
+ {
+  "key": "5lcc_A",
+  "pdb": "5lcc",
+  "chain": "A",
+  "my_apo": 441,
+  "n_site_atoms": 165
+ },
+ {
+  "key": "5nch_B",
+  "pdb": "5nch",
+  "chain": "B",
+  "my_apo": 453,
+  "n_site_atoms": 119
+ },
+ {
+  "key": "5nin_B",
+  "pdb": "5nin",
+  "chain": "B",
+  "my_apo": 468,
+  "n_site_atoms": 172
+ },
+ {
+  "key": "5nr9_B",
+  "pdb": "5nr9",
+  "chain": "B",
+  "my_apo": 322,
+  "n_site_atoms": 102
+ },
+ {
+  "key": "5ojx_A",
+  "pdb": "5ojx",
+  "chain": "A",
+  "my_apo": 174,
+  "n_site_atoms": 131
+ },
+ {
+  "key": "5v2k_B",
+  "pdb": "5v2k",
+  "chain": "B",
+  "my_apo": 159,
+  "n_site_atoms": 58
+ },
+ {
+  "key": "6aib_A",
+  "pdb": "6aib",
+  "chain": "A",
+  "my_apo": 298,
+  "n_site_atoms": 127
+ },
+ {
+  "key": "6bzi_C",
+  "pdb": "6bzi",
+  "chain": "C",
+  "my_apo": 376,
+  "n_site_atoms": 103
+ },
+ {
+  "key": "6c4g_A",
+  "pdb": "6c4g",
+  "chain": "A",
+  "my_apo": 70,
+  "n_site_atoms": 62
+ },
+ {
+  "key": "6ezr_A",
+  "pdb": "6ezr",
+  "chain": "A",
+  "my_apo": 662,
+  "n_site_atoms": 164
+ },
+ {
+  "key": "6her_A",
+  "pdb": "6her",
+  "chain": "A",
+  "my_apo": 124,
+  "n_site_atoms": 74
+ },
+ {
+  "key": "6jhm_D",
+  "pdb": "6jhm",
+  "chain": "D",
+  "my_apo": 351,
+  "n_site_atoms": 86
+ },
+ {
+  "key": "6ltf_A",
+  "pdb": "6ltf",
+  "chain": "A",
+  "my_apo": 318,
+  "n_site_atoms": 97
+ },
+ {
+  "key": "6qfl_A",
+  "pdb": "6qfl",
+  "chain": "A",
+  "my_apo": 853,
+  "n_site_atoms": 237
+ },
+ {
+  "key": "6two_AAA",
+  "pdb": "6two",
+  "chain": "AAA",
+  "my_apo": 149,
+  "n_site_atoms": 74
+ },
+ {
+  "key": "6up2_A",
+  "pdb": "6up2",
+  "chain": "A",
+  "my_apo": 491,
+  "n_site_atoms": 136
+ },
+ {
+  "key": "6x41_B",
+  "pdb": "6x41",
+  "chain": "B",
+  "my_apo": 417,
+  "n_site_atoms": 138
+ },
+ {
+  "key": "6xqx_B",
+  "pdb": "6xqx",
+  "chain": "B",
+  "my_apo": 446,
+  "n_site_atoms": 163
+ },
+ {
+  "key": "7djn_A",
+  "pdb": "7djn",
+  "chain": "A",
+  "my_apo": 82,
+  "n_site_atoms": 48
+ },
+ {
+  "key": "7ejw_D",
+  "pdb": "7ejw",
+  "chain": "D",
+  "my_apo": 399,
+  "n_site_atoms": 152
+ },
+ {
+  "key": "7opp_C",
+  "pdb": "7opp",
+  "chain": "C",
+  "my_apo": 202,
+  "n_site_atoms": 91
+ },
+ {
+  "key": "7pa0_B",
+  "pdb": "7pa0",
+  "chain": "B",
+  "my_apo": 57,
+  "n_site_atoms": 52
+ },
+ {
+  "key": "7qlu_A",
+  "pdb": "7qlu",
+  "chain": "A",
+  "my_apo": 277,
+  "n_site_atoms": 90
+ },
+ {
+  "key": "7rx7_A",
+  "pdb": "7rx7",
+  "chain": "A",
+  "my_apo": 440,
+  "n_site_atoms": 174
+ },
+ {
+  "key": "7xzn_C",
+  "pdb": "7xzn",
+  "chain": "C",
+  "my_apo": 285,
+  "n_site_atoms": 116
+ },
+ {
+  "key": "7zzx_B",
+  "pdb": "7zzx",
+  "chain": "B",
+  "my_apo": 448,
+  "n_site_atoms": 208
+ },
+ {
+  "key": "8cql_B",
+  "pdb": "8cql",
+  "chain": "B",
+  "my_apo": 115,
+  "n_site_atoms": 64
+ },
+ {
+  "key": "8jqk_A",
+  "pdb": "8jqk",
+  "chain": "A",
+  "my_apo": 291,
+  "n_site_atoms": 77
+ }
+]
