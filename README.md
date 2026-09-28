@@ -96,6 +96,9 @@ exposure geometry:
   PocketMiner: pooled ROC 0.925 (all) / 0.920 (6 proteins with no training-pool homolog) -- beats PocketMiner's own reported 0.87 on their
   own dataset. cryptic-site-benchmark: pooled ROC 0.833 (all) / 0.757 (16 homology-clean) -- consistent with Phase 276's internal 0.721 on
   CryptoBench's own truly-cryptic subset. Two independent groups, two cryptic definitions, the same ~0.72-0.76 ROC-AUC on truly hard sites.
+* Phase 280 (extend CryptoBench training with 1,997 homology-clean chains from a second benchmark, same recipe, 8 seeds): NEGATIVE and
+  confirmed. Test PR-AUC -0.0272 (0/8 seeds, p=0.005/0.008), MCC -0.0253 (p=0.018/0.016). Real, correctly-labelled extra training data,
+  naively pooled with no recipe re-tuning, measurably hurt this model. Not adopted.
 
 ## Not in this repository
 

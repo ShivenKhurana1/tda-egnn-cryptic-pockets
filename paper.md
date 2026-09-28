@@ -1052,6 +1052,25 @@ CryptoBench result, while noting that 3B-transfer alone (MCC 0.466,
 no ensembling required) remains a legitimate, simpler choice given
 the two are statistically indistinguishable on MCC.
 
+**More training data, from a different benchmark, hurt rather than helped.** An independent, adversarially-designed
+benchmark used elsewhere in this paper for external validation ("A benchmark selected for crypticity") also screened
+2,401 apo/holo pairs of its own, of which only 99 are labelled genuinely cryptic (already spent as external-validation
+data); the remaining 2,300 "pre-formed" and "neither" pairs were never used anywhere in this project. After a homology
+check removed the 305 that share a >=30%-identity relative with anything already evaluated on, 1,997 real, independently-
+labelled apo/holo pairs were available to extend CryptoBench's own 700-chain training set (to 2,697), using the exact
+same recipe (checkpoints, architecture, loss, optimiser, 8 seeds) as the headline result. This made performance worse,
+not better, and the effect is confirmed by this project's two-test rule: test PR-AUC fell by -0.0272 (0 of 8 seeds
+improved; paired t p=0.005, Wilcoxon p=0.008) and MCC by -0.0253 (1 of 8 seeds improved; p=0.018/0.016); ROC-AUC also
+fell (-0.0124) but not significantly (p=0.13/0.15). The 8-seed ensemble shows the same pattern (PR-AUC 0.415 vs. 0.442,
+MCC 0.449 vs. 0.463). We do not read this as "more data hurts" in general -- the training recipe (40 epochs, patience
+8, batch 16, a fixed learning-rate schedule) was tuned for 700 chains and left completely unchanged for a training set
+2.75x its original size; it is entirely possible the extra chains, coming from a differently-curated benchmark, teach
+the model something CryptoBench's own test distribution does not reward. Both
+explanations are plausible and this project cannot distinguish them without either re-tuning the recipe for the larger
+set or auditing what specifically differs between the two benchmarks' site definitions; what can be said cleanly is
+that naively pooling real, correctly-labelled training data from a second cryptic-pocket benchmark, with no other
+change, does not improve this model and measurably hurts it.
+
 Localization on CryptoBench — a task with no existing published comparison
 we found (see Related Work: prior cryptic-pocket work either ranks
 candidate sites from simulation or characterizes pockets some other tool

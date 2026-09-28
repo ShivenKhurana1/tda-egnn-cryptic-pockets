@@ -1,0 +1,15 @@
+{
+  "id": "blackpearls1/phase278-md-probe2",
+  "title": "Phase278 Md Probe2",
+  "code_file": "phase278_md_probe2.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

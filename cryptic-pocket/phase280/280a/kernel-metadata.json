@@ -1,0 +1,16 @@
+{
+  "id": "blackpearls1/phase280a-extra-data-homology",
+  "title": "Phase280a Extra Data Homology",
+  "code_file": "phase280a_homology.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase48-cryptobench-esm3b"
+  ]
+}

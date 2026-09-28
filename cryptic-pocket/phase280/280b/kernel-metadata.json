@@ -1,0 +1,18 @@
+{
+  "id": "blackpearls1/phase280b-extra-train-featurize",
+  "title": "Phase280b Extra Train Featurize",
+  "code_file": "phase280b_extra_train_featurize.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "blackpearls1/tda-egnn-phase48-cryptobench-esm3b",
+    "blackpearls1/phase280a-extra-data-homology"
+  ]
+}

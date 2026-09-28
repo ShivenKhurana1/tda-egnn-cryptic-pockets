@@ -1,0 +1,15 @@
+{
+  "id": "blackpearls1/phase281-md-pilot",
+  "title": "Phase281 Md Pilot",
+  "code_file": "phase281_md_pilot.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}
