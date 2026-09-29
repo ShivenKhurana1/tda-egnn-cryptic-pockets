@@ -124,6 +124,14 @@ exposure geometry:
   counts cavity voxels near the site residues, so more site residues mechanically means more counted cavity. Recommendation unchanged:
   keep size-stratified calibration as the default. Provisional validation-split crypticity-proxy scores saved to
   `cryptic-pocket/phase283/results/phase283_val_crypticity_proxy_labels.json` for any future use.
+* Phase 283 (extend the proxy to the training pool): DATA ONLY, no new experiment yet. Ran the same apo-only cavity-voxel detector over all
+  885 pdbs in CryptoBench's official train-0..3 pool (folds.json). 764/885 succeeded (121 silently dropped: fetch failure, too few atoms, or
+  no site atoms found -- consistent with the same drop rate seen at ingestion time). All 60 known validation chains reproduced with 0 deviation
+  (fully deterministic pipeline, good sanity check), leaving 704 train-only chains with a proxy score -- lines up with this project's existing
+  "~700 train chains" figure. Scores saved to `cryptic-pocket/phase283/results/phase283_train_crypticity_proxy_scores.json`
+  (key "pdbid_chain" -> {my_apo, n_site_atoms}), ready to join against whatever chains a future run actually trains on. Enables, but does not
+  itself run, the crypticity-aware training up-weighting idea flagged in paper.md's Future Work -- that would need an actual GPU retraining
+  experiment on Kaggle, not attempted here.
 
 ## Not in this repository
 
