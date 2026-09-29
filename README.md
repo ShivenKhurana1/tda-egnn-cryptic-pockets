@@ -132,6 +132,14 @@ exposure geometry:
   (key "pdbid_chain" -> {my_apo, n_site_atoms}), ready to join against whatever chains a future run actually trains on. Enables, but does not
   itself run, the crypticity-aware training up-weighting idea flagged in paper.md's Future Work -- that would need an actual GPU retraining
   experiment on Kaggle, not attempted here.
+* Phase 284 (crypticity-proxy loss up-weighting, the training run this enabled): CONFIRMED NEGATIVE, same pattern as Phase 269's small-pocket
+  weighting. Up-weighted training chains the Phase 283 proxy scores as more cryptic-like (700/700 train chains matched), same recipe/8 seeds/
+  same two beta-max_w arms as Phase 269 (w1: 0.5/3, w2: 1.0/6), baseline = Phase 266c. Primary target (true-cryptic test chains, external
+  labels) unmoved: cryptic ROC/PR/DCC4 all NS both arms (e.g. w1 cryptic|pr -0.008 p=.09/.11, w2 -0.017 p=.12/.25). Confirmed HURT overall:
+  w1 pooled ROC -0.005 (p=.038/.016); w2 pooled PR -0.021 (p=.046/.008), DCC4 -0.039 (p=.025/.039). Not adopted. Given the r=0.876 pocket-size
+  correlation (Phase 283), this is a restatement of Phase 269's negative, not an independent result -- closes this line of attack. This is
+  the 6th mechanistically distinct attempt to close the ~0.72-0.76 cryptic-site ceiling (after chemistry, movement, small-pocket weighting,
+  extra data, real MD) to come back null/negative -- paper.md/README updated, this specific future-work item now resolved.
 
 ## Not in this repository
 

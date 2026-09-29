@@ -103,9 +103,12 @@ way) a genuine molecular-dynamics pilot on the hardest, independently-
 confirmed cryptic test proteins — each returned a null, negative, or
 statistically inconclusive result (the MD pilot's own single most standard
 metric, Cα-RMSF, landed at exactly chance, AUC 0.500, though on only 8 of
-17 planned proteins before a platform time limit ended the run), consistent
-with this ceiling reflecting a real information limit of a single static
-structure rather than a fixable modeling gap. Separately, and unlike every
+17 planned proteins before a platform time limit ended the run), and
+up-weighting training chains by a geometric crypticity proxy the same way
+(pooled test PR-AUC -0.021, DCC@4 -0.039, both confirmed; the true-cryptic
+subset itself unmoved) -- consistent with this ceiling reflecting a real
+information limit of a single static structure rather than a fixable
+modeling gap. Separately, and unlike every
 attempt above, checking whether the model's raw predicted probabilities can
 be trusted at face value (a question no discrimination metric answers)
 found them badly and specifically overconfident -- at the model's own
@@ -1527,11 +1530,13 @@ latter number statistically indistinguishable from the 0.721 the internal
 relabeling found. Three checks, two of them genuinely external, agree: on
 the specific case this project set out to address, the honest number is
 roughly 0.72–0.76 ROC-AUC, not the 0.9-plus pooled figure that a
-CryptoBench-only evaluation would otherwise suggest, and five further,
+CryptoBench-only evaluation would otherwise suggest, and six further,
 mechanistically distinct attempts to close that specific gap (chemistry
 features, protein-movement features, small-pocket loss weighting, extra
-training data from a second benchmark, and a real molecular-dynamics pilot)
-each came back null, negative, or inconclusive — evidence that this is a
+training data from a second benchmark, a real molecular-dynamics pilot, and
+— once a validated proxy made it possible to try — crypticity-proxy loss
+up-weighting itself) each came back null, negative, or inconclusive —
+evidence that this is a
 real limit of what a single static structure can tell a model about a
 pocket that does not yet exist, rather than an unclaimed modeling gain. One
 genuine improvement did come from this final stretch of work, and it is
@@ -1563,14 +1568,15 @@ already on hand:
 
 - **Close the ~0.72–0.76 ROC-AUC gap on genuinely cryptic sites with a
   different kind of information, not a different feature on the same
-  input.** Five mechanistically distinct attempts — hand-crafted chemistry
+  input.** Six mechanistically distinct attempts — hand-crafted chemistry
   features, an elastic-network movement approximation, explicitly
   up-weighting small pockets in the loss, extending training with a second
-  benchmark's data, and a real (if underpowered, 8-of-17-protein) short
-  unbiased molecular-dynamics pilot — each returned a null, negative, or
-  inconclusive result (see Discussion), which is real evidence against more
-  features computed from a single static apo structure, or more of the same
-  kind of training data, closing this gap. What remains untried is *properly
+  benchmark's data, a real (if underpowered, 8-of-17-protein) short
+  unbiased molecular-dynamics pilot, and crypticity-proxy loss up-weighting
+  — each returned a null, negative, or inconclusive result (see
+  Discussion), which is real evidence against more features computed from
+  a single static apo structure, or more of the same kind of training
+  data, closing this gap. What remains untried is *properly
   powered and properly long* MD (this project's pilot ran 5 ns per protein,
   likely too short to sample genuine pocket-opening events, and stopped at
   8 of 17 proteins when the compute platform's own session limit was hit)
@@ -1578,26 +1584,20 @@ already on hand:
   the relevant timescale far more cheaply than brute-force unbiased
   sampling — both would need dedicated infrastructure and compute budget
   this project did not have.
-- **Extend the crypticity audit to CryptoBench's 700-chain training
-  split, to finally test crypticity-aware training up-weighting.** The
-  audit extension above (Results) closed the validation half of this gap:
-  a validated geometric cavity-voxel proxy (ROC-AUC 0.740 vs. the external
-  tool's real labels, n=128) now gives every validation chain a soft
-  crypticity score, and crypticity-proxy-stratified calibration built on it
-  works, though it turns out to be largely redundant with the
-  already-adopted size-stratified fit (Results). What that extension did
-  *not* touch is the training split: a crypticity-aware loss up-weighting
-  scheme -- give cryptic-scoring training chains more weight, on the
-  hypothesis that they are the harder, more informative examples -- was
-  never tried in the training-loss ablations above, for the same reason a
-  crypticity-specific calibration curve wasn't: no crypticity signal existed
-  for training chains at all. The same proxy detector built here could be
-  run over the 700-chain training split (a straightforward compute cost,
-  not a methods problem) to finally test that idea, though the finding that
-  the proxy is highly correlated with pocket size (Results) means any such
-  up-weighting scheme should be checked against a plain small-pocket
-  up-weighting baseline (already tried, Discussion, and found negative)
-  before crediting crypticity specifically for any gain.
+  (This closes what was, until this point, the last untried item on this
+  project's own list: crypticity-aware training up-weighting. The Phase 283
+  cavity-voxel proxy was run over CryptoBench's 700-chain training pool
+  (700/700 chains matched), then used to up-weight cryptic-scoring training
+  chains in the loss exactly as small-pocket weighting was tried earlier,
+  at the same two beta/max-weight settings for a fair comparison. The
+  result was the same as every up-weighting attempt before it: no
+  significant change on the true-cryptic test chains themselves (ROC-AUC
+  and PR-AUC both flat within noise, either direction, both arms), and the
+  stronger arm significantly *hurt* pooled performance (test PR-AUC -0.021,
+  DCC@4 -0.039, both confirmed by paired t-test and Wilcoxon). Given the
+  proxy's r=0.876 correlation with pocket size, this is best read as a
+  restatement of the earlier small-pocket-weighting negative rather than an
+  independent test, and closes this line of attack rather than opening it.)
 - **Which specific topological property, if any, drives the confirmed
   classification residual beyond geometry** remains unidentified; only one
   weak, partial signal was found (H0/connected-components measurably
