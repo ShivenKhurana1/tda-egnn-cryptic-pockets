@@ -140,6 +140,18 @@ exposure geometry:
   correlation (Phase 283), this is a restatement of Phase 269's negative, not an independent result -- closes this line of attack. This is
   the 6th mechanistically distinct attempt to close the ~0.72-0.76 cryptic-site ceiling (after chemistry, movement, small-pocket weighting,
   extra data, real MD) to come back null/negative -- paper.md/README updated, this specific future-work item now resolved.
+* Phase 285 (which topological dimension drives the classification residual?): RESOLVED, real positive attribution. The earlier
+  H0/H1/H2/burial decomposition (Phase 58-86) only ever answered this for the LOCALIZATION gain, at 35M/round-3-pool scale (found: H0
+  weakest, everything else tied) -- it never ran at the 650M/3B scale where the CLASSIFICATION residual is actually confirmed, and never
+  isolated a specific winner. Reused Phase 240a/b's exact 10-fold/650M setup and cached geom/geom+topo arms (not rerun); added 4 new arms
+  (geom+H0/H1/H2/burial), same split. Result: H1 (loops/tunnels) is the ONLY dimension confirmed against geom alone on BOTH metrics
+  (PR-AUC +0.0068 p=.001/.004; ROC-AUC +0.0025 p=.034/.037); H0 and burial confirm on ROC only, H2 on neither. H1 beats H2 (+0.0064 PR
+  p=.028/.027) and burial (+0.0043 PR p=.036/.049) pairwise, and geom+H1-alone is statistically indistinguishable from geom+topo (all four)
+  (+0.0023 PR p=.255/.193, NOT confirmed) while geom+H0-alone and geom+H2-alone both ARE significantly below geom+topo -- H1 alone appears
+  to carry the whole confirmed residual. Consistent in direction with the older localization finding (H0 underperforms H1 there too,
+  -0.0048 PR here, p=.032/.049) but sharper: a real, if secondary, mechanistic finding -- "H1 (loops/tunnels) specifically drives the
+  classification residual" -- not just "not H0." Resolves the last open Future Work item from this project's original list. Code:
+  cryptic-pocket/phase285/ (build_nb285.py, analyze285.py). paper.md/README updated + pushed.
 
 ## Not in this repository
 

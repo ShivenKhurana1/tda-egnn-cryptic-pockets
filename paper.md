@@ -418,6 +418,28 @@ topological features redundant. We do not have a mechanistic account of
 why; it is reported as a robust, scale-confirmed empirical finding, not
 an explained one.
 
+**Which topological dimension drives this residual?** The decomposition below (H0/H1/H2/burial, each
+combined with the full 17-feature geometry block) was run at 650M scale — where the residual is confirmed
+and the effect is large enough to decompose without needing 3B's heavier compute — reusing the `geom` and
+`geom+topo` arms already produced above (not rerun) and adding four new arms on the identical 10-fold split.
+H1 (loops/tunnels) is the only single dimension confirmed against geometry alone on *both* metrics: +0.0068
+PR-AUC (9/10 folds, p=0.001/0.004) and +0.0025 ROC-AUC (8/10 folds, p=0.034/0.037). H0 and burial each
+confirm on ROC-AUC alone (+0.0027, p=0.004/0.010; +0.0024, p=0.013/0.020) but not PR-AUC; H2 confirms on
+neither. Pairwise among the four, H1 significantly beats both H2 (+0.0064 PR-AUC, p=0.028/0.027) and burial
+(+0.0043 PR-AUC, p=0.036/0.049), and — mirroring the earlier, independently-run localization decomposition's
+one confirmed finding, on a different pool, task, and metric — H0 comes in significantly below H1 here too
+(−0.0048 PR-AUC, p=0.032/0.049). Most tellingly, geometry-plus-H1-alone is statistically indistinguishable
+from geometry-plus-all-four-dimensions (+0.0023 PR-AUC, p=0.255/0.193, not confirmed), while geometry alone
+is significantly worse than either (geom+topo beats geom+H0 by +0.0071 PR-AUC, p=0.021/0.027; beats geom+H2
+by +0.0087, p=0.004/0.010) — H1 alone appears to carry the residual that the full topology block provides,
+with H0, H2, and burial adding nothing detectable on top of it. Sixteen pairwise tests were run here without
+a formal multiple-comparison correction, so any single p-value near 0.05 should be read cautiously, but the
+pattern is not one isolated hit: H1 clears both metrics against geometry, beats two of the other three
+dimensions pairwise, and geometry+topology tracks it rather than exceeding it — four mutually consistent
+contrasts, not a scattered one-off. Read plainly: of the four things this project's topology block computes,
+the one describing loops and tunnels in the local atomic point cloud — the feature type most naturally
+analogous to a cavity's shape — is doing essentially all of the confirmed work.
+
 The same control on CryptoBench (run only at the 35M scale) found no benefit from topology at all. On
 the official split (8 seeds, benchmark labels), geometry plus persistence
 features minus geometry alone was -0.011 validation PR-AUC (paired t
@@ -587,7 +609,12 @@ explicitly negative or null findings:
   contributor** (H0 vs H1: 1.82× the noise floor); H1, H2, and burial remain
   mutually indistinguishable from one another. The honest claim is "H0
   underperforms the rest of the topology block," not "one dimension
-  explains the whole benefit."
+  explains the whole benefit." (This was the localization gain,
+  at 35M-embedding/round-3-pool scale; the same question for the
+  *classification* residual, at the 650M/3B scale where that residual is
+  actually confirmed, is answered separately under "Geometry control" in
+  Results, above — and resolves further there: H1 specifically, not just
+  "not H0," carries the confirmed classification residual.)
 - **Cross-chain arbitration heuristics for multi-chain structures
   (negative).** Six alternative rules for selecting which chain represents a
   multi-chain HOLO4K structure were tested on a held-out tune/test split;
@@ -1316,11 +1343,20 @@ burial, exposure and local shape, however computed, and the
 persistent-homology block is one, slightly less efficient, way of
 supplying it — but a smaller residual contribution survives even a 3B-
 parameter embedding, and grows rather than shrinks as the embedding gets
-larger, which is not what we expected of a redundant feature. We cannot
-yet attribute this residual to any particular topological property (H0
-versus H1 versus H2), and its absence on the smaller, differently labeled
-700-chain CryptoBench training set may reflect data volume, the label
-definition, or the task itself.
+larger, which is not what we expected of a redundant feature. A
+per-dimension decomposition at 650M scale attributes most of it to one
+specific property: H1 (loops/tunnels) is the only one of the four
+things this project's topology block computes that is confirmed against
+geometry alone on both PR-AUC and ROC-AUC, beats the other two homology
+dimensions pairwise, and — combined with geometry — is statistically
+indistinguishable from the full four-dimension block (see "Geometry
+control" in Results). This is a satisfying, if post-hoc, mechanistic
+story: a feature type describing loops and tunnels in the local atomic
+point cloud is conceptually closer to a cavity's shape than H0 (mere
+connectivity) or H2 (enclosed voids, sparser and noisier at this
+neighborhood scale). The residual's absence on the smaller, differently
+labeled 700-chain CryptoBench training set may reflect data volume, the
+label definition, or the task itself.
 
 Transfer learning from the larger, more diverse main-pipeline training pool
 to CryptoBench's comparatively small 700-chain training set produced a
@@ -1599,15 +1635,17 @@ already on hand:
   one item that used to be listed here as blocked on missing validation-
   split labels, has since been tried and closed — see Discussion — so it is
   no longer an open direction.)
-- **Which specific topological property, if any, drives the confirmed
-  classification residual beyond geometry** remains unidentified; only one
-  weak, partial signal was found (H0/connected-components measurably
-  underperforms H1, H2 and burial as a standalone contributor at the
-  largest training scale, but no pairwise comparison at smaller scale
-  cleared this project's noise-floor threshold). Answering this needs a
-  systematic per-dimension ablation at the scale where the residual is
-  largest and most consistent (650M/3B main-pipeline classification), which
-  this project ran the necessary controls for but did not fully decompose.
+- **(Resolved.)** Which specific topological property drives the confirmed
+  classification residual beyond geometry was, until this point, answered
+  only for the *localization* gain (H0 measurably weakest, everything else
+  tied) and left open for classification. A per-dimension decomposition at
+  650M scale — the scale where the classification residual is actually
+  confirmed — found H1 (loops/tunnels) is the only dimension confirmed
+  against geometry alone on both PR-AUC and ROC-AUC, beats H2 and burial
+  pairwise, and geometry-plus-H1-alone is statistically indistinguishable
+  from geometry plus the full four-dimension block (see "Geometry control"
+  in Results). This is now a settled, if secondary, finding rather than an
+  open question.
 - **A larger cryptic-pocket benchmark.** CryptoBench's 60-chain validation
   and 182-chain test splits are small enough to leave the cross-scale
   ensemble's MCC gain statistically underpowered (a chain-level bootstrap
