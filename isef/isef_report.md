@@ -103,10 +103,29 @@ structures the model never saw in any form, converge on the same
 ~0.72–0.76 ROC-AUC ceiling for pockets that are genuinely, strictly
 invisible until something binds. A battery of further attempts to close
 that specific gap — per-residue chemistry features, elastic-network-derived
-protein-movement features, and explicitly up-weighting small pockets in the
-training loss — each returned a null or statistically inconclusive result,
-consistent with this ceiling reflecting a real information limit of a
-single static structure rather than a fixable modeling gap.
+protein-movement features, explicitly up-weighting small pockets (and,
+once a validated geometric crypticity proxy made it possible, up-weighting
+cryptic-scoring chains the same way) in the training loss, extending
+training with 1,997 real chains from a second benchmark, and (after
+solving a real GPU-infrastructure problem along the way) a genuine
+molecular-dynamics pilot on the hardest, independently-confirmed cryptic
+test proteins — each returned a null, negative, or statistically
+inconclusive result (the MD pilot's own single most standard metric,
+Cα-RMSF, landed at exactly chance, AUC 0.500, though on only 8 of 17
+planned proteins before a platform time limit ended the run; the stronger
+crypticity-proxy up-weighting arm significantly hurt pooled performance,
+PR-AUC -0.021, DCC@4 -0.039, while leaving the true-cryptic subset itself
+unmoved) — consistent with this ceiling reflecting a real information
+limit of a single static structure rather than a fixable modeling gap.
+Separately, and unlike every
+attempt above, checking whether the model's raw predicted probabilities can
+be trusted at face value (a question no discrimination metric answers)
+found them badly and specifically overconfident — at the model's own
+highest-confidence decile, the true positive rate is less than half what
+it claims (0.331 actual vs. 0.838 predicted) — and found that isotonic
+regression fit on the existing 60-chain validation set fixes nearly all of
+it (expected calibration error 0.166 to 0.0029, a 57-fold reduction) without
+changing any ranking-based result in this paper.
 
 ## Introduction
 
@@ -179,7 +198,7 @@ conduct an exhaustive systematic literature review; a closer match to
 this specific combination may exist that this project's search did not
 surface.
 
-## Materials and Methods
+## Methods
 
 **Architecture.** Protein chains are represented as residue-level graphs,
 one node per residue (Cα-centered), with edges formed by a radius cutoff
@@ -1059,6 +1078,25 @@ CryptoBench result, while noting that 3B-transfer alone (MCC 0.466,
 no ensembling required) remains a legitimate, simpler choice given
 the two are statistically indistinguishable on MCC.
 
+**More training data, from a different benchmark, hurt rather than helped.** An independent, adversarially-designed
+benchmark used elsewhere in this paper for external validation ("A benchmark selected for crypticity") also screened
+2,401 apo/holo pairs of its own, of which only 99 are labelled genuinely cryptic (already spent as external-validation
+data); the remaining 2,300 "pre-formed" and "neither" pairs were never used anywhere in this project. After a homology
+check removed the 305 that share a >=30%-identity relative with anything already evaluated on, 1,997 real, independently-
+labelled apo/holo pairs were available to extend CryptoBench's own 700-chain training set (to 2,697), using the exact
+same recipe (checkpoints, architecture, loss, optimiser, 8 seeds) as the headline result. This made performance worse,
+not better, and the effect is confirmed by this project's two-test rule: test PR-AUC fell by -0.0272 (0 of 8 seeds
+improved; paired t p=0.005, Wilcoxon p=0.008) and MCC by -0.0253 (1 of 8 seeds improved; p=0.018/0.016); ROC-AUC also
+fell (-0.0124) but not significantly (p=0.13/0.15). The 8-seed ensemble shows the same pattern (PR-AUC 0.415 vs. 0.442,
+MCC 0.449 vs. 0.463). We do not read this as "more data hurts" in general — the training recipe (40 epochs, patience
+8, batch 16, a fixed learning-rate schedule) was tuned for 700 chains and left completely unchanged for a training set
+2.75x its original size; it is entirely possible the extra chains, coming from a differently-curated benchmark, teach
+the model something CryptoBench's own test distribution does not reward. Both
+explanations are plausible and this project cannot distinguish them without either re-tuning the recipe for the larger
+set or auditing what specifically differs between the two benchmarks' site definitions; what can be said cleanly is
+that naively pooling real, correctly-labelled training data from a second cryptic-pocket benchmark, with no other
+change, does not improve this model and measurably hurts it.
+
 Localization on CryptoBench — a task with no existing published comparison
 we found (see Related Work: prior cryptic-pocket work either ranks
 candidate sites from simulation or characterizes pockets some other tool
@@ -1104,13 +1142,13 @@ therefore does not carry over to the stronger transfer model.
 ### External audit: is this actually about cryptic pockets?
 
 Every number reported above pools all 182 official CryptoBench test proteins. An independent, adversarially designed
-relabeling of that same test split -- "A benchmark selected for crypticity" (unpublished preprint; code and labels at
-github.com/pmfran4252-afk/cryptic-site-benchmark, CC BY 4.0) -- applies a strict apo/holo cavity-voxel rule (cryptic =
+relabeling of that same test split — "A benchmark selected for crypticity" (unpublished preprint; code and labels at
+github.com/pmfran4252-afk/cryptic-site-benchmark, CC BY 4.0) — applies a strict apo/holo cavity-voxel rule (cryptic =
 pocket essentially absent in the unbound structure AND clearly present in the bound one) and finds that only 17 of the
 182 test proteins qualify; 111 are "pre-formed" (already visible in the apo structure) and the rest are ambiguous. We
 mapped their relabeling onto our own test keys via CryptoBench's own dataset metadata (180 of their 182-labelled
 proteins matched; 16 of the 17 cryptic ones fell inside our exact test set) and re-scored our existing prediction files
-against it -- no new training.
+against it — no new training.
 
 **The pooled numbers are mostly about pre-formed pockets.** On the 16-protein cryptic-only subset, the headline
 homology-clean 3B-transfer model's pooled ROC-AUC falls from 0.896 (all 182) to 0.721, protein-level PR-AUC from 0.459
@@ -1121,7 +1159,7 @@ project's headline results describe finding pockets in general far better than i
 **Their central negative claim does not replicate on our architecture.** The preprint's strongest finding is that
 cavity/geometry features are *actively harmful* specifically at cryptic sites (removing them improved cryptic-subset
 AUC by 0.06-0.07 in their models). Repeating their stratification on our own geometry-vs-topology CryptoBench 3B-transfer arms shows the opposite trend, not the same one: geometry minus topology-only, within the cryptic stratum, is
-+0.018 pooled PR-AUC and +0.015 pooled ROC-AUC (5-7 of 8 seeds) -- not confirmed by this project's two-test rule
++0.018 pooled PR-AUC and +0.015 pooled ROC-AUC (5-7 of 8 seeds) — not confirmed by this project's two-test rule
 (p=0.08-0.11), but positive, not negative. We do not claim geometry helps cryptic sites here; we do not replicate their
 claim that it hurts.
 
@@ -1132,7 +1170,7 @@ residues beats P2Rank's by +0.115, paired over proteins (t p=0.022, Wilcoxon p=0
 difference [+0.035, +0.203], n=16). The 8-seed ensemble reaches precision@20 0.209 and recall@20 0.314 on this subset --
 above every baseline the external preprint reports on the same rule, including its own new method (0.174 / 0.278).
 
-This is not an independent-structure validation -- it re-labels proteins already in our test split, not new ones -- and
+This is not an independent-structure validation — it re-labels proteins already in our test split, not new ones — and
 n=16-17 is small; both caveats are why it is reported here rather than folded into the headline table. It is, however,
 the first check of this project's result against a relabeling we had no part in designing and could not have tuned
 for, and it survives that check on the one statistically confirmed claim it produces.
@@ -1147,22 +1185,22 @@ performed against either one:
 
 - **PocketMiner's held-out test set** (Meller et al. 2023, *Nat. Commun.*; github.com/Mickdub/gvp): 35 proteins whose
   cryptic-pocket labels come from molecular-dynamics simulations, not from comparing a static bound and unbound
-  structure -- a genuinely different definition of "cryptic" than every other dataset in this project. Their own
+  structure — a genuinely different definition of "cryptic" than every other dataset in this project. Their own
   label scheme evaluates residues pooled across all proteins, not per protein (24 of the 35 are "positive-only"
   annotated and 10 are pure negative-example proteins; zero contain both classes after their own masking, confirmed
   directly from the label arrays), so we score it the same way they do.
 - **99 genuinely-cryptic entries** from an independent, adversarially-designed benchmark (pmfran4252-afk/cryptic-site-
-  benchmark, the same source as the audit above), fetched fresh from RCSB -- standard per-chain site/non-site labels,
+  benchmark, the same source as the audit above), fetched fresh from RCSB — standard per-chain site/non-site labels,
   scored both pooled and per-protein.
 
 A homology check (mmseqs2, 30% identity, 80% coverage, against both the CryptoBench train split and the actual
 7,339-chain 3B pretraining pool) found that most proteins in both sets have a relative somewhere in our training data
-(29/35 PocketMiner, 82/98 cryptic-site-benchmark) -- expected, since well-characterized proteins with known cryptic
+(29/35 PocketMiner, 82/98 cryptic-site-benchmark) — expected, since well-characterized proteins with known cryptic
 pockets are exactly the kind of protein a large structural pool is likely to contain. We report the full set and the
 homology-clean subset separately; the clean subset is the honest test of generalization to unrelated proteins.
 
 **PocketMiner: the result holds essentially unchanged on the clean subset.** Pooled ROC-AUC is 0.925 (PR-AUC 0.897,
-8-seed mean) on all 34 usable proteins and 0.920 (PR-AUC 0.887) on the 6 with no training-pool relative -- almost no
+8-seed mean) on all 34 usable proteins and 0.920 (PR-AUC 0.887) on the 6 with no training-pool relative — almost no
 drop. Both exceed the 0.87 ROC-AUC PocketMiner's own paper reports for its own method on its own dataset. This is the
 single strongest external-validation result in this project: a different research group's structures, a different
 labeling philosophy (simulated dynamics instead of a crystallized bound structure), and performance survives removing
@@ -1170,13 +1208,98 @@ every protein with a training-pool relative.
 
 **cryptic-site-benchmark: weaker, and homology matters more here, but still real.** Pooled ROC-AUC is 0.833 (PR-AUC
 0.363; protein-level PR-AUC 0.476) on all 98 usable proteins and drops to 0.757 (PR-AUC 0.311; protein-level PR-AUC
-0.374) on the 16 with no training-pool relative -- a real gap, unlike PocketMiner. Even so, 0.74-0.76 ROC-AUC on
+0.374) on the 16 with no training-pool relative — a real gap, unlike PocketMiner. Even so, 0.74–0.76 ROC-AUC on
 proteins with both no training relative and a strict, independently-verified cryptic-pocket label is consistent with
--- if anything slightly better than -- what the audit above found for our own CryptoBench-internal cryptic subset
+-- if anything slightly better than — what the audit above found for our own CryptoBench-internal cryptic subset
 (0.721 pooled ROC-AUC, in the audit above). Two different research groups, two different definitions of "genuinely cryptic,"
 and the same model lands in the same place both times. That agreement is the most useful single number this section
-produces: it says the ~0.72-0.76 ROC-AUC range is a property of the problem on hard, truly cryptic sites, not an
+produces: it says the ~0.72–0.76 ROC-AUC range is a property of the problem on hard, truly cryptic sites, not an
 artifact of one benchmark's construction.
+
+### Calibration: does the model's confidence mean what it says?
+
+Every metric reported above (PR-AUC, ROC-AUC, MCC, precision@20) measures discrimination — whether the model ranks
+true site residues above non-site residues — and none of them checks whether the predicted probability itself is
+trustworthy: whether a residue the model scores 0.5 is actually a pocket residue roughly half the time. That is a
+different, practically important question, since a real user deciding whether to act on a single prediction needs
+the number itself to mean something, not just its rank. We checked this for the headline homology-clean 3B-transfer
+model's 8-seed ensemble, using only predictions this project had already produced (no new training).
+
+**The raw probabilities are badly, and specifically overconfidently, miscalibrated.** Sorting the 182 test chains'
+54,992 residues into ten equal-sized bins by raw predicted probability and comparing the mean prediction in each bin
+to the true positive rate: at the model's highest-confidence decile (mean predicted probability 0.838), the true
+positive rate is 0.331 — less than half what the model claims. At predicted probability 0.50 (the conventional
+decision threshold), the true rate is 0.065. Expected calibration error (ECE, 15 quantile bins) on the raw
+probabilities is 0.166; Brier score 0.090; log-loss 0.300. This is the expected, known cost of the class-weighted
+loss (`pos_weight` 20.73) used throughout this project to handle the ~4.7% positive rate: the same reweighting that
+helps the model rank rare positives correctly systematically inflates the probabilities it outputs, and nothing in
+this project's earlier evaluation (which only ever thresholded or ranked, never took a probability at face value)
+would have caught it.
+
+**A trivial, already-available fix resolves nearly all of it.** Isotonic regression fit on the existing 60-chain
+CryptoBench validation set (used for nothing else in this calibration check) and applied to the held-out test set
+drops ECE from 0.166 to 0.0029 (a 57-fold reduction), Brier score from 0.090 to 0.033, and log-loss from 0.300 to
+0.124. Because isotonic regression is a monotonic transform, it changes none of this project's discrimination results
+(every PR-AUC, ROC-AUC, and ranking-based comparison reported elsewhere in this paper is completely unaffected); it
+only fixes what the probability number means.
+
+**The fix generalizes to this project's own known-hardest subgroups, though not quite as completely.** Calibration
+fit on the whole validation set, evaluated separately on the strictly-cryptic test residues (the external audit's
+subset) and on small-pocket chains (<=8 residues, this project's other established weak point): cryptic-subset ECE
+falls from 0.154 (raw) to 0.021 (calibrated); pre-formed-subset ECE from 0.153 to 0.0075; small-pocket ECE, the worst
+in every setting (0.203 raw, the most severely miscalibrated group, matching its status as the hardest), falls to
+0.025 — an 8-fold improvement, but still the residual worst-calibrated stratum, meaning a single pooled calibration
+curve helps everywhere but does not fully equalize calibration quality across difficulty levels.
+
+**Fitting a separate calibration curve per pocket-size stratum closes most of that residual gap.** Rather than one
+isotonic fit on all 60 validation chains, we fit two — one on the 17 small-pocket validation chains (5,246 residues,
+104 positive), one on the 43 larger ones (14,316 residues, 742 positive) — and applied each to the matching test
+stratum. (Crypticity-stratified fitting was not attempted: the external audit's cryptic/pre-formed labels exist only
+for the test split, so there is no validation-set ground truth to fit a cryptic-specific curve against.) On the
+small-pocket test residues this cut ECE further, from 0.025 (pooled fit) to 0.0039 — a further 6.5-fold improvement,
+now closer to the larger-pocket stratum's own result (0.0106 pooled -> 0.0048 stratified) than to where it started.
+Critically, this did not cost anything on the pooled test set as a whole: overall ECE is unchanged within noise
+(0.0029 pooled fit vs. 0.0030 stratified), while Brier score and log-loss both improve slightly (0.0330 -> 0.0314;
+0.1242 -> 0.1209). As a bonus neither fit targeted directly, the size-stratified calibration also improves the
+cryptic/pre-formed breakdown it never saw during fitting (cryptic ECE 0.021 -> 0.017; pre-formed 0.0075 -> 0.0030),
+consistent with pocket size and crypticity being correlated in this dataset. Stratifying by pocket size before
+calibrating is therefore a strict improvement over the pooled fit — better on the hardest subgroup, no worse
+overall — and is the version we recommend over the single pooled curve.
+
+We read this as a genuine, low-cost improvement worth adopting rather than a caveat: any deployment of this model
+that reports a probability, rather than only a rank or a thresholded call, should apply size-stratified calibration
+first, and the fact that it was never checked before this point is itself a reminder that a model's discrimination
+metrics say nothing about whether its stated confidence can be trusted.
+
+**Extending the crypticity audit to validation, and what a crypticity-proxy calibration adds beyond pocket size.**
+The external crypticity audit above only ever labeled the 182-chain test split; the 60-chain validation split used
+to fit calibration curves has no cryptic/pre-formed ground truth, which is why the size-stratified fit above could
+not attempt a crypticity-specific curve. To close this gap we built our own geometric cavity-voxel detector --
+ray-buriedness sampling over a 3D grid, reusing this project's Fibonacci-sphere ray-marching primitive — as an
+apo-only proxy for the external tool's consensus-pocket-voxel concept (no equivalent cavity-detection software is
+available to us). Validated against the external tool's own published apo-side voxel counts, on the 128 test chains
+it labels cryptic or pre-formed: Spearman r=0.256 (p=0.0035), pooled ROC-AUC 0.740 for cryptic-vs-pre-formed
+discrimination — real signal, clearly above the ROC-AUC-0.611 geometric proxy an earlier attempt (a local
+atom-density delta, apo vs. holo) had already been rejected as too weak, but not strong enough to trust as a hard
+per-chain relabeling: a threshold fit by Youden's J and evaluated by 5-fold cross-validation on the same 128 chains
+reaches only 0.23 precision at 0.57 recall, a direct consequence of how rare true cryptic sites are (17/128, ~13%)
+even in an already crypticity-enriched benchmark.
+
+Used as a soft, continuous stratifier rather than a hard label — fitting one isotonic curve on the validation
+chains this proxy scores as more cryptic-like, one on the rest, then applying each curve to test chains by their
+*own* proxy score, never their true label — calibration improves on every metric and every truly-labeled stratum
+against the pooled fit: cryptic-residue ECE 0.0212 to 0.0167, Brier 0.0315 to 0.0285; pre-formed ECE 0.0075 to
+0.0048; pooled-overall ECE 0.0056 to 0.0035. This confirms crypticity carries real, usable calibration-relevant
+information and closes the item flagged as open above. It is not, however, an improvement over the size-stratified
+fit already adopted: the two land within noise of each other on every stratum (e.g. cryptic ECE 0.0167 for the
+crypticity proxy vs. 0.0169 for size-stratification), and checking why shows the reason — pocket size and this
+crypticity proxy are themselves highly correlated on the validation set (Spearman r=0.876), because the proxy counts
+cavity voxels within 4 Å of the site residues, so a chain with more site residues mechanically tends to register a
+larger counted cavity. The two stratifications are largely measuring the same axis of difficulty, not independent
+ones. We report this as a genuine, if modest, positive result — the crypticity audit now extends to validation, and
+crypticity-aware calibration does work — rather than a new practical recommendation: the simpler, already-deployed
+size-stratified calibration captures essentially the same benefit without any extra geometry computation, so it
+remains what we recommend.
 
 ## Discussion
 
@@ -1280,7 +1403,7 @@ improvement from ensembling exists at all.
 
 Once the geometry control and the crypticity audit narrowed the real
 question to "can anything close the ~0.72–0.76 gap on genuinely cryptic
-sites," this project tried three further, structurally different answers
+sites," this project tried five further, structurally different answers
 before concluding the current architecture and input structure are near a
 real ceiling rather than leaving obvious gains unclaimed. Per-residue
 chemistry features (hydropathy, charge, aromaticity, hydrogen-bonding,
@@ -1297,14 +1420,64 @@ the small-pocket subset it was specifically designed to help. Explicitly
 up-weighting small pockets in the training loss, addressing the observed
 weak point directly (protein-level ROC-AUC 0.69 on pockets of 8 or fewer
 residues versus 0.90–0.93 elsewhere), also failed to help and mildly hurt
-overall accuracy at the stronger weighting tested. Three independent
-attempts, three different mechanisms, the same outcome: with a single
-static apo structure as the only input, there appears to be little further
-signal left to extract with the feature types tried here. Closing the
-remaining gap most plausibly requires information this project's input
-structure does not carry at all — a conformational ensemble rather than one
-structure, or information about the binding partner rather than the
-protein alone — not a better feature computed on the same input.
+overall accuracy at the stronger weighting tested. Once a validated
+geometric crypticity proxy existed (the audit extension described in
+Results, above), the same up-weighting scheme was retried with cryptic-scoring chains in
+place of small-pocket chains as the target of the extra weight, on the
+theory that they might be the more informative examples the model needed
+to see more of — this reproduced the small-pocket result almost exactly
+(no significant change on the true-cryptic test chains themselves, and a
+stronger weighting again measurably hurt pooled performance, test PR-AUC
+-0.0214, DCC@4Å -0.0391, both confirmed), consistent with the two proxies
+being highly correlated (Spearman r=0.876) rather than independent signals.
+Separately, extending
+CryptoBench's 700-chain training set with 1,997 real, independently-labelled,
+homology-clean apo/holo pairs from a second benchmark (same recipe, 8
+seeds, no other change) made performance measurably *worse* (test PR-AUC
+-0.0272, MCC -0.0253, both confirmed by this project's two-test rule) —
+more correctly-labelled data, naively pooled across two differently-curated
+benchmarks, is not a free win either. Five independent attempts, five
+different mechanisms, the same outcome: with a single static apo structure
+as the only input, there appears to be little further signal left to
+extract with the feature types tried here.
+
+The next most plausible remaining lever was a genuine conformational
+ensemble rather than a linear elastic-network approximation of one, so we
+ran a small pilot: real, GPU-accelerated, unbiased molecular dynamics
+(OpenMM, 5 ns production per protein after 200 ps equilibration, apo
+structure only, the single target chain, explicit solvent) on the 17
+CryptoBench test proteins independently confirmed genuinely cryptic. Making
+this work at all required solving an infrastructure problem first: neither
+pip's OpenMM wheel (CPU-only, no CUDA platform; 0.17 ns/hour, 118 hours for
+a 20 ns run) nor this compute platform's preinstalled package manager (which
+turned out to share a name with, but not be, the intended tool) could
+produce a working GPU build; a self-contained conda-forge install bootstrapped
+from scratch found a real CUDA platform and reached 15 ns/hour, an ~88-fold
+speedup and the only reason this pilot was feasible at all. Even so, the
+platform's own session ceiling was the binding constraint in practice: of
+the 17 proteins queued, 8 completed their full trajectory before the run
+was cancelled after roughly 14 hours, an infrastructure limit beyond every
+precedent this project had previously encountered. Per-residue Cα-RMSF
+(rigid-body motion removed by iterative Kabsch alignment, verified on
+synthetic data before use) and the change in local heavy-atom neighbour
+count relative to the starting structure were checked, pooled across the
+2,394 residues of the 8 completed proteins, for raw predictive power
+against the true site-residue label — the same pre-commitment check used to
+reject the earlier elastic-network approximation and a geometric crypticity
+proxy elsewhere in this project. The result was weak to null: RMSF, the
+single most standard MD flexibility metric, showed no discriminative power
+at all (pooled AUC 0.500, exactly chance), and the neighbourhood-change
+features were mixed and modest (pooled AUC 0.37-0.64 depending on which
+summary statistic). With only 8 of the planned 17 proteins and roughly 14
+GPU-hours already spent to get them, this pilot is underpowered to rule the
+idea out definitively, but it gives no indication that scaling it up would
+be a good use of the compute it would require, and we do not recommend
+pursuing short unbiased MD further as this project's next step. Closing the
+remaining gap most plausibly requires either much longer sampling or
+enhanced-sampling methods this project did not have the infrastructure or
+time budget to run, or information the input structure does not carry at
+all regardless of how it is sampled — most concretely, information about
+the binding partner rather than the protein alone.
 
 ## Conclusion
 
@@ -1376,12 +1549,30 @@ latter number statistically indistinguishable from the 0.721 the internal
 relabeling found. Three checks, two of them genuinely external, agree: on
 the specific case this project set out to address, the honest number is
 roughly 0.72–0.76 ROC-AUC, not the 0.9-plus pooled figure that a
-CryptoBench-only evaluation would otherwise suggest, and three further,
+CryptoBench-only evaluation would otherwise suggest, and six further,
 mechanistically distinct attempts to close that specific gap (chemistry
-features, protein-movement features, small-pocket loss weighting) each
-came back null or inconclusive — evidence that this is a real limit of what
-a single static structure can tell a model about a pocket that does not yet
-exist, rather than an unclaimed modeling gain.
+features, protein-movement features, small-pocket loss weighting, extra
+training data from a second benchmark, a real molecular-dynamics pilot, and
+— once a validated proxy made it possible to try — crypticity-proxy loss
+up-weighting itself) each came back null, negative, or inconclusive —
+evidence that this is a
+real limit of what a single static structure can tell a model about a
+pocket that does not yet exist, rather than an unclaimed modeling gain. One
+genuine improvement did come from this final stretch of work, and it is
+not an accuracy gain at all: the model's raw predicted probabilities turned
+out to be badly overconfident (at its own highest-confidence decile, the
+true hit rate is less than half what it claims), a problem no
+discrimination metric in this paper would have caught, and a simple,
+already-available calibration step fixes nearly all of it (expected
+calibration error 0.166 to 0.0029) without touching any ranking-based
+result reported elsewhere. Whether this model's numbers can be trusted and
+whether it ranks correctly are different questions, and this project had
+only ever checked the second one until this point. A follow-up built a
+validated geometric proxy to extend the crypticity audit to the validation
+split for the first time and confirmed that crypticity-aware calibration
+also works, closing that specific open question — but it turned out to be
+largely redundant with the pocket-size stratification already adopted, so
+the practical recommendation did not change.
 
 ## Future Work
 
@@ -1396,17 +1587,25 @@ already on hand:
 
 - **Close the ~0.72–0.76 ROC-AUC gap on genuinely cryptic sites with a
   different kind of information, not a different feature on the same
-  input.** Three mechanistically distinct attempts — hand-crafted chemistry
-  features, elastic-network-derived movement features, and explicitly
-  up-weighting small pockets in the loss — each returned a null or
-  inconclusive result (see Discussion), which is evidence against more
-  features computed from a single static apo structure closing this gap.
-  The two most promising untried directions are a genuine conformational
-  ensemble (proper molecular-dynamics sampling rather than this project's
-  cheap elastic-network approximation, which itself came back null) and
-  calibrated uncertainty (a confidence score honest enough that a user could
-  tell a likely-correct prediction from a guess on a case this hard) rather
-  than a further attempt at raw accuracy.
+  input.** Six mechanistically distinct attempts — hand-crafted chemistry
+  features, an elastic-network movement approximation, explicitly
+  up-weighting small pockets in the loss, extending training with a second
+  benchmark's data, a real (if underpowered, 8-of-17-protein) short
+  unbiased molecular-dynamics pilot, and crypticity-proxy loss up-weighting
+  — each returned a null, negative, or inconclusive result (see
+  Discussion), which is real evidence against more features computed from
+  a single static apo structure, or more of the same kind of training
+  data, closing this gap. What remains untried is *properly
+  powered and properly long* MD (this project's pilot ran 5 ns per protein,
+  likely too short to sample genuine pocket-opening events, and stopped at
+  8 of 17 proteins when the compute platform's own session limit was hit)
+  or enhanced-sampling methods (metadynamics, mixed-solvent MD) that reach
+  the relevant timescale far more cheaply than brute-force unbiased
+  sampling — both would need dedicated infrastructure and compute budget
+  this project did not have. (Crypticity-aware training up-weighting, the
+  one item that used to be listed here as blocked on missing validation-
+  split labels, has since been tried and closed — see Discussion — so it is
+  no longer an open direction.)
 - **Which specific topological property, if any, drives the confirmed
   classification residual beyond geometry** remains unidentified; only one
   weak, partial signal was found (H0/connected-components measurably
