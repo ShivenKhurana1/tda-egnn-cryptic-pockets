@@ -1045,6 +1045,45 @@ from clearly confirmed to a clean null, reported honestly in each case):
   but we did not sweep K given the size of the signal already observed
   at K=20, and report this as an open question rather than pursue
   further untuned variants.
+- **Genuinely local (spatial) attention for pocket-center prediction** —
+  the other "most promising untried direction" this project's own Future
+  Work had flagged, since top-K restricts the softmax to the
+  highest-*scoring* residues, which can still be spatially scattered
+  across a long chain if several unrelated regions all score highly.
+  This instead adds a second softmax pass whose logit is penalized by
+  squared distance from the *first* pass's own preliminary center
+  estimate (`logit' = logit − (dist-to-preliminary-center / R)²`, R = 10
+  Å, the same edge-cutoff radius already used elsewhere in this
+  architecture, not tuned for this result) — a purely spatial, rather
+  than score-based, locality constraint. Because the distance term is a
+  norm of a difference of two already-equivariant quantities (the same
+  construction EGCL itself uses for its own edge features), this
+  preserves equivariance by construction; we verified it numerically
+  before training (rotated-batch check, max error 2.4e-5, matching every
+  other equivariance check in this project) rather than only after the
+  fact. Like top-K, this changes zero parameter shapes, so the same 8
+  Phase 266b homology-clean checkpoints loaded unchanged and were
+  fine-tuned 1:1 against the existing Phase 266c baseline (not rerun).
+  Result: **null on the target metric, again** — DCC@4Å fell slightly
+  (0.2981 to 0.2898, 3/8 seeds, t p=0.54/Wilcoxon p=0.50) and DCC@8Å rose
+  slightly (0.5968 to 0.6051, 3/8 seeds, p=0.53/0.83), neither confirmed;
+  mean center error was essentially unchanged (9.62 to 9.60 Å). We
+  initially expected classification metrics to be unaffected, since the
+  classification head's logits never read from the localization
+  readout — this was wrong, and the result corrects it: PR-AUC, ROC-AUC,
+  and MCC all shifted by up to 0.026 per seed, because the shared EGCL
+  trunk is trained jointly against *both* losses, so changing the
+  localization loss's gradient changes the learned representations the
+  classification head also reads from (none of these shifts were
+  confirmed either, in either direction — consistent with noise from
+  retraining a shared trunk, not a systematic side-effect). This is the
+  same qualitative outcome top-K found by a different mechanism: a
+  well-motivated, mechanistically distinct change to how the center
+  prediction pools over residues, which does not move the metric it
+  targets. Between the two untried directions this project's Future Work
+  had flagged, multi-candidate pockets (below) is the one that
+  confirmed helping; a smarter single-point attention mechanism, tried
+  twice now by two different mechanisms, has not.
 
 **Final combined result**, applying transfer learning at every scale where
 a matching main-pipeline checkpoint existed and then cross-scale
@@ -1658,17 +1697,23 @@ already on hand:
   for validation (35 and 99 proteins respectively) partially substitute for
   this but were built for a different original purpose and are themselves
   not large.
-- **A dedicated cryptic-pocket localization benchmark and stronger
-  localization architecture.** The 20.9–24.7% DCC@4Å hit rate on
-  CryptoBench's single-guess localization is far below the 50–65% range on
-  open pockets, and one alternative localization-head design tested here
-  (masking the center-prediction softmax to the top-K highest-scoring
-  residues) came back a null result on the metric it was built to improve.
-  Returning multiple candidate pockets rather than one, which this project
-  tested and confirmed helps at looser distance thresholds (roughly nine
-  points at 8 Å, little at 4 Å), and a genuinely local (rather than
-  chain-wide) attention mechanism for the center prediction are the two
-  most promising untried directions.
+- **A dedicated cryptic-pocket localization benchmark.** The 20.9–24.7%
+  DCC@4Å hit rate on CryptoBench's single-guess localization is far below
+  the 50–65% range on open pockets. Two alternative localization-head
+  designs have now been tried and both returned a null result on the
+  metric they were built to improve — top-K score-based masking, and a
+  genuinely local *spatial* attention mechanism penalizing distance from
+  a preliminary center estimate (see "Individual levers," above) — so this
+  is no longer an untried direction so much as a harder wall than either
+  mechanism could move. Returning multiple candidate pockets rather than
+  one, which this project tested and confirmed helps at looser distance
+  thresholds (roughly nine points at 8 Å, little at 4 Å), remains the one
+  approach to single-guess-adjacent localization that has actually worked;
+  a dedicated benchmark large enough to distinguish finer localization
+  architecture differences would be needed to tell whether a third
+  mechanism could do better, or whether the gap is closer to this
+  project's single-static-structure information ceiling (Discussion)
+  reappearing in a different metric.
 - **External validation on a larger scale.** The two outside datasets used
   here (35 and 99 proteins) were chosen because their labels were tractable
   to obtain and align to this project's exact input format; a systematic

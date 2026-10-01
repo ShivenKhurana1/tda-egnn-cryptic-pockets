@@ -152,6 +152,20 @@ exposure geometry:
   -0.0048 PR here, p=.032/.049) but sharper: a real, if secondary, mechanistic finding -- "H1 (loops/tunnels) specifically drives the
   classification residual" -- not just "not H0." Resolves the last open Future Work item from this project's original list. Code:
   cryptic-pocket/phase285/ (build_nb285.py, analyze285.py). paper.md/README updated + pushed.
+* Phase 286 (genuinely local/spatial attention for pocket-center prediction, the other "most promising untried direction" Future Work
+  flagged): NULL, same outcome as top-K (Phase161) by a different mechanism. Two-pass head: pass 1 = existing chain-wide softmax center
+  (unchanged); pass 2 = a second softmax whose logit is penalized by squared distance from pass 1's center (logit' = logit -
+  (dist/R)^2, R=10A = the architecture's own existing edge-cutoff radius, not tuned) -- a purely SPATIAL locality constraint, unlike
+  top-K's purely score-based one. Zero new parameters (R fixed), so the same 8 Phase266b checkpoints loaded unchanged; fine-tuned 1:1
+  against the existing Phase266c baseline (not rerun). Equivariance verified numerically BEFORE training (rotated-batch check, max
+  error 2.4e-5) since the distance term had to be proven SE(3)-invariant by construction. Pushed on CPU (weekly GPU quota was
+  exhausted by Phase 285) -- the ESM blob is pre-embedded so only the small EGNN needed training; 93 min for 8 seeds. Result: DCC@4A
+  0.2981->0.2898 (3/8, p=.54/.50), DCC@8A 0.5968->0.6051 (3/8, p=.53/.83), mean err 9.62->9.60A -- all NS, no confirmed direction.
+  Caught and corrected a wrong prediction in my own docstring: expected classification metrics (PR/ROC/MCC) to be bit-identical to
+  baseline since logits never read pred_center at inference -- wrong, they shifted up to .026/seed (also NS) because the shared EGCL
+  trunk trains jointly against both losses. Not adopted. paper.md (Individual levers, Future Work) + README updated + pushed. Between
+  the two untried localization directions Future Work had flagged, multi-candidate pockets is the one that worked; a smarter
+  single-point attention mechanism, tried twice now (top-K, local-spatial), has not.
 
 ## Not in this repository
 
