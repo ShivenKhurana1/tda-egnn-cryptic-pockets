@@ -1084,6 +1084,48 @@ from clearly confirmed to a clean null, reported honestly in each case):
   had flagged, multi-candidate pockets (below) is the one that
   confirmed helping; a smarter single-point attention mechanism, tried
   twice now by two different mechanisms, has not.
+- **Global (long-range) attention in the trunk** — a different kind of
+  architecture change from everything above: not a smarter readout for
+  the center prediction, but a change to the shared representations
+  *both* heads read from. Every layer in this architecture (EGCL) is
+  local message passing over an 8–10 Å radius graph; GNN capacity
+  (width/depth within that same local-receptive-field design) was
+  already shown not to help, but receptive field is a different claim —
+  a residue can currently only be informed by a distant part of the fold
+  through many diluted hops. We added ONE global multi-head
+  self-attention block after the full EGCL+Fus stack, letting every
+  residue attend to every other residue directly regardless of distance.
+  It operates entirely on the invariant scalar channel (never reads or
+  writes coordinates), so it is trivially SE(3)-equivariant by
+  construction — verified numerically before training anyway (rotated-
+  batch check, max error 2.1e-6). This adds new parameters, so, like the
+  topological-variability and ANM-flexibility experiments, it must be
+  trained from scratch; both arms (baseline and baseline+global-attention)
+  were retrained fresh here, 8 seeds each, at 650M scale, for a clean,
+  fully paired comparison. **Result: the most promising signal of any
+  architecture or feature change attempted in this project's later
+  stretch, though not cleanly confirmed on its own pre-specified primary
+  metric.** Validation PR-AUC — the metric this project uses first for
+  every other CryptoBench lever — rose 0.3663 to 0.3751 (+0.0088, 6/8
+  seeds) but narrowly missed significance on both tests (t p=0.093,
+  Wilcoxon p=0.078). The held-out TEST set, three times larger than
+  validation (182 vs. 60 chains) and correspondingly less noisy, shows a
+  stronger and *confirmed* version of the same pattern: PR-AUC +0.0156
+  (7/8 seeds, t p=0.003, Wilcoxon p=0.016) and ROC-AUC +0.0059 (7/8
+  seeds, t p=0.011, Wilcoxon p=0.016). MCC, DCC@4Å, and mean center error
+  all moved the same positive direction without individually clearing
+  significance (MCC +0.0064; DCC@4Å +0.0192; error −0.15 Å). We did not
+  chase additional seeds to force the validation metric past 0.05 — that
+  would be the same p-hacking this project declined to do for the
+  GNN-depth result — and report the honest, partial picture: a
+  consistently positive, test-confirmed-on-two-metrics signal from a
+  genuinely new architectural ingredient, on a from-scratch 650M model
+  that itself sits below this project's transfer-learned headline. Taking
+  this further — retraining the much larger main pipeline with global
+  attention and transferring the result to CryptoBench, the path that
+  turned every other confirmed CryptoBench gain in this paper into its
+  final, strongest form — would be a substantially larger compute
+  commitment than this pilot, and was not attempted here.
 
 **Final combined result**, applying transfer learning at every scale where
 a matching main-pipeline checkpoint existed and then cross-scale
@@ -1674,6 +1716,21 @@ already on hand:
   one item that used to be listed here as blocked on missing validation-
   split labels, has since been tried and closed — see Discussion — so it is
   no longer an open direction.)
+- **Scale global (long-range) attention to the headline pipeline.** The
+  one genuinely promising signal from this project's later architecture
+  experiments (Individual levers, above) was a global self-attention
+  block in the trunk, tested from scratch on CryptoBench at 650M scale:
+  confirmed on test PR-AUC and ROC-AUC, consistent in direction on every
+  other metric, though not confirmed on its own pre-specified primary
+  (validation PR-AUC). Every other confirmed CryptoBench gain in this
+  paper reached its strongest, most trustworthy form only after the same
+  two steps this result has not yet had: transfer learning from a
+  main-pipeline checkpoint trained with the same architecture change, and
+  cross-scale ensembling. Both require retraining the much larger main
+  pipeline from scratch with global attention added — a substantially
+  larger compute commitment than the pilot reported here — before this
+  lead could be pursued to the same standard as the rest of this paper's
+  results.
 - **(Resolved.)** Which specific topological property drives the confirmed
   classification residual beyond geometry was, until this point, answered
   only for the *localization* gain (H0 measurably weakest, everything else

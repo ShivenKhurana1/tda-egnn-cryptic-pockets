@@ -166,6 +166,22 @@ exposure geometry:
   trunk trains jointly against both losses. Not adopted. paper.md (Individual levers, Future Work) + README updated + pushed. Between
   the two untried localization directions Future Work had flagged, multi-candidate pockets is the one that worked; a smarter
   single-point attention mechanism, tried twice now (top-K, local-spatial), has not.
+* Phase 287 (global/long-range attention in the EGCL trunk, tested from scratch on CryptoBench, 650M, 8 seeds/arm): MOST PROMISING signal
+  of any architecture/feature change tried in this project's later stretch, but NOT cleanly confirmed on its pre-specified primary metric.
+  Motivation: GNN capacity (width/depth, same local-receptive-field paradigm) already shown not to help -- but RECEPTIVE FIELD is a
+  different claim (EGCL only passes messages along an 8-10A radius graph). Added ONE global multi-head self-attention block after the
+  EGCL+Fus stack, operating only on the invariant scalar channel h (never touches pos) -- trivially SE(3)-equivariant by construction,
+  verified numerically before training (rotated-batch check, max err 2.1e-6, ALSO independently re-verified on a standalone synthetic
+  test locally before spending any Kaggle compute). New params -> from-scratch only; reran BOTH arms fresh (baseline + baseline+global-
+  attn) in one kernel for a clean paired comparison, rather than reusing older point-estimate-only baselines. Result: primary metric
+  (val PR, this project's standard first-look for CryptoBench levers) +0.0088 (6/8, p=.093/.078) -- NOT confirmed, narrowly misses both
+  tests. But TEST (182 chains, 3x larger/less noisy than val's 60) shows a stronger, CONFIRMED version: PR-AUC +0.0156 (7/8, p=.003/.016),
+  ROC-AUC +0.0059 (7/8, p=.011/.016). MCC/DCC4/DCC8/err all moved the same positive direction, not individually significant. Did NOT chase
+  more seeds to force val_pr past .05 -- same anti-p-hacking discipline as the GNN-depth result. Not yet transfer-learned or ensembled
+  (the two steps that made every OTHER confirmed CryptoBench gain in this paper reach its strongest form) -- that needs retraining the
+  much larger main pipeline from scratch with global attention, a substantially bigger compute commitment than this 650M CryptoBench-only
+  pilot (~12.5h wall-clock on CPU after GPU quota exhaustion, 16 from-scratch trainings). paper.md (Individual levers, Future Work) +
+  README updated + pushed. Flagged as the one open lead worth scaling up if pursued further.
 
 ## Not in this repository
 

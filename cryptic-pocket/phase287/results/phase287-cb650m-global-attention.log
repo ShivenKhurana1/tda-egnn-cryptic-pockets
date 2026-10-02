@@ -1,0 +1,44 @@
+[{"stream_name":"stderr","time":9.545560668,"data":"/usr/local/lib/python3.12/dist-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":9.545673777,"data":"  validate(nb)\n"}
+,{"stream_name":"stderr","time":11.016878264,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.016918086,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.01692363,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.016928036,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":12.028909455,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":12.028968548,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":12.028975191,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":12.028980398,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":17.008957991,"data":"\u001b[?25l     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/63.1 kB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K     \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m\u001b[90m━\u001b[0m \u001b[32m61.4/63.1 kB\u001b[0m \u001b[31m6.4 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m63.1/63.1 kB\u001b[0m \u001b[31m1.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":17.266285421,"data":"\u001b[?25h\u001b[?25l   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m0.0/1.1 MB\u001b[0m \u001b[31m?\u001b[0m eta \u001b[36m-:--:--\u001b[0m\r\u001b[2K   \u001b[91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[91m╸\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m47.4 MB/s\u001b[0m eta \u001b[36m0:00:01\u001b[0m\r\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.1/1.1 MB\u001b[0m \u001b[31m19.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\r\n"}
+,{"stream_name":"stdout","time":70.284797988,"data":"\u001b[?25hdevice cpu | node dim 1341 | pos_weight 20.73 | train 700 | val 60 | test 182\n"}
+,{"stream_name":"stdout","time":70.847874146,"data":"equivariance check (global attention): max error 2.13e-06 (expect ~1e-5, matching every other equivariance check in this project)\n"}
+,{"stream_name":"stdout","time":1029.671890428,"data":"  [base] seed 0: val PR 0.3597  [16.0m]\n"}
+,{"stream_name":"stdout","time":2153.299832194,"data":"  [base] seed 1: val PR 0.3624  [34.7m]\n"}
+,{"stream_name":"stdout","time":3500.759508682,"data":"  [base] seed 2: val PR 0.3530  [57.2m]\n"}
+,{"stream_name":"stdout","time":5089.790824864,"data":"  [base] seed 3: val PR 0.3737  [83.6m]\n"}
+,{"stream_name":"stdout","time":6306.196491472,"data":"  [base] seed 4: val PR 0.3700  [103.9m]\n"}
+,{"stream_name":"stdout","time":7754.518165327,"data":"  [base] seed 5: val PR 0.3719  [128.1m]\n"}
+,{"stream_name":"stdout","time":8726.967424794,"data":"  [base] seed 6: val PR 0.3672  [144.3m]\n"}
+,{"stream_name":"stdout","time":9958.692344249,"data":"  [base] seed 7: val PR 0.3729  [164.8m]\n"}
+,{"stream_name":"stdout","time":9958.887393801,"data":"base done\n"}
+,{"stream_name":"stdout","time":9958.887459926,"data":"\n"}
+,{"stream_name":"stdout","time":12282.531375532,"data":"  [global_attn] seed 0: val PR 0.3930  [38.7m]\n"}
+,{"stream_name":"stdout","time":13996.416089708,"data":"  [global_attn] seed 1: val PR 0.3732  [67.3m]\n"}
+,{"stream_name":"stdout","time":15052.741356751,"data":"  [global_attn] seed 2: val PR 0.3642  [84.9m]\n"}
+,{"stream_name":"stdout","time":16440.012275728,"data":"  [global_attn] seed 3: val PR 0.3695  [108.0m]\n"}
+,{"stream_name":"stdout","time":17931.573681572,"data":"  [global_attn] seed 4: val PR 0.3760  [132.9m]\n"}
+,{"stream_name":"stdout","time":20328.082787395,"data":"  [global_attn] seed 5: val PR 0.3809  [172.8m]\n"}
+,{"stream_name":"stdout","time":21865.891314139,"data":"  [global_attn] seed 6: val PR 0.3810  [198.5m]\n"}
+,{"stream_name":"stdout","time":23033.731936489,"data":"  [global_attn] seed 7: val PR 0.3632  [217.9m]\n"}
+,{"stream_name":"stdout","time":23033.734023535,"data":"global_attn done\n"}
+,{"stream_name":"stdout","time":23033.734105516,"data":"\n"}
+,{"stream_name":"stdout","time":23033.734114919,"data":"all arms done\n"}
+,{"stream_name":"stderr","time":23041.647566614,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":23041.647651786,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":23041.901526031,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":23041.901606483,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":23042.81644771,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":23043.313395618,"data":"[NbConvertApp] Writing 21589 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":23047.183343653,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":23048.53296041,"data":"[NbConvertApp] Writing 350477 bytes to __results__.html\n"}
+]
