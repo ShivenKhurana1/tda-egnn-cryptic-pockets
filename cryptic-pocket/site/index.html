@@ -1,0 +1,399 @@
+<title>Pocket Finder Bench</title>
+<meta name="description" content="Explore the TDA-EGNN cryptic-pocket model's per-residue predictions against ground truth across all 242 CryptoBench validation and test proteins.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF8F4;
+    --surface: #FFFFFF;
+    --surface-2: #F3EFE7;
+    --text: #1A1D1F;
+    --text-dim: #6B6459;
+    --border: #E4DFD4;
+    --accent: #0C7489;
+    --accent-ink: #054955;
+    --cryptic: #B3442B;
+    --cryptic-soft: #F3E1DA;
+    --preformed: #3C7A5C;
+    --preformed-soft: #E1EDE5;
+    --miss: #B3442B;
+    --hit: #3C7A5C;
+    --track: #EDE8DD;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14181A;
+      --surface: #1C2124;
+      --surface-2: #232933;
+      --text: #ECE9E2;
+      --text-dim: #9B958A;
+      --border: #333A3F;
+      --accent: #53D2DE;
+      --accent-ink: #BEF4FA;
+      --cryptic: #E3805F;
+      --cryptic-soft: #3A2620;
+      --preformed: #78C39B;
+      --preformed-soft: #1E2F26;
+      --track: #262C30;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14181A;
+    --surface: #1C2124;
+    --surface-2: #232933;
+    --text: #ECE9E2;
+    --text-dim: #9B958A;
+    --border: #333A3F;
+    --accent: #53D2DE;
+    --accent-ink: #BEF4FA;
+    --cryptic: #E3805F;
+    --cryptic-soft: #3A2620;
+    --preformed: #78C39B;
+    --preformed-soft: #1E2F26;
+    --track: #262C30;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    margin: 0;
+    padding: 16px 16px calc(24px + env(safe-area-inset-bottom, 0px));
+    font-variant-numeric: tabular-nums;
+  }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; text-wrap: balance; margin: 0; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; }
+
+  header.top {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: 10px 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 18px;
+  }
+  header.top .title-block h1 { font-size: 1.7rem; font-weight: 600; letter-spacing: -0.01em; }
+  header.top .title-block p { margin: 4px 0 0; color: var(--text-dim); font-size: 0.86rem; max-width: 52ch; }
+  header.top .subject-tag {
+    font-family: "IBM Plex Mono"; font-size: 0.72rem; color: var(--accent-ink); background: var(--surface-2);
+    border: 1px solid var(--border); padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+  }
+
+  .stats-strip {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 1px;
+    background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .stat-tile { background: var(--surface); padding: 12px 14px; }
+  .stat-tile .v { font-family: "IBM Plex Mono"; font-size: 1.3rem; font-weight: 600; color: var(--accent-ink); line-height: 1.1; }
+  .stat-tile .l { font-size: 0.68rem; color: var(--text-dim); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  .layout { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 18px; align-items: start; }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
+
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+  .panel-head { padding: 12px 14px; border-bottom: 1px solid var(--border); }
+  .panel-head h2 { font-size: 0.98rem; font-weight: 600; font-family: "IBM Plex Sans"; }
+
+  .controls { padding: 10px 14px; display: flex; flex-direction: column; gap: 8px; border-bottom: 1px solid var(--border); }
+  .controls input[type="search"] {
+    width: 100%; padding: 7px 10px; border: 1px solid var(--border); border-radius: 7px;
+    background: var(--surface-2); color: var(--text); font-family: "IBM Plex Mono"; font-size: 0.82rem;
+  }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    font-size: 0.72rem; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--border);
+    background: var(--surface-2); color: var(--text-dim); cursor: pointer; user-select: none;
+    transition: background 0.1s, color 0.1s, border-color 0.1s;
+  }
+  .chip.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 500; }
+  .chip:hover:not(.active) { border-color: var(--accent); color: var(--text); }
+
+  .sort-row { display: flex; align-items: center; gap: 8px; font-size: 0.72rem; color: var(--text-dim); }
+  .sort-row select {
+    font-family: "IBM Plex Mono"; font-size: 0.76rem; background: var(--surface-2); color: var(--text);
+    border: 1px solid var(--border); border-radius: 6px; padding: 3px 6px;
+  }
+
+  .list { max-height: 68vh; overflow-y: auto; }
+  .row {
+    display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center;
+    padding: 8px 14px; border-bottom: 1px solid var(--border); cursor: pointer; font-size: 0.82rem;
+  }
+  .row:hover { background: var(--surface-2); }
+  .row.selected { background: var(--surface-2); box-shadow: inset 3px 0 0 var(--accent); }
+  .row .key { font-family: "IBM Plex Mono"; font-weight: 500; }
+  .row .sub { font-size: 0.68rem; color: var(--text-dim); }
+  .tag { font-size: 0.64rem; padding: 1px 6px; border-radius: 5px; font-weight: 600; white-space: nowrap; }
+  .tag.cryptic { background: var(--cryptic-soft); color: var(--cryptic); }
+  .tag.preformed { background: var(--preformed-soft); color: var(--preformed); }
+  .tag.hit { background: var(--preformed-soft); color: var(--preformed); }
+  .tag.miss { background: var(--cryptic-soft); color: var(--cryptic); }
+  .roc-val { font-family: "IBM Plex Mono"; font-size: 0.78rem; text-align: right; min-width: 3.6em; }
+
+  .detail { padding: 16px; display: flex; flex-direction: column; gap: 16px; }
+  .detail-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; }
+  .detail-head h2 { font-size: 1.3rem; }
+  .detail-head .tags { display: flex; gap: 6px; }
+
+  .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; }
+  .metric { background: var(--surface-2); border-radius: 8px; padding: 9px 11px; }
+  .metric .v { font-family: "IBM Plex Mono"; font-size: 1.05rem; font-weight: 600; }
+  .metric .l { font-size: 0.66rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.03em; margin-top: 2px; }
+
+  .track-section h3 { font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.03em; }
+  .track-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-2); padding: 10px; }
+  canvas#track { display: block; image-rendering: crisp-edges; }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.72rem; color: var(--text-dim); margin-top: 8px; }
+  .legend .sw { display: inline-block; width: 11px; height: 11px; border-radius: 3px; vertical-align: -1.5px; margin-right: 5px; }
+
+  .empty-state { padding: 40px 16px; text-align: center; color: var(--text-dim); font-size: 0.9rem; }
+
+  footer.note { margin-top: 20px; font-size: 0.74rem; color: var(--text-dim); line-height: 1.5; max-width: 72ch; }
+  footer.note a { color: var(--accent-ink); }
+
+  ::-webkit-scrollbar { width: 9px; height: 9px; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="title-block">
+      <h1>Pocket Finder Bench</h1>
+      <p>Per-residue predictions from this project's homology-clean 3B-transfer model, checked chain by chain against CryptoBench's official validation and test labels.</p>
+    </div>
+    <span class="subject-tag">TDA&#8209;EGNN &middot; CryptoBench &middot; 8&#8209;seed ensemble</span>
+  </header>
+
+  <div class="stats-strip" id="statsStrip"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <div class="panel-head"><h2>242 proteins</h2></div>
+      <div class="controls">
+        <input type="search" id="search" placeholder="Search chain, e.g. 1arl_A">
+        <div class="chip-row" id="splitChips"></div>
+        <div class="chip-row" id="cryptChips"></div>
+        <div class="chip-row" id="hitChips"></div>
+        <div class="sort-row">
+          Sort
+          <select id="sortKey">
+            <option value="roc_desc">ROC-AUC (high &rarr; low)</option>
+            <option value="roc_asc">ROC-AUC (low &rarr; high)</option>
+            <option value="dcc_asc">Center error (low &rarr; high)</option>
+            <option value="dcc_desc">Center error (high &rarr; low)</option>
+            <option value="key">Chain ID</option>
+            <option value="npos_desc">Pocket size (large &rarr; small)</option>
+          </select>
+        </div>
+      </div>
+      <div class="list" id="list"></div>
+    </div>
+
+    <div class="panel detail" id="detail"></div>
+  </div>
+
+  <footer class="note">
+    Predictions are the 8-seed ensemble mean from the headline homology-clean ESM2-3B transfer model (this project's recommended CryptoBench result). Crypticity labels (cryptic / pre-formed) come from an independent external audit that strictly relabeled the test split only &mdash; validation-split chains and the remaining test chains are unlabeled by that audit, not necessarily open pockets. ROC-AUC and PR-AUC are per-chain (omitted when a chain has no negative or no positive residues to compare). Center error is the distance in &#8491; between the predicted and true pocket center; a hit is &le;4&#8491;.
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var DATA = null, VIEW = [], selectedKey = null;
+  var filters = { split: "test", crypt: "all", hit: "all" };
+
+  fetch("data.json").then(function (r) { return r.json(); }).then(function (d) {
+    DATA = d;
+    renderStats();
+    buildChips();
+    document.getElementById("search").addEventListener("input", applyFilters);
+    document.getElementById("sortKey").addEventListener("change", applyFilters);
+    applyFilters();
+  }).catch(function (e) {
+    document.getElementById("list").innerHTML = '<div class="empty-state">Could not load data.json (' + e + ')</div>';
+  });
+
+  function renderStats() {
+    var s = DATA.summary;
+    var tiles = [
+      [s.pooled_roc.toFixed(3), "Pooled ROC-AUC"],
+      [s.pooled_pr.toFixed(3), "Pooled PR-AUC"],
+      [s.dcc4_rate + "%", "Centers within 4\u00c5"],
+      [s.n_test_chains, "Test chains"],
+      [s.n_cryptic, "Labeled cryptic"],
+      [s.n_preformed, "Labeled pre-formed"],
+      [s.n_test_residues.toLocaleString(), "Test residues"],
+      [s.pooled_pos_rate + "%", "Pocket residue rate"]
+    ];
+    document.getElementById("statsStrip").innerHTML = tiles.map(function (t) {
+      return '<div class="stat-tile"><div class="v">' + t[0] + '</div><div class="l">' + t[1] + '</div></div>';
+    }).join("");
+  }
+
+  function buildChips() {
+    mkChips("splitChips", [["test", "Test (182)"], ["val", "Validation (60)"], ["all", "Both"]], "split");
+    mkChips("cryptChips", [["all", "Any label"], ["cryptic", "Cryptic"], ["preformed", "Pre-formed"], ["none", "Unlabeled"]], "crypt");
+    mkChips("hitChips", [["all", "Any DCC"], ["hit", "Hit \u22644\u00c5"], ["miss", "Miss >4\u00c5"]], "hit");
+  }
+  function mkChips(id, opts, key) {
+    var el = document.getElementById(id);
+    el.innerHTML = opts.map(function (o) {
+      return '<span class="chip' + (filters[key] === o[0] ? " active" : "") + '" data-key="' + key + '" data-val="' + o[0] + '">' + o[1] + "</span>";
+    }).join("");
+    Array.prototype.forEach.call(el.querySelectorAll(".chip"), function (c) {
+      c.addEventListener("click", function () {
+        filters[c.dataset.key] = c.dataset.val;
+        Array.prototype.forEach.call(el.querySelectorAll(".chip"), function (x) { x.classList.toggle("active", x === c); });
+        applyFilters();
+      });
+    });
+  }
+
+  function applyFilters() {
+    var q = document.getElementById("search").value.trim().toLowerCase();
+    VIEW = DATA.records.filter(function (r) {
+      if (filters.split !== "all" && r.split !== filters.split) return false;
+      if (filters.crypt !== "all") {
+        var c = r.crypticity || "none";
+        if (c !== filters.crypt) return false;
+      }
+      if (filters.hit === "hit" && !r.dcc4) return false;
+      if (filters.hit === "miss" && r.dcc4) return false;
+      if (q && r.key.toLowerCase().indexOf(q) === -1) return false;
+      return true;
+    });
+    var sk = document.getElementById("sortKey").value;
+    var cmp = {
+      roc_desc: function (a, b) { return (b.roc ?? -1) - (a.roc ?? -1); },
+      roc_asc: function (a, b) { return (a.roc ?? 2) - (b.roc ?? 2); },
+      dcc_asc: function (a, b) { return a.dcc_err - b.dcc_err; },
+      dcc_desc: function (a, b) { return b.dcc_err - a.dcc_err; },
+      key: function (a, b) { return a.key.localeCompare(b.key); },
+      npos_desc: function (a, b) { return b.npos - a.npos; }
+    }[sk];
+    VIEW.sort(cmp);
+    renderList();
+    if (!selectedKey || !VIEW.some(function (r) { return r.key === selectedKey; })) {
+      if (VIEW.length) selectChain(VIEW[0].key); else renderDetailEmpty();
+    } else {
+      highlightSelected();
+    }
+  }
+
+  function renderList() {
+    var list = document.getElementById("list");
+    if (!VIEW.length) { list.innerHTML = '<div class="empty-state">No proteins match these filters.</div>'; return; }
+    list.innerHTML = VIEW.map(function (r) {
+      var tag = r.crypticity ? '<span class="tag ' + r.crypticity + '">' + r.crypticity + "</span>" : "";
+      var hitTag = '<span class="tag ' + (r.dcc4 ? "hit" : "miss") + '">' + (r.dcc4 ? "hit" : "miss") + "</span>";
+      var rocTxt = r.roc === null ? "&mdash;" : r.roc.toFixed(3);
+      return '<div class="row' + (r.key === selectedKey ? " selected" : "") + '" data-key="' + r.key + '">' +
+        '<div><div class="key">' + r.key + '</div><div class="sub">' + r.n + ' res &middot; ' + r.npos + ' pocket &middot; ' + r.split + "</div></div>" +
+        '<div class="roc-val">' + rocTxt + "</div>" +
+        '<div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end">' + tag + hitTag + "</div>" +
+        "</div>";
+    }).join("");
+    Array.prototype.forEach.call(list.querySelectorAll(".row"), function (row) {
+      row.addEventListener("click", function () { selectChain(row.dataset.key); });
+    });
+  }
+
+  function highlightSelected() {
+    Array.prototype.forEach.call(document.querySelectorAll(".row"), function (row) {
+      row.classList.toggle("selected", row.dataset.key === selectedKey);
+    });
+  }
+
+  function selectChain(key) {
+    selectedKey = key;
+    highlightSelected();
+    var rec = DATA.records.find(function (r) { return r.key === key; });
+    renderDetail(rec);
+  }
+
+  function renderDetailEmpty() {
+    document.getElementById("detail").innerHTML = '<div class="empty-state">No protein selected.</div>';
+  }
+
+  function css(varName) {
+    return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+  }
+
+  function renderDetail(r) {
+    var tag = r.crypticity ? '<span class="tag ' + r.crypticity + '">' + r.crypticity + "</span>" : '<span class="tag" style="background:var(--track);color:var(--text-dim)">unlabeled</span>';
+    var hitTag = '<span class="tag ' + (r.dcc4 ? "hit" : "miss") + '">' + (r.dcc4 ? "center hit" : "center miss") + "</span>";
+    var rocTxt = r.roc === null ? "n/a (uniform labels)" : r.roc.toFixed(4);
+    var prTxt = r.pr === null ? "n/a" : r.pr.toFixed(4);
+
+    document.getElementById("detail").innerHTML =
+      '<div class="detail-head"><h2 class="mono">' + r.key + "</h2>" +
+      '<div class="tags">' + tag + hitTag + "</div></div>" +
+      '<div class="metric-grid">' +
+        metric(rocTxt, "ROC-AUC") + metric(prTxt, "PR-AUC") +
+        metric(r.n, "Residues") + metric(r.npos, "Pocket residues") +
+        metric(r.pct_pos + "%", "Pocket rate") + metric(r.dcc_err.toFixed(1) + "\u00c5", "Center error") +
+      "</div>" +
+      '<div class="track-section"><h3>Per-residue prediction vs. true pocket label</h3>' +
+      '<div class="track-wrap"><canvas id="track"></canvas></div>' +
+      '<div class="legend">' +
+        '<span><span class="sw" style="background:' + css("--track") + '"></span>low predicted probability</span>' +
+        '<span><span class="sw" style="background:' + css("--accent") + '"></span>high predicted probability</span>' +
+        '<span><span class="sw" style="background:' + css("--cryptic") + ';height:3px;width:14px;border-radius:0;display:inline-block;vertical-align:2px;margin-right:5px"></span>true pocket residue</span>' +
+      "</div></div>";
+
+    drawTrack(r);
+  }
+
+  function metric(v, l) {
+    return '<div class="metric"><div class="v">' + v + '</div><div class="l">' + l + "</div></div>";
+  }
+
+  function drawTrack(r) {
+    var canvas = document.getElementById("track");
+    var n = r.n;
+    var wrapWidth = canvas.parentElement.clientWidth - 20;
+    var colW = Math.max(3, Math.min(10, Math.floor(wrapWidth / n)));
+    var w = Math.max(wrapWidth, colW * n);
+    var barH = 46, tickH = 8, h = barH + tickH + 4;
+    var dpr = window.devicePixelRatio || 1;
+    canvas.style.width = w + "px"; canvas.style.height = h + "px";
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    var ctx = canvas.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    var trackColor = css("--track"), accent = css("--accent"), cryptic = css("--cryptic");
+    var rgbTrack = hexToRgb(trackColor), rgbAccent = hexToRgb(accent);
+
+    for (var i = 0; i < n; i++) {
+      var p = r.p[i];
+      var col = lerp(rgbTrack, rgbAccent, p);
+      ctx.fillStyle = "rgb(" + col[0] + "," + col[1] + "," + col[2] + ")";
+      ctx.fillRect(i * colW, 0, colW, barH);
+      if (r.y[i] === 1) {
+        ctx.fillStyle = cryptic;
+        ctx.fillRect(i * colW, barH + 4, colW, tickH);
+      }
+    }
+  }
+
+  function hexToRgb(hex) {
+    hex = hex.replace("#", "");
+    if (hex.length === 3) hex = hex.split("").map(function (c) { return c + c; }).join("");
+    var num = parseInt(hex, 16);
+    return [(num >> 16) & 255, (num >> 8) & 255, num & 255];
+  }
+  function lerp(a, b, t) {
+    return [Math.round(a[0] + (b[0] - a[0]) * t), Math.round(a[1] + (b[1] - a[1]) * t), Math.round(a[2] + (b[2] - a[2]) * t)];
+  }
+
+  window.addEventListener("resize", function () {
+    if (selectedKey) { var rec = DATA.records.find(function (r) { return r.key === selectedKey; }); if (rec) drawTrack(rec); }
+  });
+})();
+</script>
