@@ -398,6 +398,10 @@ the full 10-fold × 2-seed × 4-arm control was rerun at each scale.
 | 3B | geometry | 0.5217 ± 0.0170 | 0.8844 ± 0.0107 |
 | 3B | geometry + topology | 0.5332 ± 0.0194 | 0.8884 ± 0.0098 |
 
+![Geometry alone matches or beats topology alone at every embedding scale tested; a small but confirmed residual from topology-beyond-geometry survives and grows rather than shrinks as embedding scale increases.](cryptic-pocket/figures/fig_geometry_control.png)
+
+*Figure 1. Main-pipeline classification (test PR-AUC and ROC-AUC) across four feature arms and three ESM2 embedding scales. Geometry (17 plain per-residue features) matches or exceeds topology alone throughout; combining both gives the best result at every scale.*
+
 The primary comparison — geometry plus topology minus geometry alone — is
 **confirmed by both tests at both larger scales**, and grows rather than
 shrinks: 650M gives +0.0091 PR-AUC (95% CI +0.0038 to +0.0144; 8/10
@@ -439,6 +443,10 @@ dimensions pairwise, and geometry+topology tracks it rather than exceeding it �
 contrasts, not a scattered one-off. Read plainly: of the four things this project's topology block computes,
 the one describing loops and tunnels in the local atomic point cloud — the feature type most naturally
 analogous to a cavity's shape — is doing essentially all of the confirmed work.
+
+![Geometry-plus-H1 alone tracks the full four-dimension topology block; geometry-plus-H0 and geometry-plus-H2 alone each fall measurably short.](cryptic-pocket/figures/fig_decomposition.png)
+
+*Figure 2. Per-dimension decomposition of the topology residual beyond geometry (650M scale, 10-fold cross-validation, error bars show standard error across folds). H1 (loops/tunnels) alone nearly matches combining all four dimensions; H0 and H2 alone do not.*
 
 The same control on CryptoBench (run only at the 35M scale) found no benefit from topology at all. On
 the official split (8 seeds, benchmark labels), geometry plus persistence
@@ -847,6 +855,10 @@ cryptic-pocket positive rate):
 | Ensemble (all-transfer, grid search, AUC-optimal weights) | 8 each | 0.9177 | 0.4464 | 0.4651 | 0.4910 | — |
 | Ensemble (all-transfer, grid search, MCC-optimal weights) | 8 each | **0.9182** | 0.4453 | 0.4553 | 0.4816 | — |
 | **Ensemble (all-transfer, logistic-regression combiner)** | 8 each | 0.9177 | 0.4484 | **0.4699** | 0.4956 | — |
+
+![Distribution of per-protein ROC-AUC for the headline 3B-transfer ensemble across all 182 scorable test proteins.](cryptic-pocket/figures/fig_per_protein_dist.png)
+
+*Figure 6. Pooled metrics describe the model's performance on average; this shows the full per-protein spread. Most test proteins are discriminated nearly perfectly (the right-hand peak near 1.0), but a real minority score poorly — the pooled numbers above are not uniform across every protein, and the lower tail here is concentrated in exactly the genuinely cryptic chains the external audit and Figures 3–4 identify.*
 
 †UniPocket (Zhao, Zhai, and Shen, ACM-BCB 2026) is the most recent
 published baseline we found on this exact benchmark: a multitask
@@ -1257,6 +1269,14 @@ to 0.262, and precision among the top 20 ranked residues per protein from 0.383 
 external preprint reports for other published models and is the honest scope of every number in the table below: this
 project's headline results describe finding pockets in general far better than it describes the harder cryptic subset.
 
+![ROC and precision-recall curves for the headline model, pooled across all 182 test chains versus the 16 chains the external audit labels strictly cryptic.](cryptic-pocket/figures/fig_roc_pr.png)
+
+*Figure 3. ROC and precision-recall curves, recomputed directly from the headline 3B-transfer ensemble's cached test-set predictions. The gap between the blue (all chains) and red (cryptic-only) curves is the same pattern the pooled-vs-cryptic numbers above describe; the exact decimals differ slightly from the matched-180-chain figures in the text above, which is this project's own 182-chain denominator rather than a different model.*
+
+![Pooled ROC-AUC and PR-AUC on all test chains versus the pre-formed and strictly-cryptic subsets.](cryptic-pocket/figures/fig_cryptic_stratified.png)
+
+*Figure 4. The same stratification as a bar chart: pre-formed pockets (already visible in the apo structure) score far higher than genuinely cryptic ones on both metrics.*
+
 **Their central negative claim does not replicate on our architecture.** The preprint's strongest finding is that
 cavity/geometry features are *actively harmful* specifically at cryptic sites (removing them improved cryptic-subset
 AUC by 0.06-0.07 in their models). Repeating their stratification on our own geometry-vs-topology CryptoBench 3B-transfer arms shows the opposite trend, not the same one: geometry minus topology-only, within the cryptic stratum, is
@@ -1343,6 +1363,10 @@ drops ECE from 0.166 to 0.0029 (a 57-fold reduction), Brier score from 0.090 to 
 0.124. Because isotonic regression is a monotonic transform, it changes none of this project's discrimination results
 (every PR-AUC, ROC-AUC, and ranking-based comparison reported elsewhere in this paper is completely unaffected); it
 only fixes what the probability number means.
+
+![Reliability diagrams for the headline model's raw and isotonic-calibrated test-set probabilities.](cryptic-pocket/figures/fig_calibration.png)
+
+*Figure 5. Reliability diagrams (10 quantile bins, marker area proportional to bin size) on the held-out test set. Raw probabilities (left) sit far below the diagonal at high confidence — a residue scored 0.9 is actually a pocket residue roughly half the time. Isotonic calibration fit on validation alone (right) brings the curve close to the diagonal.*
 
 **The fix generalizes to this project's own known-hardest subgroups, though not quite as completely.** Calibration
 fit on the whole validation set, evaluated separately on the strictly-cryptic test residues (the external audit's
