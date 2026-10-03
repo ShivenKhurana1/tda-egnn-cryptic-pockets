@@ -28,3 +28,5 @@ kaggle.json
 cryptic-pocket/phase167_validation/phase167_experimental_site_predictions.csv
 cryptic-pocket/phase167_validation/phase183A_experimental_residue_validation.csv
 cryptic-pocket/phase167_validation/phase167_residue_predictions.csv
+cryptic-pocket/ensemble/raw/
+cryptic-pocket/ensemble/cache/

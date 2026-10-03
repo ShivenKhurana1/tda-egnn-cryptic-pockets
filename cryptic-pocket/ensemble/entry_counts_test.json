@@ -1,0 +1,2000 @@
+[
+ {
+  "pdb": "1arl",
+  "chain": "A",
+  "acc": "P00730",
+  "cryptic": false,
+  "n_xray": 27,
+  "n_noligand": 0,
+  "own": 5
+ },
+ {
+  "pdb": "1bk2",
+  "chain": "A",
+  "acc": "P07751",
+  "cryptic": false,
+  "n_xray": 44,
+  "n_noligand": 17,
+  "own": 2
+ },
+ {
+  "pdb": "1bzj",
+  "chain": "A",
+  "acc": "P18031",
+  "cryptic": true,
+  "n_xray": 417,
+  "n_noligand": 21,
+  "own": 24
+ },
+ {
+  "pdb": "1cwq",
+  "chain": "A",
+  "acc": "P02945",
+  "cryptic": false,
+  "n_xray": 160,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "1dq2",
+  "chain": "A",
+  "acc": "P55915",
+  "cryptic": false,
+  "n_xray": 19,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "1e6k",
+  "chain": "A",
+  "acc": "P0AE67",
+  "cryptic": false,
+  "n_xray": 54,
+  "n_noligand": 12,
+  "own": 3
+ },
+ {
+  "pdb": "1evy",
+  "chain": "A",
+  "acc": "P90551",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "1fd4",
+  "chain": "G-H",
+  "acc": "O15263",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "1fe6",
+  "chain": "A-D",
+  "acc": "Q54436",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "1g1m",
+  "chain": "A-B",
+  "acc": "P00459",
+  "cryptic": false,
+  "n_xray": 32,
+  "n_noligand": 0,
+  "own": 15
+ },
+ {
+  "pdb": "1g59",
+  "chain": "A",
+  "acc": "P27000",
+  "cryptic": false,
+  "n_xray": 8,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "1h13",
+  "chain": "A",
+  "acc": "Q8RJN8",
+  "cryptic": false,
+  "n_xray": 6,
+  "n_noligand": 5,
+  "own": 2
+ },
+ {
+  "pdb": "1i7n",
+  "chain": "A",
+  "acc": "Q63537",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "1k47",
+  "chain": "D",
+  "acc": "Q8DR49",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "1ksg",
+  "chain": "B",
+  "acc": "O43924",
+  "cryptic": false,
+  "n_xray": 28,
+  "n_noligand": 1,
+  "own": 11
+ },
+ {
+  "pdb": "1kx9",
+  "chain": "A",
+  "acc": "Q9NG96",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "1kxr",
+  "chain": "A",
+  "acc": "P97571",
+  "cryptic": false,
+  "n_xray": 8,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "1lbe",
+  "chain": "B",
+  "acc": "P29241",
+  "cryptic": false,
+  "n_xray": 13,
+  "n_noligand": 2,
+  "own": 4
+ },
+ {
+  "pdb": "1m5w",
+  "chain": "D",
+  "acc": "P0A794",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 2,
+  "own": 3
+ },
+ {
+  "pdb": "1nd7",
+  "chain": "A",
+  "acc": "Q9H0M0",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 3,
+  "own": 2
+ },
+ {
+  "pdb": "1p4o",
+  "chain": "B",
+  "acc": "P08069",
+  "cryptic": false,
+  "n_xray": 26,
+  "n_noligand": 1,
+  "own": 5
+ },
+ {
+  "pdb": "1p4v",
+  "chain": "A",
+  "acc": "Q47898",
+  "cryptic": false,
+  "n_xray": 12,
+  "n_noligand": 7,
+  "own": 2
+ },
+ {
+  "pdb": "1p9o",
+  "chain": "A",
+  "acc": "Q9HAB8",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "1pu5",
+  "chain": "C",
+  "acc": "P17900",
+  "cryptic": false,
+  "n_xray": 6,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "1q4k",
+  "chain": "A",
+  "acc": "P53350",
+  "cryptic": false,
+  "n_xray": 78,
+  "n_noligand": 25,
+  "own": 6
+ },
+ {
+  "pdb": "1r3m",
+  "chain": "A-B",
+  "acc": "P00669",
+  "cryptic": false,
+  "n_xray": 18,
+  "n_noligand": 6,
+  "own": 2
+ },
+ {
+  "pdb": "1rjb",
+  "chain": "A",
+  "acc": "P36888",
+  "cryptic": false,
+  "n_xray": 9,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "1rtc",
+  "chain": "A",
+  "acc": "P02879",
+  "cryptic": false,
+  "n_xray": 101,
+  "n_noligand": 9,
+  "own": 2
+ },
+ {
+  "pdb": "1se8",
+  "chain": "A",
+  "acc": "Q9RY51",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "1tmi",
+  "chain": "A-B",
+  "acc": "Q9WZC3",
+  "cryptic": false,
+  "n_xray": 4,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "1uka",
+  "chain": "A",
+  "acc": "P96965",
+  "cryptic": false,
+  "n_xray": 8,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "1ute",
+  "chain": "A",
+  "acc": "P09889",
+  "cryptic": true,
+  "n_xray": 2,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "1vsn",
+  "chain": "A",
+  "acc": "P43235",
+  "cryptic": false,
+  "n_xray": 68,
+  "n_noligand": 5,
+  "own": 2
+ },
+ {
+  "pdb": "1x2g",
+  "chain": "C",
+  "acc": "P32099",
+  "cryptic": false,
+  "n_xray": 4,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "1xgd",
+  "chain": "A",
+  "acc": "P15121",
+  "cryptic": false,
+  "n_xray": 13,
+  "n_noligand": 0,
+  "own": 164
+ },
+ {
+  "pdb": "1xjf",
+  "chain": "A",
+  "acc": "O33839",
+  "cryptic": false,
+  "n_xray": 8,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "1xqv",
+  "chain": "A",
+  "acc": "P96084",
+  "cryptic": false,
+  "n_xray": 7,
+  "n_noligand": 1,
+  "own": 7
+ },
+ {
+  "pdb": "1xtc",
+  "chain": "A",
+  "acc": "P01555",
+  "cryptic": false,
+  "n_xray": 10,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "1xxo",
+  "chain": "A-B",
+  "acc": "O06553",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "1zm0",
+  "chain": "A",
+  "acc": "P08567",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "2aka",
+  "chain": "A",
+  "acc": "P08799",
+  "cryptic": false,
+  "n_xray": 26,
+  "n_noligand": 2,
+  "own": 23
+ },
+ {
+  "pdb": "2czd",
+  "chain": "A-B",
+  "acc": "O58462",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "2d05",
+  "chain": "A",
+  "acc": "P33673",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "2dfp",
+  "chain": "A",
+  "acc": "P04058",
+  "cryptic": false,
+  "n_xray": 114,
+  "n_noligand": 11,
+  "own": 11
+ },
+ {
+  "pdb": "2fem",
+  "chain": "A",
+  "acc": "P0A6I0",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "2fhz",
+  "chain": "B",
+  "acc": "P18000",
+  "cryptic": false,
+  "n_xray": 3,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "2h7s",
+  "chain": "A",
+  "acc": "P00183",
+  "cryptic": false,
+  "n_xray": 124,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "2huw",
+  "chain": "A-B",
+  "acc": "P62993",
+  "cryptic": false,
+  "n_xray": 45,
+  "n_noligand": 17,
+  "own": 2
+ },
+ {
+  "pdb": "2i3a",
+  "chain": "D",
+  "acc": "P9WPZ9",
+  "cryptic": false,
+  "n_xray": 7,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "2i3r",
+  "chain": "A",
+  "acc": "P23467",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 1,
+  "own": 9
+ },
+ {
+  "pdb": "2idj",
+  "chain": "A-B",
+  "acc": "P13255",
+  "cryptic": false,
+  "n_xray": 10,
+  "n_noligand": 3,
+  "own": 2
+ },
+ {
+  "pdb": "2iyt",
+  "chain": "A",
+  "acc": "P9WPY3",
+  "cryptic": false,
+  "n_xray": 17,
+  "n_noligand": 0,
+  "own": 5
+ },
+ {
+  "pdb": "2nt1",
+  "chain": "A-B",
+  "acc": "P04062",
+  "cryptic": false,
+  "n_xray": 54,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "2phz",
+  "chain": "A",
+  "acc": "P40409",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "2pkf",
+  "chain": "A",
+  "acc": "P9WID5",
+  "cryptic": false,
+  "n_xray": 9,
+  "n_noligand": 0,
+  "own": 4
+ },
+ {
+  "pdb": "2pwz",
+  "chain": "G",
+  "acc": "P61889",
+  "cryptic": false,
+  "n_xray": 12,
+  "n_noligand": 3,
+  "own": 2
+ },
+ {
+  "pdb": "2qbv",
+  "chain": "A",
+  "acc": "P9WIC1",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "2rfj",
+  "chain": "B",
+  "acc": "Q58F21",
+  "cryptic": true,
+  "n_xray": 11,
+  "n_noligand": 0,
+  "own": 11
+ },
+ {
+  "pdb": "2v6m",
+  "chain": "D",
+  "acc": "Q5SJA1",
+  "cryptic": false,
+  "n_xray": 4,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "2vl2",
+  "chain": "C",
+  "acc": "P30044",
+  "cryptic": false,
+  "n_xray": 10,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "2vqz",
+  "chain": "F",
+  "acc": "P31345",
+  "cryptic": false,
+  "n_xray": 12,
+  "n_noligand": 5,
+  "own": 2
+ },
+ {
+  "pdb": "2vyr",
+  "chain": "A",
+  "acc": "O15151",
+  "cryptic": false,
+  "n_xray": 29,
+  "n_noligand": 7,
+  "own": 3
+ },
+ {
+  "pdb": "2w8n",
+  "chain": "A",
+  "acc": "P51649",
+  "cryptic": true,
+  "n_xray": 3,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "2x47",
+  "chain": "A",
+  "acc": "Q9BQ69",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "2xdo",
+  "chain": "A-C",
+  "acc": "Q93L51",
+  "cryptic": false,
+  "n_xray": 8,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "2xsa",
+  "chain": "A",
+  "acc": "Q2CEE3",
+  "cryptic": false,
+  "n_xray": 3,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "2zcg",
+  "chain": "A-B",
+  "acc": "Q8T6J6",
+  "cryptic": false,
+  "n_xray": 6,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "2zj7",
+  "chain": "A",
+  "acc": "Q9RBY1",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3a0x",
+  "chain": "A",
+  "acc": "Q9X180",
+  "cryptic": false,
+  "n_xray": 6,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "3b1o",
+  "chain": "A-B",
+  "acc": "Q2SZE4",
+  "cryptic": false,
+  "n_xray": 3,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3bjp",
+  "chain": "A",
+  "acc": "Q00511",
+  "cryptic": false,
+  "n_xray": 85,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3bk9",
+  "chain": "E-H",
+  "acc": "Q8PDA8",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3f4k",
+  "chain": "A",
+  "acc": "Q8A3I2",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "3flg",
+  "chain": "A",
+  "acc": "Q9UBC3",
+  "cryptic": false,
+  "n_xray": 26,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "3fzo",
+  "chain": "A",
+  "acc": "Q14289",
+  "cryptic": false,
+  "n_xray": 18,
+  "n_noligand": 11,
+  "own": 6
+ },
+ {
+  "pdb": "3gdg",
+  "chain": "B",
+  "acc": "P0C0Y5",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3h8a",
+  "chain": "B",
+  "acc": "P0A6P9",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "3hrm",
+  "chain": "A-B",
+  "acc": "A0A0H3KA72",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "3i8s",
+  "chain": "B",
+  "acc": "P33650",
+  "cryptic": false,
+  "n_xray": 6,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "3idh",
+  "chain": "A",
+  "acc": "P35557",
+  "cryptic": false,
+  "n_xray": 32,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "3jzg",
+  "chain": "A",
+  "acc": "O75530",
+  "cryptic": true,
+  "n_xray": 59,
+  "n_noligand": 13,
+  "own": 2
+ },
+ {
+  "pdb": "3k01",
+  "chain": "A",
+  "acc": "B0B0V1",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 4
+ },
+ {
+  "pdb": "3kjr",
+  "chain": "A-B",
+  "acc": "A7ASX7",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3la7",
+  "chain": "A-B",
+  "acc": "P0A4U6",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3lnz",
+  "chain": "C-O",
+  "acc": "Q00987",
+  "cryptic": false,
+  "n_xray": 127,
+  "n_noligand": 21,
+  "own": 11
+ },
+ {
+  "pdb": "3ly8",
+  "chain": "A",
+  "acc": "P23890",
+  "cryptic": true,
+  "n_xray": 3,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "3mwg",
+  "chain": "B",
+  "acc": "A0A0H3JJC6",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3n4u",
+  "chain": "A",
+  "acc": "O68183",
+  "cryptic": false,
+  "n_xray": 47,
+  "n_noligand": 5,
+  "own": 6
+ },
+ {
+  "pdb": "3nx1",
+  "chain": "B",
+  "acc": "C6F3U5",
+  "cryptic": true,
+  "n_xray": 2,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "3pbf",
+  "chain": "A",
+  "acc": "P08427",
+  "cryptic": true,
+  "n_xray": 13,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3pfp",
+  "chain": "A-B",
+  "acc": "O53512",
+  "cryptic": false,
+  "n_xray": 12,
+  "n_noligand": 0,
+  "own": 9
+ },
+ {
+  "pdb": "3rwv",
+  "chain": "A",
+  "acc": "Q9NZD2",
+  "cryptic": false,
+  "n_xray": 20,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3st6",
+  "chain": "C",
+  "acc": "P9WFX1",
+  "cryptic": false,
+  "n_xray": 12,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "3t8b",
+  "chain": "A",
+  "acc": "P9WNP5",
+  "cryptic": false,
+  "n_xray": 6,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "3tpo",
+  "chain": "A",
+  "acc": "P52293",
+  "cryptic": false,
+  "n_xray": 151,
+  "n_noligand": 120,
+  "own": 3
+ },
+ {
+  "pdb": "3ugk",
+  "chain": "A",
+  "acc": "P38998",
+  "cryptic": false,
+  "n_xray": 4,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "3uyi",
+  "chain": "A",
+  "acc": "Q3L181",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "3v55",
+  "chain": "A",
+  "acc": "Q9UDY8",
+  "cryptic": false,
+  "n_xray": 18,
+  "n_noligand": 6,
+  "own": 7
+ },
+ {
+  "pdb": "3ve9",
+  "chain": "A-B",
+  "acc": "A4YI54",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3vgm",
+  "chain": "A",
+  "acc": "B1VZT1",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3w90",
+  "chain": "A",
+  "acc": "Q5SL35",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "3wb9",
+  "chain": "C",
+  "acc": "Q67PI3",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "3x0x",
+  "chain": "E-G",
+  "acc": "A0A0C6DRW4",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "4aem",
+  "chain": "A",
+  "acc": "Q3LHN3",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "4amv",
+  "chain": "B",
+  "acc": "P17169",
+  "cryptic": false,
+  "n_xray": 10,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "4bg8",
+  "chain": "A",
+  "acc": "Q8TX37",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "4cmw",
+  "chain": "B",
+  "acc": "P9WJ61",
+  "cryptic": false,
+  "n_xray": 6,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "4dnc",
+  "chain": "B",
+  "acc": "Q9H7Z6",
+  "cryptic": false,
+  "n_xray": 44,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "4e1y",
+  "chain": "A",
+  "acc": "Q9KWU1",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "4fkm",
+  "chain": "B",
+  "acc": "A0A0H3JWU6",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "4gpi",
+  "chain": "C",
+  "acc": "P18669",
+  "cryptic": false,
+  "n_xray": 23,
+  "n_noligand": 0,
+  "own": 10
+ },
+ {
+  "pdb": "4gv9",
+  "chain": "A",
+  "acc": "P13699",
+  "cryptic": false,
+  "n_xray": 15,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "4hye",
+  "chain": "A",
+  "acc": "Q8DNC2",
+  "cryptic": false,
+  "n_xray": 3,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "4ikv",
+  "chain": "A",
+  "acc": "Q5KYD1",
+  "cryptic": false,
+  "n_xray": 3,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "4ilg",
+  "chain": "A",
+  "acc": "P32357",
+  "cryptic": false,
+  "n_xray": 293,
+  "n_noligand": 105,
+  "own": 108
+ },
+ {
+  "pdb": "4j4e",
+  "chain": "F",
+  "acc": "P81180",
+  "cryptic": false,
+  "n_xray": 14,
+  "n_noligand": 7,
+  "own": 4
+ },
+ {
+  "pdb": "4jax",
+  "chain": "F",
+  "acc": "P33284",
+  "cryptic": false,
+  "n_xray": 7,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "4jfr",
+  "chain": "C",
+  "acc": "Q8DCF5",
+  "cryptic": false,
+  "n_xray": 3,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "4kmy",
+  "chain": "A",
+  "acc": "P14207",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 4
+ },
+ {
+  "pdb": "4mwi",
+  "chain": "A",
+  "acc": "Q8NB16",
+  "cryptic": false,
+  "n_xray": 12,
+  "n_noligand": 5,
+  "own": 3
+ },
+ {
+  "pdb": "4nzv",
+  "chain": "B",
+  "acc": "Q9X1X0",
+  "cryptic": false,
+  "n_xray": 11,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "4oqo",
+  "chain": "B",
+  "acc": "P24627",
+  "cryptic": false,
+  "n_xray": 67,
+  "n_noligand": 0,
+  "own": 15
+ },
+ {
+  "pdb": "4p2f",
+  "chain": "A",
+  "acc": "P9WQ35",
+  "cryptic": false,
+  "n_xray": 4,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "4p32",
+  "chain": "A-B",
+  "acc": "P0A9V1",
+  "cryptic": false,
+  "n_xray": 6,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "4qvk",
+  "chain": "B",
+  "acc": "Q9HGR1",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "4r0x",
+  "chain": "A",
+  "acc": "Q13451",
+  "cryptic": false,
+  "n_xray": 113,
+  "n_noligand": 9,
+  "own": 22
+ },
+ {
+  "pdb": "4rvt",
+  "chain": "B",
+  "acc": "O95819",
+  "cryptic": false,
+  "n_xray": 16,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "4ttp",
+  "chain": "A",
+  "acc": "Q5ZVH3",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "4uc8",
+  "chain": "A",
+  "acc": "P03418",
+  "cryptic": false,
+  "n_xray": 9,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "4uum",
+  "chain": "A",
+  "acc": "O96445",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "4x19",
+  "chain": "M-O-P",
+  "acc": "Q01468",
+  "cryptic": false,
+  "n_xray": 13,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "4z0y",
+  "chain": "B-D-F-H",
+  "acc": "A0A075DN54",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "4zm7",
+  "chain": "A",
+  "acc": "B3Y002",
+  "cryptic": false,
+  "n_xray": 11,
+  "n_noligand": 3,
+  "own": 2
+ },
+ {
+  "pdb": "4zoe",
+  "chain": "B",
+  "acc": "Q92AS9",
+  "cryptic": false,
+  "n_xray": 7,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "5acv",
+  "chain": "B",
+  "acc": "Q9K2N0",
+  "cryptic": false,
+  "n_xray": 83,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "5aon",
+  "chain": "A-B",
+  "acc": "Q8IEW2",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 4
+ },
+ {
+  "pdb": "5b0e",
+  "chain": "B",
+  "acc": "I6WU39",
+  "cryptic": true,
+  "n_xray": 8,
+  "n_noligand": 5,
+  "own": 4
+ },
+ {
+  "pdb": "5caz",
+  "chain": "A",
+  "acc": "Q01641",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "5dy9",
+  "chain": "H-I",
+  "acc": "Q58830",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "5e0v",
+  "chain": "A",
+  "acc": "P12004",
+  "cryptic": true,
+  "n_xray": 50,
+  "n_noligand": 35,
+  "own": 2
+ },
+ {
+  "pdb": "5ey7",
+  "chain": "B",
+  "acc": "A0A0H3AER7",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "5gmc",
+  "chain": "A-B",
+  "acc": "A0A072ZPM2",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "5h8k",
+  "chain": "I-J",
+  "acc": "G7ITU5",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "5hij",
+  "chain": "A",
+  "acc": "F6KV61",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "5hto",
+  "chain": "E",
+  "acc": "Q4PRK9",
+  "cryptic": false,
+  "n_xray": 3,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "5i3t",
+  "chain": "E",
+  "acc": "E1XUJ2",
+  "cryptic": false,
+  "n_xray": 10,
+  "n_noligand": 3,
+  "own": 2
+ },
+ {
+  "pdb": "5igh",
+  "chain": "A",
+  "acc": "Q47396",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "5kcg",
+  "chain": "B",
+  "acc": "A0A1B0UHJ4",
+  "cryptic": false,
+  "n_xray": 8,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "5loc",
+  "chain": "A",
+  "acc": "P04964",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 5
+ },
+ {
+  "pdb": "5m7r",
+  "chain": "A-B",
+  "acc": "O60502",
+  "cryptic": false,
+  "n_xray": 21,
+  "n_noligand": 3,
+  "own": 3
+ },
+ {
+  "pdb": "5n49",
+  "chain": "A-B",
+  "acc": "O95696",
+  "cryptic": false,
+  "n_xray": 313,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "5o8b",
+  "chain": "A",
+  "acc": "P42212",
+  "cryptic": false,
+  "n_xray": 470,
+  "n_noligand": 250,
+  "own": 2
+ },
+ {
+  "pdb": "5sc2",
+  "chain": "A",
+  "acc": "P15379",
+  "cryptic": false,
+  "n_xray": 52,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "5tc0",
+  "chain": "B",
+  "acc": "Q12866",
+  "cryptic": false,
+  "n_xray": 37,
+  "n_noligand": 0,
+  "own": 4
+ },
+ {
+  "pdb": "5tvi",
+  "chain": "V",
+  "acc": "A0A247D6Y2",
+  "cryptic": true,
+  "n_xray": 4,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "5ujp",
+  "chain": "A-B",
+  "acc": "A0A125SA29",
+  "cryptic": false,
+  "n_xray": 4,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "5uxa",
+  "chain": "A",
+  "acc": "O32553",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "5wbm",
+  "chain": "B",
+  "acc": "P50053",
+  "cryptic": false,
+  "n_xray": 35,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "5wm9",
+  "chain": "B-C",
+  "acc": "O53623",
+  "cryptic": false,
+  "n_xray": 11,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "5yhb",
+  "chain": "A",
+  "acc": "P11041",
+  "cryptic": false,
+  "n_xray": 25,
+  "n_noligand": 6,
+  "own": 2
+ },
+ {
+  "pdb": "5yj2",
+  "chain": "C",
+  "acc": "Q45697",
+  "cryptic": true,
+  "n_xray": 12,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "5yqp",
+  "chain": "A",
+  "acc": "P38800",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "5ysb",
+  "chain": "B",
+  "acc": "Q92AS8",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "5z18",
+  "chain": "C",
+  "acc": "Q6W7J7",
+  "cryptic": false,
+  "n_xray": 8,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "5zj4",
+  "chain": "D",
+  "acc": "Q9L1E4",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "6a98",
+  "chain": "C",
+  "acc": "A0A1P8VSL7",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "6bty",
+  "chain": "B",
+  "acc": "O00443",
+  "cryptic": false,
+  "n_xray": 6,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "6cqe",
+  "chain": "B",
+  "acc": "Q92918",
+  "cryptic": false,
+  "n_xray": 42,
+  "n_noligand": 0,
+  "own": 8
+ },
+ {
+  "pdb": "6du4",
+  "chain": "A",
+  "acc": "Q86W50",
+  "cryptic": false,
+  "n_xray": 6,
+  "n_noligand": 3,
+  "own": 3
+ },
+ {
+  "pdb": "6eqj",
+  "chain": "A",
+  "acc": "P46976",
+  "cryptic": false,
+  "n_xray": 11,
+  "n_noligand": 1,
+  "own": 4
+ },
+ {
+  "pdb": "6f52",
+  "chain": "A",
+  "acc": "P56463",
+  "cryptic": false,
+  "n_xray": 10,
+  "n_noligand": 1,
+  "own": 3
+ },
+ {
+  "pdb": "6fc2",
+  "chain": "C",
+  "acc": "P07260",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "6fgj",
+  "chain": "B",
+  "acc": "W8U368",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "6g6y",
+  "chain": "A",
+  "acc": "P52732",
+  "cryptic": false,
+  "n_xray": 52,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "6hei",
+  "chain": "A",
+  "acc": "Q96RU2",
+  "cryptic": false,
+  "n_xray": 11,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "6isu",
+  "chain": "A",
+  "acc": "P15374",
+  "cryptic": false,
+  "n_xray": 8,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "6jq9",
+  "chain": "B",
+  "acc": "A0A109PTH9",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "6ksc",
+  "chain": "A",
+  "acc": "P9WNV1",
+  "cryptic": false,
+  "n_xray": 8,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "6n5j",
+  "chain": "B",
+  "acc": "P10121",
+  "cryptic": true,
+  "n_xray": 17,
+  "n_noligand": 3,
+  "own": 4
+ },
+ {
+  "pdb": "6nei",
+  "chain": "B",
+  "acc": "Q5C9L2",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 4
+ },
+ {
+  "pdb": "6o4f",
+  "chain": "H",
+  "acc": "P49419",
+  "cryptic": false,
+  "n_xray": 18,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "6syh",
+  "chain": "A-B",
+  "acc": "P50286",
+  "cryptic": false,
+  "n_xray": 3,
+  "n_noligand": 2,
+  "own": 6
+ },
+ {
+  "pdb": "6tx0",
+  "chain": "B",
+  "acc": "Q9Y3Z3",
+  "cryptic": true,
+  "n_xray": 63,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "6vle",
+  "chain": "A",
+  "acc": "Q9BYC5",
+  "cryptic": false,
+  "n_xray": 12,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "6w10",
+  "chain": "A",
+  "acc": "Q91XB0",
+  "cryptic": false,
+  "n_xray": 36,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "7c48",
+  "chain": "A",
+  "acc": "P96356",
+  "cryptic": false,
+  "n_xray": 10,
+  "n_noligand": 2,
+  "own": 2
+ },
+ {
+  "pdb": "7c63",
+  "chain": "A",
+  "acc": "Q53W80",
+  "cryptic": false,
+  "n_xray": 15,
+  "n_noligand": 0,
+  "own": 9
+ },
+ {
+  "pdb": "7de1",
+  "chain": "A",
+  "acc": "P0DTC9",
+  "cryptic": false,
+  "n_xray": 145,
+  "n_noligand": 38,
+  "own": 2
+ },
+ {
+  "pdb": "7e5q",
+  "chain": "B",
+  "acc": "P39597",
+  "cryptic": false,
+  "n_xray": 5,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "7f2m",
+  "chain": "B",
+  "acc": "Q08499",
+  "cryptic": true,
+  "n_xray": 119,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "7f4y",
+  "chain": "B",
+  "acc": "Q38087",
+  "cryptic": false,
+  "n_xray": 46,
+  "n_noligand": 7,
+  "own": 75
+ },
+ {
+  "pdb": "7kay",
+  "chain": "A",
+  "acc": "A0A0D6GJV1",
+  "cryptic": false,
+  "n_xray": 3,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "7nbc",
+  "chain": "AAA-CCC",
+  "acc": "Q9GZT4",
+  "cryptic": false,
+  "n_xray": 8,
+  "n_noligand": 0,
+  "own": 3
+ },
+ {
+  "pdb": "7nc8",
+  "chain": "D",
+  "acc": "B0Y813",
+  "cryptic": false,
+  "n_xray": 15,
+  "n_noligand": 4,
+  "own": 2
+ },
+ {
+  "pdb": "7ndl",
+  "chain": "B",
+  "acc": "Q06210",
+  "cryptic": false,
+  "n_xray": 14,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "7nlx",
+  "chain": "A",
+  "acc": "P9WQ01",
+  "cryptic": false,
+  "n_xray": 16,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "7np0",
+  "chain": "A-B",
+  "acc": "P9WIT9",
+  "cryptic": false,
+  "n_xray": 10,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "7o1i",
+  "chain": "A",
+  "acc": "O53872",
+  "cryptic": true,
+  "n_xray": 28,
+  "n_noligand": 0,
+  "own": 4
+ },
+ {
+  "pdb": "7qoq",
+  "chain": "A",
+  "acc": "K5B7Z4",
+  "cryptic": false,
+  "n_xray": 10,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "7qzr",
+  "chain": "D",
+  "acc": "P05164",
+  "cryptic": false,
+  "n_xray": 40,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "7v8k",
+  "chain": "B",
+  "acc": "A0A7J6JUK2",
+  "cryptic": false,
+  "n_xray": 15,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "7w19",
+  "chain": "A",
+  "acc": "A5Y459",
+  "cryptic": false,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "7x0f",
+  "chain": "A",
+  "acc": "Q9I1H0",
+  "cryptic": true,
+  "n_xray": 1,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "7x0g",
+  "chain": "B",
+  "acc": "A3DCF2",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "7x0i",
+  "chain": "B",
+  "acc": "A3DE73",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 6
+ },
+ {
+  "pdb": "7xgf",
+  "chain": "E",
+  "acc": "Q07817",
+  "cryptic": false,
+  "n_xray": 82,
+  "n_noligand": 31,
+  "own": 21
+ },
+ {
+  "pdb": "7yjc",
+  "chain": "A",
+  "acc": "Q9Y251",
+  "cryptic": false,
+  "n_xray": 56,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "8aeq",
+  "chain": "A",
+  "acc": "A9WIU3",
+  "cryptic": false,
+  "n_xray": 14,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "8aqi",
+  "chain": "B",
+  "acc": "Q9GV45",
+  "cryptic": false,
+  "n_xray": 10,
+  "n_noligand": 3,
+  "own": 2
+ },
+ {
+  "pdb": "8b9p",
+  "chain": "A",
+  "acc": "Q9BYF1",
+  "cryptic": false,
+  "n_xray": 78,
+  "n_noligand": 4,
+  "own": 2
+ },
+ {
+  "pdb": "8bre",
+  "chain": "B",
+  "acc": "Q9I5Q5",
+  "cryptic": false,
+  "n_xray": 6,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "8gxj",
+  "chain": "B-C",
+  "acc": "Q9HYX1",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "8h27",
+  "chain": "A",
+  "acc": "Q2FXG9",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "8h49",
+  "chain": "A-B",
+  "acc": "A0A6I7U6Y2",
+  "cryptic": false,
+  "n_xray": 15,
+  "n_noligand": 0,
+  "own": 5
+ },
+ {
+  "pdb": "8hc1",
+  "chain": "d-h",
+  "acc": "P69996",
+  "cryptic": false,
+  "n_xray": 3,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "8i84",
+  "chain": "B",
+  "acc": "D2B3F1",
+  "cryptic": false,
+  "n_xray": 4,
+  "n_noligand": 0,
+  "own": 4
+ },
+ {
+  "pdb": "8ias",
+  "chain": "B",
+  "acc": "Q8DQ84",
+  "cryptic": false,
+  "n_xray": 7,
+  "n_noligand": 0,
+  "own": 4
+ },
+ {
+  "pdb": "8j11",
+  "chain": "X",
+  "acc": "P02791",
+  "cryptic": false,
+  "n_xray": 168,
+  "n_noligand": 1,
+  "own": 2
+ },
+ {
+  "pdb": "8onn",
+  "chain": "E",
+  "acc": "D5EHC5",
+  "cryptic": false,
+  "n_xray": 6,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "8u3n",
+  "chain": "A",
+  "acc": "A0A3E2YLT4",
+  "cryptic": false,
+  "n_xray": 2,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "8vxu",
+  "chain": "B",
+  "acc": "U2EQ00",
+  "cryptic": false,
+  "n_xray": 0,
+  "n_noligand": 0,
+  "own": 2
+ },
+ {
+  "pdb": "9atc",
+  "chain": "A",
+  "acc": "P0A786",
+  "cryptic": false,
+  "n_xray": 62,
+  "n_noligand": 2,
+  "own": 7
+ }
+]

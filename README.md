@@ -183,6 +183,15 @@ exposure geometry:
   pilot (~12.5h wall-clock on CPU after GPU quota exhaustion, 16 from-scratch trainings). paper.md (Individual levers, Future Work) +
   README updated + pushed. Flagged as the one open lead worth scaling up if pursued further.
 
+* Phase 290 (deposited-structure ensemble probe, the idea the cryptic-site benchmark preprint reports as its strongest unused channel): SMALL, NOT ADOPTED,
+  and a probe rather than a retrain. Coverage over the 182 test chains via RCSB + per-residue mapping: 91% of proteins have another X-ray entry; under the
+  preprint's per-residue "unliganded within 4.5 A" rule the strictly cryptic proteins have a median 8.5 usable entries at their pocket, but that rule
+  LEAKS (residues are dropped exactly where another structure has a ligand, so missingness hints at the site). Label-blind rule (whole ligand-free entries
+  only): >=1 extra conformation for 65% of test proteins (62% cryptic), >=2 for 47% (56%). A regularised logistic stacker on [model logit + CA-CA distance
+  spread features], fit on the 60 val chains, scored on 182 test chains: per-protein AUC +0.004 overall (W p=.08), +0.015 on the 16 cryptic (p=.07), P@20
+  unchanged; the leaky version only +0.010/+0.018. The preprint's +0.089 was against a much weaker baseline. Not ruled out: an end-to-end retrain with these
+  features on the 700 train chains (needs the same mapping for train, ~6k structures). Code/results: cryptic-pocket/ensemble/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:

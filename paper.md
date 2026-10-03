@@ -655,6 +655,25 @@ explicitly negative or null findings:
   this project's typical single-seed noise band, and not extended to
   multi-seed confirmation given the modest effect size.
 
+- **Conformational spread across other deposited structures of the same protein (small, not adopted; a probe, not a full retrain).**
+  The external cryptic-site benchmark's authors report that how much each residue's neighbourhood moves across all deposited unliganded
+  X-ray structures of the same protein is the one input channel that reads information beyond a single structure, raising their ESM-free
+  model's cryptic AUC from 0.685 to 0.774 (an unreviewed preprint, against a much weaker baseline than ours). We tested whether it adds anything
+  to this model without retraining it. Coverage first: for the 182 test chains, 91% of the 222 test proteins have at least one other X-ray
+  entry for the same UniProt accession, but the usable fraction depends on how ligand-bound entries are handled. Dropping residues that sit
+  within 4.5 Å of a ligand in each entry (the preprint's rule) leaves a median of 8.5 usable entries at the pocket residues of strictly
+  cryptic proteins, but that rule leaks: a residue is dropped exactly where another structure has a ligand, so the pattern of missing data
+  hints at the binding site. The label-blind alternative, using only whole entries with no ligand near the protein, gives at least one
+  extra conformation for 65% of test proteins (62% of the cryptic ones) and at least two for 47% (56%). With that rule, per-residue spread
+  features (SD and range of Cα–Cα distances to neighbouring residues across the conformations, plus a within-chain percentile) were added
+  to a small regularised logistic stacker with the model's own logit, fit on the 60 validation chains only and scored on the 182 test
+  chains. Per-protein AUC rose +0.004 overall (interval +0.001 to +0.008, Wilcoxon p=0.081) and +0.015 on the 16 strictly cryptic proteins
+  (+0.002 to +0.030, p=0.074); precision in the top 20 residues did not move (0.209 to 0.209). The leaky per-residue version gains only
+  slightly more (+0.010 overall, +0.018 cryptic), so the leak is real but small here. We read this as a weak, unconfirmed signal: the
+  preprint's large gain does not carry over to a model that already has sequence-embedding and geometry inputs. What it does not rule out
+  is a model trained end to end with these features on all 700 training chains rather than stacked on 60 validation chains, which would
+  need the same per-chain structure mapping for the training set and was not attempted.
+
 ### Main pipeline: pocket-center localization
 
 An auxiliary localization loss (SmoothL1 against the true ligand center of
