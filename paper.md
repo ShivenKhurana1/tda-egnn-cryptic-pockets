@@ -1,4 +1,4 @@
-# Fusing Persistent Homology with Equivariant Graph Neural Networks for Protein Binding-Site and Cryptic-Pocket Localization
+# Predicting Cryptic Ligand-Binding Sites from Apo Protein Structures with Equivariant Graph Neural Networks: A Controlled Evaluation of Persistent-Homology Features
 
 ## Abstract
 

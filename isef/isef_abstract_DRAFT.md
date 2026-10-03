@@ -3,7 +3,7 @@ Per Society for Science rules: no citations, no acknowledgments, no institution/
 
 ---
 
-**Title:** Testing Whether Topological Shape Features Improve Prediction of Cryptic Protein Binding Sites, and How Well the Result Generalizes
+**Title:** Predicting Cryptic Ligand-Binding Sites from Apo Protein Structures with Equivariant Graph Neural Networks: A Controlled Evaluation of Persistent-Homology Features
 
 **Student(s):** [your name]
 **Category:** [your category, e.g. Biomedical Engineering / Computational Biology & Bioinformatics]
