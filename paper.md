@@ -1159,12 +1159,12 @@ from clearly confirmed to a clean null, reported honestly in each case):
   GNN-depth result, and report the honest, partial picture: a
   consistently positive, test-confirmed-on-two-metrics signal from a
   genuinely new architectural ingredient, on a from-scratch 650M model
-  that itself sits below this project's transfer-learned headline. Taking
-  this further, retraining the much larger main pipeline with global
-  attention and transferring the result to CryptoBench, the path that
-  turned every other confirmed CryptoBench gain in this paper into its
-  final, strongest form, would be a substantially larger compute
-  commitment than this pilot, and was not attempted here.
+  that itself sits below this project's transfer-learned headline. We then
+  ran that path at the 35M scale (main-pipeline pretraining with the
+  block, transferred to CryptoBench, 8 seeds per arm): the gains stayed
+  positive in direction but were small and not significant on any
+  metric (validation PR-AUC +0.0057, p=0.49; test PR-AUC +0.0060,
+  p=0.31), so global attention is not adopted (see Future Work).
 
 **Final combined result**, applying transfer learning at every scale where
 a matching main-pipeline checkpoint existed and then cross-scale
