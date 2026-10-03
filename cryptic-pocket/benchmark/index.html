@@ -1,0 +1,232 @@
+<title>Cryptic Pocket Benchmark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#FAF8F4; --surface:#FFFFFF; --surface-2:#F3EFE7; --text:#1A1D1F; --text-2:#5C564C; --muted:#8A8377; --border:#E4DFD4; --grid:#ECE7DC;
+    --accent:#0C7489; --good:#3C7A5C; --warn:#9A6A12;
+    --c1:#2a78d6; --c2:#eb6834; --c3:#1baf7a; --c4:#eda100; --c5:#e87ba4;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg:#14181A; --surface:#1C2124; --surface-2:#232933; --text:#ECE9E2; --text-2:#B5AFA3; --muted:#8E887C; --border:#333A3F; --grid:#2A3136;
+    --accent:#53D2DE; --good:#78C39B; --warn:#E0B24F;
+    --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --c5:#d55181; color-scheme: dark; } }
+  :root[data-theme="dark"] {
+    --bg:#14181A; --surface:#1C2124; --surface-2:#232933; --text:#ECE9E2; --text-2:#B5AFA3; --muted:#8E887C; --border:#333A3F; --grid:#2A3136;
+    --accent:#53D2DE; --good:#78C39B; --warn:#E0B24F;
+    --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --c5:#d55181; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { background:var(--bg); color:var(--text); font-family:"IBM Plex Sans",system-ui,sans-serif; margin:0; padding:16px 16px calc(32px + env(safe-area-inset-bottom,0px)); font-variant-numeric:tabular-nums; line-height:1.5; }
+  .wrap { max-width:980px; margin:0 auto; }
+  h1,h2 { font-family:"Fraunces",Georgia,serif; text-wrap:balance; margin:0; font-weight:600; }
+  h1 { font-size:1.9rem; letter-spacing:-0.01em; }
+  h2 { font-size:1.28rem; margin-bottom:6px; }
+  p { margin:0 0 10px; max-width:70ch; }
+  .sub { color:var(--text-2); font-size:0.92rem; }
+  header { padding-bottom:16px; border-bottom:1px solid var(--border); margin-bottom:20px; }
+  .verdict { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px 18px; margin-bottom:28px; }
+  .verdict h2 { font-size:1.05rem; font-family:"IBM Plex Sans"; margin-bottom:10px; }
+  .verdict ul { margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px; max-width:78ch; }
+  .verdict li b { font-weight:600; }
+  section { margin-bottom:34px; }
+  .tag { display:inline-block; font-family:"IBM Plex Mono"; font-size:0.68rem; padding:2px 8px; border-radius:999px; border:1px solid var(--border); background:var(--surface-2); color:var(--text-2); margin-bottom:8px; }
+  .tag.same { color:var(--good); border-color:var(--good); }
+  .tag.diff { color:var(--warn); border-color:var(--warn); }
+  .charts { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0; }
+  .charts .full { grid-column:1 / -1; }
+  @media (max-width:760px) { .charts { grid-template-columns:1fr; } }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:12px 14px 8px; min-width:0; }
+  .card h3 { font-size:0.8rem; font-weight:600; color:var(--text-2); text-transform:uppercase; letter-spacing:0.04em; margin:0 0 4px; }
+  .card svg { display:block; width:100%; overflow:visible; }
+  .tblwrap { overflow-x:auto; border:1px solid var(--border); border-radius:12px; background:var(--surface); }
+  table { border-collapse:collapse; width:100%; font-size:0.84rem; min-width:620px; }
+  th { text-align:left; font-weight:600; color:var(--text-2); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; padding:9px 12px; border-bottom:1px solid var(--border); background:var(--surface-2); white-space:nowrap; }
+  td { padding:9px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:last-child td { border-bottom:0; }
+  td.n, th.n { text-align:right; font-family:"IBM Plex Mono"; white-space:nowrap; }
+  tr.ours td { background:color-mix(in srgb, var(--accent) 9%, transparent); }
+  tr.ours td:first-child { box-shadow:inset 3px 0 0 var(--accent); font-weight:600; }
+  td .note, .small { font-size:0.74rem; color:var(--muted); display:block; margin-top:2px; font-weight:400; }
+  .small { margin:8px 0 0; max-width:78ch; }
+  .bar { display:block; height:3px; border-radius:2px; background:var(--accent); margin-top:4px; opacity:0.75; }
+  .chip { display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:6px; vertical-align:-1px; }
+  #tip { position:fixed; z-index:50; pointer-events:none; background:var(--text); color:var(--bg); font-size:0.76rem; padding:6px 9px; border-radius:6px; max-width:260px; opacity:0; transition:opacity .08s; line-height:1.35; }
+  .src { columns:2; column-gap:28px; font-size:0.8rem; padding-left:18px; }
+  @media (max-width:640px) { .src { columns:1; } }
+  .src li { margin-bottom:5px; break-inside:avoid; }
+  a { color:var(--accent); }
+  text { fill:var(--text-2); font-family:"IBM Plex Sans",sans-serif; }
+  .mono { font-family:"IBM Plex Mono"; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Cryptic Pocket Benchmark</h1>
+    <p class="sub">TDA-EGNN compared with the other cryptic binding-site predictors I could find, grouped by how fairly each comparison can be made.</p>
+  </header>
+
+  <div class="verdict">
+    <h2>Bottom line</h2>
+    <ul>
+      <li><b>Strictly cryptic proteins</b> (the one comparison run under a single protocol): per-protein AUC is 0.627, level with P2Rank (0.608) and with the benchmark authors&rsquo; own model (0.643), and above the ESM-based and cavity-feature models. The clear gap is at the top of the list: 0.209 precision in the top 20 residues against P2Rank&rsquo;s 0.084.</li>
+      <li><b>Whole CryptoBench test set:</b> AUC 0.911&ndash;0.918 is the highest I found published, MCC 0.466&ndash;0.470 is level with Seq2Pocket (0.460&ndash;0.473), and AUPRC 0.431&ndash;0.448 is below Seq2Pocket&rsquo;s 0.475, which was measured on a set with a higher share of pocket residues.</li>
+      <li><b>Averaged per protein</b> instead of pooled: AUC 0.863 against 0.816 (UniPocket) and 0.799 (ACF).</li>
+      <li><b>Not claimed:</b> that this is the best method on cryptic sites. There are only 16 matched proteins, the AUC intervals span about 0.3, and differences among the top three are within noise. Every number outside the first section comes from another paper&rsquo;s own setup.</li>
+    </ul>
+  </div>
+
+  <section id="s1">
+    <span class="tag same">Same proteins &middot; same metric &middot; scored here</span>
+    <h2>1. Strictly cryptic proteins</h2>
+    <p>CryptoBench test proteins whose pocket is absent in the unbound structure and present in the bound one, using the external benchmark&rsquo;s labels. Each model is scored per protein and averaged, on the 16 proteins that every model scored. Other models&rsquo; scores are recomputed from that benchmark&rsquo;s published per-protein tables.</p>
+    <div class="charts">
+      <div class="card full"><h3>Per-protein AUC on cryptic proteins, mean and 95% interval</h3><div id="ch-auc"></div></div>
+      <div class="card"><h3>Precision in the top 20 residues</h3><div id="ch-p20"></div></div>
+      <div class="card"><h3>Recall in the top 20 residues</h3><div id="ch-r20"></div></div>
+    </div>
+    <div class="tblwrap"><table id="t-cryptic"></table></div>
+    <p class="small" id="paired"></p>
+  </section>
+
+  <section id="s2">
+    <span class="tag diff">Same split &middot; slightly different subsets</span>
+    <h2>2. CryptoBench test split, pooled over residues</h2>
+    <p>The standard way CryptoBench results are reported. Each paper filters the test set a little differently, so differences of a few hundredths are not decisive.</p>
+    <div class="tblwrap"><table id="t-pooled"></table></div>
+    <p class="small">AUPRC rises with the share of positive residues, so rows with a higher positive rate are favoured on that column. F1 is omitted: the CryptoBench papers use a class-weighted F1 that is not comparable to a plain positive-class F1.</p>
+  </section>
+
+  <section id="s3">
+    <span class="tag diff">Different averaging</span>
+    <h2>3. CryptoBench test split, averaged per protein</h2>
+    <p>These papers average a metric over proteins instead of pooling residues, which rewards small proteins as much as large ones and gives lower AUCs. Your model was rescored this way for the first row.</p>
+    <div class="tblwrap"><table id="t-macro"></table></div>
+  </section>
+
+  <section id="s4">
+    <span class="tag diff">Different dataset</span>
+    <h2>4. PocketMiner&rsquo;s test set</h2>
+    <p>Labels here come from molecular-dynamics simulation, a different definition of &ldquo;cryptic&rdquo; than CryptoBench uses.</p>
+    <div class="tblwrap"><table id="t-pm"></table></div>
+  </section>
+
+  <section id="s5">
+    <h2>How to read these numbers</h2>
+    <p><b>AUC</b> is the chance that a real pocket residue is ranked above a non-pocket one (0.5 is guessing). <b>AUPRC</b> is stricter on rare positives. <b>MCC</b> scores the yes/no call (0 is guessing, 1 is perfect). <b>Precision@20</b> is the share of the model&rsquo;s 20 highest-ranked residues that are real pocket residues, the list a chemist would actually inspect.</p>
+    <p><b>Limits of this benchmark.</b> P2Rank&rsquo;s training data cannot be audited, so overlap with these proteins cannot be ruled out. Seq2Pocket, ACF and the cryptic-site benchmark are preprints, not peer reviewed. Older methods such as CryptoSite use different datasets and were not rescored. AE-PocketMiner reports beating PocketMiner but its numbers could not be read from the preprint.</p>
+    <h2 style="margin-top:18px">Sources</h2>
+    <ul class="src" id="src"></ul>
+    <p class="small">Scoring code and the transcribed numbers are in the project repository under cryptic-pocket/benchmark.</p>
+  </section>
+</div>
+<div id="tip"></div>
+
+<script>
+(function () {
+  "use strict";
+  var D = {"cryptic": {"n": 16, "proteins": ["A0A247D6Y2", "C6F3U5", "I6WU39", "O53872", "O75530", "P08427", "P10121", "P12004", "P18031", "P23890", "P51649", "Q08499", "Q45697", "Q58F21", "Q9I1H0", "Q9Y3Z3"], "models": [{"model": "TDA-EGNN (this work)", "color": "c1", "role": "ours", "auc": 0.627, "ci": [0.475, 0.779], "p20": 0.209, "r20": 0.314, "hit10": 0.5, "hit20": 0.562}, {"model": "Benchmark authors\u2019 ESM-free model", "color": "c2", "role": "preprint; also uses every deposited X-ray structure of the protein", "auc": 0.643, "ci": [0.502, 0.771], "p20": 0.184, "r20": 0.295, "hit10": 0.562, "hit20": 0.688}, {"model": "P2Rank 2.5", "color": "c3", "role": "published tool", "auc": 0.608, "ci": [0.523, 0.688], "p20": 0.084, "r20": 0.127, "hit10": 0.312, "hit20": 0.438}, {"model": "ESM-based model (CryptoBench-style)", "color": "c4", "role": "benchmark authors\u2019 reimplementation", "auc": 0.528, "ci": [0.38, 0.676], "p20": 0.134, "r20": 0.197, "hit10": 0.375, "hit20": 0.438}, {"model": "Cavity-feature model", "color": "c5", "role": "benchmark authors\u2019 model", "auc": 0.503, "ci": [0.377, 0.633], "p20": 0.1, "r20": 0.151, "hit10": 0.25, "hit20": 0.312}], "preformed_ours": 0.938, "paired_vs_p2rank": {"p20": {"d": 0.125, "ci": [0.038, 0.222], "t": 0.02, "w": 0.022}, "r20": {"d": 0.187, "ci": [0.066, 0.315], "t": 0.013, "w": 0.017}, "auc": {"d": 0.019, "ci": [-0.103, 0.14], "t": 0.774, "w": 0.86}}, "paired_vs_authors": {"p20": {"d": 0.025, "ci": [-0.059, 0.122], "t": 0.611, "w": 0.789}, "auc": {"d": -0.016, "ci": [-0.143, 0.108], "t": 0.807, "w": 1.0}}}, "pooled": [{"m": "TDA-EGNN, cross-scale combiner (this work)", "set": "182 chains \u00b7 54,992 residues \u00b7 4.72% positive", "auc": 0.918, "pr": 0.448, "mcc": 0.47, "ours": true, "note": "8 seeds at each of 3 ESM2 scales; threshold tuned on validation"}, {"m": "TDA-EGNN, 3B transfer (this work)", "set": "182 chains \u00b7 54,992 residues \u00b7 4.72% positive", "auc": 0.911, "pr": 0.431, "mcc": 0.466, "ours": true, "note": "8-seed mean of single models"}, {"m": "Seq2Pocket (bioRxiv preprint, May 2026)", "set": "184 chains \u00b7 55,572 residues \u00b7 5.68% positive", "auc": 0.894, "pr": 0.475, "mcc": 0.46, "note": "MCC 0.473 without its smoothing step. Higher positive rate lifts AUPRC, so its AUPRC is not directly comparable", "src": "seq2pocket"}, {"m": "CryptoBench model, re-evaluated by Seq2Pocket", "set": "same 184 chains", "auc": 0.871, "pr": 0.382, "mcc": 0.395, "note": "the CryptoBench baseline as scored in Seq2Pocket\u2019s own evaluation", "src": "seq2pocket"}, {"m": "CryptoBench model, as published (CB-full)", "set": "CryptoBench full test split", "auc": 0.86, "pr": 0.36, "mcc": 0.39, "note": "ESM2-3B + neural network", "src": "cryptobench"}, {"m": "P2Rank on apo structures (CB-P2RANK-apo)", "set": "single-chain apo subset", "auc": 0.81, "pr": 0.21, "mcc": 0.27, "note": "general pocket tool, not cryptic-specific", "src": "cryptobench"}, {"m": "PocketMiner (CB-PM)", "set": "subset; 60 structures could not be scored", "auc": 0.76, "pr": 0.19, "mcc": 0.22, "note": "structure-based cryptic-site model", "src": "cryptobench"}, {"m": "P2Rank on holo structures (CB-P2RANK-holo)", "set": "ligand-bound structures", "auc": 0.89, "pr": 0.34, "mcc": 0.38, "note": "uses the bound structure, so not an apo prediction; shown for reference", "src": "cryptobench"}], "macro": [{"m": "TDA-EGNN (this work)", "set": "182 proteins", "auc": 0.862637173775891, "pr": 0.48902838632153073, "mcc": 0.41113203834133855, "f1": 0.4249283382197139, "ours": true, "note": "threshold tuned on validation"}, {"m": "UniPocket (ACM-BCB 2026)", "set": "193 proteins", "auc": 0.816, "pr": 0.41, "mcc": null, "f1": null, "note": "AUC re-confirmed as macro-averaged; AUPRC as cited in the paper draft", "src": "unipocket"}, {"m": "Algebraic Counting Field (arXiv, Oct 2026)", "set": "192 units", "auc": 0.799, "pr": 0.376, "mcc": 0.304, "f1": 0.333, "note": "per-unit average; accepted to PSB 2027", "src": "acf"}, {"m": "P2Rank 2.5, same protocol as above", "set": "192 units", "auc": 0.793, "pr": 0.358, "mcc": 0.285, "f1": 0.302, "note": "reported in the same paper", "src": "acf"}], "pocketminer": [{"m": "PocketMiner", "set": "its own test set, 35 proteins", "auc": "0.87", "pr": "\u2014", "note": "value as reported in its paper"}, {"m": "TDA-EGNN (this work)", "set": "same set, 34 usable proteins, pooled", "auc": "0.925", "pr": "0.897", "ours": true, "note": "0.920 on the 6 proteins with no relative in training data"}, {"m": "ProMoSite", "set": "19-pair filtered subset only", "auc": "0.91", "pr": "0.84", "note": "different subset, so not comparable", "src": "promosite"}, {"m": "AE-PocketMiner (bioRxiv, May 2026)", "set": "PocketMiner test set", "auc": "not retrieved", "pr": "not retrieved", "note": "reported to beat PocketMiner; the numbers could not be read from the preprint", "src": "aepm"}], "sources": {"cryptobench": ["CryptoBench, Bioinformatics 2025 (Table 5; GitHub README)", "https://github.com/skrhakv/CryptoBench/"], "seq2pocket": ["Seq2Pocket, bioRxiv 2026 (Tables 1\u20133)", "https://www.biorxiv.org/content/10.64898/2026.01.28.702257v2"], "crypticity": ["A benchmark selected for crypticity (preprint + results/ tables)", "https://github.com/pmfran4252-afk/cryptic-site-benchmark"], "unipocket": ["UniPocket, ACM-BCB 2026", "https://doi.org/10.1145/3807503.3819482"], "acf": ["Algebraic Counting Field, arXiv:2610.00988", "https://arxiv.org/abs/2610.00988"], "promosite": ["ProMoSite (PMC)", "https://pmc.ncbi.nlm.nih.gov/articles/PMC13371367/"], "aepm": ["AE-PocketMiner, bioRxiv 2026", "https://www.biorxiv.org/content/10.64898/2026.05.21.726899v1"], "pocketminer": ["PocketMiner, Nat. Commun. 2023", "https://doi.org/10.1038/s41467-023-36699-3"]}};
+  var C = D.cryptic, tip = document.getElementById("tip");
+  function f3(x) { return x.toFixed(3); }
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+  // ---------- tooltip ----------
+  function bindTip(el, html) {
+    el.addEventListener("mousemove", function (e) { tip.innerHTML = html; tip.style.opacity = 1; tip.style.left = Math.min(window.innerWidth - 270, e.clientX + 14) + "px"; tip.style.top = (e.clientY + 14) + "px"; });
+    el.addEventListener("mouseleave", function () { tip.style.opacity = 0; });
+  }
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, attrs, parent) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+  function wrap(label, n) {
+    var w = label.split(" "), lines = [""], i;
+    for (i = 0; i < w.length; i++) { var cur = lines[lines.length - 1]; if ((cur + " " + w[i]).trim().length > n && cur) lines.push(w[i]); else lines[lines.length - 1] = (cur + " " + w[i]).trim(); }
+    return lines.slice(0, 3);
+  }
+  function frame(host, rows, rowH, top, bottom) {
+    var w = host.clientWidth || 600, L = w < 520 ? 128 : 220, R = 58;
+    var h = top + rows * rowH + bottom;
+    host.innerHTML = "";
+    var svg = mk("svg", { viewBox: "0 0 " + w + " " + h, height: h }, host);
+    return { svg: svg, w: w, h: h, L: L, R: R, top: top, rowH: rowH, chars: w < 520 ? 17 : 32 };
+  }
+  function rowLabel(g, F, i, m) {
+    var y = F.top + i * F.rowH + F.rowH / 2, lines = wrap(m.model, F.chars);
+    var t = mk("text", { x: F.L - 12, y: y - (lines.length - 1) * 6 + 4, "text-anchor": "end", "font-size": 12.5 }, g);
+    lines.forEach(function (ln, k) { var s = mk("tspan", { x: F.L - 12, dy: k ? 13 : 0 }, t); s.textContent = ln; });
+    mk("rect", { x: 0, y: y - 5, width: 0, height: 0 }, g);
+    return y;
+  }
+
+  // ---------- chart 1: dot + whisker ----------
+  function drawAUC() {
+    var host = document.getElementById("ch-auc"), rows = C.models.length;
+    var F = frame(host, rows, 46, 26, 26), lo = 0.30, hi = 0.90;
+    function X(v) { return F.L + (v - lo) / (hi - lo) * (F.w - F.L - F.R); }
+    var g = mk("g", {}, F.svg), v;
+    for (v = 0.3; v <= 0.9001; v += 0.1) {
+      mk("line", { x1: X(v), x2: X(v), y1: F.top - 6, y2: F.h - 22, stroke: "var(--grid)" }, g);
+      var tx = mk("text", { x: X(v), y: F.h - 6, "text-anchor": "middle", "font-size": 11 }, g); tx.textContent = v.toFixed(1);
+    }
+    mk("line", { x1: X(0.5), x2: X(0.5), y1: F.top - 6, y2: F.h - 22, stroke: "var(--muted)", "stroke-dasharray": "4 3" }, g);
+    var ct = mk("text", { x: X(0.5), y: 12, "text-anchor": "middle", "font-size": 10.5 }, g); ct.textContent = "chance";
+    C.models.forEach(function (m, i) {
+      var y = rowLabel(g, F, i, m), col = "var(--" + m.color + ")";
+      mk("line", { x1: X(m.ci[0]), x2: X(m.ci[1]), y1: y, y2: y, stroke: col, "stroke-width": 2, "stroke-linecap": "round" }, g);
+      mk("line", { x1: X(m.ci[0]), x2: X(m.ci[0]), y1: y - 5, y2: y + 5, stroke: col, "stroke-width": 2 }, g);
+      mk("line", { x1: X(m.ci[1]), x2: X(m.ci[1]), y1: y - 5, y2: y + 5, stroke: col, "stroke-width": 2 }, g);
+      mk("circle", { cx: X(m.auc), cy: y, r: 6, fill: col, stroke: "var(--surface)", "stroke-width": 2 }, g);
+      var vt = mk("text", { x: X(m.ci[1]) + 9, y: y + 4, "font-size": 12, "font-weight": 600 }, g); vt.style.fill = "var(--text)"; vt.textContent = f3(m.auc);
+      var hit = mk("rect", { x: 0, y: y - F.rowH / 2, width: F.w, height: F.rowH, fill: "transparent" }, g);
+      bindTip(hit, "<b>" + esc(m.model) + "</b><br>AUC " + f3(m.auc) + " (95% interval " + f3(m.ci[0]) + " to " + f3(m.ci[1]) + ")<br>" + esc(m.role));
+    });
+  }
+
+  // ---------- charts 2/3: bars ----------
+  function drawBars(id, key, label, max) {
+    var host = document.getElementById(id), rows = C.models.length;
+    var F = frame(host, rows, 40, 6, 24);
+    var g = mk("g", {}, F.svg);
+    function X(v) { return F.L + v / max * (F.w - F.L - F.R); }
+    [0, max / 2, max].forEach(function (v) {
+      mk("line", { x1: X(v), x2: X(v), y1: 2, y2: F.h - 22, stroke: "var(--grid)" }, g);
+      var t = mk("text", { x: X(v), y: F.h - 6, "text-anchor": "middle", "font-size": 11 }, g); t.textContent = v.toFixed(2);
+    });
+    C.models.forEach(function (m, i) {
+      var y = rowLabel(g, F, i, m), col = "var(--" + m.color + ")", x1 = X(m[key]);
+      mk("rect", { x: F.L, y: y - 9, width: Math.max(2, x1 - F.L), height: 18, rx: 3, fill: col }, g);
+      var vt = mk("text", { x: x1 + 7, y: y + 4, "font-size": 12, "font-weight": 600 }, g); vt.style.fill = "var(--text)"; vt.textContent = f3(m[key]);
+      var hit = mk("rect", { x: 0, y: y - 20, width: F.w, height: 40, fill: "transparent" }, g);
+      bindTip(hit, "<b>" + esc(m.model) + "</b><br>" + label + " " + f3(m[key]) + "<br>at least one true residue in top 10: " + Math.round(m.hit10 * 100) + "%, in top 20: " + Math.round(m.hit20 * 100) + "%");
+    });
+  }
+
+  // ---------- tables ----------
+  function table(id, head, rows) {
+    var h = "<thead><tr>" + head.map(function (c, i) { return "<th" + (c.n ? ' class="n"' : "") + ">" + c.t + "</th>"; }).join("") + "</tr></thead><tbody>";
+    rows.forEach(function (r) { h += '<tr class="' + (r.ours ? "ours" : "") + '">' + r.cells.map(function (c, i) { return "<td" + (head[i].n ? ' class="n"' : "") + ">" + c + "</td>"; }).join("") + "</tr>"; });
+    document.getElementById(id).innerHTML = h + "</tbody>";
+  }
+  function src(k) { var s = D.sources[k]; return s ? ' <a href="' + s[1] + '" target="_blank" rel="noopener">source</a>' : ""; }
+  function name(m, note, k) { return esc(m) + '<span class="note">' + note + (k ? src(k) : "") + "</span>"; }
+  function bar(v) { return '<span class="bar" style="width:' + Math.round(Math.max(0, (v - 0.7) / 0.25) * 100) + '%"></span>'; }
+
+  table("t-cryptic", [{ t: "Model" }, { t: "AUC", n: 1 }, { t: "95% interval", n: 1 }, { t: "Precision@20", n: 1 }, { t: "Recall@20", n: 1 }, { t: "Hit in top 10", n: 1 }, { t: "Hit in top 20", n: 1 }],
+    C.models.map(function (m) { return { ours: m.color === "c1", cells: ['<span class="chip" style="background:var(--' + m.color + ')"></span>' + esc(m.model) + '<span class="note">' + esc(m.role) + "</span>", f3(m.auc), f3(m.ci[0]) + " &ndash; " + f3(m.ci[1]), f3(m.p20), f3(m.r20), Math.round(m.hit10 * 100) + "%", Math.round(m.hit20 * 100) + "%"] }; }));
+  var P = C.paired_vs_p2rank, A = C.paired_vs_authors;
+  document.getElementById("paired").innerHTML = "Paired over the same 16 proteins, TDA-EGNN against P2Rank: precision@20 +" + P.p20.d.toFixed(3) + " (95% interval +" + P.p20.ci[0].toFixed(3) + " to +" + P.p20.ci[1].toFixed(3) + ", paired t-test p=" + P.p20.t.toFixed(3) + ", Wilcoxon p=" + P.p20.w.toFixed(3) + "); AUC +" + P.auc.d.toFixed(3) + " (interval " + P.auc.ci[0].toFixed(3) + " to +" + P.auc.ci[1].toFixed(3) + ", p=" + P.auc.t.toFixed(2) + ", not significant). Against the benchmark authors&rsquo; model nothing separates (precision@20 +" + A.p20.d.toFixed(3) + ", p=" + A.p20.t.toFixed(2) + "; AUC " + A.auc.d.toFixed(3) + ", p=" + A.auc.t.toFixed(2) + "). On the 111 pre-formed proteins the same per-protein AUC is " + C.preformed_ours.toFixed(3) + " for TDA-EGNN against 0.835 for P2Rank and 0.884&ndash;0.919 for the others in the benchmark paper.";
+
+  table("t-pooled", [{ t: "Method" }, { t: "Test set" }, { t: "AUC", n: 1 }, { t: "AUPRC", n: 1 }, { t: "MCC", n: 1 }],
+    D.pooled.map(function (r) { return { ours: r.ours, cells: [name(r.m, esc(r.note), r.src), esc(r.set), f3(r.auc) + bar(r.auc), f3(r.pr), f3(r.mcc)] }; }));
+  function d3(x) { return x === null || x === undefined ? "&mdash;" : f3(x); }
+  table("t-macro", [{ t: "Method" }, { t: "Evaluated on" }, { t: "AUC", n: 1 }, { t: "AUPRC", n: 1 }, { t: "MCC", n: 1 }, { t: "F1", n: 1 }],
+    D.macro.map(function (r) { return { ours: r.ours, cells: [name(r.m, esc(r.note), r.src), esc(r.set), f3(r.auc), f3(r.pr), d3(r.mcc), d3(r.f1)] }; }));
+  table("t-pm", [{ t: "Method" }, { t: "Evaluated on" }, { t: "ROC-AUC", n: 1 }, { t: "PR-AUC", n: 1 }],
+    D.pocketminer.map(function (r) { return { ours: r.ours, cells: [name(r.m, esc(r.note), r.src), esc(r.set), r.auc, r.pr] }; }));
+  document.getElementById("src").innerHTML = Object.keys(D.sources).map(function (k) { var s = D.sources[k]; return '<li><a href="' + s[1] + '" target="_blank" rel="noopener">' + esc(s[0]) + "</a></li>"; }).join("");
+
+  function draw() { drawAUC(); drawBars("ch-p20", "p20", "Precision@20", 0.30); drawBars("ch-r20", "r20", "Recall@20", 0.40); }
+  draw();
+  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(draw, 120); });
+})();
+</script>

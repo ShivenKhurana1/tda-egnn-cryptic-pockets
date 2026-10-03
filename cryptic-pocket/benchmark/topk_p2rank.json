@@ -1,0 +1,172 @@
+[
+ {
+  "success@10": 0.0,
+  "precision@10": 0.0,
+  "success@20": 1.0,
+  "precision@20": 0.1,
+  "recall@20": 0.2,
+  "first_hit_rank": 17.0,
+  "auc": 0.7346689895470383,
+  "gid": "P18031"
+ },
+ {
+  "success@10": 0.0,
+  "precision@10": 0.0,
+  "success@20": 1.0,
+  "precision@20": 0.05,
+  "recall@20": 0.5,
+  "first_hit_rank": 19.0,
+  "auc": 0.7541666666666667,
+  "gid": "P09889"
+ },
+ {
+  "success@10": 0.0,
+  "precision@10": 0.0,
+  "success@20": 1.0,
+  "precision@20": 0.05,
+  "recall@20": 0.08333333333333333,
+  "first_hit_rank": 16.0,
+  "auc": 0.6143617021276596,
+  "gid": "Q58F21"
+ },
+ {
+  "success@10": 1.0,
+  "precision@10": 0.1,
+  "success@20": 1.0,
+  "precision@20": 0.15,
+  "recall@20": 0.2727272727272727,
+  "first_hit_rank": 5.0,
+  "auc": 0.7501453770110487,
+  "gid": "P51649"
+ },
+ {
+  "success@10": 0.0,
+  "precision@10": 0.0,
+  "success@20": 0.0,
+  "precision@20": 0.0,
+  "recall@20": 0.0,
+  "first_hit_rank": 25.0,
+  "auc": 0.5969020172910663,
+  "gid": "O75530"
+ },
+ {
+  "success@10": 0.0,
+  "precision@10": 0.0,
+  "success@20": 0.0,
+  "precision@20": 0.0,
+  "recall@20": 0.0,
+  "first_hit_rank": 114.0,
+  "auc": 0.2540880503144654,
+  "gid": "P23890"
+ },
+ {
+  "success@10": 1.0,
+  "precision@10": 0.2,
+  "success@20": 1.0,
+  "precision@20": 0.15,
+  "recall@20": 0.3,
+  "first_hit_rank": 2.0,
+  "auc": 0.6983870967741935,
+  "gid": "C6F3U5"
+ },
+ {
+  "success@10": 0.0,
+  "precision@10": 0.0,
+  "success@20": 0.0,
+  "precision@20": 0.0,
+  "recall@20": 0.0,
+  "first_hit_rank": 25.0,
+  "auc": 0.5734989648033126,
+  "gid": "P08427"
+ },
+ {
+  "success@10": 1.0,
+  "precision@10": 0.6,
+  "success@20": 1.0,
+  "precision@20": 0.3,
+  "recall@20": 0.46153846153846156,
+  "first_hit_rank": 2.0,
+  "auc": 0.7578191039729502,
+  "gid": "I6WU39"
+ },
+ {
+  "success@10": 0.0,
+  "precision@10": 0.0,
+  "success@20": 0.0,
+  "precision@20": 0.0,
+  "recall@20": 0.0,
+  "first_hit_rank": 53.0,
+  "auc": 0.4215099715099715,
+  "gid": "P12004"
+ },
+ {
+  "success@10": 1.0,
+  "precision@10": 0.6,
+  "success@20": 1.0,
+  "precision@20": 0.4,
+  "recall@20": 0.5,
+  "first_hit_rank": 1.0,
+  "auc": 0.7107263513513513,
+  "gid": "A0A247D6Y2"
+ },
+ {
+  "success@10": 0.0,
+  "precision@10": 0.0,
+  "success@20": 0.0,
+  "precision@20": 0.0,
+  "recall@20": 0.0,
+  "first_hit_rank": 29.0,
+  "auc": 0.640926640926641,
+  "gid": "Q45697"
+ },
+ {
+  "success@10": 1.0,
+  "precision@10": 0.1,
+  "success@20": 1.0,
+  "precision@20": 0.2,
+  "recall@20": 0.2222222222222222,
+  "first_hit_rank": 10.0,
+  "auc": 0.9157832744405182,
+  "gid": "P10121"
+ },
+ {
+  "success@10": 0.0,
+  "precision@10": 0.0,
+  "success@20": 0.0,
+  "precision@20": 0.0,
+  "recall@20": 0.0,
+  "first_hit_rank": 128.0,
+  "auc": 0.5955263157894737,
+  "gid": "Q9Y3Z3"
+ },
+ {
+  "success@10": 0.0,
+  "precision@10": 0.0,
+  "success@20": 0.0,
+  "precision@20": 0.0,
+  "recall@20": 0.0,
+  "first_hit_rank": 123.0,
+  "auc": 0.3444846292947559,
+  "gid": "Q08499"
+ },
+ {
+  "success@10": 0.0,
+  "precision@10": 0.0,
+  "success@20": 0.0,
+  "precision@20": 0.0,
+  "recall@20": 0.0,
+  "first_hit_rank": 309.0,
+  "auc": 0.4135546334716459,
+  "gid": "O53872"
+ },
+ {
+  "success@10": 0.0,
+  "precision@10": 0.0,
+  "success@20": 0.0,
+  "precision@20": 0.0,
+  "recall@20": 0.0,
+  "first_hit_rank": 57.0,
+  "auc": 0.6982590158109788,
+  "gid": "Q9I1H0"
+ }
+]

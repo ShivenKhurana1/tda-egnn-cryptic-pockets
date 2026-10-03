@@ -1,0 +1,87 @@
+{
+ "common": [
+  "A0A247D6Y2",
+  "C6F3U5",
+  "I6WU39",
+  "O53872",
+  "O75530",
+  "P08427",
+  "P10121",
+  "P12004",
+  "P18031",
+  "P23890",
+  "P51649",
+  "Q08499",
+  "Q45697",
+  "Q58F21",
+  "Q9I1H0",
+  "Q9Y3Z3"
+ ],
+ "rows": [
+  {
+   "model": "this work (TDA-EGNN, 3B transfer)",
+   "n": 16,
+   "auc": 0.627,
+   "auc_ci": [
+    0.475,
+    0.779
+   ],
+   "precision@20": 0.209,
+   "recall@20": 0.314,
+   "success@10": 0.5,
+   "success@20": 0.562
+  },
+  {
+   "model": "interpretable (cavity)",
+   "n": 16,
+   "auc": 0.503,
+   "auc_ci": [
+    0.377,
+    0.633
+   ],
+   "precision@20": 0.1,
+   "recall@20": 0.151,
+   "success@10": 0.25,
+   "success@20": 0.312
+  },
+  {
+   "model": "ESM-based",
+   "n": 16,
+   "auc": 0.528,
+   "auc_ci": [
+    0.38,
+    0.676
+   ],
+   "precision@20": 0.134,
+   "recall@20": 0.197,
+   "success@10": 0.375,
+   "success@20": 0.438
+  },
+  {
+   "model": "this work (ESM-free)",
+   "n": 16,
+   "auc": 0.643,
+   "auc_ci": [
+    0.502,
+    0.771
+   ],
+   "precision@20": 0.184,
+   "recall@20": 0.295,
+   "success@10": 0.562,
+   "success@20": 0.688
+  },
+  {
+   "model": "P2Rank 2.5",
+   "n": 16,
+   "auc": 0.608,
+   "auc_ci": [
+    0.523,
+    0.688
+   ],
+   "precision@20": 0.084,
+   "recall@20": 0.127,
+   "success@10": 0.312,
+   "success@20": 0.438
+  }
+ ]
+}

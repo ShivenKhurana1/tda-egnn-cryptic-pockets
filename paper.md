@@ -45,15 +45,16 @@ measurement noise from the training hardware.
 
 A trained localization head (predicting a pocket's 3D center as a
 differentiable weighted centroid rather than a post-hoc heuristic) beat a
-live, current run of the standard tool P2Rank on COACH420 (DCC@4Å +0.072)
+live, current run of the standard tool P2Rank on COACH420 (DCC4Å +0.072)
 and reached approximate statistical parity with it on HOLO4K. On
 CryptoBench's cryptic-pocket benchmark, the same architecture, extended
 across three ESM2 embedding scales and strengthened by transfer learning
 from the main pipeline (paired t=3.97, p=0.0054, confirmed against five
 independent pretrained checkpoints) and a regularized logistic-regression
 cross-scale combiner, reaches AUC 0.918 and Matthews correlation coefficient
-(MCC) 0.470 — matching or exceeding the CryptoBench authors' own published
-state of the art (AUC 0.87, MCC 0.42). Transfer learning, not the feature
+(MCC) 0.470 — above the CryptoBench authors' own published model (AUC 0.86, MCC 0.39 on the full test split) and, against the strongest
+later preprint we found (Seq2Pocket, AUC 0.894, AUPRC 0.475, MCC 0.460–0.473 on a slightly different subset), higher in AUC,
+lower in AUPRC and level in MCC. Transfer learning, not the feature
 set, is the confirmed driver of this result (+0.058 PR-AUC over training
 from scratch, 8/8 seeds), and it survives a homology audit that removed
 every pretraining-pool chain related to a CryptoBench test protein
@@ -107,7 +108,7 @@ inconclusive result (the MD pilot's own single most standard metric,
 Cα-RMSF, landed at exactly chance, AUC 0.500, though on only 8 of 17
 planned proteins before a platform time limit ended the run; the stronger
 crypticity-proxy up-weighting arm significantly hurt pooled performance,
-PR-AUC -0.021, DCC@4 -0.039, while leaving the true-cryptic subset itself
+PR-AUC -0.021, DCC4 -0.039, while leaving the true-cryptic subset itself
 unmoved) — consistent with this ceiling reflecting a real information
 limit of a single static structure rather than a fixable modeling gap.
 Separately, and unlike every
@@ -487,7 +488,7 @@ test PR-AUC from 0.348 to 0.369 (+0.021; 7 of 8 seeds; t p=0.041, Wilcoxon
 p=0.078, so not confirmed) and ROC-AUC from 0.872 to 0.881 (p=0.028 / 0.039),
 and adding topology on top of geometry gave nothing (PR-AUC -0.005, p=0.21 /
 0.20). Topology alone did not improve PR-AUC over no topology (+0.002).
-Geometry did not improve pocket-center accuracy (DCC@4 Å 0.217 vs. 0.219).
+Geometry did not improve pocket-center accuracy (DCC4 Å 0.217 vs. 0.219).
 These from-scratch 3B models (ensemble ROC-AUC 0.891-0.895) remain below the
 transfer-learned 3B model reported earlier (0.911), so the geometry gain
 here is a modest addition to a weaker starting point, not a new best result.
@@ -519,10 +520,10 @@ which we do not over-read (47 chains, one subset). We then removed the
 or test chain and repeated the whole transfer (retrained 3B checkpoints on the
 remaining 7,004 chains, 8 seeds, topology-only arm). On all 182 test chains,
 now homology-clean relative to pretraining, clean-pool transfer scored PR-AUC
-0.408, ROC-AUC 0.896, MCC 0.437 and DCC@4 Å 0.298 per seed (8-seed ensemble ROC-AUC
-0.911, DCC@4 Å 0.357), which is statistically the same as the leaky-pool
+0.408, ROC-AUC 0.896, MCC 0.437 and DCC4 Å 0.298 per seed (8-seed ensemble ROC-AUC
+0.911, DCC4 Å 0.357), which is statistically the same as the leaky-pool
 transfer (PR-AUC +0.001, p=0.86; ROC-AUC -0.004, p=0.16) and still beats
-from-scratch training by +0.059 PR-AUC, +0.017 ROC-AUC and +0.061 DCC@4 Å (8 of 8
+from-scratch training by +0.059 PR-AUC, +0.017 ROC-AUC and +0.061 DCC4 Å (8 of 8
 seeds each, Wilcoxon p=0.0078). Transfer learning's gain is therefore not a
 homology artifact. (The 0.911 figure in the table below is the earlier,
 leaky-pool ensemble; the clean-pool ensemble gives the same 0.911.) The
@@ -593,9 +594,9 @@ explicitly negative or null findings:
   beta 1.0/max 6, applied to the residue and centre terms; 8 seeds each,
   fine-tuned from the same homology-clean 3B checkpoints as the unweighted
   baseline) did not help: small-pocket ROC-AUC +0.002 (p=0.55) and +0.006
-  (p=0.14), small-pocket DCC@4 Å -0.013 and -0.005. The stronger weighting
+  (p=0.14), small-pocket DCC4 Å -0.013 and -0.005. The stronger weighting
   slightly hurt overall performance (pooled PR-AUC -0.008, p=0.002 / Wilcoxon
-  0.008; DCC@4 Å -0.024, p=0.004). The small-pocket gap therefore does not
+  0.008; DCC4 Å -0.024, p=0.004). The small-pocket gap therefore does not
   come from loss imbalance; with 8 or fewer positive residues there is little
   signal for the model to learn from, and a different kind of information
   (not a re-weighting) would be needed.
@@ -681,7 +682,7 @@ same 2,055-chain pool and scoring on the same 1,149-unit COACH420/HOLO4K
 benchmark with the 17-feature geometry block used for classification
 (identical 51-wide side channel across arms, 8 seeds each), geometry again
 outperforms topology alone: geometry minus topology is **+0.0305 pooled
-DCC@4Å** (7/8 seeds, paired t p=0.0075, Wilcoxon p=0.016), and geometry
+DCC4Å** (7/8 seeds, paired t p=0.0075, Wilcoxon p=0.016), and geometry
 minus no-topology is +0.0855 (8/8 seeds, p=2.2e-5/0.0078) — both larger
 than topology's own +0.0549-over-no-topology gain in this rerun (8/8
 seeds, p=1.6e-4/0.0078, closely replicating the +0.0528 figure above). The
@@ -714,7 +715,7 @@ on the corresponding 2,055-chain training blob.
 | 650M | 0.4790 | 0.5016 | 0.5385 | 0.5591 |
 | 3B | 0.4709 | 0.5164 | 0.5418 | 0.5412 |
 
-(pooled DCC@4Å, mean of 8 single-seed models; seed-to-seed standard
+(pooled DCC4Å, mean of 8 single-seed models; seed-to-seed standard
 deviation is 0.013–0.025.) The picture does **not** repeat
 classification's:
 
@@ -749,7 +750,7 @@ same COACH420-clean training list as the original round-3 runs (recovered
 exactly: 332 excluded, 7,181 kept, 7,178 with a recoverable ligand
 center), 4 arms x 8 seeds trained on 6,604 chains (574 held out for early
 stopping), and scoring on the full COACH420 benchmark (420 structures, 413
-with a ligand). Pooled DCC@4Å:
+with a ligand). Pooled DCC4Å:
 
 | Arm | Mean of 8 single models | 8-model ensemble |
 |---|---|---|
@@ -839,11 +840,12 @@ a trained equivariant localization head for cryptic pockets, evaluated on
 CryptoBench's official 182-chain test fold (54,992 residues, 4.72%
 cryptic-pocket positive rate):
 
-| Model | Seeds | AUC | AUPRC | MCC | F1 | DCC@4Å |
+| Model | Seeds | AUC | AUPRC | MCC | F1 | DCC4Å |
 |---|---|---|---|---|---|---|
 | PocketMiner (literature) | — | 0.76 | 0.19 | 0.22 | 0.78* | — |
 | P2Rank-apo (literature) | — | 0.81 | 0.21 | — | 0.81* | — |
-| CryptoBench SOTA (ESM2-3B + shallow NN, literature) | — | 0.87 | 0.40 | 0.42 | — | — |
+| CryptoBench model as published (ESM2-3B + NN, full test split, literature) | — | 0.86 | 0.36 | 0.39 | — | — |
+| Seq2Pocket (bioRxiv, May 2026, literature)‡ | — | 0.894 | 0.475 | 0.460 | — | — |
 | UniPocket (2026, literature)† | — | 0.816 | 0.410 | — | — | — |
 | **Ours, 35M-scratch** | 3 | 0.8665 | 0.3245 | 0.3620 | 0.3933 | 0.2088 |
 | **Ours, 650M-scratch** | 8 | 0.8873 | 0.3627 | 0.3986 | 0.4264 | 0.2088 |
@@ -858,7 +860,7 @@ cryptic-pocket positive rate):
 
 ![Distribution of per-protein ROC-AUC for the headline 3B-transfer ensemble across all 182 scorable test proteins.](cryptic-pocket/figures/fig_per_protein_dist.png)
 
-*Figure 6. Pooled metrics describe the model's performance on average; this shows the full per-protein spread. Most test proteins are discriminated nearly perfectly (the right-hand peak near 1.0), but a real minority score poorly — the pooled numbers above are not uniform across every protein, and the lower tail here is concentrated in exactly the genuinely cryptic chains the external audit and Figures 3–4 identify.*
+*Figure 3. Pooled metrics describe the model's performance on average; this shows the full per-protein spread. Most test proteins are discriminated nearly perfectly (the right-hand peak near 1.0), but a real minority score poorly — the pooled numbers above are not uniform across every protein, and the lower tail here is concentrated in exactly the genuinely cryptic chains the external audit and Figures 5–6 identify.*
 
 †UniPocket (Zhao, Zhai, and Shen, ACM-BCB 2026) is the most recent
 published baseline we found on this exact benchmark: a multitask
@@ -876,6 +878,12 @@ implying a cleaner comparison than actually exists. CryptoBench's own
 paper does not explicitly state which convention its own reported
 baselines (PocketMiner, P2Rank-apo, its ESM2-3B model) use either, so the
 same caveat applies there with lower confidence.
+
+‡Seq2Pocket (Škrhák et al., bioRxiv, May 2026; not peer reviewed) builds on the CryptoBench model and reports residue-level
+metrics pooled over 184 single-chain apo test structures (55,572 residues, 5.68% positive; ours: 182 chains, 54,992 residues,
+4.72% positive). Because AUPRC rises with the positive rate, its 0.475 is not directly comparable with our 0.431–0.448. An earlier
+version of this table cited the CryptoBench model as AUC 0.87 / AUPRC 0.40 / MCC 0.42; that does not match any row of the published
+Table 5 (full test split 0.86 / 0.36 / 0.39; the same baseline re-scored on Seq2Pocket's subset 0.871 / 0.382 / 0.395), and is corrected here.
 
 The two from-scratch baselines still reported at 3 seeds (35M and 3B)
 were run early, before the 8-seed discipline was adopted for the
@@ -1044,7 +1052,7 @@ from clearly confirmed to a clean null, reported honestly in each case):
   Wilcoxon p=0.625, Cohen's d=0.266, a small effect). On the held-out
   TEST set, classification improved modestly and consistently with the
   validation signal (AUC 0.9124 vs. 0.9111, MCC 0.4717 vs. 0.4664,
-  AUPRC 0.4285, F1 0.4965), but DCC@4Å was **0.3077, identical to the
+  AUPRC 0.4285, F1 0.4965), but DCC4Å was **0.3077, identical to the
   baseline to four decimal places** — on the same 182 chains, 54,992
   residues, and 2,597 positive residues, so this is a genuine tie, not
   a rounding coincidence. We report this as a **null result on its own
@@ -1076,8 +1084,8 @@ from clearly confirmed to a clean null, reported honestly in each case):
   fact. Like top-K, this changes zero parameter shapes, so the same 8
   Phase 266b homology-clean checkpoints loaded unchanged and were
   fine-tuned 1:1 against the existing Phase 266c baseline (not rerun).
-  Result: **null on the target metric, again** — DCC@4Å fell slightly
-  (0.2981 to 0.2898, 3/8 seeds, t p=0.54/Wilcoxon p=0.50) and DCC@8Å rose
+  Result: **null on the target metric, again** — DCC4Å fell slightly
+  (0.2981 to 0.2898, 3/8 seeds, t p=0.54/Wilcoxon p=0.50) and DCC8Å rose
   slightly (0.5968 to 0.6051, 3/8 seeds, p=0.53/0.83), neither confirmed;
   mean center error was essentially unchanged (9.62 to 9.60 Å). We
   initially expected classification metrics to be unaffected, since the
@@ -1124,9 +1132,9 @@ from clearly confirmed to a clean null, reported honestly in each case):
   validation (182 vs. 60 chains) and correspondingly less noisy, shows a
   stronger and *confirmed* version of the same pattern: PR-AUC +0.0156
   (7/8 seeds, t p=0.003, Wilcoxon p=0.016) and ROC-AUC +0.0059 (7/8
-  seeds, t p=0.011, Wilcoxon p=0.016). MCC, DCC@4Å, and mean center error
+  seeds, t p=0.011, Wilcoxon p=0.016). MCC, DCC4Å, and mean center error
   all moved the same positive direction without individually clearing
-  significance (MCC +0.0064; DCC@4Å +0.0192; error −0.15 Å). We did not
+  significance (MCC +0.0064; DCC4Å +0.0192; error −0.15 Å). We did not
   chase additional seeds to force the validation metric past 0.05 — that
   would be the same p-hacking this project declined to do for the
   GNN-depth result — and report the honest, partial picture: a
@@ -1215,7 +1223,7 @@ we found (see Related Work: prior cryptic-pocket work either ranks
 candidate sites from simulation or characterizes pockets some other tool
 already located, rather than training a continuous 3D center predictor) —
 reached a
-DCC@4Å hit rate of 0.209–0.247 depending on embedding scale, with mean
+DCC4Å hit rate of 0.209–0.247 depending on embedding scale, with mean
 localization error around 9.6–10.4 Å. This is substantially worse than the
 50–65%-range hit rates on COACH420/HOLO4K's *open* pockets, which is the
 expected and coherent outcome: an apo structure has no cavity to anchor on,
@@ -1252,6 +1260,47 @@ PR-AUC and +0.08 ROC-AUC (73% and 84% of proteins, p<1e-15). An earlier
 +0.014 PR-AUC blending gain on a from-scratch ensemble (hard-split test set)
 therefore does not carry over to the stronger transfer model.
 
+### Comparison with other published cryptic-site methods
+
+We searched for every method that reports cryptic-site results we could compare against and sorted the comparisons by how fair each can be.
+Only one comparison runs under a single protocol: the external benchmark's results tables give per-protein AUC and top-20 content on
+CryptoBench's strictly cryptic test proteins for P2Rank 2.5, an ESM-based model, a cavity-feature model and the benchmark authors' own
+(unpublished) ESM-free model, which also uses every deposited X-ray structure of the protein. All 17 of its cryptic proteins match ours by UniProt
+accession; 16 lie in our 182-chain test split, so every model below is scored on the same 16, with their models' scores recomputed from
+their per-protein tables and 95% intervals from a 5,000-sample bootstrap over proteins.
+
+| Model (16 cryptic proteins) | Per-protein AUC [95% interval] | Precision20 | Recall20 | Hit in top 10 / top 20 |
+|---|---|---|---|---|
+| **TDA-EGNN (this work)** | 0.627 [0.475, 0.779] | 0.209 | 0.314 | 50% / 56% |
+| Benchmark authors' ESM-free model (preprint) | 0.643 [0.502, 0.771] | 0.184 | 0.295 | 56% / 69% |
+| P2Rank 2.5 | 0.608 [0.523, 0.688] | 0.084 | 0.127 | 31% / 44% |
+| ESM-based model | 0.528 [0.380, 0.676] | 0.134 | 0.197 | 38% / 44% |
+| Cavity-feature model | 0.503 [0.377, 0.633] | 0.100 | 0.151 | 25% / 31% |
+
+![Per-protein AUC with 95% intervals and precision in the top 20 residues, on the 16 cryptic CryptoBench test proteins every model scored.](cryptic-pocket/figures/fig_cryptic_benchmark.png)
+
+*Figure 4. Strictly cryptic proteins, one protocol. The top three are indistinguishable on AUC; on top-20 content this model leads P2Rank.*
+
+Paired over the same 16 proteins, our model beats the ESM-based model (AUC +0.099, p=0.006 t-test / 0.011 Wilcoxon) and the cavity-feature
+model (+0.124, p=0.008 / 0.003) on AUC, and beats P2Rank on precision20 (+0.125, 95% interval +0.038 to +0.222, p=0.020 / 0.022) and
+recall20 (+0.187, p=0.013 / 0.017), but not on AUC (+0.019, p=0.77), and not against the benchmark authors' own model on any metric
+(AUC −0.016, p=0.81; precision20 +0.025, p=0.61). On the 111 pre-formed proteins the same per-protein AUC is 0.938, against 0.835 for P2Rank
+and 0.884–0.919 for the benchmark's other models. This second result repeats, with different competitors, the paired comparison with
+P2Rank reported in the external audit below. Sixteen proteins give wide intervals (AUC roughly ±0.15), so the honest reading is parity on
+discrimination with the leaders and a measured advantage over P2Rank in what a user would act on, not a ranking.
+
+The remaining comparisons use each paper's own setup and are weaker. On CryptoBench's test split with pooled residue-level metrics (the table
+above), our AUC (0.911–0.918) is the highest we found, MCC (0.466–0.470) is level with Seq2Pocket's (0.460–0.473), and AUPRC (0.431–0.448) is
+below its 0.475, on a subset with a higher positive rate. Averaged per protein, as UniPocket and the Algebraic Counting Field (arXiv, accepted
+to PSB 2027) report, our model scores AUC 0.863, AUPRC 0.489 and MCC 0.411 over 182 proteins (threshold tuned on validation), against UniPocket's
+0.816 / 0.410 (193 proteins) and the Algebraic Counting Field's 0.799 / 0.376 / 0.304 (192 units). On PocketMiner's own test set our pooled
+ROC-AUC is 0.925 against PocketMiner's published 0.87 (Results, External validation). ProMoSite reports ROC-AUC 0.91 and PR-AUC 0.84 but
+only on a 19-pair filtered subset of that set, so it is not comparable; AE-PocketMiner reports beating PocketMiner but its numbers could not
+be read from the preprint. Methods such as CryptoSite use different datasets and were not rescored. P2Rank's training data cannot be audited,
+so overlap with these proteins cannot be excluded, and Seq2Pocket, the Algebraic Counting Field and the cryptic-site benchmark are all
+unreviewed preprints. An interactive version with every number and its source is published alongside this paper, and the scoring code and
+transcribed values are in `cryptic-pocket/benchmark/`.
+
 ### External audit: is this actually about cryptic pockets?
 
 Every number reported above pools all 182 official CryptoBench test proteins. An independent, adversarially designed
@@ -1271,11 +1320,11 @@ project's headline results describe finding pockets in general far better than i
 
 ![ROC and precision-recall curves for the headline model, pooled across all 182 test chains versus the 16 chains the external audit labels strictly cryptic.](cryptic-pocket/figures/fig_roc_pr.png)
 
-*Figure 3. ROC and precision-recall curves, recomputed directly from the headline 3B-transfer ensemble's cached test-set predictions. The gap between the blue (all chains) and red (cryptic-only) curves is the same pattern the pooled-vs-cryptic numbers above describe; the exact decimals differ slightly from the matched-180-chain figures in the text above, which is this project's own 182-chain denominator rather than a different model.*
+*Figure 5. ROC and precision-recall curves, recomputed directly from the headline 3B-transfer ensemble's cached test-set predictions. The gap between the blue (all chains) and red (cryptic-only) curves is the same pattern the pooled-vs-cryptic numbers above describe; the exact decimals differ slightly from the matched-180-chain figures in the text above, which is this project's own 182-chain denominator rather than a different model.*
 
 ![Pooled ROC-AUC and PR-AUC on all test chains versus the pre-formed and strictly-cryptic subsets.](cryptic-pocket/figures/fig_cryptic_stratified.png)
 
-*Figure 4. The same stratification as a bar chart: pre-formed pockets (already visible in the apo structure) score far higher than genuinely cryptic ones on both metrics.*
+*Figure 6. The same stratification as a bar chart: pre-formed pockets (already visible in the apo structure) score far higher than genuinely cryptic ones on both metrics.*
 
 **Their central negative claim does not replicate on our architecture.** The preprint's strongest finding is that
 cavity/geometry features are *actively harmful* specifically at cryptic sites (removing them improved cryptic-subset
@@ -1288,7 +1337,7 @@ claim that it hurts.
 rerun (run on the official split for an unrelated localization comparison, so not tuned for this question)
 restricted to the 16 cryptic proteins where both methods have scores, the headline model's precision among the top 20
 residues beats P2Rank's by +0.115, paired over proteins (t p=0.022, Wilcoxon p=0.022; bootstrap 95% CI on the mean
-difference [+0.035, +0.203], n=16). The 8-seed ensemble reaches precision@20 0.209 and recall@20 0.314 on this subset --
+difference [+0.035, +0.203], n=16). The 8-seed ensemble reaches precision20 0.209 and recall20 0.314 on this subset --
 above every baseline the external preprint reports on the same rule, including its own new method (0.174 / 0.278).
 
 This is not an independent-structure validation — it re-labels proteins already in our test split, not new ones — and
@@ -1339,7 +1388,7 @@ artifact of one benchmark's construction.
 
 ### Calibration: does the model's confidence mean what it says?
 
-Every metric reported above (PR-AUC, ROC-AUC, MCC, precision@20) measures discrimination — whether the model ranks
+Every metric reported above (PR-AUC, ROC-AUC, MCC, precision20) measures discrimination — whether the model ranks
 true site residues above non-site residues — and none of them checks whether the predicted probability itself is
 trustworthy: whether a residue the model scores 0.5 is actually a pocket residue roughly half the time. That is a
 different, practically important question, since a real user deciding whether to act on a single prediction needs
@@ -1366,7 +1415,7 @@ only fixes what the probability number means.
 
 ![Reliability diagrams for the headline model's raw and isotonic-calibrated test-set probabilities.](cryptic-pocket/figures/fig_calibration.png)
 
-*Figure 5. Reliability diagrams (10 quantile bins, marker area proportional to bin size) on the held-out test set. Raw probabilities (left) sit far below the diagonal at high confidence — a residue scored 0.9 is actually a pocket residue roughly half the time. Isotonic calibration fit on validation alone (right) brings the curve close to the diagonal.*
+*Figure 7. Reliability diagrams (10 quantile bins, marker area proportional to bin size) on the held-out test set. Raw probabilities (left) sit far below the diagonal at high confidence — a residue scored 0.9 is actually a pocket residue roughly half the time. Isotonic calibration fit on validation alone (right) brings the curve close to the diagonal.*
 
 **The fix generalizes to this project's own known-hardest subgroups, though not quite as completely.** Calibration
 fit on the whole validation set, evaluated separately on the strictly-cryptic test residues (the external audit's
@@ -1562,7 +1611,7 @@ theory that they might be the more informative examples the model needed
 to see more of — this reproduced the small-pocket result almost exactly
 (no significant change on the true-cryptic test chains themselves, and a
 stronger weighting again measurably hurt pooled performance, test PR-AUC
--0.0214, DCC@4Å -0.0391, both confirmed), consistent with the two proxies
+-0.0214, DCC4Å -0.0391, both confirmed), consistent with the two proxies
 being highly correlated (Spearman r=0.876) rather than independent signals.
 Separately, extending
 CryptoBench's 700-chain training set with 1,997 real, independently-labelled,
@@ -1652,8 +1701,8 @@ a structurally distinct and harder problem, since no cavity is visible in
 the input structure — the same architecture, strengthened with transfer
 learning and cross-scale ensembling across three ESM2 embedding sizes,
 reaches AUC 0.918 and MCC 0.470 via a regularized logistic-regression
-cross-scale combiner, matching or exceeding the CryptoBench authors' own
-published state of the art, while providing a dedicated 3D localization
+cross-scale combiner, above the CryptoBench authors' own published model and level with the strongest later preprint found
+(Seq2Pocket: higher AUC, lower AUPRC, equal MCC), while providing a dedicated 3D localization
 capability for cryptic pockets that has no prior published comparison at
 all. Not every result improved: several ablations (GNN depth/capacity, an
 auxiliary noncryptic-pocket loss, a naive cross-chain arbitration fix,
@@ -1779,7 +1828,7 @@ already on hand:
   this but were built for a different original purpose and are themselves
   not large.
 - **A dedicated cryptic-pocket localization benchmark.** The 20.9–24.7%
-  DCC@4Å hit rate on CryptoBench's single-guess localization is far below
+  DCC4Å hit rate on CryptoBench's single-guess localization is far below
   the 50–65% range on open pockets. Two alternative localization-head
   designs have now been tried and both returned a null result on the
   metric they were built to improve — top-K score-based masking, and a
