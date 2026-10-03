@@ -183,6 +183,11 @@ exposure geometry:
   pilot (~12.5h wall-clock on CPU after GPU quota exhaustion, 16 from-scratch trainings). paper.md (Individual levers, Future Work) +
   README updated + pushed. Flagged as the one open lead worth scaling up if pursued further.
 
+* Phase 288/289 (global attention scaled up: main-pipeline pretrain with/without the block, then CryptoBench 35M transfer, 8 seeds/arm, CPU): NOT CONFIRMED.
+  Paired by seed, global_attn - base: val PR-AUC 0.3638 -> 0.3695 (+0.0057, 5/8, t p=.49, W p=.38), test PR +0.0060 (p=.31), ROC +0.0040 (p=.34), MCC +0.0064 (p=.36);
+  DCC4 -0.0096, DCC8 -0.0041, err +0.02 A (all p>.4). 8-seed ensembles favour the block slightly (test PR .4012 -> .4150, no variance estimate). The Phase 287
+  test-set confirmation does not survive pretrain-then-transfer; global attention is not in the headline model. Code/results: cryptic-pocket/phase288, phase289.
+
 * Phase 290 (deposited-structure ensemble probe, the idea the cryptic-site benchmark preprint reports as its strongest unused channel): SMALL, NOT ADOPTED,
   and a probe rather than a retrain. Coverage over the 182 test chains via RCSB + per-residue mapping: 91% of proteins have another X-ray entry; under the
   preprint's per-residue "unliganded within 4.5 A" rule the strictly cryptic proteins have a median 8.5 usable entries at their pocket, but that rule

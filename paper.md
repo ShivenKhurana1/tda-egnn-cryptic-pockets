@@ -1808,21 +1808,25 @@ already on hand:
   one item that used to be listed here as blocked on missing validation-
   split labels, has since been tried and closed, see Discussion, so it is
   no longer an open direction.)
-- **Scale global (long-range) attention to the headline pipeline.** The
-  one genuinely promising signal from this project's later architecture
-  experiments (Individual levers, above) was a global self-attention
-  block in the trunk, tested from scratch on CryptoBench at 650M scale:
-  confirmed on test PR-AUC and ROC-AUC, consistent in direction on every
-  other metric, though not confirmed on its own pre-specified primary
-  (validation PR-AUC). Every other confirmed CryptoBench gain in this
-  paper reached its strongest, most trustworthy form only after the same
-  two steps this result has not yet had: transfer learning from a
-  main-pipeline checkpoint trained with the same architecture change, and
-  cross-scale ensembling. Both require retraining the much larger main
-  pipeline from scratch with global attention added, a substantially
-  larger compute commitment than the pilot reported here, before this
-  lead could be pursued to the same standard as the rest of this paper's
-  results.
+- **Global (long-range) attention at the headline scale: tried, not confirmed.**
+  The Phase 287 from-scratch pilot (global self-attention block in the
+  trunk) was confirmed on test PR-AUC and ROC-AUC but not on its
+  pre-specified validation primary. We then ran the scale-up that
+  pilot called for: the main pipeline was pretrained with and without the
+  block (8 seeds per arm, CPU, Phase 288), and both sets of checkpoints
+  were transferred to CryptoBench at the 35M scale (Phase 289, 8 seeds
+  per arm, same data, loss and early stopping). Paired by seed, the block
+  moved every classification metric in the positive direction but not
+  significantly: validation PR-AUC 0.3638 to 0.3695 (+0.0057, 5/8 seeds,
+  t p=0.49, Wilcoxon p=0.38), test PR-AUC +0.0060 (p=0.31), ROC-AUC
+  +0.0040 (p=0.34), MCC +0.0064 (p=0.36). Localization did not improve
+  (DCC4 -0.0096, DCC8 -0.0041, mean center error +0.02 A, all
+  p>0.4). The 8-seed ensembles favour the block by a similar small margin
+  (test PR-AUC 0.4012 to 0.4150), but that comparison has no variance
+  estimate. We therefore treat global attention as a small, unconfirmed
+  effect at best: the pilot's test-set confirmation did not survive the
+  pretrain-then-transfer protocol, and it is not part of the headline
+  model.
 - **(Resolved.)** Which specific topological property drives the confirmed
   classification residual beyond geometry was, until this point, answered
   only for the *localization* gain (H0 measurably weakest, everything else
