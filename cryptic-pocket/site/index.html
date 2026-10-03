@@ -149,6 +149,14 @@
   .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.72rem; color: var(--text-dim); margin-top: 8px; }
   .legend .sw { display: inline-block; width: 11px; height: 11px; border-radius: 3px; vertical-align: -1.5px; margin-right: 5px; }
 
+  .viewer-block h3 { font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.03em; }
+  .viewer-frame { position: relative; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--surface-2); }
+  #viewerHost { width: 100%; height: 420px; position: relative; }
+  @media (max-width: 600px) { #viewerHost { height: 340px; } }
+  .viewer-note { position: absolute; left: 10px; bottom: 8px; font-size: 0.68rem; color: var(--text-dim); pointer-events: none; font-family: "IBM Plex Mono"; }
+  .viewer-msg { padding: 60px 16px; text-align: center; color: var(--text-dim); font-size: 0.86rem; }
+  .mode-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 8px 0 2px; }
+  .mode-row .lbl { font-size: 0.7rem; color: var(--text-dim); margin-right: 2px; }
   .empty-state { padding: 40px 16px; text-align: center; color: var(--text-dim); font-size: 0.9rem; }
 
   footer.note { margin-top: 20px; font-size: 0.74rem; color: var(--text-dim); line-height: 1.5; max-width: 72ch; }
@@ -201,6 +209,7 @@
   </footer>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.2/3Dmol-min.js"></script>
 <script>
 (function () {
   "use strict";
@@ -339,6 +348,10 @@
         metric(r.n, "Residues") + metric(r.npos, "Pocket residues") +
         metric(r.pct_pos + "%", "Pocket rate") + metric(r.dcc_err.toFixed(1) + "\u00c5", "Center error") +
       "</div>" +
+      '<div class="viewer-block"><h3>3D structure (C\u03b1 trace, apo structure)</h3>' +
+      '<div class="viewer-frame" id="viewerSlot"></div>' +
+      '<div class="mode-row" id="modeRow"></div>' +
+      '<div class="legend" id="viewerLegend"></div></div>' +
       '<div class="track-section"><h3>Per-residue prediction vs. true pocket label</h3>' +
       '<div class="track-wrap"><canvas id="track"></canvas></div>' +
       '<div class="legend">' +
@@ -348,6 +361,7 @@
       "</div></div>";
 
     drawTrack(r);
+    mountViewer(r);
   }
 
   function metric(v, l) {
@@ -381,6 +395,107 @@
       }
     }
   }
+
+  // ---------------- 3D viewer ----------------
+  var COORDS = null, viewer = null, viewerHost = null, vMode = "prob", vCenters = true, vRec = null;
+  fetch("coords.json").then(function (r) { return r.json(); }).then(function (c) {
+    COORDS = c; if (vRec) mountViewer(vRec);
+  }).catch(function () { COORDS = {}; if (vRec) mountViewer(vRec); });
+
+  var MODES = [["prob", "Predicted probability"], ["truth", "True pocket"], ["cmp", "Prediction vs. truth"]];
+
+  function ensureViewer() {
+    if (viewerHost) return;
+    viewerHost = document.createElement("div"); viewerHost.id = "viewerHost";
+    if (window.$3Dmol) {
+      viewer = $3Dmol.createViewer(viewerHost, { backgroundColor: css("--surface-2") || "#f3efe7", antialias: true });
+    }
+    if (window.matchMedia) {
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () { setTimeout(function () { if (vRec) mountViewer(vRec); }, 50); });
+    }
+  }
+
+  function mountViewer(r) {
+    vRec = r;
+    var slot = document.getElementById("viewerSlot");
+    if (!slot) return;
+    ensureViewer();
+    var row = document.getElementById("modeRow");
+    row.innerHTML = '<span class="lbl">Color by</span>' + MODES.map(function (m) {
+      return '<span class="chip' + (vMode === m[0] ? " active" : "") + '" data-mode="' + m[0] + '">' + m[1] + "</span>";
+    }).join("") + '<span class="chip' + (vCenters ? " active" : "") + '" data-centers="1">Pocket centers</span>';
+    Array.prototype.forEach.call(row.querySelectorAll(".chip"), function (c) {
+      c.addEventListener("click", function () {
+        if (c.dataset.mode) vMode = c.dataset.mode; else vCenters = !vCenters;
+        mountViewer(vRec);
+      });
+    });
+    var co = COORDS && COORDS[r.key];
+    slot.innerHTML = "";
+    if (COORDS === null) { slot.innerHTML = '<div class="viewer-msg">Loading structures…</div>'; return; }
+    if (!window.$3Dmol || !viewer) { slot.innerHTML = '<div class="viewer-msg">3D library could not load.</div>'; return; }
+    if (!co) { slot.innerHTML = '<div class="viewer-msg">3D view is not available for this chain (its residue list could not be matched exactly to the model’s output).</div>'; document.getElementById("viewerLegend").innerHTML = ""; return; }
+    slot.appendChild(viewerHost);
+    var note = document.createElement("div"); note.className = "viewer-note"; note.textContent = "drag to rotate · scroll to zoom · hover a residue"; slot.appendChild(note);
+    viewer.setBackgroundColor(css("--surface-2") || "#f3efe7");
+    drawStructure(r, co);
+    viewer.resize();
+  }
+
+  function drawStructure(r, co) {
+    var n = r.n, xyz = co.xyz, p = r.p, y = r.y;
+    var low = hexToRgb(css("--text-dim") || "#6B6459"), high = hexToRgb(css("--accent") || "#0C7489");
+    var cMuted = css("--text-dim") || "#6B6459", cTP = css("--preformed") || "#3C7A5C", cFN = css("--cryptic") || "#B3442B", cFP = "#D9A441";
+    var lines = [], i;
+    for (i = 0; i < n; i++) {
+      lines.push("ATOM  " + pad(i + 1, 5) + "  CA  ALA A" + pad(i + 1, 4) + "    " + f8(xyz[3 * i]) + f8(xyz[3 * i + 1]) + f8(xyz[3 * i + 2]) + "  1.00" + (p[i] * 100).toFixed(2).padStart(6) + "           C");
+    }
+    for (i = 0; i < n - 1; i++) {
+      var dx = xyz[3 * i] - xyz[3 * i + 3], dy = xyz[3 * i + 1] - xyz[3 * i + 4], dz = xyz[3 * i + 2] - xyz[3 * i + 5];
+      if (dx * dx + dy * dy + dz * dz < 4.6 * 4.6) lines.push("CONECT" + pad(i + 1, 5) + pad(i + 2, 5));   // skip chain breaks
+    }
+    // top-N by probability, N = true pocket size (a fair, threshold-free comparison with the truth)
+    var order = p.map(function (v, k) { return k; }).sort(function (a, b) { return p[b] - p[a]; });
+    var topN = {}; for (i = 0; i < r.npos; i++) topN[order[i]] = true;
+    var tp = 0, fp = 0, fn = 0;
+    function colorOf(a) {
+      var k = a.resi - 1;
+      if (vMode === "prob") { var c = lerp(low, high, Math.min(1, p[k] * 1.0)); return "rgb(" + c[0] + "," + c[1] + "," + c[2] + ")"; }
+      if (vMode === "truth") return y[k] ? cFN : cMuted;
+      if (y[k] && topN[k]) return cTP; if (!y[k] && topN[k]) return cFP; if (y[k] && !topN[k]) return cFN; return cMuted;
+    }
+    for (i = 0; i < n; i++) { if (y[i] && topN[i]) tp++; else if (!y[i] && topN[i]) fp++; else if (y[i]) fn++; }
+    viewer.removeAllModels(); viewer.removeAllShapes(); viewer.removeAllLabels();
+    var m = viewer.addModel(lines.join("\n"), "pdb");
+    var big = [];
+    for (i = 0; i < n; i++) { if ((vMode === "truth" && y[i]) || (vMode === "cmp" && (y[i] || topN[i])) || (vMode === "prob" && p[i] > 0.5)) big.push(i + 1); }
+    viewer.setStyle({}, { stick: { radius: 0.28, colorfunc: colorOf }, sphere: { radius: 0.5, colorfunc: colorOf } });
+    if (big.length) viewer.addStyle({ resi: big }, { sphere: { radius: 1.25, colorfunc: colorOf } });
+    if (vCenters) {
+      viewer.addSphere({ center: { x: co.c[0], y: co.c[1], z: co.c[2] }, radius: 1.9, color: "#8E6BE0", alpha: 0.9 });
+      viewer.addSphere({ center: { x: co.tc[0], y: co.tc[1], z: co.tc[2] }, radius: 1.9, color: "#F2F0EA", alpha: 0.95 });
+      viewer.addCylinder({ start: { x: co.c[0], y: co.c[1], z: co.c[2] }, end: { x: co.tc[0], y: co.tc[1], z: co.tc[2] }, radius: 0.18, color: "#8E6BE0", dashed: true, fromCap: 1, toCap: 1 });
+    }
+    viewer.setHoverable({}, true, function (atom, v, ev, container) {
+      if (!atom.label) {
+        var k = atom.resi - 1;
+        atom.label = v.addLabel(co.aa[k] + " " + co.resi[k] + "  p=" + p[k].toFixed(2) + (y[k] ? "  true pocket" : ""),
+          { position: atom, backgroundColor: "#1A1D1F", backgroundOpacity: 0.85, fontColor: "#ffffff", fontSize: 12, borderThickness: 0 });
+      }
+    }, function (atom, v) { if (atom.label) { v.removeLabel(atom.label); delete atom.label; } });
+    viewer.zoomTo(); viewer.render();
+
+    var sw = function (col, t) { return '<span><span class="sw" style="background:' + col + '"></span>' + t + "</span>"; };
+    var lg = "";
+    if (vMode === "prob") lg = sw(css("--text-dim"), "low predicted probability") + sw(css("--accent"), "high predicted probability (large spheres &gt; 0.5)");
+    else if (vMode === "truth") lg = sw(cFN, "true pocket residue (" + r.npos + ")") + sw(cMuted, "other residues");
+    else lg = sw(cTP, "hit: top-" + r.npos + " and truly pocket (" + tp + ")") + sw(cFP, "false alarm (" + fp + ")") + sw(cFN, "missed pocket residue (" + fn + ")") + sw(cMuted, "other");
+    if (vCenters) lg += sw("#8E6BE0", "predicted center") + sw("#F2F0EA", "true center · " + r.dcc_err.toFixed(1) + "Å apart");
+    document.getElementById("viewerLegend").innerHTML = lg;
+  }
+  function pad(v, w) { return String(v).padStart(w); }
+  function f8(v) { return v.toFixed(3).padStart(8); }
+
 
   function hexToRgb(hex) {
     hex = hex.replace("#", "");
