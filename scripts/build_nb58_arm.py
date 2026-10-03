@@ -20,7 +20,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(rf'''
-# Phase {PHASE_NUM} — Thread 1 Round-3, Single Arm: {ARM_NAME}
+# Phase {PHASE_NUM} - Thread 1 Round-3, Single Arm: {ARM_NAME}
 
 Trains ONLY the `{ARM_NAME}` arm (3 seeds) for Thread 1's round-3
 decomposition -- split out from Phase58 after that notebook hit Kaggle's
@@ -31,29 +31,29 @@ once all arms are trained. Identical training methodology (same clean
 COACH420 training set, same model, same `fit()`/`run_epoch()`) to Phase58.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 52/51's round-3 scaled blobs, identical to Phase53/56/58)''')
+md(r'''## Cell 1 - Setup (loads Phase 52/51's round-3 scaled blobs, identical to Phase53/56/58)''')
 code(s58(2))
 code(s58(3))
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures (identical to Phase 53/56/58)''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures (identical to Phase 53/56/58)''')
 code(s58(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 53/56/58; reproduces the same 7,181 chains)''')
+md(r'''## Cell 3 - Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 53/56/58; reproduces the same 7,181 chains)''')
 code(s58(7))
 
-md(r'''## Cell 4 — Recover true ligand centers for the cleaned training set (identical to Phase 53/56/58)''')
+md(r'''## Cell 4 - Recover true ligand centers for the cleaned training set (identical to Phase 53/56/58)''')
 code(s58(9))
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase)''')
 code(s58(11))
 
-md(r'''## Cell 6 — Training machinery (identical to Phase 14/20/53/56/58)''')
+md(r'''## Cell 6 - Training machinery (identical to Phase 14/20/53/56/58)''')
 code(s58(13))
 
-md(r'''## Cell 7 — Build H0 / H1 / H2 / burial column masks (identical to Phase 23/58, applied to the round-3 topology block)''')
+md(r'''## Cell 7 - Build H0 / H1 / H2 / burial column masks (identical to Phase 23/58, applied to the round-3 topology block)''')
 code(s58(15))
 
-md(rf'''## Cell 8 — Train ONLY the {ARM_NAME} arm (3 seeds)''')
+md(rf'''## Cell 8 - Train ONLY the {ARM_NAME} arm (3 seeds)''')
 code(rf'''
 BEST_LAMBDA = 0.1
 WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True)

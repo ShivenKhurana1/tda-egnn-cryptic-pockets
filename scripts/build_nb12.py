@@ -10,10 +10,10 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 12 — Benchmarking Against Real SOTA: COACH420 + HOLO4K
+# Phase 12 - Benchmarking Against Real SOTA: COACH420 + HOLO4K
 
 A literature check (see project discussion) found that E(3)-equivariant GNNs for
-binding-site prediction are an active, published field — **EquiPocket** (2023)
+binding-site prediction are an active, published field - **EquiPocket** (2023)
 explicitly claims to be first-to-market on this exact task, and **VN-EGNN**
 (2025) is current state-of-the-art. Our earlier win over P2Rank was real but
 P2Rank is a 2018 tool; the question that actually matters is whether this system
@@ -22,9 +22,9 @@ is competitive with 2023–2025 SOTA, on the benchmarks that field actually uses
 **COACH420** and **HOLO4K** are the standard pocket-prediction benchmarks. Every
 paper above reports on them with the same metric:
 
-- **DCC** — distance from the predicted pocket center to the true ligand's
+- **DCC** - distance from the predicted pocket center to the true ligand's
   center of mass. Success if < 4 Å.
-- **DCA** — distance from the predicted pocket center to the *nearest atom* of
+- **DCA** - distance from the predicted pocket center to the *nearest atom* of
   the true ligand. Looser than DCC (ligands are not points), success if < 4 Å.
 
 **Published numbers (from the EquiPocket paper, verified before writing this notebook):**
@@ -46,20 +46,20 @@ numeric comparison below, only named as context.
 1. **Different training data.** EquiPocket/P2Rank's numbers come from models
    trained on their own (undisclosed-to-us) training sets, evaluated on the full
    420 / ~4,360 structures. Our model is trained on the 2,056-cluster set built
-   in Phases 6–11. If any COACH420/HOLO4K structure — or a close homolog of one —
+   in Phases 6–11. If any COACH420/HOLO4K structure - or a close homolog of one -
    is in our training set, our number on it is not a fair test. **This notebook
    checks for that explicitly** (exact PDB-ID overlap, and MMseqs2 homology at
    the same 30% threshold used throughout this project) and reports metrics
    **only on the leakage-clean subset**, with the excluded count stated plainly.
-2. **We could not run EquiPocket or VN-EGNN's own code** in this environment —
+2. **We could not run EquiPocket or VN-EGNN's own code** in this environment -
    both are research repos with nontrivial dependency stacks, and reproducing
    them reliably in one session was judged too high-risk to gate this analysis
    on. Their numbers here are the published ones, on the full benchmark, not a
    number we generated ourselves. P2Rank, by contrast, **is** re-run here by us,
-   on the same clean subset as our own model — that comparison is fully
+   on the same clean subset as our own model - that comparison is fully
    apples-to-apples.
 3. Because of (1), our DCC/DCA is computed on however many clean structures
-   survive the leakage filter — likely fewer than the full 420 / ~4,360 the
+   survive the leakage filter - likely fewer than the full 420 / ~4,360 the
    literature numbers use. A smaller, cleaner test set is the more honest
    choice, but it does mean the two numbers are not on identical Ns.
 
@@ -70,10 +70,10 @@ pockets. To compute DCC/DCA at all, predicted-positive residues are spatially
 clustered (connected components at the same 8 Å radius used for the model's own
 message-passing graph), each cluster is scored by its total predicted
 probability, and the highest-scoring cluster's centroid becomes the "predicted
-pocket center" — the standard way this conversion is done in the literature.
+pocket center" - the standard way this conversion is done in the literature.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 
 code(r'''
 !pip install -q torch-geometric==2.6.1 gudhi==3.10.1 biopython==1.84 transformers==4.46.3
@@ -122,10 +122,10 @@ RAW = Path("/tmp/pdb_raw"); RAW.mkdir(parents=True, exist_ok=True)
 ''')
 
 md(r'''
-## Cell 2 — Fetch the benchmark ID lists and structures
+## Cell 2 - Fetch the benchmark ID lists and structures
 
-`coach420.ds` lines are `coach420/<4-char-PDB-ID><chain-letter>.pdb` — a specific
-target chain per entry. `holo4k.ds` lines are `holo4k/<4-char-PDB-ID>.pdb` — the
+`coach420.ds` lines are `coach420/<4-char-PDB-ID><chain-letter>.pdb` - a specific
+target chain per entry. `holo4k.ds` lines are `holo4k/<4-char-PDB-ID>.pdb` - the
 whole assembly is evaluated, so at prediction time every eligible protein chain
 in the structure is scored and the best pocket across all of them is taken.
 ''')
@@ -169,11 +169,11 @@ print(f"fetched {len(paths):,}/{len(need):,} in {(time.time()-t0)/60:.1f} min")
 ''')
 
 md(r'''
-## Cell 3 — Leakage check: exact ID overlap + sequence-homology overlap
+## Cell 3 - Leakage check: exact ID overlap + sequence-homology overlap
 
 Uses the same MMseqs2 threshold (30% identity) as every clustering step in this
 project, so "leaked" here means exactly what "same cluster" has meant
-throughout — not a stricter or looser bar invented just for this comparison.
+throughout - not a stricter or looser bar invented just for this comparison.
 ''')
 
 code(r'''
@@ -312,9 +312,9 @@ for name in ("coach420","holo4k"):
 ''')
 
 md(r'''
-## Cell 4 — Train the deployment ensemble on the FULL 2,056-chain set
+## Cell 4 - Train the deployment ensemble on the FULL 2,056-chain set
 
-No internal held-out test here — the external benchmark is the test set now.
+No internal held-out test here - the external benchmark is the test set now.
 Reuses the winning Phase 11b recipe (weighted BCE, 3 seeds, average predicted
 probabilities). A small internal validation slice is still carved out purely
 for early stopping.
@@ -403,10 +403,10 @@ print(f"ensemble of {len(ensemble)} models trained on all {len(train_dataset):,}
 ''')
 
 md(r'''
-## Cell 5 — Featurize the clean benchmark chains (identical pipeline throughout)
+## Cell 5 - Featurize the clean benchmark chains (identical pipeline throughout)
 
 Same radius graph, same dihedral encoding, same ESM2 model, same topology
-parameters as every training phase — a benchmark evaluated on a different
+parameters as every training phase - a benchmark evaluated on a different
 feature pipeline than the one the model was trained on would not be a fair test.
 ''')
 
@@ -540,7 +540,7 @@ torch.save({"built_keys": list(built.keys())}, WORK/"cache/built_index.pt")
 ''')
 
 md(r'''
-## Cell 6 — Ensemble inference, then convert per-residue scores into pocket centers
+## Cell 6 - Ensemble inference, then convert per-residue scores into pocket centers
 
 Standardization uses the training set's own mean/std (from Phase 6b), never
 statistics computed on the benchmark itself.
@@ -609,10 +609,10 @@ print(f"predicted pocket centers for {len(predictions)} structures in {(time.tim
 ''')
 
 md(r'''
-## Cell 7 — P2Rank on the same clean structures (same-run, apples-to-apples)
+## Cell 7 - P2Rank on the same clean structures (same-run, apples-to-apples)
 
 P2Rank's own top-ranked pocket center is read directly from `*_predictions.csv`
-— no proxy needed here, unlike our own residue-clustering step, since P2Rank
+- no proxy needed here, unlike our own residue-clustering step, since P2Rank
 already outputs discrete ranked pockets with coordinates.
 ''')
 
@@ -670,7 +670,7 @@ n_ok = sum(1 for v in p2rank_centers.values() if v is not None)
 print(f"P2Rank top-pocket centers parsed: {n_ok}/{len(clean_pids)}")
 ''')
 
-md(r'''## Cell 8 — DCC / DCA scoring, matched to the literature definition''')
+md(r'''## Cell 8 - DCC / DCA scoring, matched to the literature definition''')
 
 code(r'''
 def dcc_dca(pred_center, ligs):
@@ -735,21 +735,21 @@ md(r'''
 
 Three numbers to weigh together, not one:
 
-1. **Our DCC/DCA vs P2Rank, same-run, same clean subset** — the only fully
+1. **Our DCC/DCA vs P2Rank, same-run, same clean subset** - the only fully
    controlled comparison in this notebook. If we beat P2Rank here, it confirms
    the Phase 11 result on an external, standard benchmark rather than our own
    held-out split.
-2. **Our DCC/DCA vs the literature's P2Rank/EquiPocket numbers** — informative
+2. **Our DCC/DCA vs the literature's P2Rank/EquiPocket numbers** - informative
    but not controlled: different N (our clean subset vs their full benchmark),
    different training data, and their numbers are not something we reran
    ourselves.
-3. **The leakage count itself** — if a large fraction of COACH420/HOLO4K turned
+3. **The leakage count itself** - if a large fraction of COACH420/HOLO4K turned
    out to be exact-ID or homologous to our training set, that is worth reporting
    on its own: it says something about how much of a "standard benchmark"
    already overlaps a broad RCSB-sampled training set like ours.
 
 If our numbers on the clean subset are close to or above EquiPocket's on the
-full benchmark, that is a genuinely strong, reportable claim — made carefully,
+full benchmark, that is a genuinely strong, reportable claim - made carefully,
 with its own limitations stated rather than glossed over. If they fall short,
 that is the honest state of the project relative to 2023–2025 SOTA, and is worth
 knowing before, not after, presenting this as competitive.

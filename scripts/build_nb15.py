@@ -14,15 +14,15 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 15 — External Validation: Localization-Trained Model on COACH420/HOLO4K
+# Phase 15 - External Validation: Localization-Trained Model on COACH420/HOLO4K
 
 Phase 14 showed the auxiliary localization loss beats the best prior method
 (+0.0478 DCC, "aux-loss model + own centroid" vs "baseline + Phase 13's tuned
 heuristic") on our own held-out split, with negligible cost to classification
 (-0.0026 PR-AUC). That result earned this step: retrain the same architecture
 as a deployment ensemble on all 2,056 training chains, then evaluate DCC/DCA on
-the real external benchmark — COACH420 and HOLO4K, leakage-checked against our
-training set exactly as in Phase 12 — using the model's own trained centroid
+the real external benchmark - COACH420 and HOLO4K, leakage-checked against our
+training set exactly as in Phase 12 - using the model's own trained centroid
 output directly. No clustering heuristic anywhere in this notebook.
 
 **Reference points, both already independently verified:**
@@ -44,11 +44,11 @@ measurably easier than the full published benchmark).
 **For multi-chain HOLO4K structures**, each chain's summed classification
 probability is used as a per-chain confidence score, and the chain with the
 highest confidence contributes its own-centroid prediction for that structure
-— the same "most likely to contain the pocket" logic as Phase 12/13, just
+- the same "most likely to contain the pocket" logic as Phase 12/13, just
 applied to pick among trained centroids instead of clustered ones.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 code(r'''
 !pip install -q torch-geometric==2.6.1 gudhi==3.10.1 biopython==1.84 transformers==4.46.3
 !apt-get -qq update > /dev/null 2>&1 && apt-get -qq install -y default-jre-headless > /dev/null 2>&1
@@ -70,10 +70,10 @@ dataset = train_dataset
 ''')
 
 md(r'''
-## Cell 2 — Recover true ligand centers for the TRAINING set (Phase 14's logic)
+## Cell 2 - Recover true ligand centers for the TRAINING set (Phase 14's logic)
 
 Needed to train the auxiliary loss. This re-fetches and re-parses our own
-2,056 training chains' structures — a separate PDB-ID set from the benchmark,
+2,056 training chains' structures - a separate PDB-ID set from the benchmark,
 fetched and cached independently.
 ''')
 
@@ -100,24 +100,24 @@ n_tr, n_va = len(splits["train"]), len(splits["val"])
 print(f"deployment training: {n_tr} train / {n_va} val")
 ''')
 
-md(r'''## Cell 3 — Model (identical to Phase 14)''')
+md(r'''## Cell 3 - Model (identical to Phase 14)''')
 code(s14(7))
 
-md(r'''## Cell 4 — Equivariance check (re-verified on this run, same discipline as always)''')
+md(r'''## Cell 4 - Equivariance check (re-verified on this run, same discipline as always)''')
 code(s14(9))
 
-md(r'''## Cell 5 — Training machinery (identical to Phase 14)''')
+md(r'''## Cell 5 - Training machinery (identical to Phase 14)''')
 code(s14(11))
 
-md(r'''## Cell 6 — Collation sanity check before training anything''')
+md(r'''## Cell 6 - Collation sanity check before training anything''')
 _dry = s14(13)
 _dry = _dry.replace('_probe_items = splits["train"][:8]', '_probe_items = splits["train"][:8]')
 code(_dry)
 
 md(r'''
-## Cell 7 — Train the deployment ensemble (3 seeds, lambda=0.1 from Phase 14's sweep)
+## Cell 7 - Train the deployment ensemble (3 seeds, lambda=0.1 from Phase 14's sweep)
 
-`lambda` is not re-tuned here — it was already selected on a held-out val set
+`lambda` is not re-tuned here - it was already selected on a held-out val set
 in Phase 14 and re-tuning it again on this run's val split would be a second,
 unnecessary bite at the same apple.
 ''')
@@ -139,14 +139,14 @@ for seed in (0,1,2):
 print(f"deployment ensemble of {len(ensemble)} trained on {len(dataset):,} chains")
 ''')
 
-md(r'''## Cell 8 — Fetch benchmark structures (identical to Phase 12)''')
+md(r'''## Cell 8 - Fetch benchmark structures (identical to Phase 12)''')
 code(s12(5))
 
-md(r'''## Cell 9 — Ground-truth ligand extraction + leakage check (identical to Phase 12)''')
+md(r'''## Cell 9 - Ground-truth ligand extraction + leakage check (identical to Phase 12)''')
 code(s12(7))
 code(s12(8))
 
-md(r'''## Cell 10 — Featurize the clean benchmark chains, AND cache raw features this time
+md(r'''## Cell 10 - Featurize the clean benchmark chains, AND cache raw features this time
 
 Phase 12 only cached derived outputs (probabilities); Phase 13 needed to redo
 the ~170-minute featurization to test new heuristics. This time the raw
@@ -168,7 +168,7 @@ print(f"cached raw features for {len(raw_cache)} chains -> "
       f"{(WORK/'cache/phase15_raw_features.pkl').stat().st_size/1e6:.0f} MB")
 ''')
 
-md(r'''## Cell 11 — Inference with the trained localization head, no heuristic''')
+md(r'''## Cell 11 - Inference with the trained localization head, no heuristic''')
 code(r'''
 from collections import defaultdict
 
@@ -224,7 +224,7 @@ print(f"predicted centers for {len(predictions)} structures in {(time.time()-t0)
       f"(own-centroid, no clustering heuristic)")
 ''')
 
-md(r'''## Cell 12 — Score, compare against Phase 12/13 and P2Rank''')
+md(r'''## Cell 12 - Score, compare against Phase 12/13 and P2Rank''')
 code(r'''
 PHASE12_REFERENCE = {
     "coach420": {"dcc": 0.3678, "dca": 0.6782},
@@ -284,14 +284,14 @@ md(r'''
 Three comparisons, in order of how much they can be trusted:
 
 1. **vs Phase 12's classification-only model** (same benchmark, same leakage
-   filter, same scoring code, only the model differs) — the cleanest
+   filter, same scoring code, only the model differs) - the cleanest
    before/after in this notebook. A clear win here means the localization
    training signal generalizes beyond our own held-out split to a genuinely
    external, harder benchmark.
-2. **vs P2Rank** (same-run, same clean subset, controlled) — the number that
+2. **vs P2Rank** (same-run, same clean subset, controlled) - the number that
    answers "is this competitive with the field's standard tool", the same
    question Phase 12 first asked and answered "no" to.
-3. **vs Phase 13's pooled tuned-heuristic number** — informative but on a
+3. **vs Phase 13's pooled tuned-heuristic number** - informative but on a
    different tune/test split of the same clean set, so treat this one as
    directional.
 
@@ -299,7 +299,7 @@ If this closes most or all of the P2Rank gap, that is a real, externally
 validated result: a trained localization objective beats both a classification
 -only model and a purpose-tuned post-hoc heuristic, on the field's own
 benchmark. If it falls short of Phase 12's baseline despite winning cleanly on
-our own held-out split in Phase 14, that is itself informative — it would mean
+our own held-out split in Phase 14, that is itself informative - it would mean
 the auxiliary loss overfit to the training distribution's ligand-placement
 patterns in a way that doesn't transfer, which is a different and equally
 useful thing to know before calling this approach finished.

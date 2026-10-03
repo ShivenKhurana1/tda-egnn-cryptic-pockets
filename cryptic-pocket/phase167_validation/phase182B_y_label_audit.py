@@ -6,7 +6,7 @@ from collections import Counter
 GRAPH = Path("phase159_input/phase159_cryptobench_anmmsf_graphs.pt")
 
 print("=" * 110)
-print("PHASE 182B — NODE LABEL (y) SEMANTICS AUDIT")
+print("PHASE 182B - NODE LABEL (y) SEMANTICS AUDIT")
 print("=" * 110)
 
 obj = torch.load(GRAPH, map_location="cpu", weights_only=False)

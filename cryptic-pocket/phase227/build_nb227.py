@@ -11,7 +11,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(r'''
-# Phase 227 — Plain-geometry control features (all 942 CryptoBench apo chains)
+# Phase 227 - Plain-geometry control features (all 942 CryptoBench apo chains)
 
 Phase 164 showed a 2-feature burial baseline (heavy-atom count within 12 Å + gyration) recovers most of the
 TDA gain. This notebook builds a much richer, deliberately strong **non-topological** per-residue feature set
@@ -24,13 +24,13 @@ is accepted only if its residue count equals the graph's node count AND its cent
 graph's stored positions (max abs error < 1e-3 A). Any mismatch is reported, never silently kept.
 ''')
 
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1 biopython scipy")
 
-md("## Cell 2 — Geometry feature code (identical to cryptic-pocket/phase227_geometry.py)")
+md("## Cell 2 - Geometry feature code (identical to cryptic-pocket/phase227_geometry.py)")
 code(GEOM_SRC)
 
-md("## Cell 3 — Load graph blob (only ids, node counts and positions are used)")
+md("## Cell 3 - Load graph blob (only ids, node counts and positions are used)")
 code(r'''
 import os, time, json, urllib.request, urllib.error
 from pathlib import Path
@@ -52,7 +52,7 @@ print(len(graphs), 'graphs;', {s: sum(g['split'] == s for g in graphs.values()) 
 del blob
 ''')
 
-md("## Cell 4 — Fetch apo structures from RCSB")
+md("## Cell 4 - Fetch apo structures from RCSB")
 code(r'''
 WORK = Path('/kaggle/working'); CIF = WORK / 'apo_cifs'; CIF.mkdir(exist_ok=True)
 
@@ -76,7 +76,7 @@ print(f'fetched {len(pids) - len(missing)}/{len(pids)} structures in {(time.time
 assert not missing, 'some structures could not be fetched'
 ''')
 
-md("## Cell 5 — Compute geometry, verify alignment to the graph nodes")
+md("## Cell 5 - Compute geometry, verify alignment to the graph nodes")
 code(r'''
 def one(key):
     pid, cid = key
@@ -106,7 +106,7 @@ for k, m in list(fail.items())[:30]: print('  FAIL', k, m)
 assert not fail, 'alignment/feature failures -- do not proceed to Phase 228 until explained'
 ''')
 
-md("## Cell 6 — Save")
+md("## Cell 6 - Save")
 code(r'''
 train_rows = np.concatenate([feats[k] for k in keys if graphs[k]['split'] == 'train'], 0)
 stats = dict(mean=train_rows.mean(0), std=np.maximum(train_rows.std(0), 1e-6))

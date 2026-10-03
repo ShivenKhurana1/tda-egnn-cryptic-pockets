@@ -15,7 +15,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 57 — Does the Round-3 HOLO4K Result Hold or Grow at 8 Seeds?
+# Phase 57 - Does the Round-3 HOLO4K Result Hold or Grow at 8 Seeds?
 
 Phase 54 (3-seed, 3.65x pool) found DCC 0.6533 vs live P2Rank's 0.6580 --
 gap only -0.0047, smaller in magnitude than round-2's own 3-seed gap
@@ -26,7 +26,7 @@ Phase54's cached benchmark features -- using the same confidence-based
 multi-chain arbitration fix validated in Phase34/41.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 52/51's round-3 scaled blobs)''')
+md(r'''## Cell 1 - Setup (loads Phase 52/51's round-3 scaled blobs)''')
 code(r'''
 !pip install -q torch-geometric==2.6.1 gudhi==3.10.1 biopython==1.84 transformers==4.46.3
 ''')
@@ -74,7 +74,7 @@ WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True
 RAW = Path("/tmp/pdb_raw"); RAW.mkdir(parents=True, exist_ok=True)
 ''')
 
-md(r'''## Cell 2 — Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to Phase 24/33/39/54)''')
+md(r'''## Cell 2 - Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to Phase 24/33/39/54)''')
 code(r'''
 def parse_ds(url):
     lines = urllib.request.urlopen(url, timeout=60).read().decode().splitlines()
@@ -113,7 +113,7 @@ holo_paths = {p: f for p, f in got if f}
 print(f"fetched {len(holo_paths):,}/{len(need):,} in {(time.time()-t0)/60:.1f} min")
 ''')
 
-md(r'''## Cell 3 — Clean the TRAINING side (identical logic; pool size 7513, should reproduce Phase 54's clean chain count)''')
+md(r'''## Cell 3 - Clean the TRAINING side (identical logic; pool size 7513, should reproduce Phase 54's clean chain count)''')
 code(r'''
 from Bio.PDB import PDBParser
 AA3_TO_1={"ALA":"A","ARG":"R","ASN":"N","ASP":"D","CYS":"C","GLN":"Q","GLU":"E","GLY":"G",
@@ -175,7 +175,7 @@ print(f"training chains homologous to the HOLO4K sample (excluded): "
 assert len(dataset) > 0.7 * 5339, "too much training data excluded -- investigate before proceeding"
 ''')
 
-md(r'''## Cell 4 — Recover true ligand centers (Phase 54/33/24/14 logic, reused)''')
+md(r'''## Cell 4 - Recover true ligand centers (Phase 54/33/24/14 logic, reused)''')
 code(r'''
 NON_LIGAND={"HOH","DOD","WAT","SO4","PO4","GOL","EDO","PEG","PG4","PGE","1PE","MPD","TRS",
             "ACT","ACY","FMT","CIT","MES","EPE","DMS","IMD","BME","NO3","AZI","CO3","IOD",
@@ -259,7 +259,7 @@ n_tr, n_va = len(splits["train"]), len(splits["val"])
 print(f"deployment training: {n_tr} train / {n_va} val")
 ''')
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase)''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -311,7 +311,7 @@ class LocalizingEGNN(nn.Module):
         return logits, pred_center
 ''')
 
-md(r'''## Cell 6 — Training machinery (identical to Phase 54/33/24/14)''')
+md(r'''## Cell 6 - Training machinery (identical to Phase 54/33/24/14)''')
 code(r'''
 def run_epoch(model, loader, opt=None, lam=0.0):
     tr = opt is not None; model.train(tr)
@@ -360,7 +360,7 @@ def fit(use_loc_head, lam, seed, epochs=40, patience=8, batch=16):
     return model, best
 ''')
 
-md(r'''## Cell 7 — Train 5 MORE seeds (3-7), reusing seeds 0-2 from Phase 54''')
+md(r'''## Cell 7 - Train 5 MORE seeds (3-7), reusing seeds 0-2 from Phase 54''')
 code(r'''
 models = {}
 for seed in (0,1,2):
@@ -385,7 +385,7 @@ for seed in (3,4,5,6,7):
 print(f"\n{len(models)} total seeds available (0-7)")
 ''')
 
-md(r'''## Cell 8 — Load Phase 54's cached benchmark features (no re-fetch)''')
+md(r'''## Cell 8 - Load Phase 54's cached benchmark features (no re-fetch)''')
 code(r'''
 with open(locate("phase54_raw_features.pkl"), "rb") as fh:
     raw_cache = pickle.load(fh)
@@ -393,7 +393,7 @@ print(f"loaded cached (round-3 pool) HOLO4K features for {len(raw_cache):,} chai
 mu, sd = blob6b["topo_mean"], blob6b["topo_std"]
 ''')
 
-md(r'''## Cell 9 — Per-seed and per-ensemble-size DCC on the cached benchmark (confidence-based multi-chain arbitration)''')
+md(r'''## Cell 9 - Per-seed and per-ensemble-size DCC on the cached benchmark (confidence-based multi-chain arbitration)''')
 code(r'''
 @torch.no_grad()
 def predict_conf_and_centers_all_seeds(entry):
@@ -474,7 +474,7 @@ print(f"\nseed-to-seed: mean {seed_dccs.mean():.4f}  std {seed_dccs.std():.4f}  
       f"range [{seed_dccs.min():.4f}, {seed_dccs.max():.4f}]")
 ''')
 
-md(r'''## Cell 10 — Ensemble size sweep: does averaging more seeds close/hold the near-parity result?''')
+md(r'''## Cell 10 - Ensemble size sweep: does averaging more seeds close/hold the near-parity result?''')
 code(r'''
 P2RANK_THIS_RUN = 0.657974   # matches Phase24/27b/33/34/39's same-run, same-benchmark number
 
@@ -510,7 +510,7 @@ print(f"Phase 54's 3-seed (0,1,2 only) for direct comparison:")
 print(f"  seeds (0,1,2): DCC {p39_dcc:.4f} (n={p39_n})  [Phase 54 reported 0.6533]")
 ''')
 
-md(r'''## Cell 11 — Verdict''')
+md(r'''## Cell 11 - Verdict''')
 code(r'''
 gap_3seed = p39_dcc - P2RANK_THIS_RUN
 gap_8seed = full8_dcc - P2RANK_THIS_RUN

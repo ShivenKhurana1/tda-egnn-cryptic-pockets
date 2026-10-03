@@ -19,15 +19,15 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md('''
-# Phase 277a — Featurize PocketMiner's held-out test set (external validation, never used anywhere in this project)
+# Phase 277a - Featurize PocketMiner's held-out test set (external validation, never used anywhere in this project)
 
 35 proteins, PocketMiner's own residue-level cryptic-pocket labels (0/1/2 = negative/positive/masked), same node format as every model
 in this project (21 one-hot + 6 dihedral + 2560 ESM2-3B + 34 topology). Structures and labels: Meller, Ward, Kokh et al. 2023, Nat Commun,
 github.com/Mickdub/gvp (pocket_pred branch).
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1 gudhi==3.10.1 biopython==1.84 transformers==4.46.3")
-md("## Cell 2 — Fetch PocketMiner's test ids, labels, and the file listing; download every matching apo structure")
+md("## Cell 2 - Fetch PocketMiner's test ids, labels, and the file listing; download every matching apo structure")
 code(r'''
 import gzip, json, os, re, time, urllib.request, warnings
 from pathlib import Path
@@ -85,7 +85,7 @@ for idc in test_ids:
     paths[idc] = dst
 print(f"resolved and fetched {len(paths)}/{len(test_ids)} structures")
 ''')
-md("## Cell 3 — Parse residues (same AA3/CA filter as Phase 48), align to PocketMiner's label array length exactly")
+md("## Cell 3 - Parse residues (same AA3/CA filter as Phase 48), align to PocketMiner's label array length exactly")
 code(r'''
 AA3_TO_1={"ALA":"A","ARG":"R","ASN":"N","ASP":"D","CYS":"C","GLN":"Q","GLU":"E","GLY":"G",
           "HIS":"H","ILE":"I","LEU":"L","LYS":"K","MET":"M","PHE":"F","PRO":"P","SER":"S",
@@ -122,7 +122,7 @@ for r in records:
     y = (r["label_raw"] == 1).astype(np.float32); mask = (r["label_raw"] != 2)
     print(f"  {r['key']:6s} n={len(r['seq']):4d}  masked_out={int((~mask).sum()):3d}  positives={int(y[mask].sum()):3d} / evaluated={int(mask.sum()):3d}")
 ''')
-md("## Cell 4 — Topology features (Phase 48's featurizer, verbatim), then apply the ORIGINAL blob's mu/sd/keep-mask")
+md("## Cell 4 - Topology features (Phase 48's featurizer, verbatim), then apply the ORIGINAL blob's mu/sd/keep-mask")
 code(s48(10))
 code(r'''
 def locate(f):
@@ -148,7 +148,7 @@ for r, t in zip(records, topo_all):
     z = (t[:, keep_idx] - tr_mu) / tr_sd
     r["topo_z"] = torch.from_numpy(z.astype(np.float32))
 ''')
-md("## Cell 5 — Backbone dihedrals (Phase 48's code, verbatim)")
+md("## Cell 5 - Backbone dihedrals (Phase 48's code, verbatim)")
 code(r'''
 AA3 = set(AA3_TO_1)
 from Bio.PDB import PPBuilder
@@ -176,10 +176,10 @@ for r in records:
 n_ok = sum(1 for r in records if r["dihed"] is not None)
 print(f"dihedrals recovered for {n_ok}/{len(records)} chains")
 ''')
-md("## Cell 6 — ESM2-3B embeddings (Phase 48's code, verbatim)")
+md("## Cell 6 - ESM2-3B embeddings (Phase 48's code, verbatim)")
 code(s48(16).replace('order = sorted(range(len(records)), key=lambda i: len(records[i]["seq"]))',
                       'order = sorted(range(len(records)), key=lambda i: len(records[i]["seq"]))', 1))
-md("## Cell 7 — Assemble graphs in the exact training schema; save")
+md("## Cell 7 - Assemble graphs in the exact training schema; save")
 code(r'''
 AA_ALPHABET = "ACDEFGHIKLMNPQRSTVWYX"
 AA_TO_IDX = {a: i for i, a in enumerate(AA_ALPHABET)}

@@ -9,17 +9,17 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 16 — Fixing Phase 15's Frame Bug (No Re-Featurization Needed)
+# Phase 16 - Fixing Phase 15's Frame Bug (No Re-Featurization Needed)
 
 Phase 15 reported near-zero DCC (pooled 0.0018) on COACH420/HOLO4K, against a
 Phase 14 result that showed a clear, validated win on our own held-out split.
-That combination — works on one distribution, catastrophically fails on
-another — is a red flag for a bug, not a real finding, and the bug was found:
+That combination - works on one distribution, catastrophically fails on
+another - is a red flag for a bug, not a real finding, and the bug was found:
 
 **The model's `pred_center` output is in the per-chain CENTERED coordinate
 frame** (`d.pos` is built as `ca - ca.mean(0)`, mean ≈ 1e-6 after centering).
 **The true ligand positions (`ligs`) are in the RAW crystal frame** (never
-centered — a spot-check on one chain showed a 45+ Angstrom offset between the
+centered - a spot-check on one chain showed a 45+ Angstrom offset between the
 two frames). Comparing a centered-frame prediction against a raw-frame target
 with a 4 Angstrom success threshold fails almost by construction, regardless
 of whether the prediction is otherwise any good.
@@ -40,12 +40,12 @@ and the trained ensemble checkpoints specifically so a mistake at this stage
 wouldn't cost another ~170 minutes of fetch+parse+ESM+topology. It didn't.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 code(r'''
 !pip install -q torch-geometric==2.6.1
 ''')
 
-md(r'''## Cell 2 — Load cached features and trained checkpoints (no fetching)''')
+md(r'''## Cell 2 - Load cached features and trained checkpoints (no fetching)''')
 code(r'''
 import json, pickle
 from pathlib import Path
@@ -81,7 +81,7 @@ DEVICE = torch.device("cuda" if GPU_OK else "cpu")
 print(f"device {DEVICE}")
 ''')
 
-md(r'''## Cell 2 — Model definition (identical to Phase 14/15), load the 3 trained checkpoints''')
+md(r'''## Cell 2 - Model definition (identical to Phase 14/15), load the 3 trained checkpoints''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -146,11 +146,11 @@ print(f"loaded {len(ensemble)} trained checkpoints from Phase 15 (no retraining)
 ''')
 
 md(r'''
-## Cell 3 — Inference with the FIX: convert `pred_center` back to the raw crystal
+## Cell 3 - Inference with the FIX: convert `pred_center` back to the raw crystal
 frame before it ever gets compared against `ligs`
 
 `entry["ca"].mean(0)` is the same offset that was subtracted to build `pos` in
-Phase 12/15's featurizer — adding it back undoes exactly that, and nothing
+Phase 12/15's featurizer - adding it back undoes exactly that, and nothing
 else. `ligs` were never touched, so no change is needed there.
 ''')
 code(r'''
@@ -196,7 +196,7 @@ print(f"predicted centers (RAW frame, corrected) for {len(predictions)} structur
       f"in {(time.time()-t0)/60:.1f} min")
 ''')
 
-md(r'''## Cell 4 — Rescore with the corrected frame''')
+md(r'''## Cell 4 - Rescore with the corrected frame''')
 code(r'''
 def dcc_dca(pred_center, ligs):
     if pred_center is None or not ligs: return None, None
@@ -274,7 +274,7 @@ statistic, is what confirms the frame bug is actually gone rather than
 partially patched.
 
 With the bug fixed, this is now the number to compare against Phase 12
-(classification-only model + best heuristic) and P2Rank — the same comparisons
+(classification-only model + best heuristic) and P2Rank - the same comparisons
 Phase 15 intended to make.
 ''')
 

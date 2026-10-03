@@ -16,19 +16,19 @@ Can topological structural representations improve cryptic-pocket residue predic
 
 ## Hypotheses
 
-### H1 — TDA
+### H1: TDA
 
 Adding TDA-derived structural features to ESM and conventional structural features will improve cryptic-pocket residue prediction on a predefined experimental holdout.
 
-### H2 — ANM-MSF
+### H2: ANM-MSF
 
 Adding ANM-MSF features to the TDA-enhanced representation will provide additional predictive information related to cryptic binding sites.
 
-### H3 — Spatial information
+### H3: Spatial information
 
 The residue-level probability field will contain spatial information that can be used to localize experimentally defined binding sites.
 
-### H4 — Pocket size
+### H4: Pocket size
 
 Smaller experimentally defined binding sites will be more difficult for the model to identify and localize.
 

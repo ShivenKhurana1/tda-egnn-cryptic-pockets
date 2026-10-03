@@ -15,7 +15,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 37 — Thread 3 Round 2, Step 3: Dihedrals + ESM2 at Scale
+# Phase 37 - Thread 3 Round 2, Step 3: Dihedrals + ESM2 at Scale
 
 Same dihedral-recovery and ESM2-embedding logic as Phase 10/30 (byte-for-byte,
 spliced verbatim), pointed at Phase 36's larger topology-fused pool.
@@ -29,19 +29,19 @@ this pool to see whether pushing scale further extends COACH420's win and/or
 resolves HOLO4K's still-ambiguous gap.
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s10(2))
 
-md(r'''## Cell 1 — Setup, load Phase 36's topology-fused pool''')
+md(r'''## Cell 1 - Setup, load Phase 36's topology-fused pool''')
 code(s10(3).replace('locate("phase6b_graphs.pt")', 'locate("phase36_graphs.pt")'))
 
-md(r'''## Cell 2 — Recompute real backbone dihedrals (identical to Phase 10/30)''')
+md(r'''## Cell 2 - Recompute real backbone dihedrals (identical to Phase 10/30)''')
 code(s10(5))
 
-md(r'''## Cell 3 — ESM2 embeddings (identical to Phase 10/30, GPU-accelerated)''')
+md(r'''## Cell 3 - ESM2 embeddings (identical to Phase 10/30, GPU-accelerated)''')
 code(s10(7))
 
-md(r'''## Cell 4 — Assemble augmented features, verify alignment, save (new output filename)''')
+md(r'''## Cell 4 - Assemble augmented features, verify alignment, save (new output filename)''')
 code(s10(9).replace('"/kaggle/working/phase10_graphs.pt"', '"/kaggle/working/phase37_graphs.pt"')
            .replace('saved -> /kaggle/working/phase10_graphs.pt', 'saved -> /kaggle/working/phase37_graphs.pt'))
 

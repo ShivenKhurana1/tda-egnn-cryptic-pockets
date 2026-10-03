@@ -14,7 +14,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 52 — Thread 3 Round 3, Step 3: Dihedrals + ESM2 at Scale
+# Phase 52 - Thread 3 Round 3, Step 3: Dihedrals + ESM2 at Scale
 
 Same dihedral-recovery and ESM2-embedding logic as Phase 10/30/37
 (byte-for-byte, spliced verbatim), pointed at Phase 51's larger
@@ -29,19 +29,19 @@ pool to see whether COACH420's still-climbing win keeps growing and
 whether HOLO4K holds its win from round 2.
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s10(2))
 
-md(r'''## Cell 1 — Setup, load Phase 51's topology-fused pool''')
+md(r'''## Cell 1 - Setup, load Phase 51's topology-fused pool''')
 code(s10(3).replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")'))
 
-md(r'''## Cell 2 — Recompute real backbone dihedrals (identical to Phase 10/30/37)''')
+md(r'''## Cell 2 - Recompute real backbone dihedrals (identical to Phase 10/30/37)''')
 code(s10(5))
 
-md(r'''## Cell 3 — ESM2 embeddings (identical to Phase 10/30/37, GPU-accelerated)''')
+md(r'''## Cell 3 - ESM2 embeddings (identical to Phase 10/30/37, GPU-accelerated)''')
 code(s10(7))
 
-md(r'''## Cell 4 — Assemble augmented features, verify alignment, save (new output filename)''')
+md(r'''## Cell 4 - Assemble augmented features, verify alignment, save (new output filename)''')
 code(s10(9).replace('"/kaggle/working/phase10_graphs.pt"', '"/kaggle/working/phase52_graphs.pt"')
            .replace('saved -> /kaggle/working/phase10_graphs.pt', 'saved -> /kaggle/working/phase52_graphs.pt'))
 

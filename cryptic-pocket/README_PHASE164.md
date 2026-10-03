@@ -1,4 +1,4 @@
-# Phase 164 — CryptoBench TDA Component Ablation
+# Phase 164: CryptoBench TDA Component Ablation
 
 Built directly from the Phase 163 experiment implementation. It preserves the Phase 159 dataset, official train/val/test split, EGNN, focal loss, localization loss, optimizer, 40-epoch maximum, patience 8, and eight-seed protocol.
 

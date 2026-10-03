@@ -23,7 +23,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 45 — CryptoBench Re-Featurization with ESM2-650M
+# Phase 45 - CryptoBench Re-Featurization with ESM2-650M
 
 Phase 43/44 (ESM2-35M) found AUC 0.872 (8-seed), matching CryptoBench's own
 published SOTA (0.87), but trailed on AUPRC (0.329 vs 0.40) and MCC (0.367
@@ -55,12 +55,12 @@ task framing differ from the main pipeline (crypticity, not simple
 ligand-proximity on a bound structure).
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(r'''
 !pip install -q torch-geometric==2.6.1 gudhi==3.10.1 biopython==1.84 transformers==4.46.3
 ''')
 
-md(r'''## Cell 2 — Setup, fetch CryptoBench's dataset.json + folds.json from OSF''')
+md(r'''## Cell 2 - Setup, fetch CryptoBench's dataset.json + folds.json from OSF''')
 code(r'''
 import gzip, json, os, time, urllib.request, warnings
 from concurrent.futures import ThreadPoolExecutor
@@ -121,7 +121,7 @@ print(f"split coverage: {sum(1 for u in units if u['split']!='unassigned')}/{len
 units = [u for u in units if u["split"] != "unassigned"]
 ''')
 
-md(r'''## Cell 3 — Fetch apo structures (mmCIF preferred, per CryptoBench's own README)''')
+md(r'''## Cell 3 - Fetch apo structures (mmCIF preferred, per CryptoBench's own README)''')
 code(r'''
 need = sorted({u["apo_id"] for u in units})
 def fetch(pid):
@@ -142,7 +142,7 @@ paths = {p: f for p, f in got if f}
 print(f"fetched {len(paths):,}/{len(need):,} in {(time.time()-t0)/60:.1f} min")
 ''')
 
-md(r'''## Cell 4 — Parse apo chains, build per-residue crypticity labels''')
+md(r'''## Cell 4 - Parse apo chains, build per-residue crypticity labels''')
 code(r'''
 AA3_TO_1={"ALA":"A","ARG":"R","ASN":"N","ASP":"D","CYS":"C","GLN":"Q","GLU":"E","GLY":"G",
           "HIS":"H","ILE":"I","LEU":"L","LYS":"K","MET":"M","PHE":"F","PRO":"P","SER":"S",
@@ -192,10 +192,10 @@ for s in ("train","test"):
     print(f"  {s:<6} {len(rs):>5} chains")
 ''')
 
-md(r'''## Cell 5 — Featuriser (byte-for-byte the Phase 2b/6b/29/36 definition)''')
+md(r'''## Cell 5 - Featuriser (byte-for-byte the Phase 2b/6b/29/36 definition)''')
 code(s6b(7))
 
-md(r'''## Cell 6 — Compute topology for every chain''')
+md(r'''## Cell 6 - Compute topology for every chain''')
 code(r'''
 n_res_total = sum(len(r["ca"]) for r in records)
 print(f"computing persistent homology on {n_res_total:,} residues "
@@ -225,7 +225,7 @@ print(f"rotation invariance: {rel:.2e}")
 assert rel < 1e-3
 ''')
 
-md(r'''## Cell 7 — Recompute backbone dihedrals (identical to Phase 10/30/37)''')
+md(r'''## Cell 7 - Recompute backbone dihedrals (identical to Phase 10/30/37)''')
 code(r'''
 AA3 = set(AA3_TO_1)
 
@@ -263,7 +263,7 @@ n_ok = sum(1 for x in dihed if x is not None)
 print(f"\ndihedrals recovered for {n_ok:,}/{len(records):,} chains in {(time.time()-t0)/60:.1f} min")
 ''')
 
-md(r'''## Cell 8 — ESM2 embeddings (identical to Phase 10/30/37, GPU-accelerated)''')
+md(r'''## Cell 8 - ESM2 embeddings (identical to Phase 10/30/37, GPU-accelerated)''')
 code(r'''
 from transformers import AutoTokenizer, AutoModel
 ESM_NAME = "facebook/esm2_t33_650M_UR50D"   # 650M params, hidden 1280 -- 18.6x
@@ -310,7 +310,7 @@ print(f"\nESM2 embeddings for {len(records):,} chains / {n_res:,} residues "
 del esm; torch.cuda.empty_cache()
 ''')
 
-md(r'''## Cell 9 — Assemble PyG graphs (1341-dim schema: 21 onehot + 6 dihedral + 1280 ESM + 34 topo)''')
+md(r'''## Cell 9 - Assemble PyG graphs (1341-dim schema: 21 onehot + 6 dihedral + 1280 ESM + 34 topo)''')
 code(r'''
 AA_ALPHABET = "ACDEFGHIKLMNPQRSTVWYX"
 AA_TO_IDX = {a: i for i, a in enumerate(AA_ALPHABET)}
@@ -371,7 +371,7 @@ for s in ("train","test"):
     print(f"  {s:<6} {len(ds):>5} chains")
 ''')
 
-md(r'''## Cell 10 — Carve a val subset from train (identical convention to every other phase), integrity checks, save''')
+md(r'''## Cell 10 - Carve a val subset from train (identical convention to every other phase), integrity checks, save''')
 code(r'''
 rng = np.random.RandomState(42)
 train_idx = [i for i,d in enumerate(dataset) if d.split == "train"]

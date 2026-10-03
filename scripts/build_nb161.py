@@ -26,27 +26,27 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 161 — Top-K Local-Attention Localization Head (8 seeds)
+# Phase 161 - Top-K Local-Attention Localization Head (8 seeds)
 
 The existing localization head predicts a pocket center as a softmax-
 weighted average over *every* residue in the chain. This tests whether
 masking that softmax to only the top-K (K=20) highest-scoring residues
-before averaging — forcing a local, committed prediction instead of a
-global one that can be diluted by a long tail of low-scoring residues —
+before averaging - forcing a local, committed prediction instead of a
+global one that can be diluted by a long tail of low-scoring residues -
 improves localization accuracy. Zero new parameters, so the same 8
 main-pipeline 3B pretrained checkpoints Phase129 used are reused
 directly, 1:1, for a paired-by-seed comparison against Phase129's
 existing results (val PR mean 0.4023, test AUC 0.9111/MCC 0.4664/DCC
-0.3077) — no need to retrain the baseline arm.
+0.3077) - no need to retrain the baseline arm.
 ''')
 
-md(r'''## Cell 1 — Install dependencies (identical to Phase129)''')
+md(r'''## Cell 1 - Install dependencies (identical to Phase129)''')
 code(s129(2))
 
-md(r'''## Cell 2 — Setup, load Phase 48's CryptoBench-3B blob (identical to Phase129)''')
+md(r'''## Cell 2 - Setup, load Phase 48's CryptoBench-3B blob (identical to Phase129)''')
 code(s129(4))
 
-md(r'''## Cell 3 — Model, with an optional top-K mask on the localization softmax (only the readout logic changes -- same parameter shapes as every prior phase)''')
+md(r'''## Cell 3 - Model, with an optional top-K mask on the localization softmax (only the readout logic changes -- same parameter shapes as every prior phase)''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -118,10 +118,10 @@ class LocalizingEGNN(nn.Module):
         return logits, pred_center
 ''')
 
-md(r'''## Cell 4 — Training machinery (identical to Phase129)''')
+md(r'''## Cell 4 - Training machinery (identical to Phase129)''')
 code(s129(8))
 
-md(r'''## Cell 5 — Fine-tune all 8 seeds with topk=20, each from the SAME pretrained checkpoint Phase129 used''')
+md(r'''## Cell 5 - Fine-tune all 8 seeds with topk=20, each from the SAME pretrained checkpoint Phase129 used''')
 code(r'''
 PRETRAINED_FILES = [f"clean_deploy_esm3b_seed{s}.pt" for s in range(8)]   # identical to Phase129
 TOPK = 20

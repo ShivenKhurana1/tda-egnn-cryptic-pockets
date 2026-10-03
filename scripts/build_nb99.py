@@ -19,7 +19,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 99 — HOLO4K ESM2-3B: TRAIN-ONLY
+# Phase 99 - HOLO4K ESM2-3B: TRAIN-ONLY
 
 Split from Phase94 for the same reason Phase93->97/98 was split: the
 kernel's 32.9GB RAM is already ~97% used right when training finishes,
@@ -28,7 +28,7 @@ Phase94, which succeeded through this point every single time -- only
 the second ESM2-3B load afterward ever failed).
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 96's ESM2-3B blob, kept in fp16 -- CPU RAM fix: v3's diagnostic proved training itself needs meaningfully more working memory than inference on CPU (no separate VRAM pool to offload gradients/activations to), and the dataset's fp32 upcast alone consumed nearly the whole 32.9GB budget. Keeping the resident dataset at fp16 (~11.8GB vs ~23.6GB) frees ~11.8GB for training; batches are upcast to fp32 per-batch in the equivariance-check probe and in run_epoch below, since nn.Linear needs matching dtype)''')
+md(r'''## Cell 1 - Setup (loads Phase 96's ESM2-3B blob, kept in fp16 -- CPU RAM fix: v3's diagnostic proved training itself needs meaningfully more working memory than inference on CPU (no separate VRAM pool to offload gradients/activations to), and the dataset's fp32 upcast alone consumed nearly the whole 32.9GB budget. Keeping the resident dataset at fp16 (~11.8GB vs ~23.6GB) frees ~11.8GB for training; batches are upcast to fp32 per-batch in the equivariance-check probe and in run_epoch below, since nn.Linear needs matching dtype)''')
 code(s24(2))
 code(s24(3).replace('locate("phase10_graphs.pt")', 'locate("phase96_graphs_esm3b.pt")')
            .replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")'))
@@ -47,13 +47,13 @@ def _mem(label):
 _mem("after loading phase96 blob (CPU kernel -- checking if RAM budget differs from GPU kernels)")
 ''')
 
-md(r'''## Cell 2 — Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to Phase 24/33/39/54/94)''')
+md(r'''## Cell 2 - Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to Phase 24/33/39/54/94)''')
 code(s24(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side (identical logic; pool size 7513, unchanged from Phase54/94)''')
+md(r'''## Cell 3 - Clean the TRAINING side (identical logic; pool size 7513, unchanged from Phase54/94)''')
 code(s24(7).replace("2056", "7513"))
 
-md(r'''## Cell 4 — Recover true ligand centers (memory-hardened: periodic gc.collect() during the ~7k-chain loop, plus freeing `paths` before the final assembly -- Phase99 v2's diagnostic showed only ~2.5GB headroom after loading Phase96's blob, and the crash landed right after this loop finished, consistent with fragmentation across ~7k parse/free cycles eating that margin)''')
+md(r'''## Cell 4 - Recover true ligand centers (memory-hardened: periodic gc.collect() during the ~7k-chain loop, plus freeing `paths` before the final assembly -- Phase99 v2's diagnostic showed only ~2.5GB headroom after loading Phase96's blob, and the crash landed right after this loop finished, consistent with fragmentation across ~7k parse/free cycles eating that margin)''')
 code(s24(9).replace('t0=time.time(); n_ok=0; n_geom_fail=0; n_no_ligand=0\nfor d in dataset:',
                      'import gc\nt0=time.time(); n_ok=0; n_geom_fail=0; n_no_ligand=0\nfor _loop_i, d in enumerate(dataset):\n'
                      '    if _loop_i % 1000 == 0 and _loop_i > 0: gc.collect()')
@@ -61,14 +61,14 @@ code(s24(9).replace('t0=time.time(); n_ok=0; n_geom_fail=0; n_no_ligand=0\nfor d
                      'del paths; gc.collect()\n'
                      'print(f"\\ntrue centers recovered:'))
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase; N_PRE/TOPO_DIM read dynamically so this works unchanged at the new 2621-dim node width)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase; N_PRE/TOPO_DIM read dynamically so this works unchanged at the new 2621-dim node width)''')
 code(s24(11))
 
-md(r'''## Cell 6 — Training machinery (identical to Phase 24/33/39/54/94/14)''')
+md(r'''## Cell 6 - Training machinery (identical to Phase 24/33/39/54/94/14)''')
 code(s24(13).replace('    for b in loader:\n        b = b.to(DEVICE)',
                       '    for b in loader:\n        b = b.to(DEVICE); b.x = b.x.float()   # fp16-on-disk fix: upcast per-batch, not the whole resident dataset'))
 
-md(r'''## Cell 7 — Train the clean ensemble (3 seeds) on the ESM2-3B blob''')
+md(r'''## Cell 7 - Train the clean ensemble (3 seeds) on the ESM2-3B blob''')
 code(s24(15).replace("holo_clean_deploy_seed{seed}.pt", "holo_clean_deploy_esm3b_seed{seed}.pt"))
 
 code(r'''

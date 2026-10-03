@@ -14,14 +14,14 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 21 — Is the P2Rank Gap Real, or Seed Noise?
+# Phase 21 - Is the P2Rank Gap Real, or Seed Noise?
 
 Phase 20 found a legitimate, apples-to-apples result: the model beats every
 published literature baseline (fpocket, P2Rank-2018, EquiPocket-2023) on the
 full COACH420 benchmark, but **loses to P2Rank's current tool version** by
 −0.044 DCC (0.477 vs 0.521), the one fully contemporaneous comparison
 available. That single number decided the "are we actually the best" verdict
-— and this project has repeatedly learned that single-run numbers on small
+- and this project has repeatedly learned that single-run numbers on small
 test sets are not to be trusted at face value (Phase 5's sign flip between one
 split and 5-fold CV; Phase 19's tune-set "winner" that evaporated on held-out
 data). A 3-seed ensemble on 413 structures deserves the same skepticism before
@@ -40,7 +40,7 @@ featurization pipeline.
    so, does it close the gap?
 ''')
 
-md(r'''## Cell 1 — Setup, rebuild the clean training set (Phase 20 logic, reused)''')
+md(r'''## Cell 1 - Setup, rebuild the clean training set (Phase 20 logic, reused)''')
 code(r'''
 !pip install -q torch-geometric==2.6.1 biopython==1.84
 ''')
@@ -143,7 +143,7 @@ dataset = [d for d in dataset if f"TRAIN__{d.pdb_id}_{d.chain_id}" not in leaked
 print(f"clean training set: {len(dataset):,} chains (should match Phase 20's 1,858)")
 ''')
 
-md(r'''## Cell 2 — Recover true ligand centers (Phase 14 logic, reused)''')
+md(r'''## Cell 2 - Recover true ligand centers (Phase 14 logic, reused)''')
 _p14_true_center = s14(5)
 _cut = _p14_true_center.index('dataset = [d for d in dataset if hasattr(d, "true_center")]')
 _true_center_core = _p14_true_center[:_cut].rstrip()
@@ -160,16 +160,16 @@ n_tr, n_va = len(splits["train"]), len(splits["val"])
 print(f"deployment training: {n_tr} train / {n_va} val")
 ''')
 
-md(r'''## Cell 3 — Model (identical to Phase 14/15/16/18/20)''')
+md(r'''## Cell 3 - Model (identical to Phase 14/15/16/18/20)''')
 code(s14(7))
 
-md(r'''## Cell 4 — Training machinery (identical to Phase 14)''')
+md(r'''## Cell 4 - Training machinery (identical to Phase 14)''')
 code(s14(11))
 
 md(r'''
-## Cell 5 — Load Phase 20's 3 checkpoints, train 5 MORE seeds (8 total)
+## Cell 5 - Load Phase 20's 3 checkpoints, train 5 MORE seeds (8 total)
 
-Seeds 0/1/2 are loaded, not retrained — a different random init would make
+Seeds 0/1/2 are loaded, not retrained - a different random init would make
 this a different experiment, not a variance check on the same one.
 ''')
 code(r'''
@@ -199,7 +199,7 @@ for seed in (3,4,5,6,7):
 print(f"\n{len(models)} total seeds available (0-7)")
 ''')
 
-md(r'''## Cell 6 — Load Phase 20's cached benchmark features (no re-fetch)''')
+md(r'''## Cell 6 - Load Phase 20's cached benchmark features (no re-fetch)''')
 code(r'''
 def locate(f):
     c=[]
@@ -216,7 +216,7 @@ blob6b = torch.load(locate("phase6b_graphs.pt"), map_location="cpu", weights_onl
 mu, sd = blob6b["topo_mean"], blob6b["topo_std"]
 ''')
 
-md(r'''## Cell 7 — Per-seed and per-ensemble-size DCC on the cached benchmark''')
+md(r'''## Cell 7 - Per-seed and per-ensemble-size DCC on the cached benchmark''')
 code(r'''
 def dcc_dca(pred_center, ligs):
     if pred_center is None or not ligs: return None, None
@@ -283,7 +283,7 @@ print(f"\nseed-to-seed: mean {seed_dccs.mean():.4f}  std {seed_dccs.std():.4f}  
 print(f"Phase 20's 3-seed ensemble reported 0.4770 -- for reference against this spread")
 ''')
 
-md(r'''## Cell 8 — Ensemble size sweep: does averaging more seeds close the gap?''')
+md(r'''## Cell 8 - Ensemble size sweep: does averaging more seeds close the gap?''')
 code(r'''
 import itertools
 
@@ -319,7 +319,7 @@ p20_dcc, p20_n = ensemble_dcc((0,1,2))
 print(f"  seeds (0,1,2): DCC {p20_dcc:.4f} (n={p20_n})  [Phase 20 reported 0.4770]")
 ''')
 
-md(r'''## Cell 9 — Verdict''')
+md(r'''## Cell 9 - Verdict''')
 code(r'''
 gap_3seed = p20_dcc - P2RANK_THIS_RUN
 gap_8seed = full8_dcc - P2RANK_THIS_RUN
@@ -356,12 +356,12 @@ md(r'''
 
 The single-seed DCC spread is the noise floor. If the 8-seed-ensemble gap to
 P2Rank is small relative to that spread, the honest conclusion is "not
-resolved yet" — not "we lose" and not "we win." If it's large relative to the
+resolved yet" - not "we lose" and not "we win." If it's large relative to the
 spread, the Phase 20 verdict is confirmed with actual statistical grounding
 behind it, rather than resting on one 3-seed run.
 
 Either way, this notebook's real output is `models/clean_deploy_seed{3..7}.pt`
-— five more trained checkpoints, saved for any future ensemble use.
+- five more trained checkpoints, saved for any future ensemble use.
 ''')
 
 nb={"cells":C,"metadata":{"kernelspec":{"display_name":"Python 3","language":"python","name":"python3"},

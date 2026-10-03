@@ -39,7 +39,7 @@ mapping["apo_chain"] = (
 )
 
 print("=" * 100)
-print("PHASE 193 — CASE STRUCTURE CHECK")
+print("PHASE 193 - CASE STRUCTURE CHECK")
 print("=" * 100)
 
 print("\nLoading graph file...")

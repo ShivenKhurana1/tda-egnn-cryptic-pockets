@@ -15,18 +15,18 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(f'''
-# Phase 250{TAG} — Plain-geometry features for the 7,513-chain scale-3 pool (chunk {CHUNK} of 3)
+# Phase 250{TAG} - Plain-geometry features for the 7,513-chain scale-3 pool (chunk {CHUNK} of 3)
 
 The geometry control has been run on the 2,055-chain pool (Phases 229-247). This builds the same 17 geometry features
 for the round-3 pool (Phase 52's 7,513 chains) so the control can be run at that data scale. The pool is split three ways
 (sorted chain keys, `keys[{CHUNK}::3]`) across parallel CPU kernels; the consumers merge the three outputs. Each chain is
 re-fetched from RCSB and accepted only if its residue count and centred CA coordinates match the graph (1e-3 A).
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1 biopython scipy")
-md("## Cell 2 — Geometry feature code (identical to cryptic-pocket/phase227_geometry.py)")
+md("## Cell 2 - Geometry feature code (identical to cryptic-pocket/phase227_geometry.py)")
 code(GEOM_SRC)
-md("## Cell 3 — Load the Phase 52 graphs (ids, node counts, positions only) and select this chunk")
+md("## Cell 3 - Load the Phase 52 graphs (ids, node counts, positions only) and select this chunk")
 code(f'''
 import os, time, json, urllib.request, urllib.error, collections
 from pathlib import Path
@@ -52,7 +52,7 @@ keys = sorted(all_graphs)[{CHUNK}::3]
 graphs = {{k: all_graphs[k] for k in keys}}
 print(len(all_graphs), 'chains in the pool;', len(keys), 'in this chunk;', sum(g['n'] for g in graphs.values()), 'residues')
 ''')
-md("## Cell 4 — Fetch structures (.pdb.gz, mmCIF fallback for newer/larger entries)")
+md("## Cell 4 - Fetch structures (.pdb.gz, mmCIF fallback for newer/larger entries)")
 code(r'''
 WORK = Path('/kaggle/working'); RAW = WORK / 'raw'; RAW.mkdir(exist_ok=True)
 
@@ -82,7 +82,7 @@ FILES = {p: n for p, n in res if n}
 missing = [p for p, n in res if not n]
 print(f'fetched {len(FILES)}/{len(pids)} in {(time.time()-t0)/60:.1f} min ({sum(n.endswith(".cif") for n in FILES.values())} as mmCIF); missing: {missing[:20]}')
 ''')
-md("## Cell 5 — Compute geometry and verify alignment")
+md("## Cell 5 - Compute geometry and verify alignment")
 code(r'''
 def one(key):
     pid, cid = key
@@ -114,7 +114,7 @@ print(f'accepted {len(feats)}/{len(keys)}; failed {len(fail)}')
 for k, m in list(fail.items())[:40]: print('  FAIL', k, m)
 print(collections.Counter(m.split(':')[0][:30] for m in fail.values()))
 ''')
-md("## Cell 6 — Save (failures recorded, not silently dropped)")
+md("## Cell 6 - Save (failures recorded, not silently dropped)")
 code(f'''
 torch.save(dict(names=NAMES, feats=feats, fail=dict(fail), n_chains=len(feats), n_total=len(keys), chunk={CHUNK}),
            WORK / 'phase250{TAG}_geometry_scale3.pt')

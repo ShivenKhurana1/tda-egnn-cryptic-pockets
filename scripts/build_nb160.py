@@ -16,7 +16,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 160 — ANM Flexibility Feature Ablation (8 seeds each arm)
+# Phase 160 - ANM Flexibility Feature Ablation (8 seeds each arm)
 
 Tests whether Phase159's new ANM mean-square-fluctuation (predicted
 flexibility) feature helps CryptoBench classification. Trained from
@@ -27,22 +27,22 @@ each, paired by seed:
 - **no_msf**: that one column zeroed, everything else intact.
 ''')
 
-md(r'''## Cell 1 — Install dependencies (identical to Phase43)''')
+md(r'''## Cell 1 - Install dependencies (identical to Phase43)''')
 code(s43(2))
 
-md(r'''## Cell 2 — Setup, load Phase 159's ANM-MSF CryptoBench blob''')
+md(r'''## Cell 2 - Setup, load Phase 159's ANM-MSF CryptoBench blob''')
 code(s43(3).replace('phase42_cryptobench_graphs.pt', 'phase159_cryptobench_anmmsf_graphs.pt')
            .replace('N_PRE = int(blob["n_pre_topo"]); TOPO_DIM = int(blob["topo_dim"]); POS_WEIGHT = float(blob["pos_weight"])',
                      'N_PRE = int(blob["n_pre_topo"]); TOPO_DIM = int(blob["topo_dim"]); POS_WEIGHT = float(blob["pos_weight"])\n'
                      'MSF_COL_IDX = int(blob["msf_col_idx"])'))
 
-md(r'''## Cell 3 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 3 - Model (identical to every prior localization phase)''')
 code(s43(5))
 
-md(r'''## Cell 4 — Training machinery (identical to Phase43)''')
+md(r'''## Cell 4 - Training machinery (identical to Phase43)''')
 code(s43(7))
 
-md(r'''## Cell 5 — Train both arms, 8 seeds each, paired by seed''')
+md(r'''## Cell 5 - Train both arms, 8 seeds each, paired by seed''')
 code(r'''
 BEST_LAMBDA = 0.1
 

@@ -25,7 +25,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 58 — Thread 1 Redone at Round-3 Scale: Does More Data Resolve the Diffuse Topology Signal?
+# Phase 58 - Thread 1 Redone at Round-3 Scale: Does More Data Resolve the Diffuse Topology Signal?
 
 At the original pool scale (2,056 clusters), the proper 8-seed matched
 comparison (Phase26) found H0/H1/H2/burial statistically indistinguishable
@@ -51,26 +51,26 @@ signal into something attributable, or does the diffuse-signal finding
 hold at scale too?
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 52/51's round-3 scaled blobs, identical to Phase53/56)''')
+md(r'''## Cell 1 - Setup (loads Phase 52/51's round-3 scaled blobs, identical to Phase53/56)''')
 code(s53(2))
 code(s53(3))
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures (identical to Phase 53/56)''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures (identical to Phase 53/56)''')
 code(s53(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 53/56; reproduces the same 7,181 chains)''')
+md(r'''## Cell 3 - Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 53/56; reproduces the same 7,181 chains)''')
 code(s53(7))
 
-md(r'''## Cell 4 — Recover true ligand centers for the cleaned training set (identical to Phase 53/56)''')
+md(r'''## Cell 4 - Recover true ligand centers for the cleaned training set (identical to Phase 53/56)''')
 code(s53(9))
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase)''')
 code(s53(11))
 
-md(r'''## Cell 6 — Training machinery (identical to Phase 14/20/53/56)''')
+md(r'''## Cell 6 - Training machinery (identical to Phase 14/20/53/56)''')
 code(s53(15))
 
-md(r'''## Cell 7 — Build H0 / H1 / H2 / burial column masks (identical to Phase 23, applied to the round-3 topology block already loaded in Cell 1 as blob6b/TOPO_NAMES -- NOT reloading phase6b_graphs.pt, that would silently swap back to the original-scale topology block)''')
+md(r'''## Cell 7 - Build H0 / H1 / H2 / burial column masks (identical to Phase 23, applied to the round-3 topology block already loaded in Cell 1 as blob6b/TOPO_NAMES -- NOT reloading phase6b_graphs.pt, that would silently swap back to the original-scale topology block)''')
 code(s23(10).replace(
     'blob6b = torch.load(locate("phase6b_graphs.pt"), map_location="cpu", weights_only=False)\n'
     'TOPO_NAMES = blob6b["topo_names"]\n'
@@ -78,7 +78,7 @@ code(s23(10).replace(
     'BURIAL_NAMES = set(blob6b["burial_names"])   # blob6b/TOPO_NAMES already loaded in Cell 1 (phase51_graphs.pt)'
 ))
 
-md(r'''## Cell 8 — Load Phase 56's already-trained 'full' arm (seeds 0-2, matched), train the 5 OTHER arms fresh at matched 3 seeds''')
+md(r'''## Cell 8 - Load Phase 56's already-trained 'full' arm (seeds 0-2, matched), train the 5 OTHER arms fresh at matched 3 seeds''')
 code(r'''
 BEST_LAMBDA = 0.1
 WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True)
@@ -126,17 +126,17 @@ print(f"\ntrained {sum(len(v) for k,v in arm_models.items() if k!='full')} new m
       f"across {len(ARMS_TO_TRAIN)} arms, reused 3 for 'full' -- all six arms now matched at 3 seeds")
 ''')
 
-md(r'''## Cell 9 — Ground-truth ligands for ALL 420 COACH420 structures (identical to Phase 53/56)''')
+md(r'''## Cell 9 - Ground-truth ligands for ALL 420 COACH420 structures (identical to Phase 53/56)''')
 code(s53(19))
 
-md(r'''## Cell 10 — Featurize (identical pipeline: dihedral + ESM2 + topology, matched to the round-3 topology block; cache filename updated)''')
+md(r'''## Cell 10 - Featurize (identical pipeline: dihedral + ESM2 + topology, matched to the round-3 topology block; cache filename updated)''')
 code(s53(21).replace("cache/phase53_raw_features.pkl", "cache/phase58_raw_features.pkl"))
 
-md(r'''## Cell 11 — P2Rank on the FULL 420 (same-run controlled reference, identical to Phase 53/56)''')
+md(r'''## Cell 11 - P2Rank on the FULL 420 (same-run controlled reference, identical to Phase 53/56)''')
 code(s53(23).replace('Path("/tmp/p2_20")', 'Path("/tmp/p2_58")')
             .replace('Path("/tmp/p2_20_out")', 'Path("/tmp/p2_58_out")'))
 
-md(r'''## Cell 12 — Score all six arms (matched 3 seeds each), per-seed pairwise significance table''')
+md(r'''## Cell 12 - Score all six arms (matched 3 seeds each), per-seed pairwise significance table''')
 code(r'''
 mu, sd = blob6b["topo_mean"], blob6b["topo_std"]
 
@@ -205,7 +205,7 @@ for name in ranked:
 print(f"\nmatched 3-seed ranking: {' > '.join(ranked)}")
 ''')
 
-md(r'''## Cell 13 — Per-seed pairwise significance table across all four decomposition arms''')
+md(r'''## Cell 13 - Per-seed pairwise significance table across all four decomposition arms''')
 code(r'''
 def per_seed_dcc(arm_name):
     rates = []

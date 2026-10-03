@@ -8,22 +8,22 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 17 — Visualizing Predictions
+# Phase 17 - Visualizing Predictions
 
 Renders 3D views of the trained model's per-residue binding-site probabilities
 and predicted pocket center against the true ligand, on real COACH420/HOLO4K
 structures the model has never been trained on.
 
-Reuses Phase 15's cached raw features and Phase 16's trained checkpoints —
+Reuses Phase 15's cached raw features and Phase 16's trained checkpoints -
 no re-fetching or re-featurization, so this runs in a couple of minutes.
 
 **Selection is deliberately not cherry-picked for best cases only.** Examples
-are chosen to span the actual outcome distribution — clear hits, a borderline
-case, and a genuine miss — because showing only successes would misrepresent
+are chosen to span the actual outcome distribution - clear hits, a borderline
+case, and a genuine miss - because showing only successes would misrepresent
 what Phase 16's 53% pooled DCC success rate actually looks like.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 code(r'''
 !pip install -q torch-geometric==2.6.1
 ''')
@@ -64,7 +64,7 @@ DEVICE = torch.device("cuda" if GPU_OK else "cpu")
 print(f"device {DEVICE}")
 ''')
 
-md(r'''## Cell 2 — Model + trained checkpoints (identical to Phase 16)''')
+md(r'''## Cell 2 - Model + trained checkpoints (identical to Phase 16)''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -127,7 +127,7 @@ for seed in (0,1,2):
 print(f"loaded {len(ensemble)} trained checkpoints")
 ''')
 
-md(r'''## Cell 3 — Inference (same frame-corrected logic as Phase 16)''')
+md(r'''## Cell 3 - Inference (same frame-corrected logic as Phase 16)''')
 code(r'''
 @torch.no_grad()
 def predict_chain(entry):
@@ -188,10 +188,10 @@ print(f"median DCC: {np.median([r['dcc'] for r in records]):.2f} A")
 ''')
 
 md(r'''
-## Cell 4 — Pick honest examples: best, median, and a genuine miss
+## Cell 4 - Pick honest examples: best, median, and a genuine miss
 
 Not cherry-picked for best-case-only. One clean hit, one borderline case near
-the 4 Angstrom threshold, and one real miss — the actual range of outcomes.
+the 4 Angstrom threshold, and one real miss - the actual range of outcomes.
 ''')
 code(r'''
 n = len(records)
@@ -207,7 +207,7 @@ for name, r in selection.items():
           f"n_res={len(r['probs'])}")
 ''')
 
-md(r'''## Cell 5 — Render''')
+md(r'''## Cell 5 - Render''')
 code(r'''
 def plot_chain(ax, r, title):
     ca = r["ca_raw"]; probs = r["probs"]
@@ -251,7 +251,7 @@ plt.show()
 print("saved -> predictions_overview.png")
 ''')
 
-md(r'''## Cell 6 — One large, detailed view of the best hit''')
+md(r'''## Cell 6 - One large, detailed view of the best hit''')
 code(r'''
 best = selection["clear_hit_1"]
 fig = plt.figure(figsize=(9, 8))
@@ -268,7 +268,7 @@ print("saved -> best_prediction_detail.png")
 md(r'''
 ---
 
-These are real predictions on structures the model never trained on — COACH420
+These are real predictions on structures the model never trained on - COACH420
 and HOLO4K chains that survived the leakage filter, run through the exact
 checkpoints scored in Phase 16. Gold markers are ground truth (from the actual
 crystal structure's bound ligand), red is the model's prediction, and point

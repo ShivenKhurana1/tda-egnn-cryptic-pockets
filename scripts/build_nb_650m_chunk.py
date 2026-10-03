@@ -26,7 +26,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(f'''
-# Phase {PHASE_NUM} — Main Pipeline 650M-ESM Chunk {CHUNK_IDX}/{N_CHUNKS}
+# Phase {PHASE_NUM} - Main Pipeline 650M-ESM Chunk {CHUNK_IDX}/{N_CHUNKS}
 
 Building a 650M-ESM main-pipeline checkpoint (round-3 COACH420 pool,
 Phase51) to unlock CryptoBench transfer learning at 650M scale -- the
@@ -36,10 +36,10 @@ full-pool 650M CPU embedding would likely exceed the 12hr session cap.
 This notebook processes chunk {CHUNK_IDX} only.
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s10(2))
 
-md(f'''## Cell 1 — Setup, load Phase 51's topology-fused pool, slice to chunk {CHUNK_IDX}/{N_CHUNKS}''')
+md(f'''## Cell 1 - Setup, load Phase 51's topology-fused pool, slice to chunk {CHUNK_IDX}/{N_CHUNKS}''')
 code(s10(3).replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")')
            .replace('dataset = blob["dataset"]',
                      f'dataset = blob["dataset"]\n'
@@ -47,10 +47,10 @@ code(s10(3).replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")'
                      f'dataset = dataset[_lo:_hi]\n'
                      f'print(f"chunk {CHUNK_IDX}/{N_CHUNKS}: chains {{_lo}}:{{_hi}} ({{len(dataset)}} of {{_n}} total)")'))
 
-md(r'''## Cell 2 — Recompute real backbone dihedrals (identical to Phase 10/30/37/52/92/95/96)''')
+md(r'''## Cell 2 - Recompute real backbone dihedrals (identical to Phase 10/30/37/52/92/95/96)''')
 code(s10(5))
 
-md(r'''## Cell 3 — ESM2-650M embeddings (fp16 storage -- proven pattern from Phase96''' + "'" + r'''s 3B postmortem, applied proactively here)''')
+md(r'''## Cell 3 - ESM2-650M embeddings (fp16 storage -- proven pattern from Phase96''' + "'" + r'''s 3B postmortem, applied proactively here)''')
 code(r'''
 import gc
 from transformers import AutoTokenizer, AutoModel
@@ -93,7 +93,7 @@ print(f"esm_feats resident size: {esm_gb:.1f} GB (fp16)")
 del esm; torch.cuda.empty_cache(); gc.collect()
 ''')
 
-md(f'''## Cell 4 — Assemble augmented features for this chunk, save AS FP16''')
+md(f'''## Cell 4 - Assemble augmented features for this chunk, save AS FP16''')
 code(f'''
 kept, dropped = [], 0
 for i, d in enumerate(dataset):

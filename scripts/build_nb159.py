@@ -21,7 +21,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 159 — CryptoBench Ingestion + ANM Flexibility Feature
+# Phase 159 - CryptoBench Ingestion + ANM Flexibility Feature
 
 Extends Phase42's exact ingestion (same fetch/parse/featurizer/dihedral/
 ESM cells) with ONE new per-residue feature: Anisotropic Network Model
@@ -34,25 +34,25 @@ of any topology recomputation. Much cheaper: one eigendecomposition per
 chain, no perturbed conformations, no persistent homology recomputed.
 ''')
 
-md(r'''## Cell 1 — Install dependencies (identical to Phase42)''')
+md(r'''## Cell 1 - Install dependencies (identical to Phase42)''')
 code(s42(2))
 
-md(r'''## Cell 2 — Setup, fetch CryptoBench's dataset.json + folds.json from OSF (identical to Phase42)''')
+md(r'''## Cell 2 - Setup, fetch CryptoBench's dataset.json + folds.json from OSF (identical to Phase42)''')
 code(s42(4))
 
-md(r'''## Cell 3 — Fetch apo structures (identical to Phase42)''')
+md(r'''## Cell 3 - Fetch apo structures (identical to Phase42)''')
 code(s42(6))
 
-md(r'''## Cell 4 — Parse apo chains, build per-residue crypticity labels (identical to Phase42)''')
+md(r'''## Cell 4 - Parse apo chains, build per-residue crypticity labels (identical to Phase42)''')
 code(s42(8))
 
-md(r'''## Cell 5 — Featuriser (identical to Phase42 -- byte-for-byte the Phase 2b/6b/29/36 definition)''')
+md(r'''## Cell 5 - Featuriser (identical to Phase42 -- byte-for-byte the Phase 2b/6b/29/36 definition)''')
 code(s42(10))
 
-md(r'''## Cell 6 — Compute topology for every chain (identical to Phase42)''')
+md(r'''## Cell 6 - Compute topology for every chain (identical to Phase42)''')
 code(s42(12))
 
-md(r'''## Cell 7 — ANM mean-square-fluctuation: one eigendecomposition per chain, no perturbation needed''')
+md(r'''## Cell 7 - ANM mean-square-fluctuation: one eigendecomposition per chain, no perturbation needed''')
 code(r'''
 N_MODES = 10
 ANM_CUTOFF = 13.0
@@ -110,13 +110,13 @@ print(f"ANM-MSF rotation invariance: {rel:.2e}")
 assert rel < 1e-3
 ''')
 
-md(r'''## Cell 8 — Recompute backbone dihedrals (identical to Phase42)''')
+md(r'''## Cell 8 - Recompute backbone dihedrals (identical to Phase42)''')
 code(s42(14))
 
-md(r'''## Cell 9 — ESM2 embeddings (identical to Phase42)''')
+md(r'''## Cell 9 - ESM2 embeddings (identical to Phase42)''')
 code(s42(16))
 
-md(r'''## Cell 10 — Assemble PyG graphs (identical to Phase42's schema, PLUS one ANM-MSF column appended to the pre-topology features)''')
+md(r'''## Cell 10 - Assemble PyG graphs (identical to Phase42's schema, PLUS one ANM-MSF column appended to the pre-topology features)''')
 code(r'''
 AA_ALPHABET = "ACDEFGHIKLMNPQRSTVWYX"
 AA_TO_IDX = {a: i for i, a in enumerate(AA_ALPHABET)}
@@ -178,7 +178,7 @@ for s in ("train","test"):
     print(f"  {s:<6} {len(ds):>5} chains")
 ''')
 
-md(r'''## Cell 11 — Carve a val subset from train, save (identical convention to Phase42, plus MSF metadata)''')
+md(r'''## Cell 11 - Carve a val subset from train, save (identical convention to Phase42, plus MSF metadata)''')
 code(r'''
 rng = np.random.RandomState(42)
 train_idx = [i for i,d in enumerate(dataset) if d.split == "train"]

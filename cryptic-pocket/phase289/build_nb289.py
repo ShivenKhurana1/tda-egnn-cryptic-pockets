@@ -31,11 +31,11 @@ from scratch directly on CryptoBench; Phase 288 pretrained the main pipeline its
 change; this transfers both sets of checkpoints onto CryptoBench, exactly the path every other confirmed
 CryptoBench gain in this paper took. Both arms (baseline-transfer, global-attn-transfer) trained fresh here.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1")
-md("## Cell 2 — Setup: load the 35M CryptoBench blob (identical to Phase 149)")
+md("## Cell 2 - Setup: load the 35M CryptoBench blob (identical to Phase 149)")
 code(s149(4))
-md("## Cell 3 — Model, with an optional global self-attention block after the EGCL stack (identical to Phase 288)")
+md("## Cell 3 - Model, with an optional global self-attention block after the EGCL stack (identical to Phase 288)")
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -114,12 +114,12 @@ class LocalizingEGNN(nn.Module):
             pred_center = torch.zeros(n_graphs, 3, device=h.device).index_add_(0, batch, weighted)
         return logits, pred_center
 ''')
-md("## Cell 4 — Training machinery: fit() optionally loads a pretrained state_dict, use_global_attn threaded through (Phase 129, adapted)")
+md("## Cell 4 - Training machinery: fit() optionally loads a pretrained state_dict, use_global_attn threaded through (Phase 129, adapted)")
 code(s129(8).replace(
     "def fit(use_loc_head, lam, seed, pretrained_path=None, epochs=40, patience=8, batch=16):\n    torch.manual_seed(seed); np.random.seed(seed)\n    model = LocalizingEGNN(N_PRE, TOPO_DIM, use_loc_head=use_loc_head).to(DEVICE)",
     "def fit(use_loc_head, lam, seed, pretrained_path=None, use_global_attn=False, epochs=40, patience=8, batch=16):\n    torch.manual_seed(seed); np.random.seed(seed)\n    model = LocalizingEGNN(N_PRE, TOPO_DIM, use_loc_head=use_loc_head, use_global_attn=use_global_attn).to(DEVICE)"
 ))
-md("## Cell 5 — Transfer-finetune BOTH arms x 8 seeds from Phase 288's seed-matched checkpoints; save per-seed val+test predictions")
+md("## Cell 5 - Transfer-finetune BOTH arms x 8 seeds from Phase 288's seed-matched checkpoints; save per-seed val+test predictions")
 code(r'''
 @torch.no_grad()
 def predict(model, split):

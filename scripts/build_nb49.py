@@ -17,7 +17,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 49 — Thread 3 Round 3, Step 1: Scale-Up Ingestion (10x original, 2x Phase 35)
+# Phase 49 - Thread 3 Round 3, Step 1: Scale-Up Ingestion (10x original, 2x Phase 35)
 
 COACH420's win over live P2Rank has grown at every scale tested so far with
 no sign of saturating: 0.516 (2,056 clusters) -> 0.564 (3,577) -> **0.596
@@ -31,29 +31,29 @@ clusters, 1.74x not 2.5x; 30K entries -> 5,339 clusters, 2.6x not 5x) --
 expect the same diminishing-but-real pattern here too.
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s6a(2))
 
-md(r'''## Cell 1 — Config (n_target raised 30000 -> 60000, everything else identical)''')
+md(r'''## Cell 1 - Config (n_target raised 30000 -> 60000, everything else identical)''')
 code(s6a(3).replace("n_target:         int   = 6000      # entries to download (of ~127k available)",
                      "n_target:         int   = 60000     # entries to download (of ~127k available) -- 10x Phase6a, 2x Phase35"))
 
-md(r'''## Cell 2 — Select entries via the RCSB Search API (identical query to Phase 6a/28/35)''')
+md(r'''## Cell 2 - Select entries via the RCSB Search API (identical query to Phase 6a/28/35)''')
 code(s6a(5))
 
-md(r'''## Cell 3 — Download (identical to Phase 6a/28/35)''')
+md(r'''## Cell 3 - Download (identical to Phase 6a/28/35)''')
 code(s6a(7))
 
-md(r'''## Cell 4 — Parse and label (identical predicates to Phase 6a/28/35)''')
+md(r'''## Cell 4 - Parse and label (identical predicates to Phase 6a/28/35)''')
 code(s6a(9))
 
-md(r'''## Cell 5 — MMseqs2 clustering and representative selection (identical to Phase 6a/28/35)''')
+md(r'''## Cell 5 - MMseqs2 clustering and representative selection (identical to Phase 6a/28/35)''')
 code(s6a(11))
 
-md(r'''## Cell 6 — Build graphs (identical schema to Phase 6a/28/35/Phase 1)''')
+md(r'''## Cell 6 - Build graphs (identical schema to Phase 6a/28/35/Phase 1)''')
 code(s6a(13))
 
-md(r'''## Cell 7 — Splits, QC, save (identical logic, new output filename)''')
+md(r'''## Cell 7 - Splits, QC, save (identical logic, new output filename)''')
 code(s6a(15).replace('p = OUT / "phase6_graphs.pt"', 'p = OUT / "phase49_graphs.pt"'))
 
 md(r'''

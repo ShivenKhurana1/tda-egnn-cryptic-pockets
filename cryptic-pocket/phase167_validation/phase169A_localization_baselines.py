@@ -22,7 +22,7 @@ def dcc(pred, true, cutoff):
 
 
 print("=" * 80)
-print("PHASE 169A — LOCALIZATION BASELINES")
+print("PHASE 169A - LOCALIZATION BASELINES")
 print("=" * 80)
 
 # ------------------------------------------------------------------

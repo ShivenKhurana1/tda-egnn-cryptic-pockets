@@ -28,7 +28,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(f'''
-# Phase {CFG["phase"]} — Same 2,056-chain pool, ESM2-{SCALE.upper()} embeddings
+# Phase {CFG["phase"]} - Same 2,056-chain pool, ESM2-{SCALE.upper()} embeddings
 
 Phase 10 embeds the project's original 2,056-chain homology-clean training pool with ESM2-35M and fuses it
 with the existing topology block (Phase 6b). This notebook is identical except the embedding model is
@@ -36,13 +36,13 @@ ESM2-{SCALE.upper()} ({CFG["comment"]}) -- everything else (chain list, dihedral
 train/val/test split) is unchanged, so the resulting blob is a drop-in replacement for `phase10_graphs.pt`
 in the Phase 230/236 geometry-control pipeline, isolating embedding scale as the only variable.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code(src10(2).replace("transformers==4.46.3", "transformers==4.46.3 accelerate"))
-md("## Cell 2 — Setup, load Phase 6b's topology-fused 2,056-chain pool")
+md("## Cell 2 - Setup, load Phase 6b's topology-fused 2,056-chain pool")
 code(src10(3))
-md("## Cell 3 — Recompute real backbone dihedrals (identical to Phase 10)")
+md("## Cell 3 - Recompute real backbone dihedrals (identical to Phase 10)")
 code(src10(5))
-md(f"## Cell 4 — ESM2-{SCALE.upper()} embeddings")
+md(f"## Cell 4 - ESM2-{SCALE.upper()} embeddings")
 code(f'''
 from transformers import AutoTokenizer, AutoModel
 
@@ -81,7 +81,7 @@ print(f"\\nESM2 embeddings for {{len(dataset):,}} chains / {{n_res:,}} residues 
       f"in {{(time.time()-t0)/60:.1f}} min ({{1000*(time.time()-t0)/n_res:.2f}} ms/residue)")
 del esm; torch.cuda.empty_cache()
 ''')
-md("## Cell 5 — Assemble augmented features and verify alignment")
+md("## Cell 5 - Assemble augmented features and verify alignment")
 code(src10(9).replace('"/kaggle/working/phase10_graphs.pt"', f'"/kaggle/working/{CFG["blob_out"]}"')
              .replace('saved -> /kaggle/working/phase10_graphs.pt', f'saved -> /kaggle/working/{CFG["blob_out"]}'))
 

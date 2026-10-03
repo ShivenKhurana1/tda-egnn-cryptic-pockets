@@ -22,7 +22,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 157 — CryptoBench Ingestion + Topological Variability
+# Phase 157 - CryptoBench Ingestion + Topological Variability
 
 Extends Phase42's exact ingestion (same fetch/parse/featurizer/dihedral/
 ESM cells) with a new feature block: the per-residue STD of the
@@ -37,22 +37,22 @@ fusion module (`Fus`) just sees a wider topology block (34 static + 34
 variability columns instead of 34).
 ''')
 
-md(r'''## Cell 1 — Install dependencies (identical to Phase42)''')
+md(r'''## Cell 1 - Install dependencies (identical to Phase42)''')
 code(s42(2))
 
-md(r'''## Cell 2 — Setup, fetch CryptoBench's dataset.json + folds.json from OSF (identical to Phase42)''')
+md(r'''## Cell 2 - Setup, fetch CryptoBench's dataset.json + folds.json from OSF (identical to Phase42)''')
 code(s42(4))
 
-md(r'''## Cell 3 — Fetch apo structures (identical to Phase42)''')
+md(r'''## Cell 3 - Fetch apo structures (identical to Phase42)''')
 code(s42(6))
 
-md(r'''## Cell 4 — Parse apo chains, build per-residue crypticity labels (identical to Phase42)''')
+md(r'''## Cell 4 - Parse apo chains, build per-residue crypticity labels (identical to Phase42)''')
 code(s42(8))
 
-md(r'''## Cell 5 — Featuriser (identical to Phase42 -- byte-for-byte the Phase 2b/6b/29/36 definition)''')
+md(r'''## Cell 5 - Featuriser (identical to Phase42 -- byte-for-byte the Phase 2b/6b/29/36 definition)''')
 code(s42(10))
 
-md(r'''## Cell 6 — ANM (Anisotropic Network Model): compute low-frequency modes and generate perturbed conformations''')
+md(r'''## Cell 6 - ANM (Anisotropic Network Model): compute low-frequency modes and generate perturbed conformations''')
 code(r'''
 N_CONFORMERS = 8
 TARGET_RMSD = 1.2   # Angstrom, typical moderate ANM thermal-fluctuation scale
@@ -116,7 +116,7 @@ def topo_variability_for_chain(ca_xyz, per_res, seed):
     return static, var
 ''')
 
-md(r'''## Cell 7 — Compute static + variability topology for every chain (9 conformers each: 1 original + 8 ANM-perturbed)''')
+md(r'''## Cell 7 - Compute static + variability topology for every chain (9 conformers each: 1 original + 8 ANM-perturbed)''')
 code(r'''
 n_res_total = sum(len(r["ca"]) for r in records)
 print(f"computing persistent homology on {n_res_total:,} residues x 9 conformers "
@@ -156,13 +156,13 @@ print(f"static topology rotation invariance: {rel:.2e}")
 assert rel < 1e-3
 ''')
 
-md(r'''## Cell 8 — Recompute backbone dihedrals (identical to Phase42)''')
+md(r'''## Cell 8 - Recompute backbone dihedrals (identical to Phase42)''')
 code(s42(14))
 
-md(r'''## Cell 9 — ESM2 embeddings (identical to Phase42)''')
+md(r'''## Cell 9 - ESM2 embeddings (identical to Phase42)''')
 code(s42(16))
 
-md(r'''## Cell 10 — Assemble PyG graphs (identical to Phase42's schema, PLUS the new variability block appended)''')
+md(r'''## Cell 10 - Assemble PyG graphs (identical to Phase42's schema, PLUS the new variability block appended)''')
 code(r'''
 AA_ALPHABET = "ACDEFGHIKLMNPQRSTVWYX"
 AA_TO_IDX = {a: i for i, a in enumerate(AA_ALPHABET)}
@@ -227,7 +227,7 @@ for s in ("train","test"):
     print(f"  {s:<6} {len(ds):>5} chains")
 ''')
 
-md(r'''## Cell 11 — Carve a val subset from train, save (identical convention to Phase42, plus variability metadata)''')
+md(r'''## Cell 11 - Carve a val subset from train, save (identical convention to Phase42, plus variability metadata)''')
 code(r'''
 rng = np.random.RandomState(42)
 train_idx = [i for i,d in enumerate(dataset) if d.split == "train"]

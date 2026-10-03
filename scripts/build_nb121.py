@@ -20,7 +20,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 121 — CryptoBench: Does Topology Help Cryptic-Pocket Prediction?
+# Phase 121 - CryptoBench: Does Topology Help Cryptic-Pocket Prediction?
 
 Thread 1 proved persistent homology significantly improves localization
 on the main COACH420/HOLO4K pipeline (H1 > H0, topology overall beats
@@ -32,16 +32,16 @@ can't). Trains full (with topology) and no_topo (topology zeroed) in the
 SAME run, seed=0, for a direct comparison.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s118(2))
 
-md(r'''## Cell 2 — Setup, load Phase 117's blob (identical to Phase118/119)''')
+md(r'''## Cell 2 - Setup, load Phase 117's blob (identical to Phase118/119)''')
 code(s118(3))
 
-md(r'''## Cell 3 — Model (identical to Phase118/119)''')
+md(r'''## Cell 3 - Model (identical to Phase118/119)''')
 code(s118(5))
 
-md(r'''## Cell 4 — Training machinery (identical to Phase119, no aux head, no masking -- this is Phase119's exact baseline arm, reused as the "full" topology arm here)''')
+md(r'''## Cell 4 - Training machinery (identical to Phase119, no aux head, no masking -- this is Phase119's exact baseline arm, reused as the "full" topology arm here)''')
 code(r'''
 def run_epoch(model, loader, opt=None, lam=0.0):
     tr = opt is not None; model.train(tr)
@@ -90,7 +90,7 @@ def fit(use_loc_head, lam, seed, epochs=40, patience=8, batch=16):
     return model, best
 ''')
 
-md(r'''## Cell 5 — Train "full" (with topology) first while data is pristine, then zero d.x[:, N_PRE:] for "no_topo", same seed=0, same run''')
+md(r'''## Cell 5 - Train "full" (with topology) first while data is pristine, then zero d.x[:, N_PRE:] for "no_topo", same seed=0, same run''')
 code(r'''
 BEST_LAMBDA = 0.1
 results = []

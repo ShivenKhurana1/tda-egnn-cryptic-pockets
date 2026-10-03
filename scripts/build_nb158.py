@@ -22,7 +22,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 158 — Topological Variability Ablation (8 seeds each arm)
+# Phase 158 - Topological Variability Ablation (8 seeds each arm)
 
 Tests whether Phase157's new topological-variability feature block (std
 of the persistent-homology feature vector across an 8-conformer ANM-
@@ -38,22 +38,22 @@ seeds each, paired by seed:
   intact -- isolates the variability block's own contribution.
 ''')
 
-md(r'''## Cell 1 — Install dependencies (identical to Phase43)''')
+md(r'''## Cell 1 - Install dependencies (identical to Phase43)''')
 code(s43(2))
 
-md(r'''## Cell 2 — Setup, load Phase 157's topology-variability CryptoBench blob''')
+md(r'''## Cell 2 - Setup, load Phase 157's topology-variability CryptoBench blob''')
 code(s43(3).replace('phase42_cryptobench_graphs.pt', 'phase157_cryptobench_topovar_graphs.pt')
            .replace('N_PRE = int(blob["n_pre_topo"]); TOPO_DIM = int(blob["topo_dim"]); POS_WEIGHT = float(blob["pos_weight"])',
                      'N_PRE = int(blob["n_pre_topo"]); TOPO_DIM = int(blob["topo_dim"]); POS_WEIGHT = float(blob["pos_weight"])\n'
                      'STATIC_TOPO_DIM = int(blob["static_topo_dim"]); VAR_TOPO_DIM = int(blob["var_topo_dim"])'))
 
-md(r'''## Cell 3 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 3 - Model (identical to every prior localization phase)''')
 code(s43(5))
 
-md(r'''## Cell 4 — Training machinery (identical to Phase43)''')
+md(r'''## Cell 4 - Training machinery (identical to Phase43)''')
 code(s43(7))
 
-md(r'''## Cell 5 — Train both arms, 8 seeds each, paired by seed''')
+md(r'''## Cell 5 - Train both arms, 8 seeds each, paired by seed''')
 code(r'''
 BEST_LAMBDA = 0.1
 

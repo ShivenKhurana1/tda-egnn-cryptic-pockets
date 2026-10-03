@@ -8,17 +8,17 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 11b — Quick Accuracy Levers (fixed split, fast iteration)
+# Phase 11b - Quick Accuracy Levers (fixed split, fast iteration)
 
 Two cheap things worth checking while the properly-powered Phase 11 nested CV
-runs in parallel. Both reuse `phase10_graphs.pt` directly — no re-embedding,
+runs in parallel. Both reuse `phase10_graphs.pt` directly - no re-embedding,
 each variant trains in a few minutes on the existing fixed split, so this is
 exploration, not the number to cite.
 
 1. **Focal loss vs weighted BCE.** At ~6.8% positives, standard weighted BCE
    treats every hard example the same once it is correctly up-weighted. Focal
    loss additionally down-weights *easy* examples during training, focusing
-   gradient on the boundary cases — often a direct win on PR-AUC for exactly
+   gradient on the boundary cases - often a direct win on PR-AUC for exactly
    this kind of imbalance, and it is a one-line change to the loss function.
 
 2. **Seed ensembling.** Averaging predicted probabilities across independently
@@ -26,10 +26,10 @@ exploration, not the number to cite.
    nudges PR-AUC up a little. Cheap to check, cheap to adopt if it helps.
 
 Whichever combination wins here is a candidate to fold into a future properly-
-powered run — not a replacement for one.
+powered run - not a replacement for one.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 
 code(r'''
 !pip install -q torch-geometric==2.6.1
@@ -63,7 +63,7 @@ print(f"{DEVICE} | node dim {dataset[0].x.size(1)} | pos_weight {POS_WEIGHT:.2f}
 print({s: len(v) for s,v in splits.items()})
 ''')
 
-md(r'''## Cell 2 — Model + both loss functions''')
+md(r'''## Cell 2 - Model + both loss functions''')
 
 code(r'''
 class EGCL(nn.Module):
@@ -133,7 +133,7 @@ BCE = lambda: nn.BCEWithLogitsLoss(pos_weight=torch.tensor([POS_WEIGHT], device=
 FOCAL = lambda: FocalLoss(POS_WEIGHT, gamma=2.0)
 ''')
 
-md(r'''## Cell 3 — Loss comparison, 3 seeds each''')
+md(r'''## Cell 3 - Loss comparison, 3 seeds each''')
 
 code(r'''
 EPOCHS, PATIENCE, BATCH = 40, 8, 16
@@ -177,7 +177,7 @@ for loss_name, crit_fn in (("bce", BCE), ("focal", FOCAL)):
 print(f"\ndone in {(time.time()-t0)/60:.1f} min")
 ''')
 
-md(r'''## Cell 4 — Ensemble and verdict''')
+md(r'''## Cell 4 - Ensemble and verdict''')
 
 code(r'''
 print(f"{'config':<20}{'mean test PR':>15}{'std':>8}")
@@ -219,7 +219,7 @@ md(r'''
 
 ## Using this
 
-This notebook is exploratory and runs on a single fixed split — treat every
+This notebook is exploratory and runs on a single fixed split - treat every
 number here as a *hypothesis* about what might help, not a validated result.
 If focal loss or ensembling shows a clear, consistent gain across all 3 seeds,
 it is a reasonable ingredient to carry into the next properly-powered nested-CV

@@ -12,7 +12,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 25 — Matched 3-Seed Comparison (Fixing the Thread 1 Confound, No Training)
+# Phase 25 - Matched 3-Seed Comparison (Fixing the Thread 1 Confound, No Training)
 
 Phase 23 v2 found `full`/`no_topo` reference checkpoints only had 3 seeds
 loaded while H0/H1/H2/burial had 8 -- an ensemble-size mismatch that made
@@ -26,7 +26,7 @@ a separate, longer CPU training job) -- it is the fast, confound-free
 intermediate check.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 code(r'''
 !pip install -q torch-geometric==2.6.1
 ''')
@@ -67,7 +67,7 @@ assert sum(m.sum() for m in MASKS.values()) == len(TOPO_NAMES)
 print("masks reconstructed and verified")
 ''')
 
-md(r'''## Cell 2 — Model class (identical to every prior localization phase)''')
+md(r'''## Cell 2 - Model class (identical to every prior localization phase)''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -119,7 +119,7 @@ class LocalizingEGNN(nn.Module):
         return logits, pred_center
 ''')
 
-md(r'''## Cell 3 — Load ONLY seeds 0-2 for every arm (matched, no new training)''')
+md(r'''## Cell 3 - Load ONLY seeds 0-2 for every arm (matched, no new training)''')
 code(r'''
 def load_seeds(prefix, seeds):
     out = {}
@@ -145,7 +145,7 @@ assert all(len(m) == 3 for m in arm_models.values()), "expected exactly 3 matche
 print("\nall six arms matched at 3 seeds -- no ensemble-size confound this time")
 ''')
 
-md(r'''## Cell 4 — Load cached benchmark features, score all 6 arms (matched)''')
+md(r'''## Cell 4 - Load cached benchmark features, score all 6 arms (matched)''')
 code(r'''
 with open(locate("phase15_raw_features.pkl"), "rb") as fh:
     raw_cache = pickle.load(fh)
@@ -214,7 +214,7 @@ for arm_name, mask in ARM_MASK_FOR_SCORING.items():
 print(f"\nscored all 6 arms in {(time.time()-t0)/60:.1f} min (CPU)")
 ''')
 
-md(r'''## Cell 5 — Matched ranking''')
+md(r'''## Cell 5 - Matched ranking''')
 code(r'''
 base = summary["no_topo"]["dcc"]
 full = summary["full"]["dcc"]

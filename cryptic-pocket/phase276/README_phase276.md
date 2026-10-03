@@ -1,7 +1,7 @@
 # Phase 276: is this project's result actually about cryptic pockets?
 
 Source: "A benchmark selected for crypticity" (pmfran4252-afk/cryptic-site-benchmark, preprint, CC BY 4.0),
-https://github.com/pmfran4252-afk/cryptic-site-benchmark — an independent, adversarially-designed relabeling
+https://github.com/pmfran4252-afk/cryptic-site-benchmark, an independent, adversarially-designed relabeling
 of CryptoBench's own test split (strict apo/holo cavity-voxel rule) plus a separate 2,401-pair screened benchmark.
 CryptoBench data/splits from https://osf.io/pz4a9/ (Skrhak et al. 2025, Bioinformatics, btae745).
 

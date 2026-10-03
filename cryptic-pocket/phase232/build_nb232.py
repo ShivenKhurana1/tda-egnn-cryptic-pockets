@@ -19,7 +19,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(r'''
-# Phase 232 — Geometry control on the manuscript's own evaluation (Phase 166 hard split, 185-protein test set)
+# Phase 232 - Geometry control on the manuscript's own evaluation (Phase 166 hard split, 185-protein test set)
 
 Phase 228 ran the geometry-vs-topology control on the *official* CryptoBench split with CryptoBench's labels.
 The manuscript's experimental-site results (Phases 167-189) instead use the **Phase 166 embedding-cluster hard split**
@@ -31,12 +31,12 @@ probability** for downstream experimental-site analysis.
 Arms (same 51-wide side channel for all): `esm_structure`, `tda` (34), `geom` (17), `geom_tda`, `geom_persistence`.
 8 seeds each = 40 trainings. Primary question (fixed in advance): `geom_persistence` vs `geom`.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1 scipy scikit-learn")
-md("## Cell 2 — Load Phase 159 graphs + Phase 227 geometry, build the Phase 166 hard split")
+md("## Cell 2 - Load Phase 159 graphs + Phase 227 geometry, build the Phase 166 hard split")
 code(s228(find("import copy")).replace("from scipy.stats import ttest_rel, wilcoxon", "from scipy.stats import ttest_rel, wilcoxon\nfrom sklearn.cluster import KMeans")
      .replace("splits={s:[d for d in dataset if d.split==s] for s in ('train','val','test')}\nprint('node dim:',dataset[0].x.shape[1],'splits:',{k:len(v) for k,v in splits.items()})", "OFFICIAL={s:sum(d.split==s for d in dataset) for s in ('train','val','test')}\nprint('official split:',OFFICIAL)"))
-md("## Cell 3 — Phase 166 hard split (verbatim recipe) and consistency assertion")
+md("## Cell 3 - Phase 166 hard split (verbatim recipe) and consistency assertion")
 code(r'''
 emb=np.stack([d.x[:,27:507].float().mean(0).numpy() for d in dataset])
 emb=emb/(np.linalg.norm(emb,axis=1,keepdims=True)+1e-12)
@@ -75,12 +75,12 @@ assert got==EXPECTED_CLUSTER_ASSIGNMENT, 'cluster assignment differs from the Ph
 print('cluster assignment identical to phase166_hard_split_manifest.json')
 splits={'train':[d for d in dataset if d.hard_split=='train_hard'],'val':[d for d in dataset if d.hard_split=='val_hard'],'test':[d for d in dataset if d.hard_split=='test_hard']}
 ''')
-md("## Cell 4 — Model (Phase 164/228, unchanged; side channel 51)")
+md("## Cell 4 - Model (Phase 164/228, unchanged; side channel 51)")
 code(s228(find("class EGCL")))
-md("## Cell 5 — Arms")
+md("## Cell 5 - Arms")
 code(s228(find("TOPO_NAMES=list")).replace("ARMS={\n 'esm_structure':[],\n 'geom':GEOM_COLS,\n 'tda':TDA_COLS,\n 'persistence':PERS_COLS,\n 'geom_tda':sorted(GEOM_COLS+TDA_COLS),\n 'geom_persistence':sorted(GEOM_COLS+PERS_COLS),\n}",
      "ARMS={\n 'esm_structure':[],\n 'tda':TDA_COLS,\n 'geom':GEOM_COLS,\n 'geom_tda':sorted(GEOM_COLS+TDA_COLS),\n 'geom_persistence':sorted(GEOM_COLS+PERS_COLS),\n}"))
-md("## Cell 6 — Training machinery (unchanged) with test-probability export")
+md("## Cell 6 - Training machinery (unchanged) with test-probability export")
 train_src = s228(find("def focal_loss_with_logits")).replace("phase163_","phase232_").replace("phase228_{arm}_seed{seed}", "phase232_{arm}_seed{seed}")
 train_src = train_src.replace("model=LocalizingEGNN(N_PRE,SIDE_DIM).to(DEVICE)", "model=LocalizingEGNN(N_PRE,SIDE_DIM).to(DEVICE)")
 train_src += r'''
@@ -95,7 +95,7 @@ def export_test_probs(model,arm):
     return out
 '''
 code(train_src)
-md("## Cell 7 — 5 arms x 8 seeds = 40 trainings")
+md("## Cell 7 - 5 arms x 8 seeds = 40 trainings")
 code(r'''
 SEEDS=list(range(8)); results=[]; PROBS={}; t0=time.time()
 for arm in ARMS:
@@ -108,7 +108,7 @@ json.dump(results,open(WORK/'phase232_results.json','w'),indent=2)
 torch.save(PROBS,WORK/'phase232_test_probabilities.pt')
 print('saved phase232_results.json and phase232_test_probabilities.pt')
 ''')
-md("## Cell 8 — Summary (protein-level analysis is done locally on the exported probabilities)")
+md("## Cell 8 - Summary (protein-level analysis is done locally on the exported probabilities)")
 code(r'''
 import pandas as pd
 rows=[{'arm':r['arm'],'seed':r['seed'],**{f'val_{k}':v for k,v in r['val'].items()},**{f'test_{k}':v for k,v in r['test'].items()}} for r in results]

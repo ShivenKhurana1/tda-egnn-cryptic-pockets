@@ -8,7 +8,7 @@ CENTER_PATH = "phase167_validation/phase168A_corrected_centers.csv"
 ARMS = ["esm_structure", "full_tda", "full_model"]
 
 print("=" * 100)
-print("PHASE 174A — SHARPENED CENTROID STATISTICAL VALIDATION")
+print("PHASE 174A - SHARPENED CENTROID STATISTICAL VALIDATION")
 print("=" * 100)
 
 

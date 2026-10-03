@@ -25,7 +25,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 97 — COACH420 ESM2-3B: TRAIN-ONLY
+# Phase 97 - COACH420 ESM2-3B: TRAIN-ONLY
 
 Split from Phase93 after 6 straight failures all crashing ~30s into
 loading a SECOND ESM2-3B model post-training. Diagnostics (Phase93 v6)
@@ -37,7 +37,7 @@ succeeded 6/6 times so far -- only what came AFTER ever failed). Saves
 checkpoints for Phase98 (score-only, fresh kernel) to pick up.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 96's ESM2-3B blob)''')
+md(r'''## Cell 1 - Setup (loads Phase 96's ESM2-3B blob)''')
 code(s20(2))
 code(s20(3).replace('locate("phase10_graphs.pt")', 'locate("phase96_graphs_esm3b.pt")')
            .replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")')
@@ -45,25 +45,25 @@ code(s20(3).replace('locate("phase10_graphs.pt")', 'locate("phase96_graphs_esm3b
                      'dataset = blob10["dataset"]\n'
                      'for _d in dataset: _d.x = _d.x.float()   # Phase96 stores fp16 on disk (quota fix); upcast once here'))
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures (needed to compute training-side homology exclusion; identical to Phase 20/31/38/53/93)''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures (needed to compute training-side homology exclusion; identical to Phase 20/31/38/53/93)''')
 code(s20(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 20 v2/31/38/53/93)''')
+md(r'''## Cell 3 - Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 20 v2/31/38/53/93)''')
 code(s20(7))
 
-md(r'''## Cell 4 — Recover true ligand centers for the cleaned training set (identical to Phase 20/31/38/53/93/14)''')
+md(r'''## Cell 4 - Recover true ligand centers for the cleaned training set (identical to Phase 20/31/38/53/93/14)''')
 code(s20(9))
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase; N_PRE/TOPO_DIM read dynamically so this works unchanged at the new 2621-dim node width)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase; N_PRE/TOPO_DIM read dynamically so this works unchanged at the new 2621-dim node width)''')
 code(s20(11))
 
-md(r'''## Cell 6 — Equivariance check before training anything (identical to Phase 20/31/38/53/93)''')
+md(r'''## Cell 6 - Equivariance check before training anything (identical to Phase 20/31/38/53/93)''')
 code(s20(13))
 
-md(r'''## Cell 7 — Training machinery (identical to Phase 14/20/31/38/53/93)''')
+md(r'''## Cell 7 - Training machinery (identical to Phase 14/20/31/38/53/93)''')
 code(s20(15))
 
-md(r'''## Cell 8 — Train the clean-training ensemble (3 seeds, lambda=0.1) on the ESM2-3B blob''')
+md(r'''## Cell 8 - Train the clean-training ensemble (3 seeds, lambda=0.1) on the ESM2-3B blob''')
 code(s20(17).replace("clean_deploy_seed{seed}.pt", "clean_deploy_esm3b_seed{seed}.pt"))
 
 code(r'''

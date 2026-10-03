@@ -8,16 +8,16 @@ md = lambda s: C.append({"cell_type":"markdown","metadata":{},"source":s.strip("
 code = lambda s: C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 8 — Capacity Sweep and Fusion-Gate Analysis
+# Phase 8 - Capacity Sweep and Fusion-Gate Analysis
 
 Two loose ends from the main result.
 
 **1. The architecture was never tuned.** `h_dim=128, 4 layers, dropout 0.1` was
-chosen once and frozen deliberately — changing the model while changing the
+chosen once and frozen deliberately - changing the model while changing the
 evaluation protocol would have confounded the ablation. That reason is now spent,
 and Phase 5 showed severe overfitting (train PR 0.97 vs val 0.43 at small scale).
 
-**2. The fusion gates sat at ~0.50** — sigmoid's initialisation value — in the
+**2. The fusion gates sat at ~0.50** - sigmoid's initialisation value - in the
 41-chain run, meaning the gating mechanism designed to make topology use
 *interpretable* was not visibly learning anything. With 50× more data it may
 behave differently, and that is worth measuring rather than assuming.
@@ -25,12 +25,12 @@ behave differently, and that is worth measuring rather than assuming.
 ### Protocol
 
 All selection is on the **validation split only**. The test split is not touched
-here — reporting a tuned configuration's test score selected *on* test would be
+here - reporting a tuned configuration's test score selected *on* test would be
 the exact leakage the last three phases worked to eliminate. The winning config
 should be re-run through the Phase 6c ablation to get a clean test number.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 
 code(r'''
 !pip install -q torch-geometric==2.6.1
@@ -64,7 +64,7 @@ splits={s:[d for d in dataset if d.split==s] for s in ("train","val","test")}
 print(f"train {len(splits['train'])} | val {len(splits['val'])} | test {len(splits['test'])} (untouched)")
 ''')
 
-md(r'''## Cell 2 — Model (parameterised)''')
+md(r'''## Cell 2 - Model (parameterised)''')
 
 code(r'''
 class EGCL(nn.Module):
@@ -124,7 +124,7 @@ def run_epoch(model,loader,opt=None):
 ''')
 
 md(r'''
-## Cell 3 — Sweep
+## Cell 3 - Sweep
 
 A deliberately small grid. With ~15 min per configuration, an exhaustive search
 is not affordable, and the honest framing is "a coarse sweep around the frozen
@@ -181,13 +181,13 @@ Path("/kaggle/working/phase8_sweep.json").write_text(json.dumps(results,indent=2
 ''')
 
 md(r'''
-## Cell 4 — Fusion-gate analysis
+## Cell 4 - Fusion-gate analysis
 
 Three questions: are the gates moving off their 0.50 initialisation, do they vary
 *per residue* (selective routing) or sit flat (a constant scale factor), and do
 binding-site residues gate topology differently from the rest?
 
-A flat gate would mean the mechanism is not doing what it was designed to do —
+A flat gate would mean the mechanism is not doing what it was designed to do -
 worth knowing, since the interpretability claim rests on it.
 ''')
 
@@ -240,7 +240,7 @@ md(r'''
 ## Using this
 
 The winning configuration is selected on **validation only**. To report a test
-number for it, re-run the Phase 6c 10-fold ablation with that configuration —
+number for it, re-run the Phase 6c 10-fold ablation with that configuration -
 quoting a test score for a config chosen on test would reintroduce exactly the
 leakage the earlier phases removed.
 

@@ -11,18 +11,18 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(r'''
-# Phase 252 — Plain-geometry features for the scale-3 COACH420 benchmark chains
+# Phase 252 - Plain-geometry features for the scale-3 COACH420 benchmark chains
 
 Phase 53 featurized the full COACH420 benchmark for the scale-3 pipeline and cached the raw features
 (`phase53_raw_features.pkl`, keyed `(pdb_id, chain)`). This computes the 17 geometry features for each cached chain,
 accepting a chain only if its residue count matches the cached rows AND its CA coordinates equal the cached raw `ca`
 (original frame, uncentred; max abs error < 1e-3 A).
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q biopython scipy")
-md("## Cell 2 — Geometry feature code (identical to cryptic-pocket/phase227_geometry.py)")
+md("## Cell 2 - Geometry feature code (identical to cryptic-pocket/phase227_geometry.py)")
 code(GEOM_SRC)
-md("## Cell 3 — Load Phase 53's benchmark cache (keys and CA coordinates only)")
+md("## Cell 3 - Load Phase 53's benchmark cache (keys and CA coordinates only)")
 code(r'''
 import os, time, json, pickle, urllib.request, urllib.error, collections
 from pathlib import Path
@@ -46,7 +46,7 @@ by_pid = collections.defaultdict(list)
 for key in entries: by_pid[key[0]].append(key)
 print(len(entries), 'cached chains in', len(by_pid), 'structures')
 ''')
-md("## Cell 4 — Fetch structures (.pdb.gz, mmCIF fallback)")
+md("## Cell 4 - Fetch structures (.pdb.gz, mmCIF fallback)")
 code(r'''
 WORK = Path('/kaggle/working'); RAW = WORK / 'raw'; RAW.mkdir(exist_ok=True)
 
@@ -74,7 +74,7 @@ res = Parallel(n_jobs=16, backend='threading')(delayed(fetch)(p) for p in sorted
 FILES = {p: n for p, n in res if n}
 print(f'fetched {len(FILES)}/{len(by_pid)} in {(time.time()-t0)/60:.1f} min; missing: {[p for p, n in res if not n][:20]}')
 ''')
-md("## Cell 5 — Compute geometry and verify alignment")
+md("## Cell 5 - Compute geometry and verify alignment")
 code(r'''
 def one_structure(pid):
     out = {}
@@ -108,7 +108,7 @@ print(f'done in {(time.time()-t0)/60:.1f} min; accepted {len(feats)}/{len(entrie
 print(collections.Counter(m.split(":")[0][:40] for m in fail.values()))
 for k, m in list(fail.items())[:25]: print('  FAIL', k, m)
 ''')
-md("## Cell 6 — Save")
+md("## Cell 6 - Save")
 code(r'''
 torch.save(dict(names=NAMES, feats=feats, fail=fail, n_total=len(entries)), WORK / 'phase252_coach_geometry.pt')
 import shutil; shutil.rmtree(RAW, ignore_errors=True)

@@ -11,7 +11,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 23b — Rescore-Only (Phase 23 v1's crash was a one-line print bug)
+# Phase 23b - Rescore-Only (Phase 23 v1's crash was a one-line print bug)
 
 Phase 23 v1 trained all 12 models (H0/H1/H2/burial x 3 seeds) and scored all 6
 arms successfully -- the numbers were already in the log. It then crashed on
@@ -21,7 +21,7 @@ minutes of training to fix a print statement, this loads the 12 checkpoints
 Phase 23 v1 already saved and reruns only the scoring + corrected summary.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 code(r'''
 !pip install -q torch-geometric==2.6.1
 ''')
@@ -67,7 +67,7 @@ assert sum(m.sum() for m in MASKS.values()) == len(TOPO_NAMES)
 print("masks reconstructed and verified")
 ''')
 
-md(r'''## Cell 2 — Model class (identical to Phase 23)''')
+md(r'''## Cell 2 - Model class (identical to Phase 23)''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -119,7 +119,7 @@ class LocalizingEGNN(nn.Module):
         return logits, pred_center
 ''')
 
-md(r'''## Cell 3 — Load all checkpoints (12 from Phase 23 v1, 6 from Phase 15/18) -- no retraining''')
+md(r'''## Cell 3 - Load all checkpoints (12 from Phase 23 v1, 6 from Phase 15/18) -- no retraining''')
 code(r'''
 def load_existing(prefix, seeds):
     out = {}
@@ -144,7 +144,7 @@ for name, models in arm_models.items():
 assert all(len(m) == 3 for m in arm_models.values()), "expected 3 seeds per arm"
 ''')
 
-md(r'''## Cell 4 — Load cached benchmark features, score all 6 arms''')
+md(r'''## Cell 4 - Load cached benchmark features, score all 6 arms''')
 code(r'''
 with open(locate("phase15_raw_features.pkl"), "rb") as fh:
     raw_cache = pickle.load(fh)
@@ -213,7 +213,7 @@ for arm_name, mask in ARM_MASK_FOR_SCORING.items():
 print(f"\nscored all {len(ARM_MASK_FOR_SCORING)} arms in {(time.time()-t0)/60:.1f} min")
 ''')
 
-md(r'''## Cell 5 — Which piece recovers the benefit? (corrected format spec)''')
+md(r'''## Cell 5 - Which piece recovers the benefit? (corrected format spec)''')
 code(r'''
 base = summary["no_topo"]["dcc"]
 full = summary["full"]["dcc"]

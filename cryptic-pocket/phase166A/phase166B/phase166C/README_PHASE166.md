@@ -1,4 +1,4 @@
-# Phase166 — full_model
+# Phase166: full_model
 
 Hard-generalization experiment for the cryptic-pocket EGNN.
 

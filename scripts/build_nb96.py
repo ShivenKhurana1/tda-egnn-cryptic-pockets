@@ -23,7 +23,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 96 — Main Pipeline with ESM2-3B, Disk-Quota-Safe Retry
+# Phase 96 - Main Pipeline with ESM2-3B, Disk-Quota-Safe Retry
 
 Phase95 fixed Phase92's RAM problem and got all the way through assembly
 (kept 7,513/7,513 chains, node dim 2621) -- but `torch.save()` then hit
@@ -34,16 +34,16 @@ loading, so training itself still runs at full fp32 precision, only the
 on-disk artifact is compressed. Everything else identical to Phase95.
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s10(2))
 
-md(r'''## Cell 1 — Setup, load Phase 51's topology-fused pool''')
+md(r'''## Cell 1 - Setup, load Phase 51's topology-fused pool''')
 code(s10(3).replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")'))
 
-md(r'''## Cell 2 — Recompute real backbone dihedrals (identical to Phase 10/30/37/52/92/95)''')
+md(r'''## Cell 2 - Recompute real backbone dihedrals (identical to Phase 10/30/37/52/92/95)''')
 code(s10(5))
 
-md(r'''## Cell 3 — ESM2-3B embeddings (fp16 storage -- see Phase92 postmortem)''')
+md(r'''## Cell 3 - ESM2-3B embeddings (fp16 storage -- see Phase92 postmortem)''')
 code(r'''
 import gc
 from transformers import AutoTokenizer, AutoModel
@@ -86,7 +86,7 @@ print(f"esm_feats resident size: {esm_gb:.1f} GB (fp16)")
 del esm; torch.cuda.empty_cache(); gc.collect()
 ''')
 
-md(r'''## Cell 4 — Assemble augmented features, verify alignment, save AS FP16 (disk-quota fix -- everything else identical to Phase95)''')
+md(r'''## Cell 4 - Assemble augmented features, verify alignment, save AS FP16 (disk-quota fix -- everything else identical to Phase95)''')
 code(r'''
 kept, dropped = [], 0
 for i, d in enumerate(dataset):

@@ -16,7 +16,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(f'''
-# Phase 255{TAG} — Classification geometry control at the 7,513-chain pool (folds {FOLDS[0]}, {FOLDS[1]})
+# Phase 255{TAG} - Classification geometry control at the 7,513-chain pool (folds {FOLDS[0]}, {FOLDS[1]})
 
 Phase 230 (2,055 chains, ESM2-35M): geometry beat topology alone (+0.0129 PR-AUC, 10/10 folds) and topology added a small residual
 over geometry (+0.0097, 9/10 folds, PR-AUC only). Phases 240/241 found that residual grows at 650M/3B embedding scale. The untested
@@ -28,9 +28,9 @@ homology-clean), 2 seeds, 15% of each training fold for early stopping, 40 epoch
 arm. Arms: `no-topo`, `full` (34 topology), `geom` (17), `geom+topo` (51). **Primary comparison (fixed in advance): `geom+topo` vs `geom`
 on test PR-AUC, paired over the 10 folds** (this kernel runs folds {FOLDS}; the five kernels are merged locally). No thresholded metric.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1")
-md("## Cell 2 — Load the Phase 52 pool and the Phase 250 geometry (3 chunks); append 17 standardized geometry columns")
+md("## Cell 2 - Load the Phase 52 pool and the Phase 250 geometry (3 chunks); append 17 standardized geometry columns")
 code(r'''
 import json, os, time, warnings
 from pathlib import Path
@@ -85,9 +85,9 @@ if hasattr(dataset[0], "cluster"):
 else:
     print("WARNING: no `cluster` attribute on the graphs; homology-cleanliness of the folds is not re-verified here")
 ''')
-md("## Cell 3 — Model and training machinery (Phase 11, unchanged)")
+md("## Cell 3 - Model and training machinery (Phase 11, unchanged)")
 code(src11(8))
-md(f"## Cell 4 — Arms and the nested CV loop (folds {FOLDS})")
+md(f"## Cell 4 - Arms and the nested CV loop (folds {FOLDS})")
 code(f'''
 FOLDS_TO_RUN = {FOLDS}
 ''' + r'''

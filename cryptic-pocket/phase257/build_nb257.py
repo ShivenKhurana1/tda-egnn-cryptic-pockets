@@ -73,7 +73,7 @@ C = []
 md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.strip("\n")})
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 md(f'''
-# Phase 257 {NAME} — classification geometry control at the 7,513-chain pool, CPU: fold {FOLD}, arm `{ARM}`, seeds 0 and 1
+# Phase 257 {NAME} - classification geometry control at the 7,513-chain pool, CPU: fold {FOLD}, arm `{ARM}`, seeds 0 and 1
 
 Continuation of Phase 255 (folds 0-3 finished on GPU; Kaggle's 30 h weekly GPU quota then ran out). Same data, folds (KFold seed 1337), model,
 loss, early stopping and seeds as Phase 255; only the device differs. The two seeds run as two separate 2-thread processes so both use the

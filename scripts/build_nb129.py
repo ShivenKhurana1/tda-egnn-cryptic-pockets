@@ -20,7 +20,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 129 — CryptoBench 3B + Transfer Learning (8 seeds)
+# Phase 129 - CryptoBench 3B + Transfer Learning (8 seeds)
 
 Combines two of the three confirmed CryptoBench wins for the 3B scale:
 transfer learning (proven at 35M: +0.0218 val PR, 8-seed) applied here
@@ -30,16 +30,16 @@ DIFFERENT pretrained seed (Phase97 0-2, salvaged 3-6, Phase107 7) to
 avoid conflating "does transfer help" with "was one seed lucky."
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s50(2))
 
-md(r'''## Cell 2 — Setup, load Phase 48's CryptoBench-3B blob (identical to Phase50/55)''')
+md(r'''## Cell 2 - Setup, load Phase 48's CryptoBench-3B blob (identical to Phase50/55)''')
 code(s50(3))
 
-md(r'''## Cell 3 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 3 - Model (identical to every prior localization phase)''')
 code(s50(5))
 
-md(r'''## Cell 4 — Training machinery: fit() optionally loads a pretrained state_dict before training''')
+md(r'''## Cell 4 - Training machinery: fit() optionally loads a pretrained state_dict before training''')
 code(r'''
 def run_epoch(model, loader, opt=None, lam=0.0):
     tr = opt is not None; model.train(tr)
@@ -92,7 +92,7 @@ def fit(use_loc_head, lam, seed, pretrained_path=None, epochs=40, patience=8, ba
     return model, best
 ''')
 
-md(r'''## Cell 5 — Train all 8 seeds, each transfer-learned from a DIFFERENT main-pipeline 3B checkpoint''')
+md(r'''## Cell 5 - Train all 8 seeds, each transfer-learned from a DIFFERENT main-pipeline 3B checkpoint''')
 code(r'''
 PRETRAINED_FILES = [f"clean_deploy_esm3b_seed{s}.pt" for s in range(8)]   # Phase97(0-2)+salvage(3-6)+Phase107(7)
 

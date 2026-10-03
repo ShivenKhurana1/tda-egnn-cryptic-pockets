@@ -42,7 +42,7 @@ for df in [res, loc]:
     )
 
 print("=" * 100)
-print("PHASE 188 — CONTINUOUS POCKET-SIZE PERFORMANCE ANALYSIS")
+print("PHASE 188 - CONTINUOUS POCKET-SIZE PERFORMANCE ANALYSIS")
 print("=" * 100)
 
 # ============================================================================

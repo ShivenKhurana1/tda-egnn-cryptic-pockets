@@ -20,7 +20,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 146 — CryptoBench 650M + Transfer Learning (8 seeds)
+# Phase 146 - CryptoBench 650M + Transfer Learning (8 seeds)
 
 Completes transfer learning at all 3 scales. Uses the main pipeline's
 650M COACH420 checkpoints (Phase145, freshly trained after the GPU
@@ -30,16 +30,16 @@ pretrained seed to avoid conflating "does transfer help" with "was one
 seed lucky" (same discipline as Phase128/129).
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s46(2))
 
-md(r'''## Cell 2 — Setup, load Phase 45's CryptoBench-650M blob (identical to Phase46/47)''')
+md(r'''## Cell 2 - Setup, load Phase 45's CryptoBench-650M blob (identical to Phase46/47)''')
 code(s46(3))
 
-md(r'''## Cell 3 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 3 - Model (identical to every prior localization phase)''')
 code(s46(5))
 
-md(r'''## Cell 4 — Training machinery: fit() optionally loads a pretrained state_dict before training''')
+md(r'''## Cell 4 - Training machinery: fit() optionally loads a pretrained state_dict before training''')
 code(r'''
 def run_epoch(model, loader, opt=None, lam=0.0):
     tr = opt is not None; model.train(tr)
@@ -92,7 +92,7 @@ def fit(use_loc_head, lam, seed, pretrained_path=None, epochs=40, patience=8, ba
     return model, best
 ''')
 
-md(r'''## Cell 5 — Train all 8 seeds, each transfer-learned from a DIFFERENT main-pipeline 650M checkpoint''')
+md(r'''## Cell 5 - Train all 8 seeds, each transfer-learned from a DIFFERENT main-pipeline 650M checkpoint''')
 code(r'''
 PRETRAINED_FILES = [f"clean_deploy_esm650m_seed{s}.pt" for s in range(8)]   # Phase145, all 8 seeds
 

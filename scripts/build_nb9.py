@@ -8,9 +8,9 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 9 — Catalytic Residues (M-CSA): The Harder Task
+# Phase 9 - Catalytic Residues (M-CSA): The Harder Task
 
-Every result so far predicts **binding pockets** — residues within 4.5 Å of a
+Every result so far predicts **binding pockets** - residues within 4.5 Å of a
 ligand. A pocket has ~20 contact residues; a catalytic machinery has ~4. Those
 are different biological questions, and only the second is "active site
 prediction" in the strict sense.
@@ -20,7 +20,7 @@ residues: 951 PDB entries, 4,408 annotated residues, **4.6 per entry**.
 
 ### Why this is a separate dataset, not a second head
 
-The obvious design — add a catalytic output head to the existing model — does not
+The obvious design - add a catalytic output head to the existing model - does not
 work here. M-CSA covers 951 entries; the Phase 6 set is 2,056 cluster
 representatives sampled from 126,921. Expected overlap is **~15 entries**, far too
 few to train a head on. So this builds a dedicated M-CSA dataset end to end.
@@ -29,7 +29,7 @@ few to train a head on. So this builds a dedicated M-CSA dataset end to end.
 
 At ~4.6 positives in a ~300-residue chain, the positive rate is **around 1.5 %**
 versus 6.82 % for pockets. PR-AUC baselines drop accordingly, and the interesting
-question is whether topology's contribution *survives* — or grows — when the
+question is whether topology's contribution *survives* - or grows - when the
 target shrinks to the catalytic core.
 
 > **Header caution:** in `curated_data.csv` the column headers are offset from the
@@ -37,7 +37,7 @@ target shrinks to the catalytic core.
 > entry is in `PDB`. Reading it naively yields 102 bogus "entries" instead of 951.
 ''')
 
-md(r'''## Cell 1 — Fetch and parse M-CSA annotations''')
+md(r'''## Cell 1 - Fetch and parse M-CSA annotations''')
 
 code(r'''
 !pip install -q torch-geometric==2.6.1 gudhi==3.10.1 biopython==1.84
@@ -74,7 +74,7 @@ print(f"catalytic residues total    : {sum(len(v) for v in cat.values()):,}")
 print(f"mean per chain              : {np.mean([len(v) for v in cat.values()]):.1f}")
 ''')
 
-md(r'''## Cell 2 — Download structures and build labelled chains''')
+md(r'''## Cell 2 - Download structures and build labelled chains''')
 
 code(r'''
 from Bio.PDB import PDBParser, MMCIFParser
@@ -142,7 +142,7 @@ print(f"\nchains {len(recs):,} | residues {nres:,} | catalytic {npos:,} "
 print(f"mean catalytic residues per chain: {npos/max(len(recs),1):.1f}")
 ''')
 
-md(r'''## Cell 3 — Cluster, pick representatives''')
+md(r'''## Cell 3 - Cluster, pick representatives''')
 
 code(r'''
 seqs={f"{r['pdb_id']}_{r['chain_id']}":r["seq"] for r in recs}
@@ -168,7 +168,7 @@ reps={k:max(v,key=lambda c:(len(seqs[c]),c)) for k,v in clusters.items()}
 print(f"{len(seqs):,} chains -> {len(clusters):,} clusters -> {len(reps):,} representatives")
 ''')
 
-md(r'''## Cell 4 — Topology (identical featuriser to Phase 2b/6b)''')
+md(r'''## Cell 4 - Topology (identical featuriser to Phase 2b/6b)''')
 
 code(r'''
 import gudhi
@@ -231,7 +231,7 @@ topo_all=Parallel(n_jobs=max(1,os.cpu_count() or 2),verbose=5)(
 print(f"done in {(time.time()-t0)/60:.1f} min")
 ''')
 
-md(r'''## Cell 5 — Graphs and 5-fold ablation''')
+md(r'''## Cell 5 - Graphs and 5-fold ablation''')
 
 code(r'''
 from torch_geometric.data import Data
@@ -365,7 +365,7 @@ for a in ARMS:
 for d,x0 in zip(ds,ORIG): d.x=x0
 ''')
 
-md(r'''## Cell 6 — Results''')
+md(r'''## Cell 6 - Results''')
 
 code(r'''
 import json
@@ -395,7 +395,7 @@ md(r'''
 
 ## Interpreting
 
-This is a **much harder target** — roughly 1.5 % positives against 6.82 % for
+This is a **much harder target** - roughly 1.5 % positives against 6.82 % for
 pockets, on a far smaller dataset. Absolute PR-AUC will be low; the meaningful
 number is **lift over the base rate**, not the raw value.
 
@@ -408,7 +408,7 @@ Two readings:
   residues need chemistry (conservation, electrostatics, protonation) that
   geometry alone does not supply. Also a clean, reportable finding.
 
-With only 5 folds this is again power-limited — treat it as a directional result
+With only 5 folds this is again power-limited - treat it as a directional result
 and say so, rather than repeating the Phase 5b mistake of over-reading an
 underpowered comparison.
 ''')

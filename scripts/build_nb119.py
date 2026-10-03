@@ -22,7 +22,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 119 — CryptoBench: Mask Ambiguous Residues Instead of an Aux Head
+# Phase 119 - CryptoBench: Mask Ambiguous Residues Instead of an Aux Head
 
 Phase118's auxiliary-head approach clearly hurt (monotonic decline as
 lam_aux rose). Different mechanism this time: residues that are
@@ -35,16 +35,16 @@ reproducing Phase118's lam_aux=0 exactly) and the masked variant in the
 SAME run, seed=0, for direct comparison.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s118(2))
 
-md(r'''## Cell 2 — Setup, load Phase 117's aux-label CryptoBench blob (identical to Phase118)''')
+md(r'''## Cell 2 - Setup, load Phase 117's aux-label CryptoBench blob (identical to Phase118)''')
 code(s118(3))
 
-md(r'''## Cell 3 — Model (identical to Phase118; use_aux_head not needed for masking, only y_aux is used to build the loss mask)''')
+md(r'''## Cell 3 - Model (identical to Phase118; use_aux_head not needed for masking, only y_aux is used to build the loss mask)''')
 code(s118(5))
 
-md(r'''## Cell 4 — Training machinery: run_epoch masks the main loss when mask_ambiguous=True (keeps only residues where y_aux==y: clear negatives [0,0] or clear positives [1,1], since y_aux is a strict superset of y). Validation/test metrics always computed over ALL residues (unmasked) for a fair, comparable readout.''')
+md(r'''## Cell 4 - Training machinery: run_epoch masks the main loss when mask_ambiguous=True (keeps only residues where y_aux==y: clear negatives [0,0] or clear positives [1,1], since y_aux is a strict superset of y). Validation/test metrics always computed over ALL residues (unmasked) for a fair, comparable readout.''')
 code(r'''
 def run_epoch(model, loader, opt=None, lam=0.0, mask_ambiguous=False):
     tr = opt is not None; model.train(tr)
@@ -99,7 +99,7 @@ def fit(use_loc_head, lam, seed, mask_ambiguous=False, epochs=40, patience=8, ba
     return model, best
 ''')
 
-md(r'''## Cell 5 — Train baseline (unmasked, reproduces Phase118 lam_aux=0) and the masked variant, same seed=0, same run''')
+md(r'''## Cell 5 - Train baseline (unmasked, reproduces Phase118 lam_aux=0) and the masked variant, same seed=0, same run''')
 code(r'''
 BEST_LAMBDA = 0.1   # localization-loss weight, unchanged from Phase42/43/118
 results = []

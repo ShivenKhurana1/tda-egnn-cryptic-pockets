@@ -19,7 +19,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 131 — CryptoBench: Weighted Cross-Scale Ensemble
+# Phase 131 - CryptoBench: Weighted Cross-Scale Ensemble
 
 Phase130 equal-weighted all 3 scales (1/3 each) despite 3B-transfer being
 clearly the strongest (val PR/MCC) and 650M-scratch the weakest. Grid-
@@ -28,16 +28,16 @@ TEST once. Zero new training -- pure recombination of Phase130's
 predictions.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s130(2))
 
-md(r'''## Cell 2 — Model (identical to Phase130)''')
+md(r'''## Cell 2 - Model (identical to Phase130)''')
 code(s130(4))
 
-md(r'''## Cell 3 — Load each scale''' + "'" + r'''s blob + 8 checkpoints, predict on VAL and TEST (identical to Phase130)''')
+md(r'''## Cell 3 - Load each scale''' + "'" + r'''s blob + 8 checkpoints, predict on VAL and TEST (identical to Phase130)''')
 code(s130(6))
 
-md(r'''## Cell 4 — Grid-search ensemble weights on VAL ONLY, apply winning weights + val-tuned threshold to TEST''')
+md(r'''## Cell 4 - Grid-search ensemble weights on VAL ONLY, apply winning weights + val-tuned threshold to TEST''')
 code(r'''
 def metrics_at(p, y, thresh):
     pred = (p >= thresh).astype(int)

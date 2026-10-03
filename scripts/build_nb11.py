@@ -8,17 +8,17 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 11 — Validating the Win: Nested CV vs P2Rank, Matched Per Fold
+# Phase 11 - Validating the Win: Nested CV vs P2Rank, Matched Per Fold
 
 Phase 10 showed the ESM2+dihedral-augmented model beating P2Rank on **one fixed
 split**: PR-AUC 0.5002 vs 0.4589. That is encouraging, but it is exactly the
 kind of single-split claim that Phase 5b already taught this project not to
-trust — the same protocol gave +0.054 on one split and +0.0423 (properly, over
+trust - the same protocol gave +0.054 on one split and +0.0423 (properly, over
 10 folds) on the real measurement, and a single split's sign even flipped once
 before. A one-shot win against P2Rank deserves the same skepticism.
 
 This notebook applies the **Phase 6c protocol** (10-fold KFold over 2,056
-non-redundant clusters — homology-clean by construction, since each chain is its
+non-redundant clusters - homology-clean by construction, since each chain is its
 cluster's sole representative) to the augmented features, and adds one thing
 Phase 7 could not do on a single split: **P2Rank is run once on all 2,056 chains
 and cached, then matched against the model's test set in every fold**, giving a
@@ -30,10 +30,10 @@ Two questions, both properly powered this time:
 1. Does topology still help once the model has rich per-residue features?
    (`full` vs `burial-only`, mirroring Phase 6c exactly)
 2. Does the augmented model reliably beat P2Rank, or was Phase 10 a lucky split?
-   (`full` vs P2Rank, matched per fold — a new comparison, not available before)
+   (`full` vs P2Rank, matched per fold - a new comparison, not available before)
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 
 code(r'''
 !pip install -q torch-geometric==2.6.1 biopython==1.84
@@ -88,13 +88,13 @@ print("verified: KFold over chains is homology-clean")
 ''')
 
 md(r'''
-## Cell 2 — Run P2Rank once on all 2,056 chains, cache per-residue scores
+## Cell 2 - Run P2Rank once on all 2,056 chains, cache per-residue scores
 
 The expensive part (running P2Rank) happens exactly once here, up front, so it
 never needs to be repeated inside the 60-run training loop below. Scores are
 aligned to each graph's exact residue order and cached as a plain array,
 `None` where a chain could not be matched (dropped from the P2Rank comparison
-only — the model's own training/evaluation on that chain is unaffected).
+only - the model's own training/evaluation on that chain is unaffected).
 ''')
 
 code(r'''
@@ -196,7 +196,7 @@ for i, d in enumerate(dataset):
 print(f"P2Rank aligned for {matched:,}/{len(dataset):,} chains ({(time.time()-t0)/60:.1f} min)")
 ''')
 
-md(r'''## Cell 3 — Model (identical to every prior phase, wider input)''')
+md(r'''## Cell 3 - Model (identical to every prior phase, wider input)''')
 
 code(r'''
 class EGCL(nn.Module):
@@ -255,12 +255,12 @@ def best_mcc(p,y):
 ''')
 
 md(r'''
-## Cell 4 — Nested 10-fold CV, 2 seeds, 3 arms, plus matched P2Rank per fold
+## Cell 4 - Nested 10-fold CV, 2 seeds, 3 arms, plus matched P2Rank per fold
 
 Same discipline as Phase 6c: no test fold ever influences early stopping, and
 `KFold` over chains is homology-clean because every chain is its cluster's sole
 representative (asserted above). P2Rank's fold-level score is computed from the
-Cell-2 cache — no re-running P2Rank inside the loop.
+Cell-2 cache - no re-running P2Rank inside the loop.
 ''')
 
 code(r'''
@@ -335,7 +335,7 @@ json.dump({"records": records, "p2rank_fold": p2rank_fold},
           open("/kaggle/working/phase11_records.json","w"), indent=2, default=float)
 ''')
 
-md(r'''## Cell 5 — Statistics: topology contribution, and model vs P2Rank''')
+md(r'''## Cell 5 - Statistics: topology contribution, and model vs P2Rank''')
 
 code(r'''
 from scipy.stats import ttest_rel, wilcoxon
@@ -386,7 +386,7 @@ json.dump({
 print("\nsaved -> phase11_summary.json")
 ''')
 
-md(r'''## Cell 6 — Plot''')
+md(r'''## Cell 6 - Plot''')
 
 code(r'''
 import matplotlib.pyplot as plt
@@ -412,17 +412,17 @@ Two independent claims, both now at the fold-count that made Phase 6c
 trustworthy:
 
 - **Topology contribution** confirms (or revises) whether persistent homology
-  still adds value once the model has rich per-residue chemistry from ESM2 —
+  still adds value once the model has rich per-residue chemistry from ESM2 -
   the Phase 10 single-split number (+0.0646) was suggestive, this is the
   measurement to actually cite.
 - **Model vs P2Rank** is a genuinely new comparison this project did not have
   before: matched per fold rather than a single split, with the same paired
   statistics used everywhere else. If the win holds across most folds with a
   small p-value, that is real evidence of parity or superiority against a
-  published, pre-trained standard — a substantially stronger claim than Phase
+  published, pre-trained standard - a substantially stronger claim than Phase
   10's point estimate.
 
-If either number looks weaker than the single-split result, trust this one —
+If either number looks weaker than the single-split result, trust this one -
 that has been the consistent lesson of every prior over-generalization in this
 project.
 ''')

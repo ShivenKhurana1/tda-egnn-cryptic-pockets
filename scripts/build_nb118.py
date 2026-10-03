@@ -20,7 +20,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 118 — CryptoBench: Does the Auxiliary "Any-Pocket" Loss Help?
+# Phase 118 - CryptoBench: Does the Auxiliary "Any-Pocket" Loss Help?
 
 Tests Phase117's new `y_aux` label (cryptic OR noncryptic pocket) as an
 auxiliary multi-task target. Adds a THIRD head (`aux_head`) to
@@ -34,7 +34,7 @@ trap this session already got burned by twice (COACH420 ESM3B 3-seed
 reversal, the h128/L6 capacity mirage).
 ''')
 
-md(r'''## Cell 1 — Setup, load Phase 117's aux-label CryptoBench blob''')
+md(r'''## Cell 1 - Setup, load Phase 117's aux-label CryptoBench blob''')
 code(r'''
 !pip install -q torch-geometric==2.6.1
 ''')
@@ -77,7 +77,7 @@ print(f"device {DEVICE} | node dim {dataset[0].x.size(1)} | pos_weight {POS_WEIG
 WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True)
 ''')
 
-md(r'''## Cell 2 — Model, with a NEW aux_head (structurally identical to the main head)''')
+md(r'''## Cell 2 - Model, with a NEW aux_head (structurally identical to the main head)''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -138,7 +138,7 @@ class LocalizingEGNN(nn.Module):
         return logits, pred_center, aux_logits
 ''')
 
-md(r'''## Cell 3 — Training machinery: run_epoch/fit accept lam_aux, model always builds aux_head (lam_aux=0.0 makes it a no-op on the loss, exact Phase42/43 baseline control)''')
+md(r'''## Cell 3 - Training machinery: run_epoch/fit accept lam_aux, model always builds aux_head (lam_aux=0.0 makes it a no-op on the loss, exact Phase42/43 baseline control)''')
 code(r'''
 def run_epoch(model, loader, opt=None, lam=0.0, lam_aux=0.0):
     tr = opt is not None; model.train(tr)
@@ -190,7 +190,7 @@ def fit(use_loc_head, lam, seed, lam_aux=0.0, epochs=40, patience=8, batch=16):
     return model, best
 ''')
 
-md(r'''## Cell 4 — Sweep lam_aux (single seed=0 each, same run) -- lam_aux=0.0 is the exact baseline control''')
+md(r'''## Cell 4 - Sweep lam_aux (single seed=0 each, same run) -- lam_aux=0.0 is the exact baseline control''')
 code(r'''
 BEST_LAMBDA = 0.1   # localization-loss weight, unchanged from Phase42/43
 LAM_AUX_SWEEP = [0.0, 0.1, 0.3]

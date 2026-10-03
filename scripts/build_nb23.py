@@ -14,22 +14,22 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 23 — Which Part of Topology Drives the Localization Benefit?
+# Phase 23 - Which Part of Topology Drives the Localization Benefit?
 
 Phase 22 confirmed (8/8 seed-paired wins, p~0.008) that persistent homology
 improves pocket-CENTER localization, not just classification. That is a
-"that" finding. This notebook asks "why" — which specific piece of the
+"that" finding. This notebook asks "why" - which specific piece of the
 topology block is doing the work.
 
 The topology feature block decomposes into four pieces with distinct
 mathematical meanings:
 
-- **H0** (connected components) — how fragmented / clustered the local point
+- **H0** (connected components) - how fragmented / clustered the local point
   cloud is.
-- **H1** (loops / tunnels) — 1-dimensional cycles, e.g. access channels.
-- **H2** (enclosed voids) — 2-dimensional cavities that trap volume. This is
+- **H1** (loops / tunnels) - 1-dimensional cycles, e.g. access channels.
+- **H2** (enclosed voids) - 2-dimensional cavities that trap volume. This is
   the mathematically direct description of what a binding pocket *is*.
-- **burial** (`nbhd_n_atoms`, `nbhd_gyration`) — density/depth, already shown
+- **burial** (`nbhd_n_atoms`, `nbhd_gyration`) - density/depth, already shown
   in Phase 2b to be a real but separate signal from topology, for
   classification. Never tested for localization.
 
@@ -37,16 +37,16 @@ mathematical meanings:
 post-hoc story):** if the "cavity" intuition for why topology helps is
 correct, H2 alone should recover most of `full`'s localization advantage over
 `no_topo`. If instead H1 or burial alone does the same, that points to
-pockets being found via access channels or simple depth, not cavity shape —
+pockets being found via access channels or simple depth, not cavity shape -
 a different and equally interesting mechanistic answer.
 
-**Scope:** 3 seeds per new arm (H0-only, H1-only, H2-only, burial-only) — a
+**Scope:** 3 seeds per new arm (H0-only, H1-only, H2-only, burial-only) - a
 first-pass screen, same discipline as Phase 18's original single-pass topology
 test before Phase 22 validated it further with 8 seeds. If a clear winner
 emerges here, it earns the same multi-seed treatment next.
 ''')
 
-md(r'''## Cell 1 — Setup, rebuild training data (Phase 14 logic, reused)''')
+md(r'''## Cell 1 - Setup, rebuild training data (Phase 14 logic, reused)''')
 code(r'''
 !pip install -q torch-geometric==2.6.1 biopython==1.84
 ''')
@@ -69,14 +69,14 @@ n_tr, n_va = len(splits["train"]), len(splits["val"])
 print(f"deployment training: {n_tr} train / {n_va} val  (matches Phase 15/18/22's setup)")
 ''')
 
-md(r'''## Cell 2 — Model (identical to Phase 14/15/18/22)''')
+md(r'''## Cell 2 - Model (identical to Phase 14/15/18/22)''')
 code(s14(7))
 
-md(r'''## Cell 3 — Training machinery (identical to Phase 14)''')
+md(r'''## Cell 3 - Training machinery (identical to Phase 14)''')
 code(s14(11))
 
 md(r'''
-## Cell 4 — Build H0 / H1 / H2 / burial column masks
+## Cell 4 - Build H0 / H1 / H2 / burial column masks
 
 Reconstructs the same 35-name -> 34-kept mapping used in every phase that
 touches this topology block, then further splits by homology dimension.
@@ -103,7 +103,7 @@ assert sum(m.sum() for m in MASKS.values()) == len(TOPO_NAMES), \
 print("masks partition the full topo block exactly -- no overlap, no gaps")
 ''')
 
-md(r'''## Cell 5 — Train 3 seeds per arm (H0/H1/H2/burial, all else zeroed)''')
+md(r'''## Cell 5 - Train 3 seeds per arm (H0/H1/H2/burial, all else zeroed)''')
 code(r'''
 import time
 WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True)
@@ -136,7 +136,7 @@ for arm_name, mask in MASKS.items():
 print(f"\ntrained {sum(len(v) for v in arm_models.values())} models across {len(MASKS)} arms")
 ''')
 
-md(r'''## Cell 6 — Also load Phase 15/18's full and no_topo checkpoints (no retraining)''')
+md(r'''## Cell 6 - Also load Phase 15/18's full and no_topo checkpoints (no retraining)''')
 code(r'''
 def load_existing(prefix, seeds):
     out = {}
@@ -156,7 +156,7 @@ print(f"loaded {len(arm_models['full'])} 'full' + {len(arm_models['no_topo'])} '
       f"reference checkpoints (up to 8 seeds each, from Phase 21/22's already-trained pool)")
 ''')
 
-md(r'''## Cell 7 — Load Phase 15's cached benchmark features (no re-fetch)''')
+md(r'''## Cell 7 - Load Phase 15's cached benchmark features (no re-fetch)''')
 code(r'''
 with open(locate("phase15_raw_features.pkl"), "rb") as fh:
     raw_cache = pickle.load(fh)
@@ -164,7 +164,7 @@ print(f"loaded cached features for {len(raw_cache):,} chains (COACH420 + HOLO4K)
 mu_b, sd_b = blob6b["topo_mean"], blob6b["topo_std"]
 ''')
 
-md(r'''## Cell 8 — Score every arm on the cached benchmark''')
+md(r'''## Cell 8 - Score every arm on the cached benchmark''')
 code(r'''
 from collections import defaultdict
 
@@ -231,7 +231,7 @@ for arm_name, mask in ARM_MASK_FOR_SCORING.items():
 print(f"\nscored all {len(ARM_MASK_FOR_SCORING)} arms in {(time.time()-t0)/60:.1f} min")
 ''')
 
-md(r'''## Cell 9 — Which piece recovers the benefit?''')
+md(r'''## Cell 9 - Which piece recovers the benefit?''')
 code(r'''
 base = summary["no_topo"]["dcc"]
 full = summary["full"]["dcc"]
@@ -300,16 +300,16 @@ md(r'''
 ## Reading this
 
 This is a **3-seed first pass**, not yet validated at the rigor Phase 22 gave
-the headline finding — treat the winner as a hypothesis to confirm with more
+the headline finding - treat the winner as a hypothesis to confirm with more
 seeds, not a final answer, exactly as Phase 18's single-pass result was
 treated before Phase 22 checked it properly.
 
 - **If H2 wins clearly**: the cavity-shape intuition is right, and "the model
   benefits from features that directly describe enclosed voids, consistent
   with what a binding pocket physically is" is a mechanistic, defensible claim
-  — not just a correlation.
+  - not just a correlation.
 - **If H1 or burial wins instead**: equally interesting, and worth saying
-  plainly rather than forcing the tidier H2 story — it would mean the benefit
+  plainly rather than forcing the tidier H2 story - it would mean the benefit
   comes from access-channel topology or simple depth, not cavity enclosure.
 - **If no single piece recovers much of the gain**: the benefit may be
   distributed/synergistic across all three homology dimensions together,

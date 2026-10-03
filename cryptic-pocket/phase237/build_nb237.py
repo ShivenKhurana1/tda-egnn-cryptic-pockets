@@ -19,7 +19,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(r'''
-# Phase 237 — Per-seed vs ensemble: does geometry + topology beat geometry for localization?
+# Phase 237 - Per-seed vs ensemble: does geometry + topology beat geometry for localization?
 
 Phase 236's pre-specified primary comparison (seed-paired pooled DCC@4A, geometry+topology vs geometry) was null
 (+0.0051, 3/8 seeds, p = 0.62 / 0.92), but the 8-seed *ensemble* comparison was +0.0254 (structure-bootstrap CI
@@ -30,11 +30,11 @@ identical 1,149 benchmark structures, and asks:
 1. How does the geometry+topology - geometry difference change with ensemble size k (all C(8,k) seed subsets, paired)?
 2. What is the 8-seed-ensemble difference when BOTH seeds and structures are resampled (two-way bootstrap)?
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1 biopython==1.84")
-md("## Cell 2 — Setup (Phase 236 cell, unchanged)")
+md("## Cell 2 - Setup (Phase 236 cell, unchanged)")
 code(s236(4))
-md("## Cell 3 — Model class (Phase 22/236, unchanged) and arm definitions")
+md("## Cell 3 - Model class (Phase 22/236, unchanged) and arm definitions")
 code(s236(8) + r'''
 
 import time
@@ -43,7 +43,7 @@ TOPO_COLS = list(range(N_PRE, N_PRE + TOPO_DIM))
 GEOM_COLS = list(range(N_PRE + TOPO_DIM, N_PRE + SIDE_DIM))
 KEEP = {"no-topo": [], "full": TOPO_COLS, "geom": GEOM_COLS, "geom+topo": TOPO_COLS + GEOM_COLS}
 ''')
-md("## Cell 4 — Load the 32 Phase 236 checkpoints")
+md("## Cell 4 - Load the 32 Phase 236 checkpoints")
 code(r'''
 models = {a: {} for a in ARMS}
 for arm in ARMS:
@@ -54,10 +54,10 @@ for arm in ARMS:
         models[arm][seed] = m
 print({a: len(v) for a, v in models.items()}, "checkpoints loaded")
 ''')
-md("## Cell 5 — Benchmark features + geometry, and scoring (Phase 236 cells, unchanged)")
+md("## Cell 5 - Benchmark features + geometry, and scoring (Phase 236 cells, unchanged)")
 code(next("".join(x["source"]) for x in c if x["cell_type"] == "code" and "phase15_raw_features" in "".join(x["source"])))
 code(s236(find("from collections import defaultdict")))
-md("## Cell 6 — Sanity: reproduce Phase 236's per-seed and ensemble numbers")
+md("## Cell 6 - Sanity: reproduce Phase 236's per-seed and ensemble numbers")
 code(r'''
 per_seed = {a: np.array([rate(hits_for(a, (s,))) for s in range(8)]) for a in ARMS}
 ens = {a: rate(hits_for(a, tuple(range(8)))) for a in ARMS}
@@ -67,7 +67,7 @@ print({a: round(ens[a], 4) for a in ARMS})
 assert abs(per_seed["geom"].mean() - 0.5296) < 0.002 and abs(ens["geom+topo"] - 0.5806) < 0.002, "does not reproduce Phase 236"
 print("reproduces Phase 236")
 ''')
-md("## Cell 7 — Ensemble-size analysis: all seed subsets of each size, paired across arms")
+md("## Cell 7 - Ensemble-size analysis: all seed subsets of each size, paired across arms")
 code(r'''
 from itertools import combinations
 import pandas as pd
@@ -89,7 +89,7 @@ for S in combinations(range(8), 4):
 halves = np.array(halves)
 print(f"  {len(halves)} half-ensemble deltas: mean {halves.mean():+.4f}  sd {halves.std():.4f}  positive {int((halves>0).sum())}/{len(halves)}")
 ''')
-md("## Cell 8 — Two-way bootstrap (seeds x structures) of the 8-seed-ensemble difference")
+md("## Cell 8 - Two-way bootstrap (seeds x structures) of the 8-seed-ensemble difference")
 code(r'''
 rng = np.random.default_rng(237)
 B = 1000

@@ -56,7 +56,7 @@ fig = plt.figure(
 )
 
 # ======================================================================
-# PANEL A — Experimental residue detection
+# PANEL A - Experimental residue detection
 # ======================================================================
 
 ax1 = fig.add_subplot(2, 2, 1)
@@ -120,7 +120,7 @@ ax1.tick_params(
 )
 
 # ======================================================================
-# PANEL B — Localization
+# PANEL B - Localization
 # ======================================================================
 
 ax2 = fig.add_subplot(2, 2, 2)
@@ -183,7 +183,7 @@ ax2.legend(
 )
 
 # ======================================================================
-# PANEL C — Pocket-size failure mode
+# PANEL C - Pocket-size failure mode
 # ======================================================================
 
 ax3 = fig.add_subplot(2, 2, 3)
@@ -276,7 +276,7 @@ ax3.text(
 )
 
 # ======================================================================
-# PANEL D — Case-study performance
+# PANEL D - Case-study performance
 # ======================================================================
 
 ax4 = fig.add_subplot(2, 2, 4)
@@ -376,7 +376,7 @@ fig.savefig(
 plt.close(fig)
 
 print("=" * 100)
-print("PHASE 198 — FINAL SYNTHESIS FIGURE")
+print("PHASE 198 - FINAL SYNTHESIS FIGURE")
 print("=" * 100)
 
 print(f"\nSaved:")

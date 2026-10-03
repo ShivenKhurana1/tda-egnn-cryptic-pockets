@@ -8,25 +8,25 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 10 — Closing the P2Rank Gap: Dihedrals + ESM2 Embeddings
+# Phase 10 - Closing the P2Rank Gap: Dihedrals + ESM2 Embeddings
 
 Phase 7 showed the model **losing** to P2Rank (test PR-AUC 0.4209 vs 0.4589, 
 EGNN winning only 125/293 chains). The likely reason is visible in the numbers
-already collected: the `seq-only` arm — one-hot amino acid identity, nothing
-else — scores PR-AUC **0.289**, while P2Rank brings genuine physicochemical and
+already collected: the `seq-only` arm - one-hot amino acid identity, nothing
+else - scores PR-AUC **0.289**, while P2Rank brings genuine physicochemical and
 evolutionary features to bear. The model has been competing on structure and
 topology alone, with almost no per-residue chemistry. This phase gives it some.
 
 ### Two additions, one deliberately cheap and one higher-leverage
 
 1. **Backbone dihedrals, actually computed.** At the 6,000-structure scale
-   (Phase 6a) these were zeroed out to avoid a second full parse — a documented,
+   (Phase 6a) these were zeroed out to avoid a second full parse - a documented,
    deliberate shortcut, not an oversight. This phase pays that cost.
 
 2. **ESM2 per-residue embeddings** (`esm2_t12_35M_UR50D`, 480-dim, ~136 MB).
    This is the real lever. A protein language model trained on ~65M sequences
    encodes evolutionary conservation, secondary-structure propensity, and local
-   chemical context — exactly the signal a classical PSSM would supply, without
+   chemical context - exactly the signal a classical PSSM would supply, without
    needing a multi-sequence-alignment search against a multi-GB database (which
    is not practical to run in a Kaggle session for 2,056 chains). ESM2 needs only
    the sequence, is fast in batch on a T4, and is the standard substitute for
@@ -35,18 +35,18 @@ topology alone, with almost no per-residue chemistry. This phase gives it some.
 ### What this tests, and what it doesn't
 
 If augmented features close or reverse the P2Rank gap, that demonstrates the
-architecture and topology pipeline were never the bottleneck — the *input*
+architecture and topology pipeline were never the bottleneck - the *input*
 information was. If the gap persists, that is evidence the model's real
 disadvantage lies elsewhere (training scale, P2Rank's own feature engineering,
 or the equal-selectivity regime P2Rank was tuned for).
 
 This phase evaluates on the **same fixed train/val/test split** used in Phase 7,
-for direct comparability. It does not re-run the full 10-fold ablation — that is
+for direct comparability. It does not re-run the full 10-fold ablation - that is
 the natural follow-up if this shows a clear win, not a step to spend ~4 GPU-hours
 on before knowing whether the cheaper change helps at all.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 
 code(r'''
 !pip install -q torch-geometric==2.6.1 biopython==1.84 transformers==4.46.3
@@ -91,11 +91,11 @@ DEVICE = torch.device("cuda" if GPU_OK else "cpu")
 ''')
 
 md(r'''
-## Cell 2 — Recompute real backbone dihedrals
+## Cell 2 - Recompute real backbone dihedrals
 
 Same predicate and same PPBuilder chain-walk used in Phase 1, re-run over the
 6,000-structure set. Encoded exactly as before: (sin, cos) pairs plus a validity
-mask for the undefined termini angles — angles are circular, so raw radians would
+mask for the undefined termini angles - angles are circular, so raw radians would
 make -pi and +pi look maximally distant to the network.
 ''')
 
@@ -163,7 +163,7 @@ print(f"\ndihedrals recovered for {n_ok:,}/{len(dataset):,} chains in {(time.tim
 ''')
 
 md(r'''
-## Cell 3 — ESM2 embeddings
+## Cell 3 - ESM2 embeddings
 
 Batched by length to keep padding waste low; long chains (>1000 residues, none
 here by construction since Phase 6a capped at 1000) would be chunked, but the
@@ -210,7 +210,7 @@ print(f"\nESM2 embeddings for {len(dataset):,} chains / {n_res:,} residues "
 del esm; torch.cuda.empty_cache()
 ''')
 
-md(r'''## Cell 4 — Assemble augmented features and verify alignment''')
+md(r'''## Cell 4 - Assemble augmented features and verify alignment''')
 
 code(r'''
 kept, dropped = [], 0
@@ -244,9 +244,9 @@ print("saved -> /kaggle/working/phase10_graphs.pt")
 ''')
 
 md(r'''
-## Cell 5 — Model (topology fusion unchanged; embed layer widened)
+## Cell 5 - Model (topology fusion unchanged; embed layer widened)
 
-Architecture is otherwise identical to every prior phase — same `EGCL`, same
+Architecture is otherwise identical to every prior phase - same `EGCL`, same
 gated `TopoFusion` on the topology block. Only the pre-topology input width
 changes, from 27 to `21 + 6 + ESM_DIM`.
 ''')
@@ -310,7 +310,7 @@ def best_mcc(p,y):
 ''')
 
 md(r'''
-## Cell 6 — Train on the fixed split, compare directly to Phase 7's numbers
+## Cell 6 - Train on the fixed split, compare directly to Phase 7's numbers
 
 Reference values, same split, same protocol (Phase 7, kernel
 `tda-egnn-phase7-baseline-fpocket` v4):
@@ -321,7 +321,7 @@ Reference values, same split, same protocol (Phase 7, kernel
 | P2Rank (external, no training) | 0.4589 | 0.8467 | 0.457 |
 
 Trained twice here: **augmented full** (dihedral+ESM+topo) and **augmented
-seq-only** (dihedral+ESM, topo zeroed) — the second isolates how much of any
+seq-only** (dihedral+ESM, topo zeroed) - the second isolates how much of any
 gain is from richer per-residue features alone versus the combination.
 ''')
 
@@ -367,7 +367,7 @@ for arm, tag in (("full", "augmented-full"), ("no-topo", "augmented-no-topo")):
 for d, x0 in zip(kept, ORIG_X): d.x = x0
 ''')
 
-md(r'''## Cell 7 — Verdict''')
+md(r'''## Cell 7 - Verdict''')
 
 code(r'''
 REFERENCE = {
@@ -410,14 +410,14 @@ md(r'''
 
 Three outcomes, three different next steps:
 
-- **Beats P2Rank** — the architecture and topology were fine all along; the model
+- **Beats P2Rank** - the architecture and topology were fine all along; the model
   was starved of per-residue chemistry. Worth then re-running the full Phase 6c
   10-fold ablation with these features to get a properly powered final number,
   and re-checking the fusion gates now that there is more for them to route.
-- **Improves but doesn't fully close the gap** — evolutionary features help, but
+- **Improves but doesn't fully close the gap** - evolutionary features help, but
   P2Rank's edge (curated SASA-derived features, larger training corpus) is not
   fully replicated by ESM2 alone. Report the improvement honestly as partial.
-- **No improvement** — the bottleneck was elsewhere (training scale, architecture
+- **No improvement** - the bottleneck was elsewhere (training scale, architecture
   capacity, or the equal-selectivity regime P2Rank's random forest was tuned
   for), and the seq-only weakness observed earlier was a symptom, not the cause.
 

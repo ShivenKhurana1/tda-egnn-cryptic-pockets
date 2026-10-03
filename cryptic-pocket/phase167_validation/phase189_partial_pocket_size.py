@@ -61,7 +61,7 @@ def partial_spearman(x, y, z):
 # ============================================================================
 
 print("=" * 90)
-print("PHASE 189 — PARTIAL POCKET-SIZE ANALYSIS")
+print("PHASE 189 - PARTIAL POCKET-SIZE ANALYSIS")
 print("=" * 90)
 
 print("\nLoading residue validation...")

@@ -16,7 +16,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 30 — Thread 3, Step 3: Dihedrals + ESM2 at Scale (Final Trainable Blob)
+# Phase 30 - Thread 3, Step 3: Dihedrals + ESM2 at Scale (Final Trainable Blob)
 
 Same dihedral-recovery and ESM2-embedding logic as Phase 10 (byte-for-byte,
 spliced verbatim), just pointed at Phase 29's ~15,000-entry topology-fused
@@ -32,19 +32,19 @@ P2Rank (Phase 27b) or changes anything about the topology-decomposition
 finding (Phase 26).
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s10(2))
 
-md(r'''## Cell 1 — Setup, load Phase 29's topology-fused pool''')
+md(r'''## Cell 1 - Setup, load Phase 29's topology-fused pool''')
 code(s10(3).replace('locate("phase6b_graphs.pt")', 'locate("phase29_graphs.pt")'))
 
-md(r'''## Cell 2 — Recompute real backbone dihedrals (identical to Phase 10)''')
+md(r'''## Cell 2 - Recompute real backbone dihedrals (identical to Phase 10)''')
 code(s10(5))
 
-md(r'''## Cell 3 — ESM2 embeddings (identical to Phase 10, GPU-accelerated)''')
+md(r'''## Cell 3 - ESM2 embeddings (identical to Phase 10, GPU-accelerated)''')
 code(s10(7))
 
-md(r'''## Cell 4 — Assemble augmented features, verify alignment, save (new output filename)''')
+md(r'''## Cell 4 - Assemble augmented features, verify alignment, save (new output filename)''')
 code(s10(9).replace('"/kaggle/working/phase10_graphs.pt"', '"/kaggle/working/phase30_graphs.pt"')
            .replace('saved -> /kaggle/working/phase10_graphs.pt', 'saved -> /kaggle/working/phase30_graphs.pt'))
 

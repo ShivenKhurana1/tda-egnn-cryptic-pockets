@@ -14,7 +14,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 51 — Thread 3 Round 3, Step 2: Topology at Scale
+# Phase 51 - Thread 3 Round 3, Step 2: Topology at Scale
 
 Same persistent-homology featurizer as Phase 6b/29/36 (byte-for-byte,
 spliced verbatim), pointed at Phase 49's larger pool (7,513 clusters, 3.65x
@@ -23,22 +23,22 @@ to Phase 36's 169.7 min, scaled by the residue-count ratio between the two
 pools (2,211,045 vs 1,587,794 residues, ~1.39x).
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s6b(2))
 
-md(r'''## Cell 1 — Load Phase 49's pool and re-acquire heavy atoms''')
+md(r'''## Cell 1 - Load Phase 49's pool and re-acquire heavy atoms''')
 code(s6b(3).replace('locate("phase6_graphs.pt")', 'locate("phase49_graphs.pt")'))
 
-md(r'''## Cell 2 — Heavy-atom clouds with per-chain alignment verification (identical to Phase 6b/29/36)''')
+md(r'''## Cell 2 - Heavy-atom clouds with per-chain alignment verification (identical to Phase 6b/29/36)''')
 code(s6b(5))
 
-md(r'''## Cell 3 — Featuriser (byte-for-byte the Phase 2b/6b/29/36 definition)''')
+md(r'''## Cell 3 - Featuriser (byte-for-byte the Phase 2b/6b/29/36 definition)''')
 code(s6b(7))
 
-md(r'''## Cell 4 — Compute (the long one)''')
+md(r'''## Cell 4 - Compute (the long one)''')
 code(s6b(9))
 
-md(r'''## Cell 5 — Fuse, validate, save (new output filename)''')
+md(r'''## Cell 5 - Fuse, validate, save (new output filename)''')
 code(s6b(11).replace('p = out / "phase6b_graphs.pt"', 'p = out / "phase51_graphs.pt"'))
 
 md(r'''

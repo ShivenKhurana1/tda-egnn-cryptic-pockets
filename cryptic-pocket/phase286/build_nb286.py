@@ -61,9 +61,9 @@ This notebook only changes the localization head's *readout*: a second, spatiall
 data, loss, optimiser, early stopping, and pretrained-checkpoint initialisation as every other arm in this
 lineage (Phase 266c/269/284).
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1")
-md("## Cell 2 — Setup: Phase 48's CryptoBench-3B blob + Phase 227's geometry (identical to Phase 266c)")
+md("## Cell 2 - Setup: Phase 48's CryptoBench-3B blob + Phase 227's geometry (identical to Phase 266c)")
 code(s129(4) + r'''
 
 geo = torch.load(locate("phase227_geometry_features.pt"), map_location="cpu", weights_only=False)
@@ -82,7 +82,7 @@ splits = {s: [d for d in dataset if d.split == s] for s in ("train", "val", "tes
 print(f"node dim {dataset[0].x.size(1)} = {N_PRE} + {TOPO_DIM} + {GEOM_DIM}; splits", {k: len(v) for k, v in splits.items()})
 assert dataset[0].x.size(1) == N_PRE + SIDE_DIM
 ''' + f'\nLOCAL_RADIUS = {LOCAL_RADIUS}  # Angstroms; defined once, early, so every later cell (incl. the equivariance check) sees it\n')
-md("## Cell 3 — Model, with an optional spatial local-attention pass on the localization readout (parameter shapes unchanged)")
+md("## Cell 3 - Model, with an optional spatial local-attention pass on the localization readout (parameter shapes unchanged)")
 code(s129(6).replace(
     '''class LocalizingEGNN(nn.Module):
     """Same TopologicalEGNN as every prior phase, plus a second head that
@@ -119,7 +119,7 @@ code(s129(6).replace(
             weighted = attn.unsqueeze(-1) * pos                     # (N,3)
             pred_center = torch.zeros(n_graphs, 3, device=h.device).index_add_(0, batch, weighted)'''
 ))
-md("## Cell 4 — Equivariance check (rotate a batch, confirm both centers rotate correspondingly, before any training)")
+md("## Cell 4 - Equivariance check (rotate a batch, confirm both centers rotate correspondingly, before any training)")
 code(r'''
 torch.manual_seed(0)
 _probe = splits["val"][0].clone()
@@ -139,7 +139,7 @@ print(f"equivariance check (local_radius={LOCAL_RADIUS}): max error {err:.2e} (e
 assert err < 1e-3, "equivariance broken -- do not proceed to training"
 del _m, _probe, _rot, c_ref, c_rot
 ''')
-md("## Cell 5 — Training machinery (Phase 129, unchanged)")
+md("## Cell 5 - Training machinery (Phase 129, unchanged)")
 code(s129(8).replace("LocalizingEGNN(N_PRE, TOPO_DIM, use_loc_head=use_loc_head)",
                      "LocalizingEGNN(N_PRE, SIDE_DIM, use_loc_head=use_loc_head, local_radius=LOCAL_RADIUS)"))
 md(f"## Cell 6 - Fine-tune arm `{ARM}` x 8 seeds from Phase 266b seed-matched checkpoints; save probabilities and predicted centers")

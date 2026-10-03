@@ -7,7 +7,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 7 — Baseline Comparison: `TopologicalEGNN` vs P2Rank
+# Phase 7 - Baseline Comparison: `TopologicalEGNN` vs P2Rank
 
 Every result so far compares the model to *its own ablations*. That shows which
 inputs matter, not whether the model is any good. "Beats our seq-only arm" does
@@ -24,13 +24,13 @@ fpocket was attempted first and **segfaults on this image** (exit −11): its Vo
 stage calls Ubuntu's system qhull 2015.2, which rejects the `Qz Qt` option
 combination fpocket passes (`qvoronoi p i Pp Qz Qt`). That is a build/ABI
 incompatibility, not a property of the structures. Rather than patch a
-third-party build, P2Rank is used — a prebuilt JVM binary with no native
+third-party build, P2Rank is used - a prebuilt JVM binary with no native
 dependency, and a harder baseline to beat.
 
 ### Why this comparison is fair
 
 P2Rank emits **per-residue probabilities** in `*_residues.csv`, so no
-pocket-to-residue conversion is needed — its output is directly comparable to the
+pocket-to-residue conversion is needed - its output is directly comparable to the
 model's per-residue sigmoid, on identical residues with identical labels.
 
 An important caveat to state in any writeup: P2Rank predicts *ligandable* sites
@@ -40,7 +40,7 @@ is therefore mildly favourable to the model, and the equal-selectivity block
 below is the fairest single number.
 ''')
 
-md(r'''## Cell 1 — Java + P2Rank''')
+md(r'''## Cell 1 - Java + P2Rank''')
 
 code(r'''
 !pip install -q torch-geometric==2.6.1 biopython==1.84
@@ -67,7 +67,7 @@ except Exception as e:
 print(f"P2Rank ready in {time.time()-t0:.0f}s -> {PRANK}")
 ''')
 
-md(r'''## Cell 2 — Train the model on the fixed split''')
+md(r'''## Cell 2 - Train the model on the fixed split''')
 
 code(r'''
 from torch_geometric.loader import DataLoader
@@ -163,7 +163,7 @@ with torch.no_grad():
 print(f"predictions for {len(model_pred)} test chains")
 ''')
 
-md(r'''## Cell 3 — Run P2Rank in batch mode''')
+md(r'''## Cell 3 - Run P2Rank in batch mode''')
 
 code(r'''
 RAW=Path("/tmp/pdb_raw"); RAW.mkdir(parents=True,exist_ok=True)
@@ -218,7 +218,7 @@ if not csvs:
     print(f"pocket-level outputs: {len(csvs)}")
 ''')
 
-md(r'''## Cell 4 — Align and compare''')
+md(r'''## Cell 4 - Align and compare''')
 
 code(r'''
 import csv as _csv

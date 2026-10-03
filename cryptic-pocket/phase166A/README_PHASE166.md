@@ -1,4 +1,4 @@
-# Phase166 — esm_structure
+# Phase166: esm_structure
 
 Hard-generalization experiment for the cryptic-pocket EGNN.
 

@@ -36,7 +36,7 @@ DISPLAY = {
 # ============================================================================
 
 print("=" * 90)
-print("PHASE 190 — MAIN PAPER FIGURES")
+print("PHASE 190 - MAIN PAPER FIGURES")
 print("=" * 90)
 
 print("\nLoading data...")

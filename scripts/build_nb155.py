@@ -19,7 +19,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 155 — CryptoBench 3B-Transfer with Focal Loss (8 seeds)
+# Phase 155 - CryptoBench 3B-Transfer with Focal Loss (8 seeds)
 
 Identical to Phase129 (same 8 pretrained main-pipeline 3B checkpoints,
 same architecture, same protocol) except the loss function: focal loss
@@ -31,16 +31,16 @@ Paired-by-seed comparison against Phase129's existing 8-seed BCE result
 (val PR mean 0.4023 std 0.0102; test AUC 0.9111, MCC 0.4664).
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s129(2))
 
-md(r'''## Cell 2 — Setup, load Phase 48's CryptoBench-3B blob (identical to Phase129)''')
+md(r'''## Cell 2 - Setup, load Phase 48's CryptoBench-3B blob (identical to Phase129)''')
 code(s129(4))
 
-md(r'''## Cell 3 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 3 - Model (identical to every prior localization phase)''')
 code(s129(6))
 
-md(r'''## Cell 4 — Training machinery: focal loss replaces BCE+pos_weight; fit() optionally loads a pretrained state_dict''')
+md(r'''## Cell 4 - Training machinery: focal loss replaces BCE+pos_weight; fit() optionally loads a pretrained state_dict''')
 code(r'''
 def focal_loss_with_logits(logits, targets, alpha=0.9, gamma=2.0):
     """Standard binary focal loss (Lin et al. 2017), computed from logits
@@ -106,7 +106,7 @@ def fit(use_loc_head, lam, seed, pretrained_path=None, epochs=40, patience=8, ba
     return model, best
 ''')
 
-md(r'''## Cell 5 — Train all 8 seeds, each transfer-learned from a DIFFERENT main-pipeline 3B checkpoint, with focal loss''')
+md(r'''## Cell 5 - Train all 8 seeds, each transfer-learned from a DIFFERENT main-pipeline 3B checkpoint, with focal loss''')
 code(r'''
 PRETRAINED_FILES = [f"clean_deploy_esm3b_seed{s}.pt" for s in range(8)]   # Phase97(0-2)+salvage(3-6)+Phase107(7)
 

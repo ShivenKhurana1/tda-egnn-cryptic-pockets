@@ -20,7 +20,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(f'''
-# Phase {PHASE_NUM} — Thread 1 Round-3, 8-Seed Extension: {ARM_NAME} Seed {SEED}
+# Phase {PHASE_NUM} - Thread 1 Round-3, 8-Seed Extension: {ARM_NAME} Seed {SEED}
 
 Extends {ARM_NAME} from 3 to 8 seeds (training seed {SEED} of the 5 new
 ones: 3-7) to confirm/refute Phase63's preliminary 3-seed finding (H0_only
@@ -31,29 +31,29 @@ safety under the 12hr CPU session cap, given contention issues observed
 running multiple 3-seed arms concurrently.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 52/51's round-3 scaled blobs, identical to Phase53/56/58-65)''')
+md(r'''## Cell 1 - Setup (loads Phase 52/51's round-3 scaled blobs, identical to Phase53/56/58-65)''')
 code(s58(2))
 code(s58(3))
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures (identical to Phase 53/56/58-65)''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures (identical to Phase 53/56/58-65)''')
 code(s58(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 53/56/58-65; reproduces the same 7,181 chains)''')
+md(r'''## Cell 3 - Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 53/56/58-65; reproduces the same 7,181 chains)''')
 code(s58(7))
 
-md(r'''## Cell 4 — Recover true ligand centers for the cleaned training set (identical to Phase 53/56/58-65)''')
+md(r'''## Cell 4 - Recover true ligand centers for the cleaned training set (identical to Phase 53/56/58-65)''')
 code(s58(9))
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase)''')
 code(s58(11))
 
-md(r'''## Cell 6 — Training machinery (identical to Phase 14/20/53/56/58-65)''')
+md(r'''## Cell 6 - Training machinery (identical to Phase 14/20/53/56/58-65)''')
 code(s58(13))
 
-md(r'''## Cell 7 — Build H0 / H1 / H2 / burial column masks (identical to Phase 23/58-65)''')
+md(r'''## Cell 7 - Build H0 / H1 / H2 / burial column masks (identical to Phase 23/58-65)''')
 code(s58(15))
 
-md(f'''## Cell 8 — Train ONLY seed {SEED} for {ARM_NAME}''')
+md(f'''## Cell 8 - Train ONLY seed {SEED} for {ARM_NAME}''')
 code(f'''
 BEST_LAMBDA = 0.1
 WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True)

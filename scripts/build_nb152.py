@@ -12,7 +12,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 152 — HOLO4K Round-3, 8-Seed: DCA Re-Eval
+# Phase 152 - HOLO4K Round-3, 8-Seed: DCA Re-Eval
 
 Same rationale as Phase151, for HOLO4K. Phase57 computed 8-seed DCC
 (0.6453) but discarded DCA. Uses Phase57's own confidence-based
@@ -22,10 +22,10 @@ Pure re-inference on existing checkpoints and cached features -- no
 retraining.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(r'''!pip install -q torch-geometric==2.6.1 biopython==1.84''')
 
-md(r'''## Cell 2 — Setup: load Phase 52's graphs blob (N_PRE/TOPO_DIM) and Phase 51's topology stats (mu/sd)''')
+md(r'''## Cell 2 - Setup: load Phase 52's graphs blob (N_PRE/TOPO_DIM) and Phase 51's topology stats (mu/sd)''')
 code(r'''
 import json, pickle, warnings
 from collections import defaultdict
@@ -60,7 +60,7 @@ DEVICE = torch.device("cuda" if GPU_OK else "cpu")
 print(f"device {DEVICE} | N_PRE {N_PRE} | TOPO_DIM {TOPO_DIM}")
 ''')
 
-md(r'''## Cell 3 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 3 - Model (identical to every prior localization phase)''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -112,7 +112,7 @@ class LocalizingEGNN(nn.Module):
         return logits, pred_center
 ''')
 
-md(r'''## Cell 4 — Load all 8 checkpoints directly (no retraining -- Phase54 gave seeds 0-2, Phase57 gave seeds 3-7)''')
+md(r'''## Cell 4 - Load all 8 checkpoints directly (no retraining -- Phase54 gave seeds 0-2, Phase57 gave seeds 3-7)''')
 code(r'''
 models = {}
 for seed in range(8):
@@ -130,7 +130,7 @@ with open(locate("phase54_raw_features.pkl"), "rb") as fh:
 print(f"loaded cached (round-3 pool) HOLO4K features for {len(raw_cache):,} chains")
 ''')
 
-md(r'''## Cell 5 — Per-seed and 8-seed-ensemble DCC AND DCA, with confidence-based chain arbitration (fixes Phase57's dropped DCA)''')
+md(r'''## Cell 5 - Per-seed and 8-seed-ensemble DCC AND DCA, with confidence-based chain arbitration (fixes Phase57's dropped DCA)''')
 code(r'''
 import time
 

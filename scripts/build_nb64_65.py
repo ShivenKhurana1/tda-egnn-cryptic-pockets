@@ -17,7 +17,7 @@ def build(arm_name, phase_num, salvage_dataset_slug):
     code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
     md(f'''
-# Phase {phase_num} — Thread 1 Round-3, Finish {arm_name} (Seed 2 Only)
+# Phase {phase_num} - Thread 1 Round-3, Finish {arm_name} (Seed 2 Only)
 
 `{arm_name}` got cancelled by Kaggle's 12hr CPU session limit after
 finishing seeds 0-1 (of 3), likely from resource contention running 4 CPU
@@ -26,29 +26,29 @@ Phase61/62 didn't). This trains ONLY the missing seed 2 -- should take
 ~1/3 the time of the original attempt and fit comfortably in one session.
 ''')
 
-    md('''## Cell 1 — Setup (loads Phase 52/51's round-3 scaled blobs, identical to Phase53/56/58-62)''')
+    md('''## Cell 1 - Setup (loads Phase 52/51's round-3 scaled blobs, identical to Phase53/56/58-62)''')
     code(s58(2))
     code(s58(3))
 
-    md('''## Cell 2 — Fetch ALL 420 COACH420 structures (identical to Phase 53/56/58-62)''')
+    md('''## Cell 2 - Fetch ALL 420 COACH420 structures (identical to Phase 53/56/58-62)''')
     code(s58(5))
 
-    md('''## Cell 3 — Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 53/56/58-62; reproduces the same 7,181 chains)''')
+    md('''## Cell 3 - Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 53/56/58-62; reproduces the same 7,181 chains)''')
     code(s58(7))
 
-    md('''## Cell 4 — Recover true ligand centers for the cleaned training set (identical to Phase 53/56/58-62)''')
+    md('''## Cell 4 - Recover true ligand centers for the cleaned training set (identical to Phase 53/56/58-62)''')
     code(s58(9))
 
-    md('''## Cell 5 — Model (identical to every prior localization phase)''')
+    md('''## Cell 5 - Model (identical to every prior localization phase)''')
     code(s58(11))
 
-    md('''## Cell 6 — Training machinery (identical to Phase 14/20/53/56/58-62)''')
+    md('''## Cell 6 - Training machinery (identical to Phase 14/20/53/56/58-62)''')
     code(s58(13))
 
-    md('''## Cell 7 — Build H0 / H1 / H2 / burial column masks (identical to Phase 23/58-62)''')
+    md('''## Cell 7 - Build H0 / H1 / H2 / burial column masks (identical to Phase 23/58-62)''')
     code(s58(15))
 
-    md(f'''## Cell 8 — Train ONLY seed 2 for {arm_name} (seeds 0-1 salvaged from the cancelled run)''')
+    md(f'''## Cell 8 - Train ONLY seed 2 for {arm_name} (seeds 0-1 salvaged from the cancelled run)''')
     code(f'''
 BEST_LAMBDA = 0.1
 WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True)

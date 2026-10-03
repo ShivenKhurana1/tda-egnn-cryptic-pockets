@@ -42,9 +42,9 @@ CryptoBench's full training pool, giving 704 training chains a proxy score. This
 cryptic-like (lower my_apo) in the loss, exactly the way Phase 269 up-weighted small pockets, and compares against the Phase 266c
 (unweighted) baseline -- same checkpoints, same seeds, same everything else.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1")
-md("## Cell 2 — Setup: Phase 48's CryptoBench-3B blob + Phase 227's geometry + Phase 283's crypticity-proxy scores")
+md("## Cell 2 - Setup: Phase 48's CryptoBench-3B blob + Phase 227's geometry + Phase 283's crypticity-proxy scores")
 code(s129(4) + r'''
 
 geo = torch.load(locate("phase227_geometry_features.pt"), map_location="cpu", weights_only=False)
@@ -71,9 +71,9 @@ splits = {s: [d for d in dataset if d.split == s] for s in ("train", "val", "tes
 print(f"node dim {dataset[0].x.size(1)} = {N_PRE} + {TOPO_DIM} + {GEOM_DIM}; splits", {k: len(v) for k, v in splits.items()})
 assert dataset[0].x.size(1) == N_PRE + SIDE_DIM
 ''')
-md("## Cell 3 — Model (Phase 129, verbatim)")
+md("## Cell 3 - Model (Phase 129, verbatim)")
 code(s129(6))
-md("## Cell 4 — Training machinery (Phase 129, width-parameterised; fit() loads the seed-matched pretrained state; crypticity-weighted loss)")
+md("## Cell 4 - Training machinery (Phase 129, width-parameterised; fit() loads the seed-matched pretrained state; crypticity-weighted loss)")
 code(s129(8).replace("LocalizingEGNN(N_PRE, TOPO_DIM, use_loc_head=use_loc_head)", "LocalizingEGNN(N_PRE, SIDE_DIM, use_loc_head=use_loc_head)")
      .replace("crit = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([POS_WEIGHT], device=DEVICE))", "crit = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([POS_WEIGHT], device=DEVICE), reduction='none')")
      .replace("huber = nn.SmoothL1Loss(beta=4.0)", "huber = nn.SmoothL1Loss(beta=4.0, reduction='none')")

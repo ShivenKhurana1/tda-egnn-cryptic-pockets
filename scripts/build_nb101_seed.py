@@ -21,7 +21,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(f'''
-# Phase {PHASE_NUM} — COACH420 ESM2-3B 8-Seed Extension: Seed {SEED}
+# Phase {PHASE_NUM} - COACH420 ESM2-3B 8-Seed Extension: Seed {SEED}
 
 Single-seed slice of Phase101 (which risked exceeding the 12hr CPU
 session cap training all 5 remaining seeds in one notebook). Identical
@@ -29,31 +29,31 @@ methodology to Phase97/101 (fp16-resident dataset, per-batch fp32
 upcast) but trains only seed {SEED}.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 96's ESM2-3B blob, kept in fp16)''')
+md(r'''## Cell 1 - Setup (loads Phase 96's ESM2-3B blob, kept in fp16)''')
 code(s20(2))
 code(s20(3).replace('locate("phase10_graphs.pt")', 'locate("phase96_graphs_esm3b.pt")')
            .replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")'))
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures''')
 code(s20(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side''')
+md(r'''## Cell 3 - Clean the TRAINING side''')
 code(s20(7))
 
-md(r'''## Cell 4 — Recover true ligand centers''')
+md(r'''## Cell 4 - Recover true ligand centers''')
 code(s20(9))
 
-md(r'''## Cell 5 — Model''')
+md(r'''## Cell 5 - Model''')
 code(s20(11))
 
-md(r'''## Cell 6 — Equivariance check (probe cast to fp32)''')
+md(r'''## Cell 6 - Equivariance check (probe cast to fp32)''')
 code(s20(13).replace('probe = dataset[0].clone()', 'probe = dataset[0].clone(); probe.x = probe.x.float()'))
 
-md(r'''## Cell 7 — Training machinery (per-batch fp32 upcast)''')
+md(r'''## Cell 7 - Training machinery (per-batch fp32 upcast)''')
 code(s20(15).replace('    for b in loader:\n        b = b.to(DEVICE)',
                       '    for b in loader:\n        b = b.to(DEVICE); b.x = b.x.float()   # fp16-on-disk fix: upcast per-batch'))
 
-md(f'''## Cell 8 — Train ONLY seed {SEED}''')
+md(f'''## Cell 8 - Train ONLY seed {SEED}''')
 code(f'''
 BEST_LAMBDA = 0.1
 WORK2 = Path("/kaggle/working"); (WORK2/"cache").mkdir(parents=True, exist_ok=True)

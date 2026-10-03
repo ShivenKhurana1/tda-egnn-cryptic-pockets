@@ -15,7 +15,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 27b — Rescore-Only Fix (Thread 2 Seed Validation, No Retraining)
+# Phase 27b - Rescore-Only Fix (Thread 2 Seed Validation, No Retraining)
 
 Phase 27 trained all 5 new seeds (3-7) successfully but crashed during
 scoring: `by_structure[key[:2]]` assumed the 3-tuple key schema Phase15's
@@ -30,7 +30,7 @@ all 8 seeds (0-2 from Phase24, 3-7 from the new dataset) and rescores --
 zero training, should run in minutes even on CPU.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 code(r'''
 !pip install -q torch-geometric==2.6.1
 ''')
@@ -60,7 +60,7 @@ DEVICE = torch.device("cpu")
 print(f"device {DEVICE} (rescoring only -- no training in this notebook)")
 ''')
 
-md(r'''## Cell 2 — Model class (identical to every prior localization phase)''')
+md(r'''## Cell 2 - Model class (identical to every prior localization phase)''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -112,7 +112,7 @@ class LocalizingEGNN(nn.Module):
         return logits, pred_center
 ''')
 
-md(r'''## Cell 3 — Load all 8 seeds (0-2 from Phase24, 3-7 from the new dataset)''')
+md(r'''## Cell 3 - Load all 8 seeds (0-2 from Phase24, 3-7 from the new dataset)''')
 code(r'''
 def load_seeds(prefix, seeds):
     out = {}
@@ -135,7 +135,7 @@ with open(locate("phase24_raw_features.pkl"), "rb") as fh:
 print(f"loaded cached HOLO4K benchmark features for {len(raw_cache):,} chains")
 ''')
 
-md(r'''## Cell 4 — Score pooled 8-seed ensemble + per-seed breakdown (key-schema FIXED)''')
+md(r'''## Cell 4 - Score pooled 8-seed ensemble + per-seed breakdown (key-schema FIXED)''')
 code(r'''
 @torch.no_grad()
 def predict(entry, model_dict):
@@ -198,7 +198,7 @@ per_seed = np.array(per_seed)
 print(f"\nper-seed mean {per_seed.mean():.4f}  std {per_seed.std():.4f}")
 ''')
 
-md(r'''## Cell 5 — Compare to the live P2Rank number from Phase 24 (same-run, same 1000 structures)''')
+md(r'''## Cell 5 - Compare to the live P2Rank number from Phase 24 (same-run, same 1000 structures)''')
 code(r'''
 LIVE_P2RANK_DCC = 0.6580
 ours_3seed = score_ensemble({s: ensemble8[s] for s in (0,1,2)})[0]

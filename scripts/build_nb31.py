@@ -18,7 +18,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 31 — Thread 3 Payoff: Clean Training + Full COACH420 on the Scaled Pool
+# Phase 31 - Thread 3 Payoff: Clean Training + Full COACH420 on the Scaled Pool
 
 Phase 20/21 established the reference result on the original 2,056-cluster
 pool: clean training (leakage-filtered against COACH420) + full 420-structure
@@ -34,44 +34,44 @@ same 3-seed first pass (consistent with every other phase's discipline of
 screening at 3 seeds before committing to 8).
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 30/29's scaled blobs instead of Phase 10/6b's)''')
+md(r'''## Cell 1 - Setup (loads Phase 30/29's scaled blobs instead of Phase 10/6b's)''')
 code(s20(2))
 code(s20(3).replace('locate("phase10_graphs.pt")', 'locate("phase30_graphs.pt")')
            .replace('locate("phase6b_graphs.pt")', 'locate("phase29_graphs.pt")'))
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures (identical to Phase 20)''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures (identical to Phase 20)''')
 code(s20(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 20 v2, coach_paths fix included)''')
+md(r'''## Cell 3 - Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 20 v2, coach_paths fix included)''')
 code(s20(7))
 
-md(r'''## Cell 4 — Recover true ligand centers for the cleaned training set (identical to Phase 20/14)''')
+md(r'''## Cell 4 - Recover true ligand centers for the cleaned training set (identical to Phase 20/14)''')
 code(s20(9))
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase)''')
 code(s20(11))
 
-md(r'''## Cell 6 — Equivariance check before training anything (identical to Phase 20)''')
+md(r'''## Cell 6 - Equivariance check before training anything (identical to Phase 20)''')
 code(s20(13))
 
-md(r'''## Cell 7 — Training machinery (identical to Phase 14/20)''')
+md(r'''## Cell 7 - Training machinery (identical to Phase 14/20)''')
 code(s20(15))
 
-md(r'''## Cell 8 — Train the clean-training ensemble (3 seeds, lambda=0.1) on the SCALED pool''')
+md(r'''## Cell 8 - Train the clean-training ensemble (3 seeds, lambda=0.1) on the SCALED pool''')
 code(s20(17).replace('WORK/f"cache/clean_deploy_seed{seed}.pt"',
                       'WORK/f"cache/clean_deploy_scaled_seed{seed}.pt"'))
 
-md(r'''## Cell 9 — Ground-truth ligands for ALL 420 COACH420 structures (identical to Phase 20)''')
+md(r'''## Cell 9 - Ground-truth ligands for ALL 420 COACH420 structures (identical to Phase 20)''')
 code(s20(19))
 
-md(r'''## Cell 10 — Featurize (identical pipeline: dihedral + ESM2 + topology, matched to the scaled topology block via blob6b/blob29)''')
+md(r'''## Cell 10 - Featurize (identical pipeline: dihedral + ESM2 + topology, matched to the scaled topology block via blob6b/blob29)''')
 code(s20(21).replace('cache/phase20_raw_features.pkl', 'cache/phase31_raw_features.pkl'))
 
-md(r'''## Cell 11 — P2Rank on the FULL 420 (same-run controlled reference, identical to Phase 20)''')
+md(r'''## Cell 11 - P2Rank on the FULL 420 (same-run controlled reference, identical to Phase 20)''')
 code(s20(23).replace('Path("/tmp/p2_20")', 'Path("/tmp/p2_31")')
             .replace('Path("/tmp/p2_20_out")', 'Path("/tmp/p2_31_out")'))
 
-md(r'''## Cell 12 — Score both, compare to literature AND to Phase 20/21's original-pool numbers''')
+md(r'''## Cell 12 - Score both, compare to literature AND to Phase 20/21's original-pool numbers''')
 code(s20(25).replace('phase20_summary.json', 'phase31_summary.json'))
 
 code(r'''

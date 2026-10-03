@@ -18,7 +18,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 34 — Does the Scaled Pool's HOLO4K Gap Close With More Seeds?
+# Phase 34 - Does the Scaled Pool's HOLO4K Gap Close With More Seeds?
 
 Phase 33 (3-seed, scaled pool) found DCC 0.6283 vs live P2Rank's 0.6580 --
 gap -0.0297, roughly HALF of Phase27b's -0.0668 (8-seed, original pool).
@@ -29,26 +29,26 @@ leakage-clean training set, rescore against Phase 33's cached benchmark
 features -- zero re-fetch, zero re-featurization.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 30/29's scaled blobs)''')
+md(r'''## Cell 1 - Setup (loads Phase 30/29's scaled blobs)''')
 code(s33(2))
 code(s33(3))
 
-md(r'''## Cell 2 — Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to Phase 33)''')
+md(r'''## Cell 2 - Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to Phase 33)''')
 code(s33(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side (identical logic, should reproduce Phase 33's 3,187 chains)''')
+md(r'''## Cell 3 - Clean the TRAINING side (identical logic, should reproduce Phase 33's 3,187 chains)''')
 code(s33(7))
 
-md(r'''## Cell 4 — Recover true ligand centers (identical to Phase 33/24/14)''')
+md(r'''## Cell 4 - Recover true ligand centers (identical to Phase 33/24/14)''')
 code(s33(9))
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase)''')
 code(s33(11))
 
-md(r'''## Cell 6 — Training machinery (identical to Phase 33/24/14)''')
+md(r'''## Cell 6 - Training machinery (identical to Phase 33/24/14)''')
 code(s33(13))
 
-md(r'''## Cell 7 — Train 5 MORE seeds (3-7), reusing seeds 0-2 from Phase 33''')
+md(r'''## Cell 7 - Train 5 MORE seeds (3-7), reusing seeds 0-2 from Phase 33''')
 code(r'''
 import time
 WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True)
@@ -76,7 +76,7 @@ for seed in (3,4,5,6,7):
 print(f"\n{len(models)} total seeds available (0-7)")
 ''')
 
-md(r'''## Cell 8 — Load Phase 33's cached benchmark features (no re-fetch)''')
+md(r'''## Cell 8 - Load Phase 33's cached benchmark features (no re-fetch)''')
 code(r'''
 with open(locate("phase33_raw_features.pkl"), "rb") as fh:
     raw_cache = pickle.load(fh)
@@ -84,7 +84,7 @@ print(f"loaded cached (scaled-pool) HOLO4K features for {len(raw_cache):,} chain
 mu, sd = blob6b["topo_mean"], blob6b["topo_std"]
 ''')
 
-md(r'''## Cell 9 — Per-seed and per-ensemble-size DCC on the cached benchmark (FIXED (pid,cid) key schema)''')
+md(r'''## Cell 9 - Per-seed and per-ensemble-size DCC on the cached benchmark (FIXED (pid,cid) key schema)''')
 code(r'''
 from collections import defaultdict
 
@@ -174,7 +174,7 @@ print(f"\nseed-to-seed: mean {seed_dccs.mean():.4f}  std {seed_dccs.std():.4f}  
       f"range [{seed_dccs.min():.4f}, {seed_dccs.max():.4f}]")
 ''')
 
-md(r'''## Cell 10 — Ensemble size sweep: does averaging more seeds close the gap?''')
+md(r'''## Cell 10 - Ensemble size sweep: does averaging more seeds close the gap?''')
 code(r'''
 P2RANK_THIS_RUN = 0.657974   # Phase 33's same-run, same-benchmark P2Rank number
 
@@ -210,7 +210,7 @@ print(f"Phase 33's 3-seed (0,1,2 only) for direct comparison:")
 print(f"  seeds (0,1,2): DCC {p33_dcc:.4f} (n={p33_n})  [Phase 33 reported 0.6283]")
 ''')
 
-md(r'''## Cell 11 — Verdict''')
+md(r'''## Cell 11 - Verdict''')
 code(r'''
 gap_3seed = p33_dcc - P2RANK_THIS_RUN
 gap_8seed = full8_dcc - P2RANK_THIS_RUN

@@ -8,7 +8,7 @@ GRAPH_FILE = "phase159_input/phase159_cryptobench_anmmsf_graphs.pt"
 OUTPUT = "phase167_validation/phase171A_threshold_sweep.csv"
 
 print("=" * 100)
-print("PHASE 171A — CLASSIFICATION THRESHOLD LOCALIZATION SWEEP")
+print("PHASE 171A - CLASSIFICATION THRESHOLD LOCALIZATION SWEEP")
 print("=" * 100)
 
 # ---------------------------------------------------------------------

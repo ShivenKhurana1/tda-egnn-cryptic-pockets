@@ -17,7 +17,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 46 — Train + Evaluate on CryptoBench with ESM2-650M
+# Phase 46 - Train + Evaluate on CryptoBench with ESM2-650M
 
 First trained model combining persistent homology + ESM2 + an equivariant
 localization head for CRYPTIC pocket prediction -- sites invisible in the
@@ -37,7 +37,7 @@ contribution, not a head-to-head comparison.
 3-seed first pass, same discipline as every other new arm in this project.
 ''')
 
-md(r'''## Cell 1 — Setup, load Phase 42's CryptoBench blob''')
+md(r'''## Cell 1 - Setup, load Phase 42's CryptoBench blob''')
 code(r'''
 !pip install -q torch-geometric==2.6.1
 ''')
@@ -78,13 +78,13 @@ print(f"device {DEVICE} | node dim {dataset[0].x.size(1)} | pos_weight {POS_WEIG
 WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True)
 ''')
 
-md(r'''## Cell 2 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 2 - Model (identical to every prior localization phase)''')
 code(s20(11))
 
-md(r'''## Cell 3 — Training machinery (identical to Phase 14/20)''')
+md(r'''## Cell 3 - Training machinery (identical to Phase 14/20)''')
 code(s20(15))
 
-md(r'''## Cell 4 — Train the ensemble (3 seeds, lambda=0.1)''')
+md(r'''## Cell 4 - Train the ensemble (3 seeds, lambda=0.1)''')
 code(r'''
 BEST_LAMBDA = 0.1
 ensemble = []
@@ -99,7 +99,7 @@ for seed in (0,1,2):
 print(f"ensemble of {len(ensemble)} trained on {len(splits['train']):,} cryptic-pocket chains")
 ''')
 
-md(r'''## Cell 5 — Pick a decision threshold on VAL ONLY (never touch test for this), then evaluate on TEST''')
+md(r'''## Cell 5 - Pick a decision threshold on VAL ONLY (never touch test for this), then evaluate on TEST''')
 code(r'''
 @torch.no_grad()
 def predict_ensemble(loader):
@@ -138,7 +138,7 @@ print(f"(CryptoBench's OWN paper used 0.75 for their own model -- not directly "
       f"transferable to a different model's calibration, reported for reference only)")
 ''')
 
-md(r'''## Cell 6 — Field-standard residue classification metrics on TEST (pooled)''')
+md(r'''## Cell 6 - Field-standard residue classification metrics on TEST (pooled)''')
 code(r'''
 test_auc = roc_auc_score(test_y, test_p)
 test_auprc = average_precision_score(test_y, test_p)
@@ -169,7 +169,7 @@ print(f"\nn={len(test_y):,} test residues across {len(splits['test'])} chains, "
       f"{int(test_y.sum())} cryptic-pocket positives ({100*test_y.mean():.2f}%)")
 ''')
 
-md(r'''## Cell 7 — Our own localization-head metric (novel -- no prior baseline exists for this exact task)''')
+md(r'''## Cell 7 - Our own localization-head metric (novel -- no prior baseline exists for this exact task)''')
 code(r'''
 DCC_THRESH = 4.0
 dcc_rate = float((test_dcc < DCC_THRESH).mean())

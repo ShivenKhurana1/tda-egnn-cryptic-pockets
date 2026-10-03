@@ -16,7 +16,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 24 — The HOLO4K Version of Phase 20's Legitimate Comparison
+# Phase 24 - The HOLO4K Version of Phase 20's Legitimate Comparison
 
 Phase 20 did this properly for COACH420: exclude any training chain
 homologous to the benchmark, then evaluate on the complete, unfiltered
@@ -39,7 +39,7 @@ produced so far in this project.
 | EquiPocket | 0.337 | 0.662 |
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 code(r'''
 !pip install -q torch-geometric==2.6.1 gudhi==3.10.1 biopython==1.84 transformers==4.46.3
 !apt-get -qq update > /dev/null 2>&1 && apt-get -qq install -y default-jre-headless > /dev/null 2>&1
@@ -89,7 +89,7 @@ WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True
 RAW = Path("/tmp/pdb_raw"); RAW.mkdir(parents=True, exist_ok=True)
 ''')
 
-md(r'''## Cell 2 — Sample ~1,000 HOLO4K structures, fetch them''')
+md(r'''## Cell 2 - Sample ~1,000 HOLO4K structures, fetch them''')
 code(r'''
 def parse_ds(url):
     lines = urllib.request.urlopen(url, timeout=60).read().decode().splitlines()
@@ -129,7 +129,7 @@ print(f"fetched {len(holo_paths):,}/{len(need):,} in {(time.time()-t0)/60:.1f} m
 ''')
 
 md(r'''
-## Cell 3 — Clean the TRAINING side: exclude any chain homologous to the sample
+## Cell 3 - Clean the TRAINING side: exclude any chain homologous to the sample
 
 Same reverse-direction leakage check as Phase 20/22 -- this time against ALL
 chains of the sampled HOLO4K structures (not capped to 6), since leakage
@@ -196,7 +196,7 @@ print(f"training chains homologous to the HOLO4K sample (excluded): "
 assert len(dataset) > 0.7 * 2056, "too much training data excluded -- investigate before proceeding"
 ''')
 
-md(r'''## Cell 4 — Recover true ligand centers (Phase 14 logic, reused)''')
+md(r'''## Cell 4 - Recover true ligand centers (Phase 14 logic, reused)''')
 _p14_true_center = s14(5)
 _cut = _p14_true_center.index('dataset = [d for d in dataset if hasattr(d, "true_center")]')
 _true_center_core = _p14_true_center[:_cut].rstrip()
@@ -213,14 +213,14 @@ n_tr, n_va = len(splits["train"]), len(splits["val"])
 print(f"deployment training: {n_tr} train / {n_va} val")
 ''')
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase)''')
 code(s14(7))
 
-md(r'''## Cell 6 — Training machinery (identical to Phase 14)''')
+md(r'''## Cell 6 - Training machinery (identical to Phase 14)''')
 code(s14(11))
 
 md(r'''
-## Cell 7 — Train the clean ensemble (3 seeds -- first pass, same discipline as
+## Cell 7 - Train the clean ensemble (3 seeds -- first pass, same discipline as
 Phase 18 before Phase 22 validated it further)
 ''')
 code(r'''
@@ -238,7 +238,7 @@ print(f"clean ensemble of {len(ensemble)} trained on {len(dataset):,} chains "
       f"(zero homology to the HOLO4K sample, by construction)")
 ''')
 
-md(r'''## Cell 8 — Ground truth + featurize the sampled 1,000 structures (capped to 6 chains, no leakage filter needed)''')
+md(r'''## Cell 8 - Ground truth + featurize the sampled 1,000 structures (capped to 6 chains, no leakage filter needed)''')
 code(r'''
 NON_LIGAND={"HOH","DOD","WAT","SO4","PO4","GOL","EDO","PEG","PG4","PGE","1PE","MPD","TRS",
             "ACT","ACY","FMT","CIT","MES","EPE","DMS","IMD","BME","NO3","AZI","CO3","IOD",
@@ -287,7 +287,7 @@ print(f"evaluable HOLO4K-sample structures: {len(eval_units)}/{len(holo_sample)}
       f"({n_capped} capped to 6 longest chains)  ({(time.time()-t0)/60:.1f} min)")
 ''')
 
-md(r'''## Cell 9 — Featurize (dihedral + ESM2 + topology, identical pipeline)''')
+md(r'''## Cell 9 - Featurize (dihedral + ESM2 + topology, identical pipeline)''')
 code(r'''
 import gudhi
 from transformers import AutoTokenizer, AutoModel
@@ -414,7 +414,7 @@ with open(WORK/"cache/phase24_raw_features.pkl", "wb") as fh:
 print(f"cached raw features -> {(WORK/'cache/phase24_raw_features.pkl').stat().st_size/1e6:.0f} MB")
 ''')
 
-md(r'''## Cell 10 — P2Rank on the same 1,000 structures (same-run controlled reference)''')
+md(r'''## Cell 10 - P2Rank on the same 1,000 structures (same-run controlled reference)''')
 code(r'''
 t0=time.time(); PRANK=None
 subprocess.run("curl -sL https://github.com/rdk/p2rank/releases/download/2.4.2/p2rank_2.4.2.tar.gz "
@@ -456,7 +456,7 @@ p2rank_centers = {pid: p2rank_top_center(pid) for pid in holo_paths}
 print(f"P2Rank centers parsed: {sum(1 for v in p2rank_centers.values() if v is not None)}/{len(holo_paths)}")
 ''')
 
-md(r'''## Cell 11 — Score, compare to literature''')
+md(r'''## Cell 11 - Score, compare to literature''')
 code(r'''
 mu, sd = blob6b["topo_mean"], blob6b["topo_std"]
 

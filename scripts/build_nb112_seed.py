@@ -22,7 +22,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(f'''
-# Phase {PHASE_NUM} — h128/L6 Capacity Confirmation: Seed {SEED}
+# Phase {PHASE_NUM} - h128/L6 Capacity Confirmation: Seed {SEED}
 
 Single-seed slice confirming Phase112's promising partial finding
 (h=128/L=6/dr=0.1 beat the h128/L4 default at seed 0: val PR 0.5511 vs
@@ -30,27 +30,27 @@ Single-seed slice confirming Phase112's promising partial finding
 round-3 COACH420 clean training set.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 52's round-3 35M-ESM blob)''')
+md(r'''## Cell 1 - Setup (loads Phase 52's round-3 35M-ESM blob)''')
 code(s20(2))
 code(s20(3).replace('locate("phase10_graphs.pt")', 'locate("phase52_graphs.pt")')
            .replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")'))
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures''')
 code(s20(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side''')
+md(r'''## Cell 3 - Clean the TRAINING side''')
 code(s20(7))
 
-md(r'''## Cell 4 — Recover true ligand centers''')
+md(r'''## Cell 4 - Recover true ligand centers''')
 code(s20(9))
 
-md(r'''## Cell 5 — Model class''')
+md(r'''## Cell 5 - Model class''')
 code(s20(11))
 
-md(r'''## Cell 6 — Training machinery (run_epoch only; capacity-agnostic)''')
+md(r'''## Cell 6 - Training machinery (run_epoch only; capacity-agnostic)''')
 code(s20(15).split("\n\ndef fit(")[0])
 
-md(f'''## Cell 7 — Train h128/L6/dr.1 seed {SEED}''')
+md(f'''## Cell 7 - Train h128/L6/dr.1 seed {SEED}''')
 code(f'''
 def fit_capacity(h, L, dr, lam, seed, epochs=40, patience=8, batch=16):
     torch.manual_seed(seed); np.random.seed(seed)

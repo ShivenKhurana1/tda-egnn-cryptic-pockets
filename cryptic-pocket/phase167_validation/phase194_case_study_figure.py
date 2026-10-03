@@ -71,7 +71,7 @@ res = res[
 ].copy()
 
 print("=" * 100)
-print("PHASE 194 — 3D CASE STUDY FIGURE")
+print("PHASE 194 - 3D CASE STUDY FIGURE")
 print("=" * 100)
 
 print("\nLoading graphs...")

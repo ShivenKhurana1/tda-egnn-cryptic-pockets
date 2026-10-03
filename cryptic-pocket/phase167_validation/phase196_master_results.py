@@ -231,7 +231,7 @@ df.to_csv(
 )
 
 print("=" * 100)
-print("PHASE 196 — MASTER RESULTS")
+print("PHASE 196 - MASTER RESULTS")
 print("=" * 100)
 
 print(

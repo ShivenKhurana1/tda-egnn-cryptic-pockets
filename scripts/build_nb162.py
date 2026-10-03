@@ -15,7 +15,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 162 — CryptoBench Top-K Localization: Score-Only TEST Eval
+# Phase 162 - CryptoBench Top-K Localization: Score-Only TEST Eval
 
 Loads the 8 Phase161 top-K (K=20) localization checkpoints, evaluates
 on TEST with a val-tuned threshold -- matches Phase150's exact protocol
@@ -23,13 +23,13 @@ for a direct comparison against the existing 3B-transfer baseline (test
 AUC 0.9111, MCC 0.4664, DCC 0.3077).
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s150(2))
 
-md(r'''## Cell 2 — Setup, load the 3B CryptoBench blob''')
+md(r'''## Cell 2 - Setup, load the 3B CryptoBench blob''')
 code(s150(4))
 
-md(r'''## Cell 3 — Model, with the top-K localization readout (identical parameters, only the readout logic differs from every prior phase)''')
+md(r'''## Cell 3 - Model, with the top-K localization readout (identical parameters, only the readout logic differs from every prior phase)''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -94,7 +94,7 @@ class LocalizingEGNN(nn.Module):
         return logits, pred_center
 ''')
 
-md(r'''## Cell 4 — Load the 8 top-K (K=20) checkpoints into an ensemble''')
+md(r'''## Cell 4 - Load the 8 top-K (K=20) checkpoints into an ensemble''')
 code(r'''
 ensemble = []
 for seed in range(8):
@@ -106,13 +106,13 @@ for seed in range(8):
 print(f"loaded {len(ensemble)} top-K (K=20) checkpoints into ensemble")
 ''')
 
-md(r'''## Cell 5 — Pick a decision threshold on VAL ONLY (never touch test for this), then evaluate on TEST''')
+md(r'''## Cell 5 - Pick a decision threshold on VAL ONLY (never touch test for this), then evaluate on TEST''')
 code(s150(10))
 
-md(r'''## Cell 6 — Field-standard residue classification metrics on TEST (pooled)''')
+md(r'''## Cell 6 - Field-standard residue classification metrics on TEST (pooled)''')
 code(s150(12))
 
-md(r'''## Cell 7 — Our own localization-head metric''')
+md(r'''## Cell 7 - Our own localization-head metric''')
 code(s150(14).replace('phase150_summary.json', 'phase162_topk_eval_summary.json')
              .replace('saved -> phase150_summary.json', 'saved -> phase162_topk_eval_summary.json'))
 

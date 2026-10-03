@@ -19,7 +19,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 154 — CryptoBench GNN Depth Sweep (650M, From Scratch, 8 Seeds)
+# Phase 154 - CryptoBench GNN Depth Sweep (650M, From Scratch, 8 Seeds)
 
 Tests whether a deeper network (h128 L6, +2 EGCL/Fus layers vs the
 default h128 L4) helps CryptoBench specifically. The main pipeline's own
@@ -32,16 +32,16 @@ comparison against Phase47's existing 8-seed h128L4 baseline
 (MCC 0.3986, AUC 0.8873), same blob, same protocol, only L changed.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s46(2))
 
-md(r'''## Cell 2 — Setup, load Phase 45's CryptoBench-650M blob (identical to Phase46/47)''')
+md(r'''## Cell 2 - Setup, load Phase 45's CryptoBench-650M blob (identical to Phase46/47)''')
 code(s46(3))
 
-md(r'''## Cell 3 — Model, with L exposed as a parameter (identical architecture to every prior phase, just configurable depth)''')
+md(r'''## Cell 3 - Model, with L exposed as a parameter (identical architecture to every prior phase, just configurable depth)''')
 code(s46(5))
 
-md(r'''## Cell 4 — Training machinery, fit() now takes L (identical to Phase46 otherwise)''')
+md(r'''## Cell 4 - Training machinery, fit() now takes L (identical to Phase46 otherwise)''')
 code(r'''
 def run_epoch(model, loader, opt=None, lam=0.0):
     tr = opt is not None; model.train(tr)
@@ -90,7 +90,7 @@ def fit(use_loc_head, lam, seed, L=4, epochs=40, patience=8, batch=16):
     return model, best
 ''')
 
-md(r'''## Cell 5 — Train the h128L6 (deeper) ensemble, 8 seeds, from scratch''')
+md(r'''## Cell 5 - Train the h128L6 (deeper) ensemble, 8 seeds, from scratch''')
 code(r'''
 BEST_LAMBDA = 0.1
 ensemble = []
@@ -114,13 +114,13 @@ json.dump({"seeds": results, "all_pr": all_pr},
 print(f"ensemble of {len(ensemble)} trained on {len(splits['train']):,} cryptic-pocket chains")
 ''')
 
-md(r'''## Cell 6 — Pick a decision threshold on VAL ONLY (never touch test for this), then evaluate on TEST''')
+md(r'''## Cell 6 - Pick a decision threshold on VAL ONLY (never touch test for this), then evaluate on TEST''')
 code(s46(11))
 
-md(r'''## Cell 7 — Field-standard residue classification metrics on TEST (pooled)''')
+md(r'''## Cell 7 - Field-standard residue classification metrics on TEST (pooled)''')
 code(s46(13))
 
-md(r'''## Cell 8 — Our own localization-head metric''')
+md(r'''## Cell 8 - Our own localization-head metric''')
 code(s46(15).replace('phase43_summary.json', 'phase154_depthL6_summary.json')
             .replace('saved -> phase43_summary.json', 'saved -> phase154_depthL6_summary.json'))
 

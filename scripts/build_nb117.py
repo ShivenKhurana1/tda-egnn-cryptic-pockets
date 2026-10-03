@@ -39,7 +39,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 117 — CryptoBench Ingestion + Auxiliary "Any-Pocket" Label
+# Phase 117 - CryptoBench Ingestion + Auxiliary "Any-Pocket" Label
 
 Adds a second per-residue label (`y_aux`) to Phase42's proven CryptoBench
 blob: 1 if a residue is part of EITHER the main cryptic pocket OR one of
@@ -50,12 +50,12 @@ Phase42 -- this is purely an additive label, no change to existing
 features or the main `y` target.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(r'''
 !pip install -q torch-geometric==2.6.1 gudhi==3.10.1 biopython==1.84 transformers==4.46.3
 ''')
 
-md(r'''## Cell 2 — Setup, fetch CryptoBench's dataset.json + folds.json + noncryptic-pockets.json from OSF''')
+md(r'''## Cell 2 - Setup, fetch CryptoBench's dataset.json + folds.json + noncryptic-pockets.json from OSF''')
 code(r'''
 import gzip, json, os, time, urllib.request, warnings
 from concurrent.futures import ThreadPoolExecutor
@@ -133,7 +133,7 @@ print(f"split coverage: {sum(1 for u in units if u['split']!='unassigned')}/{len
 units = [u for u in units if u["split"] != "unassigned"]
 ''')
 
-md(r'''## Cell 3 — Fetch apo structures (mmCIF preferred, per CryptoBench's own README; identical to Phase42)''')
+md(r'''## Cell 3 - Fetch apo structures (mmCIF preferred, per CryptoBench's own README; identical to Phase42)''')
 code(r'''
 need = sorted({u["apo_id"] for u in units})
 def fetch(pid):
@@ -154,7 +154,7 @@ paths = {p: f for p, f in got if f}
 print(f"fetched {len(paths):,}/{len(need):,} in {(time.time()-t0)/60:.1f} min")
 ''')
 
-md(r'''## Cell 4 — Parse apo chains, build per-residue crypticity label (y) AND the new any-pocket label (y_aux)''')
+md(r'''## Cell 4 - Parse apo chains, build per-residue crypticity label (y) AND the new any-pocket label (y_aux)''')
 code(r'''
 AA3_TO_1={"ALA":"A","ARG":"R","ASN":"N","ASP":"D","CYS":"C","GLN":"Q","GLU":"E","GLY":"G",
           "HIS":"H","ILE":"I","LEU":"L","LYS":"K","MET":"M","PHE":"F","PRO":"P","SER":"S",
@@ -210,10 +210,10 @@ for s in ("train","test"):
     print(f"  {s:<6} {len(rs):>5} chains")
 ''')
 
-md(r'''## Cell 5 — Featuriser (byte-for-byte the Phase 2b/6b/29/36 definition)''')
+md(r'''## Cell 5 - Featuriser (byte-for-byte the Phase 2b/6b/29/36 definition)''')
 code(s6b(7))
 
-md(r'''## Cell 6 — Compute topology for every chain (identical to Phase42)''')
+md(r'''## Cell 6 - Compute topology for every chain (identical to Phase42)''')
 code(r'''
 n_res_total = sum(len(r["ca"]) for r in records)
 print(f"computing persistent homology on {n_res_total:,} residues "
@@ -243,7 +243,7 @@ print(f"rotation invariance: {rel:.2e}")
 assert rel < 1e-3
 ''')
 
-md(r'''## Cell 7 — Recompute backbone dihedrals (identical to Phase 10/30/37/42)''')
+md(r'''## Cell 7 - Recompute backbone dihedrals (identical to Phase 10/30/37/42)''')
 code(r'''
 AA3 = set(AA3_TO_1)
 
@@ -281,7 +281,7 @@ n_ok = sum(1 for x in dihed if x is not None)
 print(f"\ndihedrals recovered for {n_ok:,}/{len(records):,} chains in {(time.time()-t0)/60:.1f} min")
 ''')
 
-md(r'''## Cell 8 — ESM2 embeddings (35M -- cheap, fast iteration; identical to Phase 10/30/37/42)''')
+md(r'''## Cell 8 - ESM2 embeddings (35M -- cheap, fast iteration; identical to Phase 10/30/37/42)''')
 code(r'''
 from transformers import AutoTokenizer, AutoModel
 ESM_NAME = "facebook/esm2_t12_35M_UR50D"
@@ -320,7 +320,7 @@ print(f"\nESM2 embeddings for {len(records):,} chains / {n_res:,} residues "
 del esm; torch.cuda.empty_cache()
 ''')
 
-md(r'''## Cell 9 — Assemble PyG graphs (identical 541-dim schema; each graph now ALSO carries d.y_aux)''')
+md(r'''## Cell 9 - Assemble PyG graphs (identical 541-dim schema; each graph now ALSO carries d.y_aux)''')
 code(r'''
 AA_ALPHABET = "ACDEFGHIKLMNPQRSTVWYX"
 AA_TO_IDX = {a: i for i, a in enumerate(AA_ALPHABET)}
@@ -385,7 +385,7 @@ for s in ("train","test"):
     print(f"  {s:<6} {len(ds):>5} chains")
 ''')
 
-md(r'''## Cell 10 — Carve a val subset from train (identical convention), integrity checks, save''')
+md(r'''## Cell 10 - Carve a val subset from train (identical convention), integrity checks, save''')
 code(r'''
 rng = np.random.RandomState(42)
 train_idx = [i for i,d in enumerate(dataset) if d.split == "train"]

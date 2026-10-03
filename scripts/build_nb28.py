@@ -17,7 +17,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 28 — Thread 3, Step 1: Scale-Up Ingestion (2.5x)
+# Phase 28 - Thread 3, Step 1: Scale-Up Ingestion (2.5x)
 
 Every downstream localization phase (14 onward) trains on the 2,056-cluster
 pool Phase 6a/6b/10 built. This notebook is step 1 of scaling that pool
@@ -35,29 +35,29 @@ an hour for this stage; topology and ESM2 embedding are the expensive stages
 and are separate follow-up notebooks, mirroring Phase 6b and Phase 9/10).
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s6a(2))
 
-md(r'''## Cell 1 — Config (n_target raised 6000 -> 15000, everything else identical)''')
+md(r'''## Cell 1 - Config (n_target raised 6000 -> 15000, everything else identical)''')
 code(s6a(3).replace("n_target:         int   = 6000      # entries to download (of ~127k available)",
                      "n_target:         int   = 15000     # entries to download (of ~127k available) -- 2.5x Phase6a"))
 
-md(r'''## Cell 2 — Select entries via the RCSB Search API (identical query to Phase 6a)''')
+md(r'''## Cell 2 - Select entries via the RCSB Search API (identical query to Phase 6a)''')
 code(s6a(5))
 
-md(r'''## Cell 3 — Download (identical to Phase 6a)''')
+md(r'''## Cell 3 - Download (identical to Phase 6a)''')
 code(s6a(7))
 
-md(r'''## Cell 4 — Parse and label (identical predicates to Phase 6a)''')
+md(r'''## Cell 4 - Parse and label (identical predicates to Phase 6a)''')
 code(s6a(9))
 
-md(r'''## Cell 5 — MMseqs2 clustering and representative selection (identical to Phase 6a)''')
+md(r'''## Cell 5 - MMseqs2 clustering and representative selection (identical to Phase 6a)''')
 code(s6a(11))
 
-md(r'''## Cell 6 — Build graphs (identical schema to Phase 6a/Phase 1)''')
+md(r'''## Cell 6 - Build graphs (identical schema to Phase 6a/Phase 1)''')
 code(s6a(13))
 
-md(r'''## Cell 7 — Splits, QC, save (identical logic, new output filename)''')
+md(r'''## Cell 7 - Splits, QC, save (identical logic, new output filename)''')
 code(s6a(15).replace('p = OUT / "phase6_graphs.pt"', 'p = OUT / "phase28_graphs.pt"'))
 
 md(r'''

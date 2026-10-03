@@ -17,7 +17,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(f'''
-# Phase 253{TAG} — Localization geometry control at the 7,513-chain pool: training ({", ".join(ARMS)})
+# Phase 253{TAG} - Localization geometry control at the 7,513-chain pool: training ({", ".join(ARMS)})
 
 Topology's localization gain is largest on this pool (Phase 86: pooled COACH420 DCC 0.5932 with topology vs 0.4286 without,
 8 seeds), and it is the paper's headline localization result. Phases 236-247 (2,055-chain pool) found geometry matches or
@@ -29,9 +29,9 @@ Training set = Phase 53's COACH420-clean 7,181 chains (Phase 251, identical for 
 Every arm uses an identical 51-wide side channel (34 topology + 17 geometry columns, unselected zeroed). This kernel trains
 arms {ARMS} x 8 seeds and saves the checkpoints; the scorer (Phase 254) loads all 32 from the four arms.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1")
-md("## Cell 2 — Load the Phase 52 blob, the Phase 251 fixed training list + true centers, and the Phase 250 geometry (3 chunks)")
+md("## Cell 2 - Load the Phase 52 blob, the Phase 251 fixed training list + true centers, and the Phase 250 geometry (3 chunks)")
 code(r'''
 import gzip, json, os, time, warnings
 from pathlib import Path
@@ -95,11 +95,11 @@ n_val = max(1, int(0.08 * len(perm)))
 splits = {"val": [dataset[i] for i in perm[:n_val]], "train": [dataset[i] for i in perm[n_val:]]}
 print(f"node dim {dataset[0].x.size(1)} = {N_PRE} + {TOPO_DIM} + {GEOM_DIM}; train {len(splits['train'])} / val {len(splits['val'])}")
 '''.replace("__TAG__", TAG))
-md("## Cell 3 — Model (Phase 53, verbatim)")
+md("## Cell 3 - Model (Phase 53, verbatim)")
 code(s53(11))
-md("## Cell 4 — Training machinery (Phase 53, verbatim except the side-channel width)")
+md("## Cell 4 - Training machinery (Phase 53, verbatim except the side-channel width)")
 code(s53(15).replace("LocalizingEGNN(N_PRE, TOPO_DIM, use_loc_head=use_loc_head)", "LocalizingEGNN(N_PRE, SIDE_DIM, use_loc_head=use_loc_head)"))
-md(f"## Cell 5 — Train arms {ARMS} x 8 seeds")
+md(f"## Cell 5 - Train arms {ARMS} x 8 seeds")
 code(f'''
 ARMS = {ARMS}
 ''' + r'''

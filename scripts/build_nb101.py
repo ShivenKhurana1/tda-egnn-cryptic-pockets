@@ -19,7 +19,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 101 — COACH420 ESM2-3B: 8-Seed Extension (seeds 3-7)
+# Phase 101 - COACH420 ESM2-3B: 8-Seed Extension (seeds 3-7)
 
 Phase98's 3-seed result (DCC 0.6053) already beats the 8-seed 35M
 baseline (0.5932) and this-run P2Rank by +0.0844 -- the strongest single
@@ -29,31 +29,31 @@ Phase97 used, so the full 8-seed ensemble can be rescored (Phase98-style)
 against the same benchmark for a properly powered final number.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 96's ESM2-3B blob, kept in fp16 -- CPU RAM fix: training itself needs meaningfully more working memory than inference on CPU (no separate VRAM pool to offload gradients/activations to), and eagerly upcasting the whole dataset to fp32 alone consumed nearly the entire 32.9GB budget, leaving no room for training. Keeping the resident dataset at fp16 (~11.8GB vs ~23.6GB) frees ~11.8GB; batches are upcast to fp32 per-batch below instead)''')
+md(r'''## Cell 1 - Setup (loads Phase 96's ESM2-3B blob, kept in fp16 -- CPU RAM fix: training itself needs meaningfully more working memory than inference on CPU (no separate VRAM pool to offload gradients/activations to), and eagerly upcasting the whole dataset to fp32 alone consumed nearly the entire 32.9GB budget, leaving no room for training. Keeping the resident dataset at fp16 (~11.8GB vs ~23.6GB) frees ~11.8GB; batches are upcast to fp32 per-batch below instead)''')
 code(s20(2))
 code(s20(3).replace('locate("phase10_graphs.pt")', 'locate("phase96_graphs_esm3b.pt")')
            .replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")'))
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures (identical to Phase 20/31/38/53/93/97 -- reproduces the same clean training set)''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures (identical to Phase 20/31/38/53/93/97 -- reproduces the same clean training set)''')
 code(s20(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 20 v2/31/38/53/93/97)''')
+md(r'''## Cell 3 - Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 20 v2/31/38/53/93/97)''')
 code(s20(7))
 
-md(r'''## Cell 4 — Recover true ligand centers for the cleaned training set (identical to Phase 20/31/38/53/93/97/14)''')
+md(r'''## Cell 4 - Recover true ligand centers for the cleaned training set (identical to Phase 20/31/38/53/93/97/14)''')
 code(s20(9))
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase)''')
 code(s20(11))
 
-md(r'''## Cell 6 — Equivariance check before training anything (probe cast to fp32 -- nn.Linear needs matching dtype, dataset is fp16 now)''')
+md(r'''## Cell 6 - Equivariance check before training anything (probe cast to fp32 -- nn.Linear needs matching dtype, dataset is fp16 now)''')
 code(s20(13).replace('probe = dataset[0].clone()', 'probe = dataset[0].clone(); probe.x = probe.x.float()'))
 
-md(r'''## Cell 7 — Training machinery (run_epoch upcasts each batch to fp32 -- fp16-on-disk fix)''')
+md(r'''## Cell 7 - Training machinery (run_epoch upcasts each batch to fp32 -- fp16-on-disk fix)''')
 code(s20(15).replace('    for b in loader:\n        b = b.to(DEVICE)',
                       '    for b in loader:\n        b = b.to(DEVICE); b.x = b.x.float()   # fp16-on-disk fix: upcast per-batch, not the whole resident dataset'))
 
-md(r'''## Cell 8 — Train seeds 3-7 (extending Phase97's 0-2 to the full 8-seed ensemble)''')
+md(r'''## Cell 8 - Train seeds 3-7 (extending Phase97's 0-2 to the full 8-seed ensemble)''')
 code(s20(17).replace("clean_deploy_seed{seed}.pt", "clean_deploy_esm3b_seed{seed}.pt")
             .replace("for seed in (0,1,2):", "for seed in (3,4,5,6,7):"))
 

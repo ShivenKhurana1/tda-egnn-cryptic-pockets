@@ -26,7 +26,7 @@ OUT_STATS = os.path.join(
 )
 
 print("=" * 100)
-print("PHASE 187 — FAILURE-MODE / SUBGROUP ANALYSIS")
+print("PHASE 187 - FAILURE-MODE / SUBGROUP ANALYSIS")
 print("=" * 100)
 
 # ============================================================================

@@ -173,7 +173,7 @@ pd.set_option("display.width", 220)
 pd.set_option("display.max_rows", 100)
 
 print("=" * 100)
-print("PHASE 170 — PAIRED LOCALIZATION STATISTICS")
+print("PHASE 170 - PAIRED LOCALIZATION STATISTICS")
 print("=" * 100)
 
 print("\nResults:")

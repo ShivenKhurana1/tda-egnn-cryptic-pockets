@@ -22,7 +22,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 95 — Main Pipeline with ESM2-3B, Memory-Safe Retry
+# Phase 95 - Main Pipeline with ESM2-3B, Memory-Safe Retry
 
 Phase92 completed the expensive part (3B-model embedding of all 7,513
 chains, 16.0 min) then died silently ~10s later with no Python traceback
@@ -34,16 +34,16 @@ so peak RAM stays bounded. Everything else identical to Phase92 (same
 Phase51 topology blob, same dihedral logic).
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s10(2))
 
-md(r'''## Cell 1 — Setup, load Phase 51's topology-fused pool''')
+md(r'''## Cell 1 - Setup, load Phase 51's topology-fused pool''')
 code(s10(3).replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")'))
 
-md(r'''## Cell 2 — Recompute real backbone dihedrals (identical to Phase 10/30/37/52/92)''')
+md(r'''## Cell 2 - Recompute real backbone dihedrals (identical to Phase 10/30/37/52/92)''')
 code(s10(5))
 
-md(r'''## Cell 3 — ESM2-3B embeddings (fp16 storage this time -- see Phase92 postmortem above)''')
+md(r'''## Cell 3 - ESM2-3B embeddings (fp16 storage this time -- see Phase92 postmortem above)''')
 code(r'''
 import gc
 from transformers import AutoTokenizer, AutoModel
@@ -86,7 +86,7 @@ print(f"esm_feats resident size: {esm_gb:.1f} GB (fp16)")
 del esm; torch.cuda.empty_cache(); gc.collect()
 ''')
 
-md(r'''## Cell 4 — Assemble augmented features, verify alignment, save (fp16->fp32 cast + free happen per-chain to cap peak RAM)''')
+md(r'''## Cell 4 - Assemble augmented features, verify alignment, save (fp16->fp32 cast + free happen per-chain to cap peak RAM)''')
 code(r'''
 kept, dropped = [], 0
 for i, d in enumerate(dataset):

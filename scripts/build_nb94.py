@@ -15,7 +15,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 94 — Does ESM2-3B Move HOLO4K Past the Round-3 Result?
+# Phase 94 - Does ESM2-3B Move HOLO4K Past the Round-3 Result?
 
 Round-3 data scale-up gave HOLO4K a modest, roughly-holding win/parity
 against live P2Rank (0.6453 DCC 8-seed vs P2Rank ~0.6580 on this pool --
@@ -25,7 +25,7 @@ holding the training pool and all other pipeline stages identical to
 Phase54. 3-seed first pass, same discipline as every other new arm.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 96's ESM2-3B blob + Phase 51's topology)''')
+md(r'''## Cell 1 - Setup (loads Phase 96's ESM2-3B blob + Phase 51's topology)''')
 code(s24(2).replace('transformers==4.46.3', 'transformers==4.46.3 accelerate'))
 code(s24(3).replace('locate("phase10_graphs.pt")', 'locate("phase96_graphs_esm3b.pt")')
            .replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")')
@@ -33,25 +33,25 @@ code(s24(3).replace('locate("phase10_graphs.pt")', 'locate("phase96_graphs_esm3b
                      'dataset = blob10["dataset"]\n'
                      'for _d in dataset: _d.x = _d.x.float()   # Phase96 stores fp16 on disk (quota fix); upcast once here'))
 
-md(r'''## Cell 2 — Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to Phase 24/33/39/54)''')
+md(r'''## Cell 2 - Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to Phase 24/33/39/54)''')
 code(s24(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side (identical logic; pool size 7513, unchanged from Phase54)''')
+md(r'''## Cell 3 - Clean the TRAINING side (identical logic; pool size 7513, unchanged from Phase54)''')
 code(s24(7).replace("2056", "7513"))
 
-md(r'''## Cell 4 — Recover true ligand centers (identical to Phase 24/33/39/54/14)''')
+md(r'''## Cell 4 - Recover true ligand centers (identical to Phase 24/33/39/54/14)''')
 code(s24(9))
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase; N_PRE/TOPO_DIM read dynamically so this works unchanged at the new 2621-dim node width)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase; N_PRE/TOPO_DIM read dynamically so this works unchanged at the new 2621-dim node width)''')
 code(s24(11))
 
-md(r'''## Cell 6 — Training machinery (identical to Phase 24/33/39/54/14)''')
+md(r'''## Cell 6 - Training machinery (identical to Phase 24/33/39/54/14)''')
 code(s24(13))
 
-md(r'''## Cell 7 — Train the clean ensemble (3 seeds) on the ESM2-3B blob''')
+md(r'''## Cell 7 - Train the clean ensemble (3 seeds) on the ESM2-3B blob''')
 code(s24(15).replace("holo_clean_deploy_seed{seed}.pt", "holo_clean_deploy_esm3b_seed{seed}.pt"))
 
-md(r'''## Cell 7b — Free memory AND disk before loading a second ESM2-3B model (v3/v4 both still died at the identical ~30s-into-load point despite freeing dataset/splits/blob10 -- diagnostics added this round since 3 memory-only fixes in a row made zero difference to the failure point, suggesting the real ceiling may be DISK, not RAM: `RAW`/`/tmp/pdb_raw` accumulates BOTH the ~7,086 training-side PDB downloads (Cell 4, no longer needed after true-center recovery) AND the sampled HOLO4K files (still needed for the featurize cell's dihedral recomputation) -- prune everything except what's still needed)''')
+md(r'''## Cell 7b - Free memory AND disk before loading a second ESM2-3B model (v3/v4 both still died at the identical ~30s-into-load point despite freeing dataset/splits/blob10 -- diagnostics added this round since 3 memory-only fixes in a row made zero difference to the failure point, suggesting the real ceiling may be DISK, not RAM: `RAW`/`/tmp/pdb_raw` accumulates BOTH the ~7,086 training-side PDB downloads (Cell 4, no longer needed after true-center recovery) AND the sampled HOLO4K files (still needed for the featurize cell's dihedral recomputation) -- prune everything except what's still needed)''')
 code(r'''
 import gc, shutil
 
@@ -100,10 +100,10 @@ print("disk/memory usage AFTER cleanup:")
 _disk("after"); _mem("after")
 ''')
 
-md(r'''## Cell 8 — Ground truth + featurize the sampled 1,000 structures (identical to Phase 24/33/39/54)''')
+md(r'''## Cell 8 - Ground truth + featurize the sampled 1,000 structures (identical to Phase 24/33/39/54)''')
 code(s24(17))
 
-md(r'''## Cell 9 — Featurize (dihedral + ESM2-3B + topology; cache filename updated)''')
+md(r'''## Cell 9 - Featurize (dihedral + ESM2-3B + topology; cache filename updated)''')
 code(s24(19).replace("phase24_raw_features.pkl", "phase94_raw_features.pkl")
             .replace('AutoTokenizer.from_pretrained("facebook/esm2_t12_35M_UR50D")',
                       'AutoTokenizer.from_pretrained("facebook/esm2_t36_3B_UR50D")')
@@ -117,10 +117,10 @@ code(s24(19).replace("phase24_raw_features.pkl", "phase94_raw_features.pkl")
                       'print("loading ESM2-3B now...")\n'
                       'tok = AutoTokenizer.from_pretrained("facebook/esm2_t36_3B_UR50D")'))
 
-md(r'''## Cell 10 — P2Rank on the same 1,000 structures (identical to Phase 24/33/39/54)''')
+md(r'''## Cell 10 - P2Rank on the same 1,000 structures (identical to Phase 24/33/39/54)''')
 code(s24(21))
 
-md(r'''## Cell 11 — Score, compare to literature AND to the 35M-vs-3B comparison''')
+md(r'''## Cell 11 - Score, compare to literature AND to the 35M-vs-3B comparison''')
 code(s24(23).replace("2056", "7513").replace("phase24_summary.json", "phase94_summary.json")
             .replace("7513-len(dataset)", "7513-N_TRAIN_CHAINS"))
 

@@ -19,7 +19,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 92 — Main Pipeline with ESM2-3B (the Untested Capacity Lever)
+# Phase 92 - Main Pipeline with ESM2-3B (the Untested Capacity Lever)
 
 CryptoBench proved embedding capacity was a real, addressable lever (35M ->
 650M -> 3B: AUC 0.867->0.882->0.887, MCC 0.362->0.376->0.416 at 8 seeds).
@@ -31,16 +31,16 @@ where scale left off. Otherwise identical to Phase52 (same round-3
 topology blob, same dihedral logic) -- only the ESM2 model changes.
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s10(2))
 
-md(r'''## Cell 1 — Setup, load Phase 51's topology-fused pool''')
+md(r'''## Cell 1 - Setup, load Phase 51's topology-fused pool''')
 code(s10(3).replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")'))
 
-md(r'''## Cell 2 — Recompute real backbone dihedrals (identical to Phase 10/30/37/52)''')
+md(r'''## Cell 2 - Recompute real backbone dihedrals (identical to Phase 10/30/37/52)''')
 code(s10(5))
 
-md(r'''## Cell 3 — ESM2-3B embeddings (fp16, batch=1 for memory safety -- matches Phase48's CryptoBench pattern; main-pipeline sequences capped at 1000 residues, shorter than CryptoBench's 1500 cap)''')
+md(r'''## Cell 3 - ESM2-3B embeddings (fp16, batch=1 for memory safety -- matches Phase48's CryptoBench pattern; main-pipeline sequences capped at 1000 residues, shorter than CryptoBench's 1500 cap)''')
 code(r'''
 from transformers import AutoTokenizer, AutoModel
 
@@ -84,7 +84,7 @@ print(f"\nESM2 embeddings for {len(dataset):,} chains / {n_res:,} residues "
 del esm; torch.cuda.empty_cache()
 ''')
 
-md(r'''## Cell 4 — Assemble augmented features, verify alignment, save (new output filename)''')
+md(r'''## Cell 4 - Assemble augmented features, verify alignment, save (new output filename)''')
 code(s10(9).replace('"/kaggle/working/phase10_graphs.pt"', '"/kaggle/working/phase92_graphs_esm3b.pt"')
            .replace('saved -> /kaggle/working/phase10_graphs.pt', 'saved -> /kaggle/working/phase92_graphs_esm3b.pt'))
 

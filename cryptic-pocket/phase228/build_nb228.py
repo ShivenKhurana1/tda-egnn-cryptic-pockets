@@ -16,7 +16,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(r'''
-# Phase 228 — Does topology add anything beyond plain geometry?
+# Phase 228 - Does topology add anything beyond plain geometry?
 
 **Motivation.** Phase 164 found a 2-feature burial baseline (atoms within 12 Å + gyration) already recovers
 most of the TDA gain (test PR-AUC 0.2664 vs all-TDA 0.2676; persistence-only vs burial: PR p=0.74, ROC +0.0105,
@@ -44,10 +44,10 @@ to geometry? Secondary: `geom_tda` vs `geom`; `tda` vs `geom` (which is better a
 both must agree to call an effect confirmed. Test data is never used for selection.
 ''')
 
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1 scipy")
 
-md("## Cell 2 — Load Phase159 graphs and Phase227 geometry; append 17 standardized geometry columns")
+md("## Cell 2 - Load Phase159 graphs and Phase227 geometry; append 17 standardized geometry columns")
 code(r'''
 import copy, json, time
 from pathlib import Path
@@ -95,10 +95,10 @@ DEVICE=torch.device('cuda' if GPU_OK else 'cpu')
 WORK=Path('/kaggle/working'); (WORK/'cache').mkdir(exist_ok=True)
 ''')
 
-md("## Cell 3 — Model (Phase164, unchanged; side channel width = 51)")
+md("## Cell 3 - Model (Phase164, unchanged; side channel width = 51)")
 code(src(4).replace("model=LocalizingEGNN(N_PRE,TOPO_DIM)", "model=LocalizingEGNN(N_PRE,SIDE_DIM)"))
 
-md("## Cell 4 — Arms")
+md("## Cell 4 - Arms")
 code(r'''
 TOPO_NAMES=list(blob['topo_names']); assert len(TOPO_NAMES)==34
 PERSISTENCE_LOCAL=[0,1,2,3,4,5,6, 10,11,12,13,14,15,16,17, 21,22,23,24,25,26,27,28]
@@ -126,16 +126,16 @@ masked={arm:{s:masked_dataset(splits[s],arm) for s in splits} for arm in ARMS}
 for arm in ARMS: print(f'{arm:18s} side-channel features: {len(ARMS[arm])}')
 ''')
 
-md("## Cell 5 — Training machinery (Phase164, unchanged apart from side-channel width)")
+md("## Cell 5 - Training machinery (Phase164, unchanged apart from side-channel width)")
 code(src(6).replace("model=LocalizingEGNN(N_PRE,TOPO_DIM).to(DEVICE)","model=LocalizingEGNN(N_PRE,SIDE_DIM).to(DEVICE)").replace("phase163_{arm}_seed{seed}","phase228_{arm}_seed{seed}"))
 
-md("## Cell 6 — Run 6 arms × 8 seeds (48 trainings)")
+md("## Cell 6 - Run 6 arms × 8 seeds (48 trainings)")
 code(src(8).replace("phase164_tda_component_results.json","phase228_geometry_control_results.json"))
 
-md("## Cell 7 — Summary table")
+md("## Cell 7 - Summary table")
 code(src(9).replace("phase164_tda_component_seed_results.csv","phase228_seed_results.csv").replace("phase164_tda_component_summary.csv","phase228_summary.csv"))
 
-md("## Cell 8 — Pre-specified paired statistics")
+md("## Cell 8 - Pre-specified paired statistics")
 code(r'''
 import pandas as pd
 def vec(arm,split,metric):

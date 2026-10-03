@@ -1,5 +1,5 @@
 # ============================================================
-# PHASE 224 — SMALL-POCKET LOSS EXPERIMENT
+# PHASE 224 - SMALL-POCKET LOSS EXPERIMENT
 #
 # Isolated from Phase 166.
 # Does not modify the frozen manuscript or submission package.

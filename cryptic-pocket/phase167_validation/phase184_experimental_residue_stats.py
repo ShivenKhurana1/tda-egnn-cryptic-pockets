@@ -16,7 +16,7 @@ SEED = 184
 rng = np.random.default_rng(SEED)
 
 print("=" * 110)
-print("PHASE 184 — PROTEIN-LEVEL PAIRED STATISTICAL VALIDATION")
+print("PHASE 184 - PROTEIN-LEVEL PAIRED STATISTICAL VALIDATION")
 print("=" * 110)
 
 df = pd.read_csv(INPUT, low_memory=False)

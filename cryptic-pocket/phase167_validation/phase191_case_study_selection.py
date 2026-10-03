@@ -187,7 +187,7 @@ cases.to_csv(
 # --------------------------------------------------------------------------
 
 print("=" * 100)
-print("PHASE 191 — CASE STUDY SELECTION")
+print("PHASE 191 - CASE STUDY SELECTION")
 print("=" * 100)
 
 print(f"\nSmall-pocket threshold: {small_cutoff:.1f} residues")

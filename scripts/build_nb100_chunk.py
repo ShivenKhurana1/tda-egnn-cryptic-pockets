@@ -23,7 +23,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(f'''
-# Phase {PHASE_NUM} — HOLO4K ESM2-3B Featurization: Chunk {CHUNK_IDX}/{N_CHUNKS}
+# Phase {PHASE_NUM} - HOLO4K ESM2-3B Featurization: Chunk {CHUNK_IDX}/{N_CHUNKS}
 
 Phase100 got CANCEL_ACKNOWLEDGED at the 12hr CPU cap with 1005/1709
 chains featurized and nothing saved (the cache pickle only writes once,
@@ -32,10 +32,10 @@ the 1709 chains, well under the ~6.2hr this chunk size needs at the
 observed ~0.65min/chain rate), saving its own partial pickle.
 ''')
 
-md(r'''## Cell 0 — Install dependencies (a fresh kernel needs this too -- forgotten in v1, ModuleNotFoundError on Bio.PDB)''')
+md(r'''## Cell 0 - Install dependencies (a fresh kernel needs this too -- forgotten in v1, ModuleNotFoundError on Bio.PDB)''')
 code('!pip install -q torch-geometric==2.6.1 gudhi==3.10.1 biopython==1.84 transformers==4.46.3 accelerate')
 
-md(r'''## Cell 1 — Lightweight setup: Phase51's small topology blob only (no training blob, no ensemble checkpoints needed for featurization)''')
+md(r'''## Cell 1 - Lightweight setup: Phase51's small topology blob only (no training blob, no ensemble checkpoints needed for featurization)''')
 code(r'''
 import csv as _csv
 import gzip, json, os, pickle, shutil, subprocess, time, urllib.request, warnings
@@ -84,13 +84,13 @@ WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True
 RAW = Path("/tmp/pdb_raw"); RAW.mkdir(parents=True, exist_ok=True)
 ''')
 
-md(r'''## Cell 2 — Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to every prior phase -- reproducible)''')
+md(r'''## Cell 2 - Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to every prior phase -- reproducible)''')
 code(s24(5))
 
-md(r'''## Cell 3 — Ground truth for the sampled structures (identical to Phase 24/33/39/54/94/99/100)''')
+md(r'''## Cell 3 - Ground truth for the sampled structures (identical to Phase 24/33/39/54/94/99/100)''')
 code(s24(17))
 
-md(f'''## Cell 4 — Slice eval_units to chunk {CHUNK_IDX}/{N_CHUNKS}''')
+md(f'''## Cell 4 - Slice eval_units to chunk {CHUNK_IDX}/{N_CHUNKS}''')
 code(f'''
 _n = len(eval_units)
 _lo = ({CHUNK_IDX} * _n) // {N_CHUNKS}
@@ -99,7 +99,7 @@ eval_units = eval_units[_lo:_hi]
 print(f"chunk {CHUNK_IDX}/{N_CHUNKS}: structures [{{_lo}}:{{_hi}}] = {{len(eval_units)}}/{{_n}}")
 ''')
 
-md(f'''## Cell 5 — Featurize this chunk (dihedral + ESM2-3B + topology; saves phase{PHASE_NUM}_raw_features_chunk{CHUNK_IDX}.pkl)''')
+md(f'''## Cell 5 - Featurize this chunk (dihedral + ESM2-3B + topology; saves phase{PHASE_NUM}_raw_features_chunk{CHUNK_IDX}.pkl)''')
 code(s24(19).replace('cache/phase24_raw_features.pkl', f'cache/phase{PHASE_NUM}_raw_features_chunk{CHUNK_IDX}.pkl')
             .replace('AutoTokenizer.from_pretrained("facebook/esm2_t12_35M_UR50D")',
                       'AutoTokenizer.from_pretrained("facebook/esm2_t36_3B_UR50D")')

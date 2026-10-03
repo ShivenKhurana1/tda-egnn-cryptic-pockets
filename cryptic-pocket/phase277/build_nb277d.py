@@ -23,9 +23,9 @@ Identical training to Phase 266c (same checkpoints, same 8 seeds, same CryptoBen
 the SAME trained model (still in memory) is also run on Phase 277a's PocketMiner graphs and Phase 277b's cryptic-site-benchmark graphs, and
 those predictions are saved too. Neither external set was used for training, validation-based model selection, or any development decision.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1")
-md("## Cell 2 — Setup: Phase 48's CryptoBench-3B blob + Phase 227's geometry")
+md("## Cell 2 - Setup: Phase 48's CryptoBench-3B blob + Phase 227's geometry")
 code(s129(4) + r'''
 
 geo = torch.load(locate("phase227_geometry_features.pt"), map_location="cpu", weights_only=False)
@@ -44,9 +44,9 @@ splits = {s: [d for d in dataset if d.split == s] for s in ("train", "val", "tes
 print(f"node dim {dataset[0].x.size(1)} = {N_PRE} + {TOPO_DIM} + {GEOM_DIM}; splits", {k: len(v) for k, v in splits.items()})
 assert dataset[0].x.size(1) == N_PRE + SIDE_DIM
 ''')
-md("## Cell 3 — Model (Phase 129, verbatim)")
+md("## Cell 3 - Model (Phase 129, verbatim)")
 code(s129(6))
-md("## Cell 4 — Training machinery (Phase 129, width-parameterised; fit() loads the seed-matched pretrained state)")
+md("## Cell 4 - Training machinery (Phase 129, width-parameterised; fit() loads the seed-matched pretrained state)")
 code(s129(8).replace("LocalizingEGNN(N_PRE, TOPO_DIM, use_loc_head=use_loc_head)", "LocalizingEGNN(N_PRE, SIDE_DIM, use_loc_head=use_loc_head)"))
 md("## Cell 5 - Fine-tune x 8 seeds; predict on CryptoBench val/test AND both external sets each time")
 code(f'''

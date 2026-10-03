@@ -96,7 +96,7 @@ out.to_csv(
 # --------------------------------------------------------------------------
 
 print("=" * 100)
-print("PHASE 192 — CASE RESIDUE ANALYSIS")
+print("PHASE 192 - CASE RESIDUE ANALYSIS")
 print("=" * 100)
 
 for case_name in cases["case"]:

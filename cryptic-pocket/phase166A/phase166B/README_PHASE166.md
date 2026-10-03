@@ -1,4 +1,4 @@
-# Phase166 — full_tda
+# Phase166: full_tda
 
 Hard-generalization experiment for the cryptic-pocket EGNN.
 

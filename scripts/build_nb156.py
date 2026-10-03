@@ -20,7 +20,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 156 — CryptoBench Prediction-Graph Export
+# Phase 156 - CryptoBench Prediction-Graph Export
 
 Applies the final recommended model (LR meta-combiner across the 3
 transfer-learned scales, coefficients from Phase153) to the full TEST
@@ -30,13 +30,13 @@ per-residue predictions for picking and rendering a real example
 structure's predicted-vs-true cryptic pocket.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s148(2))
 
-md(r'''## Cell 2 — Model + setup (identical to Phase130/131/148)''')
+md(r'''## Cell 2 - Model + setup (identical to Phase130/131/148)''')
 code(s148(4))
 
-md(r'''## Cell 3 — Load each scale's blob + 8 checkpoints, predict on TEST (identical to Phase148)''')
+md(r'''## Cell 3 - Load each scale's blob + 8 checkpoints, predict on TEST (identical to Phase148)''')
 code(r'''
 SCALES = {
     "35M":  dict(blob="phase42_cryptobench_graphs.pt",         ckpt_prefix="cryptobench_transfer_seed"),
@@ -73,7 +73,7 @@ y_test_ref = scale_test_y["35M"]
 print(f"\nalignment verified across all 3 scales, {len(y_test_ref):,} residues, {len(ref):,} chains")
 ''')
 
-md(r'''## Cell 4 — Apply the LR meta-combiner (Phase153's fitted coefficients) to get final probabilities''')
+md(r'''## Cell 4 - Apply the LR meta-combiner (Phase153's fitted coefficients) to get final probabilities''')
 code(r'''
 # Coefficients from Phase153's fit (logistic regression on logit-transformed
 # per-scale probabilities, fit on VAL, this notebook only re-applies it --
@@ -99,7 +99,7 @@ for t in np.arange(0.05, 0.96, 0.01):
 print(f"  recomputed best-threshold MCC: {best_mcc:.4f} (threshold {best_t:.2f})")
 ''')
 
-md(r'''## Cell 5 — Export ROC/PR curves + probability histogram data (pooled over all test residues)''')
+md(r'''## Cell 5 - Export ROC/PR curves + probability histogram data (pooled over all test residues)''')
 code(r'''
 from sklearn.metrics import roc_curve, precision_recall_curve
 
@@ -129,7 +129,7 @@ json.dump({
 print("saved -> phase156_curves.json")
 ''')
 
-md(r'''## Cell 6 — Per-chain diagnostics (to pick a good example structure) + full per-residue predictions''')
+md(r'''## Cell 6 - Per-chain diagnostics (to pick a good example structure) + full per-residue predictions''')
 code(r'''
 # Rebuild per-chain slices using num_nodes offsets (same pattern as Phase153's bootstrap)
 chain_keys = scale_test_keys["35M"]   # [(pdb_id, chain_id, num_nodes), ...] in residue-array order

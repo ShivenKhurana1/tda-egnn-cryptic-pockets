@@ -18,23 +18,23 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(f'''
-# Phase {PHASE_NUM} — Topology Ablation 8-Seed Extension: {ARM} arm, seeds 1-7
+# Phase {PHASE_NUM} - Topology Ablation 8-Seed Extension: {ARM} arm, seeds 1-7
 
 Extends Phase121's single-seed topology ablation (full: val PR 0.3537,
 no_topo: val PR 0.3234, seed 0) to a properly-powered 8-seed comparison.
 This notebook trains ONLY the "{ARM}" arm across seeds 1-7.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s118(2))
 
-md(r'''## Cell 2 — Setup, load Phase 117's blob (identical to Phase118/119/121)''')
+md(r'''## Cell 2 - Setup, load Phase 117's blob (identical to Phase118/119/121)''')
 code(s118(3))
 
-md(r'''## Cell 3 — Model (identical to Phase118/119/121)''')
+md(r'''## Cell 3 - Model (identical to Phase118/119/121)''')
 code(s118(5))
 
-md(f'''## Cell 4 — Training machinery{" + zero topology for the no_topo arm" if ARM=="notopo" else ""}''')
+md(f'''## Cell 4 - Training machinery{" + zero topology for the no_topo arm" if ARM=="notopo" else ""}''')
 zero_line = '\nfor d in dataset:\n    d.x[:, N_PRE:] = 0.0   # no_topo arm: zero the topology block\n' if ARM == "notopo" else ""
 code(f'''
 def run_epoch(model, loader, opt=None, lam=0.0):
@@ -84,7 +84,7 @@ def fit(use_loc_head, lam, seed, epochs=40, patience=8, batch=16):
     return model, best
 {zero_line}''')
 
-md(f'''## Cell 5 — Train "{ARM}" arm, seeds 1-7''')
+md(f'''## Cell 5 - Train "{ARM}" arm, seeds 1-7''')
 code(f'''
 BEST_LAMBDA = 0.1
 results = []

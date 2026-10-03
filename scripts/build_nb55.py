@@ -16,7 +16,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 55 — Is the ESM2-3B CryptoBench Result Seed-Stable?
+# Phase 55 - Is the ESM2-3B CryptoBench Result Seed-Stable?
 
 Phase 50 (3 seeds, ESM2-3B) found AUC 0.887 and MCC 0.414 -- essentially
 matching CryptoBench's own published SOTA (0.87 / 0.42), and the best
@@ -29,17 +29,17 @@ training set, reports the per-seed spread for every metric, and the
 8-seed ensemble number.
 ''')
 
-md(r'''## Cell 1 — Setup, load Phase 48's ESM2-3B CryptoBench blob''')
+md(r'''## Cell 1 - Setup, load Phase 48's ESM2-3B CryptoBench blob''')
 code(s43(2))
 code(s43(3))
 
-md(r'''## Cell 2 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 2 - Model (identical to every prior localization phase)''')
 code(s43(5))
 
-md(r'''## Cell 3 — Training machinery (identical to Phase 14/20/43)''')
+md(r'''## Cell 3 - Training machinery (identical to Phase 14/20/43)''')
 code(s43(7))
 
-md(r'''## Cell 4 — Load Phase 50's 3 checkpoints, train 5 MORE seeds (8 total)''')
+md(r'''## Cell 4 - Load Phase 50's 3 checkpoints, train 5 MORE seeds (8 total)''')
 code(r'''
 ensemble = {}
 for seed in (0,1,2):
@@ -64,7 +64,7 @@ for seed in (3,4,5,6,7):
 print(f"\n{len(ensemble)} total seeds available (0-7)")
 ''')
 
-md(r'''## Cell 5 — Per-seed and ensemble predictions on val/test''')
+md(r'''## Cell 5 - Per-seed and ensemble predictions on val/test''')
 code(r'''
 @torch.no_grad()
 def predict_seed(model, loader):
@@ -98,7 +98,7 @@ for seed, m in ensemble.items():
 print(f"predicted for {len(ensemble)} seeds x (val + test)")
 ''')
 
-md(r'''## Cell 6 — Per-seed metrics (the noise floor)''')
+md(r'''## Cell 6 - Per-seed metrics (the noise floor)''')
 code(r'''
 def metrics_at(p, y, dcc, thresh):
     pred = (p >= thresh).astype(int)
@@ -133,7 +133,7 @@ for key in ("auc","auprc","mcc","f1","dcc_rate_4A"):
           f"range [{vals.min():.4f}, {vals.max():.4f}]")
 ''')
 
-md(r'''## Cell 7 — 8-seed ensemble metrics (pooled predictions averaged across seeds)''')
+md(r'''## Cell 7 - 8-seed ensemble metrics (pooled predictions averaged across seeds)''')
 code(r'''
 val_p_ens = np.mean([val_preds[s][0] for s in range(8)], axis=0)
 val_y_ens = val_preds[0][1]

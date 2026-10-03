@@ -9,13 +9,13 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 14 — Training the Model to Localize, Not Just Classify
+# Phase 14 - Training the Model to Localize, Not Just Classify
 
 Phase 13 showed heuristic tuning on the residue-to-center conversion recovers
 real accuracy (DCC 0.377 -> 0.435 on COACH420/HOLO4K) but doesn't close the gap
 to P2Rank (still -0.075). The likely reason: nothing in training ever told the
 model "these residues, once weighted together, should centroid near the exact
-ligand position" — it only ever learned "is this residue near a ligand,
+ligand position" - it only ever learned "is this residue near a ligand,
 yes/no". This notebook adds that missing signal directly.
 
 **Deliberately scoped cheap first.** Re-validating on COACH420/HOLO4K again
@@ -23,14 +23,14 @@ costs ~3 hours per attempt (that cost is in the topology computation, not
 anything specific to this idea). Before paying that again, this notebook tests
 the auxiliary-loss idea on our **own held-out test split** (the same
 fixed 70/15/15 split used since Phase 7/8/10, already fully featurized in
-`phase10_graphs.pt` — no re-featurization needed). If it doesn't help here, it
+`phase10_graphs.pt` - no re-featurization needed). If it doesn't help here, it
 won't help on the harder external benchmark either, and there is no reason to
 spend the 3 hours finding that out the expensive way.
 
 ### The architecture change
 
 A second small head produces a per-residue "localization logit", pooled with a
-**batch-aware softmax** (`torch_geometric.utils.softmax`, grouped by graph — not
+**batch-aware softmax** (`torch_geometric.utils.softmax`, grouped by graph - not
 an independent per-residue sigmoid like the classification head) into weights
 that sum to 1 within each chain. The predicted pocket center is the resulting
 weighted average of CA positions:
@@ -51,12 +51,12 @@ sharing the same backbone avoids that.
 
 **Why this stays equivariant:** a weighted average of equivariant coordinates
 $x_i$ with rotation/translation-*invariant* weights (softmax over invariant
-per-residue logits) is itself equivariant — the same principle behind every
+per-residue logits) is itself equivariant - the same principle behind every
 coordinate operation in this architecture since Phase 3. Verified numerically
 below, not just asserted.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 
 code(r'''
 !pip install -q torch-geometric==2.6.1 biopython==1.84
@@ -101,12 +101,12 @@ print(f"device {DEVICE} | node dim {dataset[0].x.size(1)} | " +
 ''')
 
 md(r'''
-## Cell 2 — Recover true ligand centers (never stored on the graphs)
+## Cell 2 - Recover true ligand centers (never stored on the graphs)
 
 `d.pos` is CA coordinates already centered to zero mean at graph-build time, but
 the centering offset itself was never saved. Re-parsing recovers both the raw
 (uncentered) CA positions and the raw ligand atoms in the same frame, so the
-offset can be computed and applied to the ligand — landing it in exactly the
+offset can be computed and applied to the ligand - landing it in exactly the
 frame `d.pos` already uses. The geometry-drift check (same pattern as every
 other phase that re-parses these structures) catches any residue-order
 mismatch before it can silently corrupt a training target.
@@ -200,7 +200,7 @@ splits = {s: [d for d in dataset if d.split == s] for s in ("train","val","test"
 print("splits after filtering:", {k: len(v) for k,v in splits.items()})
 ''')
 
-md(r'''## Cell 2b — Model with the added localization head''')
+md(r'''## Cell 2b - Model with the added localization head''')
 
 code(r'''
 class EGCL(nn.Module):
@@ -259,7 +259,7 @@ class LocalizingEGNN(nn.Module):
 ''')
 
 md(r'''
-## Cell 3 — Equivariance check for the NEW centroid output (before any training)
+## Cell 3 - Equivariance check for the NEW centroid output (before any training)
 
 Same discipline as Phase 3/6c/11: assert the guarantee on random weights, where
 a failure is unambiguous, before trusting a single number this model produces.
@@ -290,7 +290,7 @@ assert w < 1e-3, "LOCALIZATION HEAD IS NOT SE(3) EQUIVARIANT"
 print("holds -- weighted centroid with invariant attention over equivariant positions")
 ''')
 
-md(r'''## Cell 4 — Training and evaluation machinery''')
+md(r'''## Cell 4 - Training and evaluation machinery''')
 
 code(r'''
 def run_epoch(model, loader, opt=None, lam=0.0):
@@ -340,7 +340,7 @@ def fit(use_loc_head, lam, seed, epochs=40, patience=8, batch=16):
     return model, best
 ''')
 
-md(r'''## Cell 5 — Sanity dry run (catch a bug in a minute, not after a training run)''')
+md(r'''## Cell 5 - Sanity dry run (catch a bug in a minute, not after a training run)''')
 
 code(r'''
 # --- verify PyG batches a per-graph (3,) attribute the way this code assumes,
@@ -367,7 +367,7 @@ print("gradients flow, losses finite, centroid metric present -- proceeding")
 ''')
 
 md(r'''
-## Cell 6 — Small lambda sweep (1 seed each), then final paired 3-seed comparison
+## Cell 6 - Small lambda sweep (1 seed each), then final paired 3-seed comparison
 
 Picks the auxiliary-loss weight on **val** DCC, never test. The final comparison
 trains fresh baseline (lambda=0, i.e. classification-only, exactly the Phase 7
@@ -520,17 +520,17 @@ same-test-chains comparison of "no localization training signal + best known
 post-hoc trick" against "a real localization training signal, used directly."
 
 - **Test PR-AUC should not regress meaningfully** between baseline and
-  aux-loss — if it does, the auxiliary loss is fighting the classification
+  aux-loss - if it does, the auxiliary loss is fighting the classification
   objective rather than complementing it, and lambda needs to come down (or
   the two-head design needs revisiting).
 - **A clear win here** is the green light to spend the ~3 hours re-running the
-  full COACH420/HOLO4K benchmark with this architecture — this result alone is
+  full COACH420/HOLO4K benchmark with this architecture - this result alone is
   informative but is on a different (likely easier, same-distribution-as-
   training) test set than the external benchmark, so it earns the next step
   rather than replacing it.
 - **No improvement, or a PR-AUC regression**, means the auxiliary-loss idea
   itself doesn't work as designed, and is worth knowing before paying the
-  external benchmark's cost again — not after.
+  external benchmark's cost again - not after.
 ''')
 
 nb={"cells":C,"metadata":{"kernelspec":{"display_name":"Python 3","language":"python","name":"python3"},

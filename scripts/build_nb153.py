@@ -19,7 +19,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 153 — CryptoBench Final Analysis: Bootstrap Significance + Regularized Combiner
+# Phase 153 - CryptoBench Final Analysis: Bootstrap Significance + Regularized Combiner
 
 Phase148's final ensemble result reported the MCC gain over 3B-transfer
 alone as "not clearly distinguishable from noise" using an informal
@@ -36,13 +36,13 @@ picking up validation-set noise. Zero new training: reuses the existing
 24 checkpoints (35M/650M/3B, 8 transfer-learned seeds each).
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s130(2))
 
-md(r'''## Cell 2 — Model + setup (identical to Phase130/131/148)''')
+md(r'''## Cell 2 - Model + setup (identical to Phase130/131/148)''')
 code(s130(4))
 
-md(r'''## Cell 3 — Load each scale's blob + 8 checkpoints, predict on VAL and TEST (identical to Phase148)''')
+md(r'''## Cell 3 - Load each scale's blob + 8 checkpoints, predict on VAL and TEST (identical to Phase148)''')
 code(r'''
 SCALES = {
     "35M":  dict(blob="phase42_cryptobench_graphs.pt",         ckpt_prefix="cryptobench_transfer_seed"),
@@ -89,7 +89,7 @@ y_val_ref = scale_val_y["35M"]
 y_test_ref = scale_test_y["35M"]
 ''')
 
-md(r'''## Cell 4 — Candidate combination methods: solo-best, equal-weight, grid-search (2 variants), and a regularized logistic-regression meta-combiner''')
+md(r'''## Cell 4 - Candidate combination methods: solo-best, equal-weight, grid-search (2 variants), and a regularized logistic-regression meta-combiner''')
 code(r'''
 from sklearn.linear_model import LogisticRegression
 
@@ -181,7 +181,7 @@ for name, cfg in METHODS.items():
     print(f"{name:<32}{r['auc']:>8.4f}{r['auprc']:>8.4f}{r['mcc']:>8.4f}{r['f1']:>8.4f}")
 ''')
 
-md(r'''## Cell 5 — Chain-level bootstrap: is the ensemble's MCC gain over 3B-transfer-alone real, or test-set noise?''')
+md(r'''## Cell 5 - Chain-level bootstrap: is the ensemble's MCC gain over 3B-transfer-alone real, or test-set noise?''')
 code(r'''
 # Residues within one chain are correlated (same protein, same structural
 # context), so resampling residues directly would understate the true

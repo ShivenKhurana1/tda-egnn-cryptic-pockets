@@ -22,7 +22,7 @@ SUMMARY_FILE = BASE / "phase183A_experimental_residue_summary.csv"
 PAIRED_FILE = BASE / "phase183A_experimental_residue_paired_stats.csv"
 
 print("=" * 110)
-print("PHASE 183A — DIRECT EXPERIMENTAL RESIDUE-LEVEL VALIDATION")
+print("PHASE 183A - DIRECT EXPERIMENTAL RESIDUE-LEVEL VALIDATION")
 print("=" * 110)
 
 # ---------------------------------------------------------------------

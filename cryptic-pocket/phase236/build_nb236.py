@@ -14,7 +14,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(r'''
-# Phase 236 — Does topology's localization gain survive a plain-geometry control?
+# Phase 236 - Does topology's localization gain survive a plain-geometry control?
 
 Phase 22 reported that topology improves pocket-center localization on COACH420 + HOLO4K: 8-seed pooled DCC@4A,
 `full` vs `no_topo`, +0.0528 (the paper's headline localization claim, novel because no prior work combines trained
@@ -36,9 +36,9 @@ Arms: `no-topo`, `full` (34 topology), `geom` (17), `geom+topo` (51).
 **Primary comparison (fixed before any result): `geom+topo` vs `geom`, seed-paired pooled DCC.**
 Secondary: `full` vs `no-topo` (does Phase 22 replicate?), `geom` vs `no-topo`, `geom` vs `full`.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1 biopython==1.84")
-md("## Cell 2 — Load Phase 10 graphs and the training-pool geometry (Phase 229); append 17 standardized geometry columns")
+md("## Cell 2 - Load Phase 10 graphs and the training-pool geometry (Phase 229); append 17 standardized geometry columns")
 code(src22(3) + r'''
 
 geo_tr = torch.load(locate("phase229_geometry_features.pt"), map_location="cpu", weights_only=False)
@@ -55,13 +55,13 @@ for d in _all:
     d.x = torch.cat([d.x, z], dim=1); dataset.append(d)
 print(f"training chains with geometry: {len(dataset):,} (dropped {_dropped}); node dim {dataset[0].x.size(1)} = {N_PRE} + {TOPO_DIM} + {GEOM_DIM}")
 ''')
-md("## Cell 3 — Recover true ligand centers for the training set and split 92/8 (Phase 22, verbatim)")
+md("## Cell 3 - Recover true ligand centers for the training set and split 92/8 (Phase 22, verbatim)")
 code(src22(4))
-md("## Cell 4 — Model (Phase 22, verbatim)")
+md("## Cell 4 - Model (Phase 22, verbatim)")
 code(src22(6))
-md("## Cell 5 — Training machinery (Phase 22, verbatim except side-channel width)")
+md("## Cell 5 - Training machinery (Phase 22, verbatim except side-channel width)")
 code(src22(8).replace("LocalizingEGNN(N_PRE, TOPO_DIM, use_loc_head=use_loc_head)", "LocalizingEGNN(N_PRE, SIDE_DIM, use_loc_head=use_loc_head)"))
-md("## Cell 6 — Arms; train 4 arms x 8 seeds")
+md("## Cell 6 - Arms; train 4 arms x 8 seeds")
 code(r'''
 import time
 WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True)
@@ -91,7 +91,7 @@ for arm in ARMS:
         print(f"  [{arm:9s}] seed {seed}: val PR {val_pr:.4f}  val DCC {v.get('dcc',float('nan')):.4f}  [{(time.time()-t0)/60:.1f}m]")
 json.dump(train_log, open(WORK/"phase236_train_log.json", "w"), indent=2)
 ''')
-md("## Cell 7 — Load the cached benchmark features (Phase 15) and their geometry (Phase 235)")
+md("## Cell 7 - Load the cached benchmark features (Phase 15) and their geometry (Phase 235)")
 code(r'''
 import pickle
 with open(locate("phase15_raw_features.pkl"), "rb") as fh:
@@ -103,7 +103,7 @@ del blob6b_bench
 valid_keys = {k for k in raw_cache if k in geo_bm["feats"]}
 print(f"benchmark chains: {len(raw_cache):,} cached, {len(valid_keys):,} with geometry (dropped {len(raw_cache)-len(valid_keys)} for every arm)")
 ''')
-md("## Cell 8 — Score all arms and seeds (Phase 22 scoring, arm masks applied to the benchmark features)")
+md("## Cell 8 - Score all arms and seeds (Phase 22 scoring, arm masks applied to the benchmark features)")
 code(r'''
 from collections import defaultdict
 
@@ -164,7 +164,7 @@ def hits_for(arm, seeds, src=None):
 
 def rate(h): return float(np.mean(list(h.values()))) if h else float("nan")
 ''')
-md("## Cell 9 — Per-seed pooled DCC, seed-paired statistics (primary comparison first), structure-level bootstrap on the 8-seed ensembles")
+md("## Cell 9 - Per-seed pooled DCC, seed-paired statistics (primary comparison first), structure-level bootstrap on the 8-seed ensembles")
 code(r'''
 from scipy.stats import ttest_rel, wilcoxon
 per_seed = {a: np.array([rate(hits_for(a, (s,))) for s in range(8)]) for a in ARMS}

@@ -212,7 +212,7 @@ summary = (
 summary.to_csv(SUMMARY_PATH, index=False)
 
 print("=" * 100)
-print("PHASE 175A — SPATIAL CONTROL ANALYSIS")
+print("PHASE 175A - SPATIAL CONTROL ANALYSIS")
 print("=" * 100)
 
 print(f"Records: {len(df):,}")

@@ -1,4 +1,4 @@
-# Phase165R — H1 Persistence Feature Ablation
+# Phase165R: H1 Persistence Feature Ablation
 
 Targeted follow-up to Phase165. Phase165 completed 8 seeds for the full H1 persistence representation, so those runs are not repeated.
 

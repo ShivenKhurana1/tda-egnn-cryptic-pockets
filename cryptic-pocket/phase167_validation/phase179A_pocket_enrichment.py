@@ -10,7 +10,7 @@ PRED_PATH = BASE / "phase167_residue_predictions.csv"
 CENTER_PATH = BASE / "phase168A_corrected_centers.csv"
 
 print("=" * 110)
-print("PHASE 179A — RESIDUE CENTER-PROXIMITY ENRICHMENT")
+print("PHASE 179A - RESIDUE CENTER-PROXIMITY ENRICHMENT")
 print("=" * 110)
 
 # ------------------------------------------------------------

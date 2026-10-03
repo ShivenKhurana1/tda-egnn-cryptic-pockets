@@ -1,4 +1,4 @@
-# Phase 163 — CryptoBench Feature-Group Ablation
+# Phase 163: CryptoBench Feature-Group Ablation
 
 Uses the recovered Phase159 ANM+TDA CryptoBench graph dataset. Six feature-group arms are trained with identical architecture, split, optimizer, schedule, localization loss, and eight paired seeds.
 

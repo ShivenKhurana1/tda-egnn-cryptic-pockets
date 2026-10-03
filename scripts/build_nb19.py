@@ -10,11 +10,11 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 19 — Fixing Cross-Chain Arbitration on HOLO4K
+# Phase 19 - Fixing Cross-Chain Arbitration on HOLO4K
 
 Phase 17's visualization surfaced a specific, diagnosable failure mode: on the
 worst miss (`holo4k/1OFU`, 56.8 A off), the true ligand sat entirely
-disconnected from the protein chain the model examined — the model almost
+disconnected from the protein chain the model examined - the model almost
 certainly picked the **wrong chain** to represent that multi-chain structure,
 not a bad prediction on the chain it did pick.
 
@@ -22,22 +22,22 @@ Every prior phase (15/16/18) selected which chain represents a HOLO4K
 structure by **summed classification probability** across that chain's
 residues. That criterion is biased toward chains with many moderately-
 confident residues over a chain with a few sharply-confident ones at the true
-pocket — exactly backwards for finding a *tight* site. This notebook tests
+pocket - exactly backwards for finding a *tight* site. This notebook tests
 better alternatives.
 
 **Why this is cheap:** COACH420 has one target chain per structure, so this
-only affects HOLO4K (968 of 1,149 clean structures — the large majority of the
-benchmark). Everything needed is already cached from Phase 15/18 — raw
-features and trained checkpoints — so this is pure inference and a different
+only affects HOLO4K (968 of 1,149 clean structures - the large majority of the
+benchmark). Everything needed is already cached from Phase 15/18 - raw
+features and trained checkpoints - so this is pure inference and a different
 selection rule, no retraining, no re-featurization.
 
 **Same discipline as Phase 13:** the winning criterion is chosen on a 35% tune
-split of HOLO4K structures and scored exactly once on the other 65% — picking
+split of HOLO4K structures and scored exactly once on the other 65% - picking
 a criterion and reporting its score on the same data it was picked from would
 repeat the mistake that phase was built to avoid.
 ''')
 
-md(r'''## Cell 1 — Setup, load cache and checkpoints (no fetching)''')
+md(r'''## Cell 1 - Setup, load cache and checkpoints (no fetching)''')
 code(r'''
 !pip install -q torch-geometric==2.6.1
 ''')
@@ -77,7 +77,7 @@ DEVICE = torch.device("cuda" if GPU_OK else "cpu")
 print(f"device {DEVICE}")
 ''')
 
-md(r'''## Cell 2 — Model + trained checkpoints (identical to Phase 15/16, no retraining)''')
+md(r'''## Cell 2 - Model + trained checkpoints (identical to Phase 15/16, no retraining)''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -140,7 +140,7 @@ for seed in (0,1,2):
 print(f"loaded {len(ensemble)} trained checkpoints (no retraining)")
 ''')
 
-md(r'''## Cell 3 — Inference: compute per-chain probs + predicted center ONCE, cache in memory''')
+md(r'''## Cell 3 - Inference: compute per-chain probs + predicted center ONCE, cache in memory''')
 code(r'''
 @torch.no_grad()
 def predict_chain(entry):
@@ -172,7 +172,7 @@ print(f"inference on {len(chain_outputs):,} chains in {(time.time()-t0)/60:.1f} 
       f"(cached in memory -- selection-criterion experiments below are instant)")
 ''')
 
-md(r'''## Cell 4 — Candidate per-chain confidence criteria''')
+md(r'''## Cell 4 - Candidate per-chain confidence criteria''')
 code(r'''
 CRITERIA = {
     "sum_probs":      lambda o: float(o["probs"].sum()),                      # current (Phase 15/16/18)
@@ -185,7 +185,7 @@ CRITERIA = {
 print(f"{len(CRITERIA)} candidate chain-selection criteria")
 ''')
 
-md(r'''## Cell 5 — Ground truth + tune/test split of HOLO4K structures''')
+md(r'''## Cell 5 - Ground truth + tune/test split of HOLO4K structures''')
 code(r'''
 def dcc_dca(pred_center, ligs):
     best_dcc, best_dca = np.inf, np.inf
@@ -217,7 +217,7 @@ tune_structs, test_structs = set(perm[:n_tune]), set(perm[n_tune:])
 print(f"tune {len(tune_structs)} / test {len(test_structs)}")
 ''')
 
-md(r'''## Cell 6 — Score every criterion on TUNE, pick the winner''')
+md(r'''## Cell 6 - Score every criterion on TUNE, pick the winner''')
 code(r'''
 def score_structs(struct_ids, criterion_fn):
     hits, n = 0, 0
@@ -247,7 +247,7 @@ best_name = max(tune_scores, key=tune_scores.get)
 print(f"\nselected on TUNE: {best_name} (DCC {tune_scores[best_name]:.4f})")
 ''')
 
-md(r'''## Cell 7 — One-shot evaluation on TEST: winner vs current (sum_probs)''')
+md(r'''## Cell 7 - One-shot evaluation on TEST: winner vs current (sum_probs)''')
 code(r'''
 base_dcc, base_n = score_structs(test_structs, CRITERIA["sum_probs"])
 new_dcc, new_n = score_structs(test_structs, CRITERIA[best_name])
@@ -275,13 +275,13 @@ md(r'''
 ## Reading this
 
 The `sum_probs` vs winning-criterion comparison on the held-out test structures
-is the number that matters — chosen on a disjoint tune split, so this is a fair
+is the number that matters - chosen on a disjoint tune split, so this is a fair
 test of whether a smarter chain-selection rule actually recovers accuracy on
 genuinely multi-chain structures, not an artifact of picking whatever worked
 best on the exact structures being reported.
 
 If a criterion wins clearly, the fix is a one-line change (swap the selection
-function) with no retraining required — the model and its predictions are
+function) with no retraining required - the model and its predictions are
 unchanged, only which chain's answer gets used for a multi-chain structure.
 ''')
 

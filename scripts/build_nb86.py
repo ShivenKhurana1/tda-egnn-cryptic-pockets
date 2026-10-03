@@ -16,7 +16,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 86 — FINAL: Combine and Score All Six Thread-1 Round-3 Arms at Full 8 Seeds
+# Phase 86 - FINAL: Combine and Score All Six Thread-1 Round-3 Arms at Full 8 Seeds
 
 Definitive 8-seed answer to Thread 1 at round-3 scale (7,513 clusters,
 3.65x original). Phase63's preliminary 3-seed pass found H0_only
@@ -28,23 +28,23 @@ notebooks (Phase53/56/59-85) and 3 salvage datasets after multiple
 Kaggle 12hr-session-limit recoveries.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 52/51's round-3 scaled blobs, identical to Phase53/56/58-85)''')
+md(r'''## Cell 1 - Setup (loads Phase 52/51's round-3 scaled blobs, identical to Phase53/56/58-85)''')
 code(s58(2))
 code(s58(3))
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures (identical to Phase 53/56/58-85)''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures (identical to Phase 53/56/58-85)''')
 code(s58(5))
 
-md(r'''## Cell 3 — Rebuild the leakage-clean chain list (identical logic; needed only for the AA3_TO_1 dict this cell defines, not for training)''')
+md(r'''## Cell 3 - Rebuild the leakage-clean chain list (identical logic; needed only for the AA3_TO_1 dict this cell defines, not for training)''')
 code(s58(7))
 
-md(r'''## Cell 4 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 4 - Model (identical to every prior localization phase)''')
 code(s58(11))
 
-md(r'''## Cell 5 — Build H0 / H1 / H2 / burial column masks (identical to Phase 23/58-85)''')
+md(r'''## Cell 5 - Build H0 / H1 / H2 / burial column masks (identical to Phase 23/58-85)''')
 code(s58(15))
 
-md(r'''## Cell 6 — Load all six arms'' checkpoints at FULL 8 seeds each (no retraining -- assembled from ~30 notebooks + 3 salvage datasets)''')
+md(r'''## Cell 6 - Load all six arms'' checkpoints at FULL 8 seeds each (no retraining -- assembled from ~30 notebooks + 3 salvage datasets)''')
 code(r'''
 def load_arm(prefix, seeds=range(8)):
     out = {}
@@ -73,17 +73,17 @@ assert all(len(m) == 8 for m in arm_models.values()), \
 print("\nall six arms matched at FULL 8 seeds")
 ''')
 
-md(r'''## Cell 7 — Ground-truth ligands for ALL 420 COACH420 structures (identical to Phase 53/56/58-85)''')
+md(r'''## Cell 7 - Ground-truth ligands for ALL 420 COACH420 structures (identical to Phase 53/56/58-85)''')
 code(s58(19))
 
-md(r'''## Cell 8 — Featurize (identical pipeline: dihedral + ESM2 + topology; cache filename updated)''')
+md(r'''## Cell 8 - Featurize (identical pipeline: dihedral + ESM2 + topology; cache filename updated)''')
 code(s58(21).replace("cache/phase53_raw_features.pkl", "cache/phase86_raw_features.pkl"))
 
-md(r'''## Cell 9 — P2Rank on the FULL 420 (same-run controlled reference, identical to Phase 53/56/58-85)''')
+md(r'''## Cell 9 - P2Rank on the FULL 420 (same-run controlled reference, identical to Phase 53/56/58-85)''')
 code(s58(23).replace('Path("/tmp/p2_53")', 'Path("/tmp/p2_86")')
             .replace('Path("/tmp/p2_53_out")', 'Path("/tmp/p2_86_out")'))
 
-md(r'''## Cell 10 — Score all six arms at full 8 seeds, per-seed pairwise significance table''')
+md(r'''## Cell 10 - Score all six arms at full 8 seeds, per-seed pairwise significance table''')
 code(r'''
 mu, sd = blob6b["topo_mean"], blob6b["topo_std"]
 
@@ -152,7 +152,7 @@ for name in ranked:
 print(f"\nmatched 8-seed ranking: {' > '.join(ranked)}")
 ''')
 
-md(r'''## Cell 11 — Per-seed pairwise significance table across all four decomposition arms (the definitive test)''')
+md(r'''## Cell 11 - Per-seed pairwise significance table across all four decomposition arms (the definitive test)''')
 code(r'''
 def per_seed_dcc(arm_name):
     rates = []

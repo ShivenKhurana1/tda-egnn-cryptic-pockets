@@ -26,7 +26,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(f'''
-# Phase {PHASE_NUM} — Transfer-Learning 8-Seed Extension: {ARM} arm, seeds 1-7
+# Phase {PHASE_NUM} - Transfer-Learning 8-Seed Extension: {ARM} arm, seeds 1-7
 
 Extends Phase122's single-seed transfer-learning comparison (scratch:
 val PR 0.3537, transfer: val PR 0.3700, seed 0) to a properly-powered
@@ -34,16 +34,16 @@ val PR 0.3537, transfer: val PR 0.3700, seed 0) to a properly-powered
 seeds 1-7.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s118(2))
 
-md(r'''## Cell 2 — Setup, load Phase 117's blob (identical to Phase118/119/121/122)''')
+md(r'''## Cell 2 - Setup, load Phase 117's blob (identical to Phase118/119/121/122)''')
 code(s118(3))
 
-md(r'''## Cell 3 — Model (identical to Phase118/119/121/122)''')
+md(r'''## Cell 3 - Model (identical to Phase118/119/121/122)''')
 code(s118(5))
 
-md(r'''## Cell 4 — Training machinery (fit() optionally loads pretrained weights)''')
+md(r'''## Cell 4 - Training machinery (fit() optionally loads pretrained weights)''')
 code(r'''
 def run_epoch(model, loader, opt=None, lam=0.0):
     tr = opt is not None; model.train(tr)
@@ -96,7 +96,7 @@ def fit(use_loc_head, lam, seed, pretrained_path=None, epochs=40, patience=8, ba
     return model, best
 ''')
 
-md(f'''## Cell 5 — Train "{ARM}" arm, seeds 1-7''')
+md(f'''## Cell 5 - Train "{ARM}" arm, seeds 1-7''')
 if ARM == "scratch":
     loop_body = '''for seed in range(1, 8):
     m, val_pr = fit(use_loc_head=True, lam=BEST_LAMBDA, seed=seed, pretrained_path=None)'''

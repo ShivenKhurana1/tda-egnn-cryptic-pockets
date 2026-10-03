@@ -2,7 +2,7 @@
 
 **A published ESM-2 based model scoring 0.831 pooled AUC returns 0.126 precision in
 its top 20 cryptic-site residues. P2Rank 2.5 returns 0.082. The method reported here
-returns 0.174 — 2.1× P2Rank, paired p = 0.003 and replicated on a second cohort —
+returns 0.174, 2.1× P2Rank, paired p = 0.003 and replicated on a second cohort,
 with no protein language model and no cavity-detection features.**
 
 Benchmark and results: <https://github.com/pmfran4252-afk/cryptic-site-benchmark>
@@ -11,8 +11,8 @@ Benchmark and results: <https://github.com/pmfran4252-afk/cryptic-site-benchmark
 
 ## Abstract
 
-Cryptic binding sites — pockets absent from the unbound structure and formed only on
-ligand binding — are a principal source of new druggable targets and the principal
+Cryptic binding sites, pockets absent from the unbound structure and formed only on
+ligand binding, are a principal source of new druggable targets and the principal
 failure mode of structure-based pocket prediction. Standard evaluation conceals that
 failure: cryptic sites are 2.5% of apo/holo pairs, so a pooled metric is
 approximately a measure of how well a method finds pockets that are already open.
@@ -38,7 +38,7 @@ on a second, larger cohort, where recall@20 is **+0.155 [0.028, 0.288], p = 0.01
 
 **One top-of-list metric does not support the method and is reported as such.** The
 median rank of the first true hit is 7 against P2Rank's 25, and that difference does
-not survive resampling — **−18 [−46, +55], p = 0.18** — with a head-to-head record of
+not survive resampling, **−18 [−46, +55], p = 0.18**, with a head-to-head record of
 9 wins in 17. The rank distribution is bimodal, so a single order statistic cannot
 summarise it. Top-20 content is the honest summary and is the only family of metrics
 stable across both cohorts.
@@ -48,7 +48,7 @@ consensus-pocket block improves cryptic AUC by 0.057 in an interpretable model a
 0.067 in an ESM-2 based one. The effect replicates under a gradient-boosted tree and
 a neural network (both −0.042 on geometry alone, to three decimals) and across
 benchmarks. Its cause is direct: at cryptic sites, cavity signal measures **0.499
-AUC — exactly chance** — against +1.7 standard deviations at pre-formed sites.
+AUC, exactly chance**, against +1.7 standard deviations at pre-formed sites.
 
 **Cryptic sites are conformationally rigid, not flexible.** Across every deposited
 unliganded structure of the same protein, cryptic residues show *lower* backbone and
@@ -58,7 +58,7 @@ them, and consistent with ten further null or negative flexibility measurements.
 
 **Conformational spread across deposited structures is a strong unused channel.**
 Eight columns derived from it raise an ESM-free model from 0.685 to 0.774 cryptic
-AUC — a larger gain than 41 structural descriptors, six feature families, objective
+AUC, a larger gain than 41 structural descriptors, six feature families, objective
 reweighting, hyperparameter search and explicit feature weighting combined, all of
 which contribute approximately zero.
 
@@ -94,7 +94,7 @@ pre-formed), scoring each as a standalone ranker of site residues.
 |---|---:|---:|
 | `pk_vox6_abs` (pocket voxels within 6 Å) | **0.499** | +1.698 |
 | `pk_vox4` | 0.488 | +1.595 |
-| `pk_vox8` | — | +2.036 |
+| `pk_vox8` | - | +2.036 |
 
 At pre-formed sites the same descriptors are the strongest signal in the entire
 panel. At cryptic sites they are indistinguishable from a coin flip.
@@ -189,7 +189,7 @@ models share training data and preprocessing; P2Rank 2.5 is run as distributed.
 | interpretable (cavity) | 0.514 | [0.39, 0.63] | 0.899 | 0.801 |
 | ESM-based | 0.539 | [0.39, 0.67] | 0.919 | 0.831 |
 | ESM + ensemble | 0.586 | [0.41, 0.74] | 0.917 | 0.839 |
-| P2Rank 2.5 | 0.616 | [0.53, 0.69] | 0.835 | — |
+| P2Rank 2.5 | 0.616 | [0.53, 0.69] | 0.835 | - |
 | **this work, ESM-free** | **0.632** | [0.49, 0.76] | 0.884 | 0.813 |
 
 **A published cavity-based tool outperforms a 415-column ESM-2 model on cryptic
@@ -212,7 +212,7 @@ user never sees. The question that matters is what is in the shortlist.
 **In the top 20 residues this work returns 2.1× the true site residues P2Rank does,
 0.174 against 0.082.** Paired over proteins, the difference is +0.091 [0.029, 0.162],
 p = 0.003. Recall@20 nearly doubles, 0.278 against 0.149. Success@10 is 0.53 against
-0.29, +0.235 [0.059, 0.471], p = 0.021 — on the shortlist a chemist would actually
+0.29, +0.235 [0.059, 0.471], p = 0.021, on the shortlist a chemist would actually
 inspect, this work hits a true site residue on eight more proteins in every hundred
 than the strongest published cavity method, while using no cavity features at all.
 
@@ -233,7 +233,7 @@ Top-20 content is the honest summary because it is the only family of metrics th
 stable across both cohorts and both tails.
 
 P2Rank was also run on our own benchmark (36 cryptic at the time), scoring 0.692.
-Across cohorts it is stable — 0.692 and 0.616 — which makes it a reliable reference
+Across cohorts it is stable, 0.692 and 0.616, which makes it a reliable reference
 point and is why the comparison is reported against it rather than against published
 pooled figures.
 
@@ -253,7 +253,7 @@ cavity-based method on cryptic sites, while a language model carrying them score
 0.539, is the clearest statement of the point. It costs pre-formed performance (0.914 → 0.837
 interpretably; 0.926 → 0.892 with ESM) and is therefore a specialisation, but a
 deployment targeting cryptic sites should make that trade, and a deployment that does
-not need not use these models at all — an open pocket is found by any cavity detector.
+not need not use these models at all, an open pocket is found by any cavity detector.
 
 The rigidity result suggests the mechanism is not that cryptic sites are loose but
 that they are **metastable**: tightly packed, aromatic-rich, internally
@@ -272,7 +272,7 @@ pockets that are already open.
   the size of the problem explicit.** This model scores 0.808 on our benchmark and
   0.632 on CryptoBench (non-overlapping intervals); P2Rank scores 0.692 and 0.616 on
   the same two cohorts. P2Rank drops 0.076 between them, this model drops 0.176, and
-  a lead of +0.116 becomes +0.016. Ensemble depth does not explain it — CryptoBench's
+  a lead of +0.116 becomes +0.016. Ensemble depth does not explain it, CryptoBench's
   cryptic proteins have *more* deposited structures (median 12 against 6). The
   architecture was selected while observing our benchmark; individual feature
   selections used held-out training proteins, structural choices did not. **0.632 is

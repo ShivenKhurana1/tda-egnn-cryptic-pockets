@@ -16,7 +16,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 29 — Thread 3, Step 2: Topology at Scale (2.5x pool)
+# Phase 29 - Thread 3, Step 2: Topology at Scale (2.5x pool)
 
 Same persistent-homology featurizer as Phase 6b (byte-for-byte, spliced
 verbatim -- alpha complexes on 12A neighborhoods, H0/H1/H2, Betti radii
@@ -25,22 +25,22 @@ pointed at Phase 28's ~15,000-entry pool instead of Phase 6a's 6,000. CPU
 only (gudhi has no GPU path) -- expect roughly 2.5x Phase 6b's 66 minutes.
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s6b(2))
 
-md(r'''## Cell 1 — Load Phase 28's pool and re-acquire heavy atoms''')
+md(r'''## Cell 1 - Load Phase 28's pool and re-acquire heavy atoms''')
 code(s6b(3).replace('locate("phase6_graphs.pt")', 'locate("phase28_graphs.pt")'))
 
-md(r'''## Cell 2 — Heavy-atom clouds with per-chain alignment verification (identical to Phase 6b)''')
+md(r'''## Cell 2 - Heavy-atom clouds with per-chain alignment verification (identical to Phase 6b)''')
 code(s6b(5))
 
-md(r'''## Cell 3 — Featuriser (byte-for-byte the Phase 2b/6b definition)''')
+md(r'''## Cell 3 - Featuriser (byte-for-byte the Phase 2b/6b definition)''')
 code(s6b(7))
 
-md(r'''## Cell 4 — Compute (the long one)''')
+md(r'''## Cell 4 - Compute (the long one)''')
 code(s6b(9))
 
-md(r'''## Cell 5 — Fuse, validate, save (new output filename)''')
+md(r'''## Cell 5 - Fuse, validate, save (new output filename)''')
 code(s6b(11).replace('p = out / "phase6b_graphs.pt"', 'p = out / "phase29_graphs.pt"'))
 
 md(r'''

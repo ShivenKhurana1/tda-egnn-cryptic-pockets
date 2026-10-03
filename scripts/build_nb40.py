@@ -14,7 +14,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 40 — Is Phase 38's Round-2 COACH420 Win Real, or Seed Luck?
+# Phase 40 - Is Phase 38's Round-2 COACH420 Win Real, or Seed Luck?
 
 Phase 38 found the round-2 pool (5,339 clusters) gives DCC 0.5763 vs P2Rank's
 0.5209 (+0.0554, 3-seed) -- the biggest COACH420 win yet, continuing the
@@ -26,46 +26,46 @@ Phase 38's leakage-clean training set, rescore against Phase38's cached
 benchmark features.
 ''')
 
-md(r'''## Cell 1 — Setup, rebuild the clean training set (Phase 38 logic, reused) on the ROUND-2 pool''')
+md(r'''## Cell 1 - Setup, rebuild the clean training set (Phase 38 logic, reused) on the ROUND-2 pool''')
 code(s21(2))
 code(s21(3).replace('locate("phase10_graphs.pt")', 'locate("phase37_graphs.pt")'))
 
-md(r'''## Cell 1b — apt update (identical to Phase 21/32)''')
+md(r'''## Cell 1b - apt update (identical to Phase 21/32)''')
 code(s21(4))
 
-md(r'''## Cell 1c — Rebuild the leakage-clean set against COACH420 (identical logic; should reproduce Phase 38's 5,041 chains)''')
+md(r'''## Cell 1c - Rebuild the leakage-clean set against COACH420 (identical logic; should reproduce Phase 38's 5,041 chains)''')
 code(s21(5))
 
-md(r'''## Cell 2 — Recover true ligand centers (Phase 14 logic, reused)''')
+md(r'''## Cell 2 - Recover true ligand centers (Phase 14 logic, reused)''')
 code(s21(7))
 
-md(r'''## Cell 3 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 3 - Model (identical to every prior localization phase)''')
 code(s21(9))
 
-md(r'''## Cell 4 — Training machinery (identical to Phase 14)''')
+md(r'''## Cell 4 - Training machinery (identical to Phase 14)''')
 code(s21(11))
 
-md(r"""## Cell 5 — Load Phase 38's 3 checkpoints, train 5 MORE seeds (8 total)""")
+md(r"""## Cell 5 - Load Phase 38's 3 checkpoints, train 5 MORE seeds (8 total)""")
 code(s21(13).replace("clean_deploy_seed{seed}.pt", "clean_deploy_scaled2_seed{seed}.pt")
             .replace('attach Phase 20\'s kernel output', 'attach Phase 38\'s kernel output')
             .replace('loaded {len(models)} checkpoints from Phase 20', 'loaded {len(models)} checkpoints from Phase 38'))
 
-md(r"""## Cell 6 — Load Phase 38's cached benchmark features (no re-fetch)""")
+md(r"""## Cell 6 - Load Phase 38's cached benchmark features (no re-fetch)""")
 code(s21(15).replace('locate("phase20_raw_features.pkl")', 'locate("phase38_raw_features.pkl")')
             .replace('locate("phase6b_graphs.pt")', 'locate("phase36_graphs.pt")')
             .replace('loaded cached COACH420 features', 'loaded cached (round-2 pool) COACH420 features'))
 
-md(r'''## Cell 7 — Per-seed and per-ensemble-size DCC on the cached benchmark''')
+md(r'''## Cell 7 - Per-seed and per-ensemble-size DCC on the cached benchmark''')
 code(s21(17).replace("Phase 20's 3-seed ensemble reported 0.4770", "Phase 38's 3-seed ensemble reported 0.5763"))
 
-md(r'''## Cell 8 — Ensemble size sweep: does averaging more seeds change the win?''')
+md(r'''## Cell 8 - Ensemble size sweep: does averaging more seeds change the win?''')
 code(s21(19).replace('P2RANK_THIS_RUN = 0.5209   # Phase 20\'s same-run, same-benchmark P2Rank number',
                       'P2RANK_THIS_RUN = 0.520885   # Phase38\'s same-run, same-benchmark P2Rank number '
                       '(deterministic tool -- matches every prior phase\'s number, confirms benchmark side identical)')
             .replace("Phase 20's 3-seed (0,1,2 only) for direct comparison:", "Phase 38's 3-seed (0,1,2 only) for direct comparison:")
             .replace("[Phase 20 reported 0.4770]", "[Phase 38 reported 0.5763]"))
 
-md(r'''## Cell 9 — Verdict''')
+md(r'''## Cell 9 - Verdict''')
 code(s21(21).replace('WORK/"phase21_summary.json"', 'WORK/"phase40_summary.json"')
             .replace('saved -> phase21_summary.json', 'saved -> phase40_summary.json'))
 

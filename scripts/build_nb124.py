@@ -19,7 +19,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 124 — Cross-Scale Ensemble, PROPER Val-Tuned Threshold
+# Phase 124 - Cross-Scale Ensemble, PROPER Val-Tuned Threshold
 
 Phase123 found AUC 0.9000 for the 35M+650M+3B ensemble (threshold-
 independent, stands as-is) but tuned its MCC/F1 threshold on TEST itself
@@ -29,13 +29,13 @@ then applies that fixed threshold to TEST -- identical discipline to
 every single-scale number in this project (Phase44/47/55).
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s123(2))
 
-md(r'''## Cell 2 — Model (identical to Phase123)''')
+md(r'''## Cell 2 - Model (identical to Phase123)''')
 code(s123(4))
 
-md(r'''## Cell 3 — Load each scale's blob + all 8 checkpoints, predict on VAL and TEST (pure inference, no training)''')
+md(r'''## Cell 3 - Load each scale's blob + all 8 checkpoints, predict on VAL and TEST (pure inference, no training)''')
 code(r'''
 SCALES = {
     "35M":  dict(blob="phase42_cryptobench_graphs.pt",       ckpt_prefix="cryptobench_deploy_seed"),
@@ -80,7 +80,7 @@ for split_name, keys_dict in [("val", scale_val_keys), ("test", scale_test_keys)
 print(f"\nalignment verified on both val and test across all 3 scales")
 ''')
 
-md(r'''## Cell 4 — Cross-scale ensemble, threshold tuned on VAL ONLY, applied to TEST (matches Phase44/47/55''' + "'" + r'''s own discipline)''')
+md(r'''## Cell 4 - Cross-scale ensemble, threshold tuned on VAL ONLY, applied to TEST (matches Phase44/47/55''' + "'" + r'''s own discipline)''')
 code(r'''
 def metrics_at(p, y, thresh):
     pred = (p >= thresh).astype(int)

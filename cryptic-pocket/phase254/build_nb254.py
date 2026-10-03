@@ -14,7 +14,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(r'''
-# Phase 254 — Localization geometry control at the 7,513-chain pool: scoring and statistics
+# Phase 254 - Localization geometry control at the 7,513-chain pool: scoring and statistics
 
 Loads the 32 checkpoints from Phase 253a/b (arms no-topo, full, geom, geom+topo x 8 seeds) and scores them on the full 420-structure
 COACH420 benchmark (Phase 53's cached features; Phase 252's geometry for the same chains). Hit = predicted pocket center within 4 A
@@ -22,9 +22,9 @@ of any ligand center of mass. **Primary comparison (fixed before any result): `g
 Then the same follow-ups that resolved the 35M case: the 8-seed-ensemble difference, its dependence on ensemble size, and a
 two-way bootstrap that resamples seeds and structures together.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1")
-md("## Cell 2 — Load benchmark cache, geometry, topology standardization, and the trained checkpoints")
+md("## Cell 2 - Load benchmark cache, geometry, topology standardization, and the trained checkpoints")
 code(r'''
 import json, os, pickle, time, warnings
 from itertools import combinations
@@ -61,9 +61,9 @@ print(f"benchmark chains: {len(raw_cache)} cached, {len(valid_keys)} with geomet
 k0 = valid_keys[0]; print("x width", raw_cache[k0]["x"].shape[1], "(expect", N_PRE + TOPO_DIM, ")")
 assert raw_cache[k0]["x"].shape[1] == N_PRE + TOPO_DIM
 ''')
-md("## Cell 3 — Model (Phase 53, verbatim)")
+md("## Cell 3 - Model (Phase 53, verbatim)")
 code(s53(11))
-md("## Cell 4 — Load all 32 checkpoints")
+md("## Cell 4 - Load all 32 checkpoints")
 code(r'''
 ARMS = ["no-topo", "full", "geom", "geom+topo"]
 models = {a: {} for a in ARMS}
@@ -74,7 +74,7 @@ for arm in ARMS:
 print({a: len(v) for a, v in models.items()}, "checkpoints loaded")
 KEEP_SIDE = {"no-topo": [], "full": list(range(TOPO_DIM)), "geom": list(range(TOPO_DIM, SIDE_DIM)), "geom+topo": list(range(SIDE_DIM))}
 ''')
-md("## Cell 5 — Score every arm and seed on COACH420; centers kept per (structure, seed)")
+md("## Cell 5 - Score every arm and seed on COACH420; centers kept per (structure, seed)")
 code(r'''
 def bench_x(entry, key, arm):
     x = torch.from_numpy(np.asarray(entry["x"], np.float32)).clone()
@@ -115,7 +115,7 @@ def hits(arm, seeds):
     return h
 rate = lambda h: float(np.nanmean(h))
 ''')
-md("## Cell 6 — Per-seed pooled DCC and the pre-specified paired comparisons")
+md("## Cell 6 - Per-seed pooled DCC and the pre-specified paired comparisons")
 code(r'''
 from scipy.stats import ttest_rel, wilcoxon
 import pandas as pd
@@ -136,7 +136,7 @@ for a, b in COMPS:
 pd.DataFrame(rows).to_csv(WORK/"phase254_paired_stats.csv", index=False)
 print("Phase 86 reference (8 seeds, COACH420 pooled DCC): full 0.5932, no_topo 0.4286")
 ''')
-md("## Cell 7 — Ensemble-size sweep and two-way (seeds x structures) bootstrap")
+md("## Cell 7 - Ensemble-size sweep and two-way (seeds x structures) bootstrap")
 code(r'''
 rows = []
 for a, b in COMPS:

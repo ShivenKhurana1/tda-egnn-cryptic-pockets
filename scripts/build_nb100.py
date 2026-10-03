@@ -15,7 +15,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 100 — HOLO4K ESM2-3B: SCORE-ONLY
+# Phase 100 - HOLO4K ESM2-3B: SCORE-ONLY
 
 Second half of the Phase94 split (see Phase99). Loads Phase99's 3 trained
 checkpoints fresh into a kernel that has never held the 7,513-chain
@@ -23,10 +23,10 @@ training pool, so the live ESM2-3B load for featurizing the ~1,000
 sampled HOLO4K structures has the full RAM budget to itself.
 ''')
 
-md(r'''## Cell 0 — Install dependencies (a fresh kernel needs this too)''')
+md(r'''## Cell 0 - Install dependencies (a fresh kernel needs this too)''')
 code(s24(2).replace('transformers==4.46.3', 'transformers==4.46.3 accelerate'))
 
-md(r'''## Cell 1 — Lightweight setup: Phase51's small topology blob only, hardcoded N_PRE/ESM_DIM (same values as Phase98 -- the node-feature schema is identical across COACH420/HOLO4K)''')
+md(r'''## Cell 1 - Lightweight setup: Phase51's small topology blob only, hardcoded N_PRE/ESM_DIM (same values as Phase98 -- the node-feature schema is identical across COACH420/HOLO4K)''')
 code(r'''
 import csv as _csv
 import gzip, json, os, pickle, shutil, subprocess, time, urllib.request, warnings
@@ -80,13 +80,13 @@ WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True
 RAW = Path("/tmp/pdb_raw"); RAW.mkdir(parents=True, exist_ok=True)
 ''')
 
-md(r'''## Cell 2 — Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to Phase 24/33/39/54/94/99)''')
+md(r'''## Cell 2 - Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to Phase 24/33/39/54/94/99)''')
 code(s24(5))
 
-md(r'''## Cell 3 — Model (identical to every prior localization phase -- needed here to reconstruct the trained architecture for loading checkpoints)''')
+md(r'''## Cell 3 - Model (identical to every prior localization phase -- needed here to reconstruct the trained architecture for loading checkpoints)''')
 code(s24(11))
 
-md(r'''## Cell 4 — Load Phase99's 3 trained checkpoints into fresh model instances''')
+md(r'''## Cell 4 - Load Phase99's 3 trained checkpoints into fresh model instances''')
 code(r'''
 ensemble = []
 for seed in (0, 1, 2):
@@ -99,10 +99,10 @@ for seed in (0, 1, 2):
 print(f"ensemble of {len(ensemble)} trained models ready")
 ''')
 
-md(r'''## Cell 5 — Ground truth for the sampled 1,000 structures (identical to Phase 24/33/39/54/94)''')
+md(r'''## Cell 5 - Ground truth for the sampled 1,000 structures (identical to Phase 24/33/39/54/94)''')
 code(s24(17))
 
-md(r'''## Cell 6 — Featurize (dihedral + ESM2-3B + topology; ESM2-3B loaded fresh here, full RAM budget available since training never ran in this process)''')
+md(r'''## Cell 6 - Featurize (dihedral + ESM2-3B + topology; ESM2-3B loaded fresh here, full RAM budget available since training never ran in this process)''')
 code(s24(19).replace("phase24_raw_features.pkl", "phase100_raw_features.pkl")
             .replace('AutoTokenizer.from_pretrained("facebook/esm2_t12_35M_UR50D")',
                       'AutoTokenizer.from_pretrained("facebook/esm2_t36_3B_UR50D")')
@@ -114,10 +114,10 @@ code(s24(19).replace("phase24_raw_features.pkl", "phase100_raw_features.pkl")
             .replace('out = esm(**enc).last_hidden_state\n    return out[0,1:1+len(seq),:].float().cpu()',
                       'out = esm(**enc).last_hidden_state\n    return out[0,1:1+len(seq),:].float().cpu()  # 3B model is fp16; upcast here'))
 
-md(r'''## Cell 7 — P2Rank on the same 1,000 structures (identical to Phase 24/33/39/54/94)''')
+md(r'''## Cell 7 - P2Rank on the same 1,000 structures (identical to Phase 24/33/39/54/94)''')
 code(s24(21))
 
-md(r'''## Cell 8 — Score, compare to literature AND to the 35M-vs-3B comparison''')
+md(r'''## Cell 8 - Score, compare to literature AND to the 35M-vs-3B comparison''')
 code(s24(23).replace("2056", "7513").replace("phase24_summary.json", "phase100_summary.json")
             .replace("7513-len(dataset)", "7513-N_TRAIN_CHAINS"))
 

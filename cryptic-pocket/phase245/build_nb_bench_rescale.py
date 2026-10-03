@@ -26,16 +26,16 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(f'''
-# Phase {CFG["phase"]} — Re-embed the COACH420/HOLO4K benchmark cache at ESM2-{SCALE.upper()}
+# Phase {CFG["phase"]} - Re-embed the COACH420/HOLO4K benchmark cache at ESM2-{SCALE.upper()}
 
 Decodes the amino-acid sequence losslessly from Phase 15's cached one-hot block (no re-fetch, no re-parse),
 re-embeds every chain at ESM2-{SCALE.upper()} ({CFG["comment"]}), and reassembles
 `[onehot(21) | dihedral(6) | ESM-{SCALE.upper()} | topo-raw(34)]` -- a drop-in replacement for
 `phase15_raw_features.pkl` at this embedding scale, for the localization geometry control (Phase 246/247).
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q biopython==1.84 transformers==4.46.3 accelerate")
-md("## Cell 2 — Load Phase 15's cache, decode sequences from the one-hot block")
+md("## Cell 2 - Load Phase 15's cache, decode sequences from the one-hot block")
 code(r'''
 import pickle, time
 from pathlib import Path
@@ -74,7 +74,7 @@ if torch.cuda.is_available():
     except RuntimeError as e: print("GPU unusable:", e)
 DEVICE = torch.device("cuda" if GPU_OK else "cpu")
 ''')
-md(f"## Cell 3 — ESM2-{SCALE.upper()} embeddings, fused with reassembly (memory-lean: never holds a full-size copy of the embeddings twice)")
+md(f"## Cell 3 - ESM2-{SCALE.upper()} embeddings, fused with reassembly (memory-lean: never holds a full-size copy of the embeddings twice)")
 code(f'''
 import gc
 from transformers import AutoTokenizer, AutoModel
@@ -138,7 +138,7 @@ import resource
 peak_mb = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
 print(f"peak RSS so far: {{peak_mb:,.0f}} MB")
 ''')
-md("## Cell 4 — Save (float16, in two shards by benchmark source, to keep any single write's peak memory down)")
+md("## Cell 4 - Save (float16, in two shards by benchmark source, to keep any single write's peak memory down)")
 code(r'''
 import resource
 for src in ("coach420", "holo4k"):

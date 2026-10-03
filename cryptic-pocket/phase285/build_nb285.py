@@ -41,7 +41,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(f'''
-# Phase 285{TAG} — Which topological dimension drives the classification residual? (ESM2-650M, folds {FOLDS[0]}-{FOLDS[-1]})
+# Phase 285{TAG} - Which topological dimension drives the classification residual? (ESM2-650M, folds {FOLDS[0]}-{FOLDS[-1]})
 
 Phase 240a/b confirmed a small but real classification residual, geom+topo minus geom alone, at 650M scale
 (+0.0091 PR-AUC, 8/10 folds; +0.0032 ROC-AUC, 9/10 folds). This decomposes that residual by topological
@@ -50,9 +50,9 @@ block plus exactly one topology dimension. Same 2,056-chain pool, same 10-fold s
 model/loss, as every other geometry-control notebook in this project; `geom` and `geom+topo` are not rerun
 here, since Phase 240a/b already produced them on this identical split.
 ''')
-md("## Cell 1 — Setup")
+md("## Cell 1 - Setup")
 code("!pip install -q torch-geometric==2.6.1 biopython==1.84")
-md("## Cell 2 — Load the ESM2-650M graphs, the Phase 229 geometry, and Phase 6b's topology column names")
+md("## Cell 2 - Load the ESM2-650M graphs, the Phase 229 geometry, and Phase 6b's topology column names")
 code(src240(4) + r'''
 
 # Phase 6b's original topology blob (2,056-chain pool) carries topo_names/burial_names -- the same 34
@@ -75,9 +75,9 @@ for name, mask in DIM_MASKS.items():
 assert sum(m.sum() for m in DIM_MASKS.values()) == TOPO_DIM, "masks should exactly partition the topo block"
 print("masks partition the full topo block exactly -- no overlap, no gaps")
 ''')
-md("## Cell 3 — Model and training machinery (Phase 11, unchanged)")
+md("## Cell 3 - Model and training machinery (Phase 11, unchanged)")
 code(src240(6))
-md("## Cell 4 — Four single-dimension arms x the nested CV loop")
+md("## Cell 4 - Four single-dimension arms x the nested CV loop")
 code(f'''
 FOLDS_TO_RUN = {FOLDS}
 ''' + r'''
@@ -130,7 +130,7 @@ for arm in ARMS:
         print(f"  {arm:<12} fold {fi:<2} | val PR {r['val_pr']:.3f} | test PR {r['test_pr']:.3f} ROC {r['test_roc']:.3f} [{(time.time()-t0)/60:.0f}m]", flush=True)
 print(f"\n{len(records)} runs in {(time.time()-t0)/60:.1f} min")
 ''' + f'json.dump({{"records": records, "folds": FOLDS_TO_RUN}}, open("/kaggle/working/phase285{TAG}_records.json","w"), indent=2, default=float)')
-md("## Cell 5 — Partial summary")
+md("## Cell 5 - Partial summary")
 code(r'''
 import pandas as pd
 df = pd.DataFrame(records)

@@ -91,7 +91,7 @@ records = []
 df = pd.read_csv(INPUT)
 
 print("=" * 110)
-print("PHASE 176A — SPATIAL CONTROL STATISTICAL VALIDATION")
+print("PHASE 176A - SPATIAL CONTROL STATISTICAL VALIDATION")
 print("=" * 110)
 
 print(f"Input records: {len(df):,}")

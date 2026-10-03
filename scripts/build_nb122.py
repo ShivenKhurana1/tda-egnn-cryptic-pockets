@@ -21,7 +21,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 122 — CryptoBench: Transfer Learning from the Main Pipeline
+# Phase 122 - CryptoBench: Transfer Learning from the Main Pipeline
 
 CryptoBench has ~700 training chains vs the main pipeline's ~7,181
 (round-3) -- a 10x data gap on a related task (binding-site prediction,
@@ -32,16 +32,16 @@ CryptoBench's own loss/data. Compares against from-scratch, same seed=0,
 same run.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s118(2))
 
-md(r'''## Cell 2 — Setup, load Phase 117's blob (identical to Phase118/119/121)''')
+md(r'''## Cell 2 - Setup, load Phase 117's blob (identical to Phase118/119/121)''')
 code(s118(3))
 
-md(r'''## Cell 3 — Model (identical to Phase118/119/121)''')
+md(r'''## Cell 3 - Model (identical to Phase118/119/121)''')
 code(s118(5))
 
-md(r'''## Cell 4 — Training machinery: fit() optionally loads a pretrained state_dict before training (transfer learning) instead of random init''')
+md(r'''## Cell 4 - Training machinery: fit() optionally loads a pretrained state_dict before training (transfer learning) instead of random init''')
 code(r'''
 def run_epoch(model, loader, opt=None, lam=0.0):
     tr = opt is not None; model.train(tr)
@@ -95,7 +95,7 @@ def fit(use_loc_head, lam, seed, pretrained_path=None, epochs=40, patience=8, ba
     return model, best
 ''')
 
-md(r'''## Cell 5 — Train from-scratch first (data/model pristine), then transfer-learned (Phase32 seed3 init), same seed=0, same run''')
+md(r'''## Cell 5 - Train from-scratch first (data/model pristine), then transfer-learned (Phase32 seed3 init), same seed=0, same run''')
 code(r'''
 BEST_LAMBDA = 0.1
 results = []

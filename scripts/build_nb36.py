@@ -14,7 +14,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 36 — Thread 3 Round 2, Step 2: Topology at Scale
+# Phase 36 - Thread 3 Round 2, Step 2: Topology at Scale
 
 Same persistent-homology featurizer as Phase 6b/29 (byte-for-byte, spliced
 verbatim), pointed at Phase 35's larger pool. CPU only (gudhi has no GPU
@@ -22,22 +22,22 @@ path) -- expect roughly proportional to Phase 29's 80.5 min, scaled by the
 residue-count ratio between the two pools.
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s6b(2))
 
-md(r'''## Cell 1 — Load Phase 35's pool and re-acquire heavy atoms''')
+md(r'''## Cell 1 - Load Phase 35's pool and re-acquire heavy atoms''')
 code(s6b(3).replace('locate("phase6_graphs.pt")', 'locate("phase35_graphs.pt")'))
 
-md(r'''## Cell 2 — Heavy-atom clouds with per-chain alignment verification (identical to Phase 6b/29)''')
+md(r'''## Cell 2 - Heavy-atom clouds with per-chain alignment verification (identical to Phase 6b/29)''')
 code(s6b(5))
 
-md(r'''## Cell 3 — Featuriser (byte-for-byte the Phase 2b/6b/29 definition)''')
+md(r'''## Cell 3 - Featuriser (byte-for-byte the Phase 2b/6b/29 definition)''')
 code(s6b(7))
 
-md(r'''## Cell 4 — Compute (the long one)''')
+md(r'''## Cell 4 - Compute (the long one)''')
 code(s6b(9))
 
-md(r'''## Cell 5 — Fuse, validate, save (new output filename)''')
+md(r'''## Cell 5 - Fuse, validate, save (new output filename)''')
 code(s6b(11).replace('p = out / "phase6b_graphs.pt"', 'p = out / "phase36_graphs.pt"'))
 
 md(r'''

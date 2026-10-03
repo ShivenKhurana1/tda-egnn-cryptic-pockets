@@ -29,7 +29,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(f'''
-# Phase {PHASE} — Localization geometry control at {CFG["label"]}
+# Phase {PHASE} - Localization geometry control at {CFG["label"]}
 
 Phase 236 (35M): topology's classification-side residual over geometry (+0.0097 PR-AUC) was confirmed only on
 PR-AUC; the analogous localization residual (geometry+topology vs geometry, pooled DCC@4A) was NULL per seed
@@ -44,20 +44,20 @@ Protocol identical to Phase 236: training pool = the scale's own 2,055-chain blo
 1,149-unit COACH420/HOLO4K benchmark, pooled DCC@4A. **Primary comparison (fixed before any result): `geom+topo`
 vs `geom`, seed-paired pooled DCC.**
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1 biopython==1.84")
-md(f"## Cell 2 — Load the {CFG['label']} training graphs and geometry (Phase 229, scale-independent)")
+md(f"## Cell 2 - Load the {CFG['label']} training graphs and geometry (Phase 229, scale-independent)")
 code(s236(4).replace('locate("phase10_graphs.pt")', f'locate("{CFG["train_blob"]}")'))
-md("## Cell 3 — Recover true ligand centers for the training set and split 92/8 (Phase 22, verbatim)")
+md("## Cell 3 - Recover true ligand centers for the training set and split 92/8 (Phase 22, verbatim)")
 code(s236(6))
-md("## Cell 4 — Model (Phase 22, verbatim)")
+md("## Cell 4 - Model (Phase 22, verbatim)")
 code(s236(8))
-md("## Cell 5 — Training machinery (Phase 22, verbatim except side-channel width)")
+md("## Cell 5 - Training machinery (Phase 22, verbatim except side-channel width)")
 code(s236(10))
-md("## Cell 6 — Arms; train 4 arms x 8 seeds")
+md("## Cell 6 - Arms; train 4 arms x 8 seeds")
 code(s236(12).replace("loc236_{arm.replace('+','_')}_seed{seed}", f"loc{PHASE}_{{arm.replace('+','_')}}_seed{{seed}}")
              .replace("phase236_train_log.json", f"phase{PHASE}_train_log.json"))
-md(f"## Cell 7 — Load the re-embedded {CFG['label']} benchmark cache (Phase {'244' if SCALE=='650m' else '245'}, saved as two shards by benchmark source to keep the save step's memory down) and its geometry (Phase 235, scale-independent)")
+md(f"## Cell 7 - Load the re-embedded {CFG['label']} benchmark cache (Phase {'244' if SCALE=='650m' else '245'}, saved as two shards by benchmark source to keep the save step's memory down) and its geometry (Phase 235, scale-independent)")
 code(f'''
 raw_cache = {{}}
 n_pre_bench = None
@@ -76,9 +76,9 @@ valid_keys = {{k for k in raw_cache if k in geo_bm["feats"]}}
 print(f"benchmark chains: {{len(raw_cache):,}} cached ({CFG['label']}), {{len(valid_keys):,}} with geometry (dropped {{len(raw_cache)-len(valid_keys)}} for every arm)")
 assert n_pre_bench == N_PRE, f"benchmark N_PRE {{n_pre_bench}} != training N_PRE {{N_PRE}}"
 ''')
-md("## Cell 8 — Score all arms and seeds (Phase 22/236 scoring, arm masks applied to the benchmark features)")
+md("## Cell 8 - Score all arms and seeds (Phase 22/236 scoring, arm masks applied to the benchmark features)")
 code(s236(16))
-md("## Cell 9 — Per-seed pooled DCC, seed-paired statistics (primary comparison first), structure-level bootstrap on the 8-seed ensembles")
+md("## Cell 9 - Per-seed pooled DCC, seed-paired statistics (primary comparison first), structure-level bootstrap on the 8-seed ensembles")
 code(s236(18).replace('phase236_paired_stats.csv', f'phase{PHASE}_paired_stats.csv')
              .replace('phase236_summary.json', f'phase{PHASE}_summary.json')
              .replace('phase236_train_log.json', f'phase{PHASE}_train_log.json'))

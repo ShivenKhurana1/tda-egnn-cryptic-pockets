@@ -25,7 +25,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(f'''
-# Phase {PHASE}{TAG} — Geometry control at {CFG["label"]} (folds {FOLDS[0]}-{FOLDS[-1]})
+# Phase {PHASE}{TAG} - Geometry control at {CFG["label"]} (folds {FOLDS[0]}-{FOLDS[-1]})
 
 Phase 230 ran the geometry-vs-topology control at ESM2-35M on the 2,055-chain pool (main result: geometry beats
 topology alone +0.0129 PR-AUC 10/10 folds; topology adds a small residual over geometry, +0.0097 PR-AUC 9/10
@@ -37,16 +37,16 @@ Arms: `no-topo`, `full` (34 TDA), `geom` (17), `geom+topo` (51). **Primary compa
 `geom+topo` vs `geom` on test PR-AUC, paired over the 10 folds** (this notebook runs half; halves are merged
 locally, same script as Phase 230).
 ''')
-md("## Cell 1 — Setup")
+md("## Cell 1 - Setup")
 code("!pip install -q torch-geometric==2.6.1 biopython==1.84")
-md(f"## Cell 2 — Load the {CFG['label']} graphs ({CFG['blob']}) and the Phase 229 geometry")
+md(f"## Cell 2 - Load the {CFG['label']} graphs ({CFG['blob']}) and the Phase 229 geometry")
 code(src230(4).replace('locate("phase10_graphs.pt")', f'locate("{CFG["blob"]}")'))
-md("## Cell 3 — Model and training machinery (Phase 11, unchanged)")
+md("## Cell 3 - Model and training machinery (Phase 11, unchanged)")
 code(src11(8))
-md("## Cell 4 — Arms and the nested CV loop")
+md("## Cell 4 - Arms and the nested CV loop")
 code(src230(8).replace('FOLDS_TO_RUN = [0, 1, 2, 3, 4]', f'FOLDS_TO_RUN = {FOLDS}')
               .replace('phase230arecords.json', f'phase{PHASE}{TAG}_records.json'))
-md("## Cell 5 — Partial summary")
+md("## Cell 5 - Partial summary")
 code(src230(10))
 
 nb = {"cells": C, "metadata": {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},

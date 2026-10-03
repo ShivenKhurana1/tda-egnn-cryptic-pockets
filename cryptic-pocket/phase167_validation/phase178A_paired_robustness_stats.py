@@ -113,7 +113,7 @@ def bh_fdr(pvals):
 df = pd.read_csv(INPUT)
 
 print("=" * 110)
-print("PHASE 178A — PAIRED PROTEIN-LEVEL ROBUSTNESS STATISTICS")
+print("PHASE 178A - PAIRED PROTEIN-LEVEL ROBUSTNESS STATISTICS")
 print("=" * 110)
 
 print(f"Input rows: {len(df):,}")

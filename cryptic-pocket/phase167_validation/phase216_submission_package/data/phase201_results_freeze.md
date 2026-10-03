@@ -1,4 +1,4 @@
-# Phase 201 — Scientific Results Freeze
+# Phase 201: Scientific Results Freeze
 
 ## Dataset
 

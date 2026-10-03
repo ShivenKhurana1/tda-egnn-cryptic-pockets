@@ -12,13 +12,13 @@ code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},
 reuse=lambda i:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":src(i).strip("\n")})
 
 md(r'''
-# Phase 13 — Tuning the Pocket-Center Localization Step
+# Phase 13 - Tuning the Pocket-Center Localization Step
 
 Phase 12 found the model loses to P2Rank on DCC/DCA (pocket-center accuracy)
 despite beating it on per-residue PR-AUC (Phase 11). The suspected cause: the
 per-residue-probabilities-to-single-point conversion was an untuned heuristic
 (fixed thresholds, connected components, unweighted centroid) bolted onto a
-model that was never trained for localization — unlike P2Rank, which is
+model that was never trained for localization - unlike P2Rank, which is
 purpose-built for exactly this output.
 
 This notebook does not touch the trained model at all. It reuses the exact
@@ -34,14 +34,14 @@ is the exact mistake this project has spent many phases avoiding elsewhere. The
 seed into a **35% tune set** (used only to pick the best heuristic) and a
 **65% test set** (scored exactly once, with the heuristic already fixed). The
 untuned Phase-12 heuristic is also re-scored on this same test slice, so the
-before/after comparison is paired and fair — not "old number on 1,149
+before/after comparison is paired and fair - not "old number on 1,149
 structures vs new number on a different 650."
 
 ### Why several candidate heuristics, not just re-tuned thresholds
 
 The working hypothesis is that connected-components clustering at a loose
 threshold can produce a large, diffuse blob whose centroid drifts away from the
-true (small, tight) ligand pocket — a few residues at the "wrong end" of a big
+true (small, tight) ligand pocket - a few residues at the "wrong end" of a big
 component are enough to fail a strict 4 Å threshold. Two structurally different
 families are tried, not just parameter variations on the original idea:
 
@@ -49,24 +49,24 @@ families are tried, not just parameter variations on the original idea:
   highest-probability residues, centroid them (weighted or unweighted). Simple,
   and immune to the diffuse-blob failure mode by construction.
 - **Connected components, revised**: the Phase 12 approach, but with a
-  probability-*weighted* centroid instead of a plain mean — pulling the estimate
+  probability-*weighted* centroid instead of a plain mean - pulling the estimate
   toward the cluster's most confident core rather than treating a fringe residue
   the same as the peak.
 ''')
 
-md(r'''## Cell 1 — Setup (identical to Phase 12)''')
+md(r'''## Cell 1 - Setup (identical to Phase 12)''')
 reuse(2)   # pip installs
 reuse(3)   # imports, blob loading, DEVICE
 
-md(r'''## Cell 2 — Fetch benchmark structures (identical to Phase 12)''')
+md(r'''## Cell 2 - Fetch benchmark structures (identical to Phase 12)''')
 reuse(5)   # parse_ds + fetch
 
-md(r'''## Cell 3 — Ground-truth ligand extraction + leakage check (identical to Phase 12)''')
+md(r'''## Cell 3 - Ground-truth ligand extraction + leakage check (identical to Phase 12)''')
 reuse(7)   # parse_structure, eval_units assembly
 reuse(8)   # MMseqs2 leakage check -> clean_units
 
 md(r'''
-## Cell 4 — Load the Phase 12 ensemble (skip retraining)
+## Cell 4 - Load the Phase 12 ensemble (skip retraining)
 
 Same three checkpoints Phase 12 trained on all 2,056 chains. Loading them here
 instead of retraining saves roughly 9 minutes and, more importantly, guarantees
@@ -97,14 +97,14 @@ for seed in (0,1,2):
 print(f"loaded {len(ensemble)} ensemble members from Phase 12 (no retraining)")
 ''')
 
-md(r'''## Cell 5 — Featurize the clean benchmark chains (identical to Phase 12)''')
+md(r'''## Cell 5 - Featurize the clean benchmark chains (identical to Phase 12)''')
 reuse(12)   # gudhi/ESM featurizer + main loop building `built`
 
 md(r'''
-## Cell 6 — Ensemble inference, cached per chain
+## Cell 6 - Ensemble inference, cached per chain
 
 Unlike Phase 12, per-residue probabilities (plus the coordinates and ground
-truth needed to score them) are saved to disk here — so any *future* heuristic
+truth needed to score them) are saved to disk here - so any *future* heuristic
 idea can be tested in seconds instead of paying the ~3-hour featurization cost
 again.
 ''')
@@ -139,7 +139,7 @@ print(f"cached per-chain probabilities -> {WORK}/cache/phase13_per_chain_cache.p
 ''')
 
 md(r'''
-## Cell 7 — Tune / test split, fixed before any heuristic is tried
+## Cell 7 - Tune / test split, fixed before any heuristic is tried
 
 Split at the **structure** level (not chain level, so a multi-chain HOLO4K
 entry doesn't leak across the split), stratified by benchmark so both COACH420
@@ -174,7 +174,7 @@ tune_groups = group_by_structure(tune_structs)
 test_groups = group_by_structure(test_structs)
 ''')
 
-md(r'''## Cell 8 — Candidate localization heuristics''')
+md(r'''## Cell 8 - Candidate localization heuristics''')
 
 code(r'''
 def dcc_dca(pred_center, ligs):
@@ -244,7 +244,7 @@ CANDIDATES = {
 print(f"{len(CANDIDATES)} candidate heuristics")
 ''')
 
-md(r'''## Cell 9 — Score every candidate on TUNE only, pick the winner''')
+md(r'''## Cell 9 - Score every candidate on TUNE only, pick the winner''')
 
 code(r'''
 def score_group(groups, heuristic_fn):
@@ -276,7 +276,7 @@ print(f"\nselected on TUNE (best DCC): {best_name}  (DCC {tune_scores[best_name]
 ''')
 
 md(r'''
-## Cell 10 — Final, one-shot evaluation on TEST
+## Cell 10 - Final, one-shot evaluation on TEST
 
 The winning heuristic and the Phase-12 baseline heuristic are both scored here,
 **for the first time**, on the test structures neither ever influenced.
@@ -322,7 +322,7 @@ md(r'''
 
 ## Reading this
 
-**The comparison that matters is `Phase 12 baseline (test)` vs `tuned` — both
+**The comparison that matters is `Phase 12 baseline (test)` vs `tuned` - both
 scored on the identical held-out structures, neither having influenced the
 tuning choice.** That isolates exactly what changed: the conversion heuristic,
 nothing else.
@@ -331,7 +331,7 @@ nothing else.
   fine, the conversion step was the weak link, and this recovers real ground
   against P2Rank.
 - **Little or no improvement** means the problem is deeper than the conversion
-  heuristic — most likely that the per-residue probability map itself is not
+  heuristic - most likely that the per-residue probability map itself is not
   precise enough for tight single-point localization, which weighted-centroid
   tricks cannot fix. In that case the honest next step is training a dedicated
   pocket-center head end-to-end (how EquiPocket/VN-EGNN are actually built),

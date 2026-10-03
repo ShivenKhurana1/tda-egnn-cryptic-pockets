@@ -72,7 +72,7 @@ def exact_mcnemar(a, b):
 df = pd.read_csv(INPUT)
 
 print("=" * 110)
-print("PHASE 177A — PROTEIN-LEVEL ROBUSTNESS")
+print("PHASE 177A - PROTEIN-LEVEL ROBUSTNESS")
 print("=" * 110)
 
 print(f"Input rows: {len(df):,}")

@@ -17,16 +17,16 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(f'''
-# Phase 262 {SLUG} — CryptoBench + ESM2-3B + plain geometry: arm `{ARM}` (8 seeds, from scratch)
+# Phase 262 {SLUG} - CryptoBench + ESM2-3B + plain geometry: arm `{ARM}` (8 seeds, from scratch)
 
 The strongest published-style hidden-pocket setup in this project (ESM2-3B on CryptoBench's official split; Phase 55/129) predates the
 finding that 17 plain geometry features beat the topology block. This tests whether geometry improves it. Same blob, split, model, loss
 (BCE + 0.1 x Huber pocket-center), optimiser and early stopping as Phase 129; every arm has an identical 51-wide side channel (34 topology +
 17 geometry, unselected columns zeroed). Selection uses validation only; test predictions are saved, not used for any choice.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1")
-md("## Cell 2 — Setup: Phase 48's CryptoBench-3B blob + Phase 227's geometry")
+md("## Cell 2 - Setup: Phase 48's CryptoBench-3B blob + Phase 227's geometry")
 code(s129(4) + r'''
 
 geo = torch.load(locate("phase227_geometry_features.pt"), map_location="cpu", weights_only=False)
@@ -45,11 +45,11 @@ splits = {s: [d for d in dataset if d.split == s] for s in ("train", "val", "tes
 print(f"node dim {dataset[0].x.size(1)} = {N_PRE} + {TOPO_DIM} + {GEOM_DIM}; splits", {k: len(v) for k, v in splits.items()})
 assert dataset[0].x.size(1) == N_PRE + SIDE_DIM
 ''')
-md("## Cell 3 — Model (Phase 129, verbatim)")
+md("## Cell 3 - Model (Phase 129, verbatim)")
 code(s129(6))
-md("## Cell 4 — Training machinery (Phase 129, width-parameterised, no pretrained weights)")
+md("## Cell 4 - Training machinery (Phase 129, width-parameterised, no pretrained weights)")
 code(s129(8).replace("LocalizingEGNN(N_PRE, TOPO_DIM, use_loc_head=use_loc_head)", "LocalizingEGNN(N_PRE, SIDE_DIM, use_loc_head=use_loc_head)"))
-md(f"## Cell 5 — Train arm `{ARM}` x 8 seeds; save per-residue probabilities and predicted centers for val and test")
+md(f"## Cell 5 - Train arm `{ARM}` x 8 seeds; save per-residue probabilities and predicted centers for val and test")
 code(f'''
 ARM = "{ARM}"
 ''' + r'''

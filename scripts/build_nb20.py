@@ -16,12 +16,12 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 20 — A Legitimate Full-Benchmark Comparison
+# Phase 20 - A Legitimate Full-Benchmark Comparison
 
 Every prior benchmark comparison in this project (Phase 12, 15, 16) cleaned
 the **benchmark side** of leakage: filtering out COACH420/HOLO4K structures
 homologous to the training set, then scoring only on what survived. That was
-the right call at the time — it made the "us vs P2Rank" comparison valid. But
+the right call at the time - it made the "us vs P2Rank" comparison valid. But
 it also made the literature comparison (vs EquiPocket's published numbers)
 invalid, because the surviving subset turned out to be measurably *easier*
 than the full benchmark (proven in Phase 12: P2Rank scored 36-75% higher on
@@ -31,15 +31,15 @@ This notebook fixes the actual asymmetry: **clean the training side instead.**
 Exclude from training anything homologous to COACH420 (all 420 structures, not
 just a filtered subset), retrain, then evaluate on the **entire, unfiltered**
 benchmark. If the model does well here, it is legitimately comparable to
-EquiPocket's and P2Rank's published numbers — same benchmark, same difficulty,
+EquiPocket's and P2Rank's published numbers - same benchmark, same difficulty,
 no subset selection in either direction.
 
 **Scoped to COACH420 only.** HOLO4K's full ~4,400 structures would need
-upwards of 10 hours of topology computation alone — past what fits in one
+upwards of 10 hours of topology computation alone - past what fits in one
 session. COACH420 (420 structures) is itself a real, commonly-cited benchmark
 and is tractable end-to-end here.
 
-**Reference — literature numbers, verified in Phase 12:**
+**Reference - literature numbers, verified in Phase 12:**
 
 | method | COACH420 DCC | COACH420 DCA |
 |---|---|---|
@@ -48,7 +48,7 @@ and is tractable end-to-end here.
 | EquiPocket | 0.423 | 0.656 |
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 code(r'''
 !pip install -q torch-geometric==2.6.1 gudhi==3.10.1 biopython==1.84 transformers==4.46.3
 !apt-get -qq update > /dev/null 2>&1 && apt-get -qq install -y default-jre-headless > /dev/null 2>&1
@@ -98,7 +98,7 @@ WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True
 RAW = Path("/tmp/pdb_raw"); RAW.mkdir(parents=True, exist_ok=True)
 ''')
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures''')
 code(r'''
 def parse_ds(url):
     lines = urllib.request.urlopen(url, timeout=60).read().decode().splitlines()
@@ -133,7 +133,7 @@ print(f"fetched {len(coach_paths):,}/{len(need):,} in {(time.time()-t0)/60:.1f} 
 ''')
 
 md(r'''
-## Cell 3 — Clean the TRAINING side: exclude any chain homologous to COACH420
+## Cell 3 - Clean the TRAINING side: exclude any chain homologous to COACH420
 
 The reverse direction of every prior leakage check in this project. Same 30%
 identity threshold used throughout.
@@ -201,7 +201,7 @@ assert len(clean_dataset) > 0.8 * len(dataset), "too much training data excluded
 dataset = clean_dataset
 ''')
 
-md(r'''## Cell 4 — Recover true ligand centers for the cleaned training set (Phase 14 logic)''')
+md(r'''## Cell 4 - Recover true ligand centers for the cleaned training set (Phase 14 logic)''')
 _p14_true_center = s14(5)
 _cut = _p14_true_center.index('dataset = [d for d in dataset if hasattr(d, "true_center")]')
 _true_center_core = _p14_true_center[:_cut].rstrip()
@@ -218,16 +218,16 @@ n_tr, n_va = len(splits["train"]), len(splits["val"])
 print(f"deployment training: {n_tr} train / {n_va} val")
 ''')
 
-md(r'''## Cell 5 — Model (identical to Phase 14/15/16/18)''')
+md(r'''## Cell 5 - Model (identical to Phase 14/15/16/18)''')
 code(s14(7))
 
-md(r'''## Cell 6 — Equivariance check before training anything''')
+md(r'''## Cell 6 - Equivariance check before training anything''')
 code(s14(9))
 
-md(r'''## Cell 7 — Training machinery (identical to Phase 14)''')
+md(r'''## Cell 7 - Training machinery (identical to Phase 14)''')
 code(s14(11))
 
-md(r'''## Cell 8 — Train the clean-training ensemble (3 seeds, lambda=0.1)''')
+md(r'''## Cell 8 - Train the clean-training ensemble (3 seeds, lambda=0.1)''')
 code(r'''
 BEST_LAMBDA = 0.1
 ensemble = []
@@ -244,10 +244,10 @@ print(f"clean-training ensemble of {len(ensemble)} trained on {len(dataset):,} c
 ''')
 
 md(r'''
-## Cell 9 — Ground-truth ligands for ALL 420 COACH420 structures (no filtering)
+## Cell 9 - Ground-truth ligands for ALL 420 COACH420 structures (no filtering)
 
 Same extraction logic as every prior phase, but this time nothing gets
-excluded on the benchmark side — training is already guaranteed clean.
+excluded on the benchmark side - training is already guaranteed clean.
 ''')
 code(r'''
 NON_LIGAND={"HOH","DOD","WAT","SO4","PO4","GOL","EDO","PEG","PG4","PGE","1PE","MPD","TRS",
@@ -294,7 +294,7 @@ for pid, ch in coach:
 print(f"evaluable COACH420 structures: {len(eval_units)}/{len(coach)}  ({(time.time()-t0)/60:.1f} min)")
 ''')
 
-md(r'''## Cell 10 — Featurize (identical pipeline: dihedral + ESM2 + topology)''')
+md(r'''## Cell 10 - Featurize (identical pipeline: dihedral + ESM2 + topology)''')
 code(r'''
 import gudhi
 from transformers import AutoTokenizer, AutoModel
@@ -421,7 +421,7 @@ with open(WORK/"cache/phase20_raw_features.pkl", "wb") as fh:
 print(f"cached raw features -> {(WORK/'cache/phase20_raw_features.pkl').stat().st_size/1e6:.0f} MB")
 ''')
 
-md(r'''## Cell 11 — P2Rank on the FULL 420 (same-run controlled reference)''')
+md(r'''## Cell 11 - P2Rank on the FULL 420 (same-run controlled reference)''')
 code(r'''
 t0=time.time(); PRANK=None
 subprocess.run("curl -sL https://github.com/rdk/p2rank/releases/download/2.4.2/p2rank_2.4.2.tar.gz "
@@ -463,7 +463,7 @@ p2rank_centers = {pid: p2rank_top_center(pid) for pid in coach_paths}
 print(f"P2Rank centers parsed: {sum(1 for v in p2rank_centers.values() if v is not None)}/{len(coach_paths)}")
 ''')
 
-md(r'''## Cell 12 — Score both, compare to literature''')
+md(r'''## Cell 12 - Score both, compare to literature''')
 code(r'''
 mu, sd = blob6b["topo_mean"], blob6b["topo_std"]
 
@@ -555,7 +555,7 @@ is, it is comparable on equal footing.
 If this beats EquiPocket, it is a legitimate, defensible SOTA claim, on the
 benchmark and metric the field itself uses. If it doesn't, that is the honest,
 current state of the project relative to a purpose-built, dedicated pocket
-localization architecture — still informative, and still a cleaner, more
+localization architecture - still informative, and still a cleaner, more
 defensible number than anything produced before this notebook.
 ''')
 

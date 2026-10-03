@@ -16,7 +16,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 27 — Is the HOLO4K P2Rank Gap Real, or Seed Noise?
+# Phase 27 - Is the HOLO4K P2Rank Gap Real, or Seed Noise?
 
 Phase 24 found the model beats every literature baseline on HOLO4K (EquiPocket
 0.337, P2Rank-2018 0.314) but loses to this-run's live P2Rank by −0.0979 DCC
@@ -32,27 +32,27 @@ that produced seeds 0-2, so this budgets more wall-clock time than Phase 21
 did, but no new topology computation or benchmark featurization is needed.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 code(s24(2))
 
 code("import pickle\n\n" + s24(3))
 
-md(r'''## Cell 2 — Sample the same ~1,000 HOLO4K structures (seed=2024, identical to Phase 24)''')
+md(r'''## Cell 2 - Sample the same ~1,000 HOLO4K structures (seed=2024, identical to Phase 24)''')
 code(s24(5))
 
-md(r'''## Cell 3 — Rebuild the identical leakage-clean training set (Phase 24 logic, reused verbatim)''')
+md(r'''## Cell 3 - Rebuild the identical leakage-clean training set (Phase 24 logic, reused verbatim)''')
 code(s24(7))
 
-md(r'''## Cell 4 — Recover true ligand centers (Phase 24/14 logic, reused verbatim)''')
+md(r'''## Cell 4 - Recover true ligand centers (Phase 24/14 logic, reused verbatim)''')
 code(s24(9))
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase)''')
 code(s24(11))
 
-md(r'''## Cell 6 — Training machinery (identical to Phase 24/14)''')
+md(r'''## Cell 6 - Training machinery (identical to Phase 24/14)''')
 code(s24(13))
 
-md(r'''## Cell 7 — Train 5 more seeds (3-7), reusing seeds 0-2 from Phase 24''')
+md(r'''## Cell 7 - Train 5 more seeds (3-7), reusing seeds 0-2 from Phase 24''')
 code(r'''
 import time
 BEST_LAMBDA = 0.1
@@ -68,7 +68,7 @@ for seed in (3,4,5,6,7):
 print(f"\ntrained seeds 3-7 in {(time.time()-t0)/60:.1f} min (CPU)")
 ''')
 
-md(r'''## Cell 8 — Load ALL 8 seeds + Phase 24's cached benchmark features (no re-fetch)''')
+md(r'''## Cell 8 - Load ALL 8 seeds + Phase 24's cached benchmark features (no re-fetch)''')
 code(r'''
 def load_seeds(prefix, seeds):
     out = {}
@@ -91,7 +91,7 @@ with open(locate("phase24_raw_features.pkl"), "rb") as fh:
 print(f"loaded cached HOLO4K benchmark features for {len(raw_cache):,} chains")
 ''')
 
-md(r'''## Cell 9 — Score pooled 8-seed ensemble + per-seed breakdown''')
+md(r'''## Cell 9 - Score pooled 8-seed ensemble + per-seed breakdown''')
 code(r'''
 from collections import defaultdict
 
@@ -157,7 +157,7 @@ per_seed = np.array(per_seed)
 print(f"\nper-seed mean {per_seed.mean():.4f}  std {per_seed.std():.4f}")
 ''')
 
-md(r'''## Cell 10 — Compare to the live P2Rank number from Phase 24 (same-run, same 1000 structures)''')
+md(r'''## Cell 10 - Compare to the live P2Rank number from Phase 24 (same-run, same 1000 structures)''')
 code(r'''
 # Phase 24 already ran P2Rank on this exact 1000-structure sample in a fully
 # controlled, same-run comparison and reported DCC 0.6580 -- reusing that

@@ -17,7 +17,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 148 — CryptoBench: Weighted Cross-Scale Ensemble, All-Transfer
+# Phase 148 - CryptoBench: Weighted Cross-Scale Ensemble, All-Transfer
 
 Phase131's weighted ensemble used 650M-scratch (test AUC 0.8873, MCC
 0.3986) as the weakest arm. Phase146/147 replaced it with 650M-transfer
@@ -27,13 +27,13 @@ COACH420 checkpoints. Grid-searches ensemble weights on VAL ONLY,
 applies the winning weights to TEST once.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s130(2))
 
-md(r'''## Cell 2 — Model + setup (identical to Phase130/131)''')
+md(r'''## Cell 2 - Model + setup (identical to Phase130/131)''')
 code(s130(4))
 
-md(r'''## Cell 3 — Load each scale's blob + 8 checkpoints (ALL 3 scales now transfer-learned), predict on VAL and TEST''')
+md(r'''## Cell 3 - Load each scale's blob + 8 checkpoints (ALL 3 scales now transfer-learned), predict on VAL and TEST''')
 code(r'''
 SCALES = {
     "35M":  dict(blob="phase42_cryptobench_graphs.pt",         ckpt_prefix="cryptobench_transfer_seed"),
@@ -76,7 +76,7 @@ for split_name, keys_dict in [("val", scale_val_keys), ("test", scale_test_keys)
 print(f"\nalignment verified on both val and test across all 3 scales")
 ''')
 
-md(r'''## Cell 4 — Grid-search ensemble weights on VAL ONLY, apply winning weights + val-tuned threshold to TEST''')
+md(r'''## Cell 4 - Grid-search ensemble weights on VAL ONLY, apply winning weights + val-tuned threshold to TEST''')
 code(r'''
 def metrics_at(p, y, thresh):
     pred = (p >= thresh).astype(int)

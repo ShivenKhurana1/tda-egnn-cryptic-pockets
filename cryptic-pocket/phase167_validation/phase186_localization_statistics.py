@@ -15,7 +15,7 @@ SEED = 186
 rng = np.random.default_rng(SEED)
 
 print("=" * 110)
-print("PHASE 186 — PROTEIN-LEVEL EXPERIMENTAL LOCALIZATION STATISTICS")
+print("PHASE 186 - PROTEIN-LEVEL EXPERIMENTAL LOCALIZATION STATISTICS")
 print("=" * 110)
 
 df = pd.read_csv(INPUT, low_memory=False)

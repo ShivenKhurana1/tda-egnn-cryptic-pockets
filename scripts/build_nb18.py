@@ -14,15 +14,15 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 18 — Does Topology Improve Localization, Not Just Classification?
+# Phase 18 - Does Topology Improve Localization, Not Just Classification?
 
 Every prior topology ablation in this project (Phase 6c, 11) tested per-residue
 **classification** (PR-AUC): does knowing about persistent homology help decide
-*which residues* are binding sites. That question is now answered — yes,
+*which residues* are binding sites. That question is now answered - yes,
 properly powered, p<1e-5.
 
 This asks a different, untested question: does topology help the model
-produce a more accurate **single predicted point** — the trained localization
+produce a more accurate **single predicted point** - the trained localization
 head added in Phase 14? This is not a re-run of the old ablation on a new
 metric; it is a genuinely distinct capability, since Phase 8 already showed
 these two heads decouple (training the localization head changed what the
@@ -40,23 +40,23 @@ features at all. This sits in the gap between the two literatures.
 ### Design: reuse everything expensive, train only what's new
 
 - `full` (topology present): **reuses Phase 15's already-trained checkpoints**
-  — no retraining, no risk of introducing a confound from a different training
+  - no retraining, no risk of introducing a confound from a different training
   run.
 - `no_topo` (topology zeroed, same architecture/budget): a **new** 3-seed
   ensemble, trained here.
-- Both are scored on **Phase 15's cached benchmark features** — no
+- Both are scored on **Phase 15's cached benchmark features** - no
   re-fetching, no re-running the ~170-minute featurization. This whole
   experiment costs one training run (~15 min) plus fast inference.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 code(r'''
 !pip install -q torch-geometric==2.6.1 biopython==1.84
 ''')
 
 code("import pickle\n\n" + s14(3))
 
-md(r'''## Cell 2 — Recover true ligand centers for training data (Phase 14 logic, reused)''')
+md(r'''## Cell 2 - Recover true ligand centers for training data (Phase 14 logic, reused)''')
 _p14_true_center = s14(5)
 _cut = _p14_true_center.index('dataset = [d for d in dataset if hasattr(d, "true_center")]')
 _true_center_core = _p14_true_center[:_cut].rstrip()
@@ -73,16 +73,16 @@ n_tr, n_va = len(splits["train"]), len(splits["val"])
 print(f"deployment training: {n_tr} train / {n_va} val")
 ''')
 
-md(r'''## Cell 3 — Model (identical to Phase 14/15/16)''')
+md(r'''## Cell 3 - Model (identical to Phase 14/15/16)''')
 code(s14(7))
 
-md(r'''## Cell 4 — Training machinery (identical to Phase 14)''')
+md(r'''## Cell 4 - Training machinery (identical to Phase 14)''')
 code(s14(11))
 
 md(r'''
-## Cell 5 — Train the `no_topo` ensemble (3 seeds, lambda=0.1, topology zeroed)
+## Cell 5 - Train the `no_topo` ensemble (3 seeds, lambda=0.1, topology zeroed)
 
-`lambda=0.1` reused from Phase 14's sweep, not re-tuned — this experiment
+`lambda=0.1` reused from Phase 14's sweep, not re-tuned - this experiment
 isolates the topology-vs-no-topology question, and re-tuning lambda separately
 for each arm would confound that comparison with a second variable.
 ''')
@@ -115,7 +115,7 @@ print(f"no_topo ensemble of {len(notopo_ensemble)} trained on {len(dataset):,} c
 ''')
 
 md(r'''
-## Cell 6 — Load Phase 15's `full` checkpoints (no retraining) + Phase 15's cached benchmark features
+## Cell 6 - Load Phase 15's `full` checkpoints (no retraining) + Phase 15's cached benchmark features
 ''')
 code(r'''
 full_ensemble = []
@@ -142,7 +142,7 @@ mu_b, sd_b = blob6b_bench["topo_mean"], blob6b_bench["topo_std"]
 print(f"loaded cached features for {len(raw_cache):,} benchmark chains")
 ''')
 
-md(r'''## Cell 7 — Score both arms on the SAME cached benchmark chains, frame-corrected''')
+md(r'''## Cell 7 - Score both arms on the SAME cached benchmark chains, frame-corrected''')
 code(r'''
 from collections import defaultdict
 
@@ -217,7 +217,7 @@ full_summary, full_pooled = score_arm(full_ensemble, zero_topo=False, tag="full 
 notopo_summary, notopo_pooled = score_arm(notopo_ensemble, zero_topo=True, tag="no_topo")
 ''')
 
-md(r'''## Cell 8 — Verdict''')
+md(r'''## Cell 8 - Verdict''')
 code(r'''
 delta_pooled = full_pooled - notopo_pooled
 print(f"\n{'='*70}")
@@ -256,7 +256,7 @@ md(r'''
 ## Reading this
 
 This is a **single run**, not the multi-seed significance-tested comparison
-that made the classification-side topology claim (Phase 6c/11) trustworthy —
+that made the classification-side topology claim (Phase 6c/11) trustworthy -
 treat the direction as a first answer, not a final one. But directionally:
 
 - **A real gap either way is a genuinely new finding.** Nobody in the surveyed
@@ -269,7 +269,7 @@ treat the direction as a first answer, not a final one. But directionally:
 - **If it doesn't**, that is itself informative: it would suggest topology
   encodes *what* a pocket looks like (useful for classification) without
   encoding *precisely where its center is* (a geometric property topology, by
-  construction, only partially captures) — a real, defensible, specific claim
+  construction, only partially captures) - a real, defensible, specific claim
   about what this kind of feature is and isn't good for.
 ''')
 

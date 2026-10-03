@@ -14,7 +14,7 @@ OUT_FILE = BASE / "phase185_experimental_residue_localization.csv"
 OUT_SUMMARY = BASE / "phase185_experimental_residue_localization_summary.csv"
 
 print("=" * 110)
-print("PHASE 185 — EXPERIMENTAL-RESIDUE-DRIVEN POCKET LOCALIZATION")
+print("PHASE 185 - EXPERIMENTAL-RESIDUE-DRIVEN POCKET LOCALIZATION")
 print("=" * 110)
 
 pred = pd.read_csv(PRED_FILE, low_memory=False)

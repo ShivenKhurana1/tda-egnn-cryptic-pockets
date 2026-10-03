@@ -17,7 +17,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 123 — CryptoBench: Cross-Scale Ensemble (35M + 650M + 3B)
+# Phase 123 - CryptoBench: Cross-Scale Ensemble (35M + 650M + 3B)
 
 Each ESM scale was independently 8-seed-ensembled: 35M AUC 0.8717, 650M
 0.8873, 3B 0.8878 (monotonic but diminishing gains). Never combined
@@ -26,10 +26,10 @@ training. If different scales make different errors, this could beat
 3B's 0.8878 for free.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(r'''!pip install -q torch-geometric==2.6.1''')
 
-md(r'''## Cell 2 — Model (identical to every CryptoBench phase)''')
+md(r'''## Cell 2 - Model (identical to every CryptoBench phase)''')
 code(r'''
 import json, time
 from pathlib import Path
@@ -124,7 +124,7 @@ def predict_seed(model, loader):
     return np.concatenate(all_probs), np.concatenate(all_y)
 ''')
 
-md(r'''## Cell 3 — Load each scale's blob + all 8 checkpoints, predict on test (pure inference, no training)''')
+md(r'''## Cell 3 - Load each scale's blob + all 8 checkpoints, predict on test (pure inference, no training)''')
 code(r'''
 SCALES = {
     "35M":  dict(blob="phase42_cryptobench_graphs.pt",       ckpt_prefix="cryptobench_deploy_seed"),
@@ -168,7 +168,7 @@ print(f"\nalignment verified: all 3 scales' test sets have identical (pdb_id,cha
       f"{len(ref_keys)} residues")
 ''')
 
-md(r'''## Cell 4 — Cross-scale ensemble (average the 3 scales'' own 8-seed-ensembled probabilities), compare to each scale alone''')
+md(r'''## Cell 4 - Cross-scale ensemble (average the 3 scales'' own 8-seed-ensembled probabilities), compare to each scale alone''')
 code(r'''
 def metrics_at(p, y, thresh):
     pred = (p >= thresh).astype(int)

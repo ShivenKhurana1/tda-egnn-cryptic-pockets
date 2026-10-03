@@ -19,7 +19,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 33 — Does the Scaled Pool Close Thread 2's HOLO4K Gap?
+# Phase 33 - Does the Scaled Pool Close Thread 2's HOLO4K Gap?
 
 Phase 31/32 found the scaled 3,577-cluster training pool gives a robust,
 8-seed-validated WIN over live P2Rank on COACH420 (+0.043 DCC) -- a much
@@ -36,39 +36,39 @@ proven code) pointed at the bigger pool. 3-seed first pass, same discipline
 as every other new arm.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 30/29's scaled blobs instead of Phase 10/6b's)''')
+md(r'''## Cell 1 - Setup (loads Phase 30/29's scaled blobs instead of Phase 10/6b's)''')
 code(s24(2))
 code(s24(3).replace('locate("phase10_graphs.pt")', 'locate("phase30_graphs.pt")')
            .replace('locate("phase6b_graphs.pt")', 'locate("phase29_graphs.pt")'))
 
-md(r'''## Cell 2 — Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to Phase 24)''')
+md(r'''## Cell 2 - Sample the SAME ~1,000 HOLO4K structures (seed=2024, identical to Phase 24)''')
 code(s24(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side (identical logic; pool size updated 2056 -> 3577)''')
+md(r'''## Cell 3 - Clean the TRAINING side (identical logic; pool size updated 2056 -> 3577)''')
 code(s24(7).replace("2056", "3577"))
 
-md(r'''## Cell 4 — Recover true ligand centers (identical to Phase 24/14)''')
+md(r'''## Cell 4 - Recover true ligand centers (identical to Phase 24/14)''')
 code(s24(9))
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase)''')
 code(s24(11))
 
-md(r'''## Cell 6 — Training machinery (identical to Phase 24/14)''')
+md(r'''## Cell 6 - Training machinery (identical to Phase 24/14)''')
 code(s24(13))
 
-md(r'''## Cell 7 — Train the clean ensemble (3 seeds) on the SCALED pool''')
+md(r'''## Cell 7 - Train the clean ensemble (3 seeds) on the SCALED pool''')
 code(s24(15).replace("holo_clean_deploy_seed{seed}.pt", "holo_clean_deploy_scaled_seed{seed}.pt"))
 
-md(r'''## Cell 8 — Ground truth + featurize the sampled 1,000 structures (identical to Phase 24)''')
+md(r'''## Cell 8 - Ground truth + featurize the sampled 1,000 structures (identical to Phase 24)''')
 code(s24(17))
 
-md(r'''## Cell 9 — Featurize (dihedral + ESM2 + topology, identical pipeline; cache filename updated)''')
+md(r'''## Cell 9 - Featurize (dihedral + ESM2 + topology, identical pipeline; cache filename updated)''')
 code(s24(19).replace("phase24_raw_features.pkl", "phase33_raw_features.pkl"))
 
-md(r'''## Cell 10 — P2Rank on the same 1,000 structures (identical to Phase 24)''')
+md(r'''## Cell 10 - P2Rank on the same 1,000 structures (identical to Phase 24)''')
 code(s24(21))
 
-md(r'''## Cell 11 — Score, compare to literature AND to Phase 24/27b's original-pool numbers''')
+md(r'''## Cell 11 - Score, compare to literature AND to Phase 24/27b's original-pool numbers''')
 code(s24(23).replace("2056", "3577").replace("phase24_summary.json", "phase33_summary.json"))
 
 code(r'''

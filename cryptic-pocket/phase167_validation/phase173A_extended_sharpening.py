@@ -27,7 +27,7 @@ def dcc(error, threshold):
 
 
 print("=" * 100)
-print("PHASE 173A — EXTENDED PROBABILITY SHARPENING")
+print("PHASE 173A - EXTENDED PROBABILITY SHARPENING")
 print("=" * 100)
 
 pred = pd.read_csv(PRED_PATH)

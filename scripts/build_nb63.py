@@ -16,7 +16,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 63 — Combine and Score All Six Thread-1 Round-3 Arms
+# Phase 63 - Combine and Score All Six Thread-1 Round-3 Arms
 
 Loads all six already-trained arms (`full` from Phase53/56, `no_topo`
 salvaged from Phase58's cancelled run, `H0/H1/H2/burial_only` from
@@ -26,23 +26,23 @@ since Phase58 was cancelled before reaching this stage) and scoring, so it
 should be much cheaper than the training notebooks.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 52/51's round-3 scaled blobs, identical to Phase53/56/58-62)''')
+md(r'''## Cell 1 - Setup (loads Phase 52/51's round-3 scaled blobs, identical to Phase53/56/58-62)''')
 code(s58(2))
 code(s58(3))
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures (identical to Phase 53/56/58-62)''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures (identical to Phase 53/56/58-62)''')
 code(s58(5))
 
-md(r'''## Cell 3 — Rebuild the leakage-clean chain list (identical logic; needed only for the AA3_TO_1 dict this cell defines, not for training)''')
+md(r'''## Cell 3 - Rebuild the leakage-clean chain list (identical logic; needed only for the AA3_TO_1 dict this cell defines, not for training)''')
 code(s58(7))
 
-md(r'''## Cell 4 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 4 - Model (identical to every prior localization phase)''')
 code(s58(11))
 
-md(r'''## Cell 5 — Build H0 / H1 / H2 / burial column masks (identical to Phase 23/58-62)''')
+md(r'''## Cell 5 - Build H0 / H1 / H2 / burial column masks (identical to Phase 23/58-62)''')
 code(s58(15))
 
-md(r'''## Cell 6 — Load all six arms' checkpoints (matched 3 seeds each, no retraining)''')
+md(r'''## Cell 6 - Load all six arms' checkpoints (matched 3 seeds each, no retraining)''')
 code(r'''
 def load_arm(prefix, seeds=(0,1,2)):
     out = {}
@@ -71,17 +71,17 @@ assert all(len(m) == 3 for m in arm_models.values()), \
 print("\nall six arms matched at 3 seeds")
 ''')
 
-md(r'''## Cell 7 — Ground-truth ligands for ALL 420 COACH420 structures (identical to Phase 53/56/58-62)''')
+md(r'''## Cell 7 - Ground-truth ligands for ALL 420 COACH420 structures (identical to Phase 53/56/58-62)''')
 code(s58(19))
 
-md(r'''## Cell 8 — Featurize (identical pipeline: dihedral + ESM2 + topology; cache filename updated)''')
+md(r'''## Cell 8 - Featurize (identical pipeline: dihedral + ESM2 + topology; cache filename updated)''')
 code(s58(21).replace("cache/phase53_raw_features.pkl", "cache/phase63_raw_features.pkl"))
 
-md(r'''## Cell 9 — P2Rank on the FULL 420 (same-run controlled reference, identical to Phase 53/56/58-62)''')
+md(r'''## Cell 9 - P2Rank on the FULL 420 (same-run controlled reference, identical to Phase 53/56/58-62)''')
 code(s58(23).replace('Path("/tmp/p2_53")', 'Path("/tmp/p2_63")')
             .replace('Path("/tmp/p2_53_out")', 'Path("/tmp/p2_63_out")'))
 
-md(r'''## Cell 10 — Score all six arms, per-seed pairwise significance table''')
+md(r'''## Cell 10 - Score all six arms, per-seed pairwise significance table''')
 code(r'''
 mu, sd = blob6b["topo_mean"], blob6b["topo_std"]
 
@@ -150,7 +150,7 @@ for name in ranked:
 print(f"\nmatched 3-seed ranking: {' > '.join(ranked)}")
 ''')
 
-md(r'''## Cell 11 — Per-seed pairwise significance table across all four decomposition arms''')
+md(r'''## Cell 11 - Per-seed pairwise significance table across all four decomposition arms''')
 code(r'''
 def per_seed_dcc(arm_name):
     rates = []

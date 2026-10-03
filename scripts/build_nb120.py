@@ -22,7 +22,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 120 — CryptoBench + B-factor Flexibility Feature
+# Phase 120 - CryptoBench + B-factor Flexibility Feature
 
 Cryptic pockets are, by definition, regions that are apo-invisible but
 become pockets upon binding -- they require local flexibility. B-factors
@@ -33,16 +33,16 @@ then trains with-vs-without (same architecture, just zeroing the one
 column for the ablation) in the same run for direct comparison.
 ''')
 
-md(r'''## Cell 1 — Install dependencies (identical to Phase117)''')
+md(r'''## Cell 1 - Install dependencies (identical to Phase117)''')
 code(s117(2))
 
-md(r'''## Cell 2 — Setup, fetch CryptoBench's dataset.json + folds.json + noncryptic-pockets.json (identical to Phase117)''')
+md(r'''## Cell 2 - Setup, fetch CryptoBench's dataset.json + folds.json + noncryptic-pockets.json (identical to Phase117)''')
 code(s117(4))
 
-md(r'''## Cell 3 — Fetch apo structures (identical to Phase117)''')
+md(r'''## Cell 3 - Fetch apo structures (identical to Phase117)''')
 code(s117(6))
 
-md(r'''## Cell 4 — Parse apo chains, build labels -- NEW: also extract per-residue CA B-factor, per-chain z-scored''')
+md(r'''## Cell 4 - Parse apo chains, build labels -- NEW: also extract per-residue CA B-factor, per-chain z-scored''')
 code(s117(8)
      .replace('seq, ca, per_res, resnums = [], [], [], []',
                'seq, ca, per_res, resnums, bfac = [], [], [], [], []')
@@ -53,19 +53,19 @@ code(s117(8)
                '    bfac_z = (bfac - bfac.mean()) / (bfac.std() + 1e-6)   # per-chain relative flexibility\n'
                '    return dict(pdb_id=pid, chain_id=cid, seq="".join(seq), bfac=bfac_z,'))
 
-md(r'''## Cell 5 — Featuriser definitions (identical to Phase117)''')
+md(r'''## Cell 5 - Featuriser definitions (identical to Phase117)''')
 code(s117(10))
 
-md(r'''## Cell 6 — Compute topology (identical to Phase117)''')
+md(r'''## Cell 6 - Compute topology (identical to Phase117)''')
 code(s117(12))
 
-md(r'''## Cell 7 — Recompute backbone dihedrals (identical to Phase117)''')
+md(r'''## Cell 7 - Recompute backbone dihedrals (identical to Phase117)''')
 code(s117(14))
 
-md(r'''## Cell 8 — ESM2 embeddings (35M, identical to Phase117)''')
+md(r'''## Cell 8 - ESM2 embeddings (35M, identical to Phase117)''')
 code(s117(16))
 
-md(r'''## Cell 9 — Assemble PyG graphs -- NEW: insert the B-factor column right after ESM, before topology; track BFAC_COL_IDX for the ablation''')
+md(r'''## Cell 9 - Assemble PyG graphs -- NEW: insert the B-factor column right after ESM, before topology; track BFAC_COL_IDX for the ablation''')
 code(s117(18)
      .replace('N_PRE = 21 + 6 + ESM_DIM',
                'BFAC_COL_IDX = 21 + 6 + ESM_DIM   # index of the new B-factor column\n'
@@ -74,13 +74,13 @@ code(s117(18)
                'bfac_col = torch.from_numpy(r["bfac"]).unsqueeze(1).float()\n'
                '    x = torch.cat([onehot, dihed[i], esm_feats[i], bfac_col, topo_z], dim=1)'))
 
-md(r'''## Cell 10 — Carve val split, integrity checks, save (identical to Phase117 except output filename)''')
+md(r'''## Cell 10 - Carve val split, integrity checks, save (identical to Phase117 except output filename)''')
 code(s117(20).replace('phase117_cryptobench_graphs_aux.pt', 'phase120_cryptobench_graphs_bfactor.pt')
              .replace('"source": "CryptoBench (Skrhak et al. 2025, btae745) + noncryptic-pockets aux label"',
                        '"bfac_col_idx": BFAC_COL_IDX, '
                        '"source": "CryptoBench (Skrhak et al. 2025, btae745) + per-chain z-scored B-factor feature"'))
 
-md(r'''## Cell 11 — Model (identical to Phase118/119/121; imports needed here since fresh ingestion never needed them)''')
+md(r'''## Cell 11 - Model (identical to Phase118/119/121; imports needed here since fresh ingestion never needed them)''')
 code(r'''
 from torch_geometric.loader import DataLoader
 from torch_geometric.utils import softmax as pyg_softmax
@@ -156,7 +156,7 @@ print(f"device {DEVICE} | node dim {dataset[0].x.size(1)} | N_PRE {N_PRE} | TOPO
 WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True)
 ''')
 
-md(r'''## Cell 12 — Training machinery (identical pattern to Phase121)''')
+md(r'''## Cell 12 - Training machinery (identical pattern to Phase121)''')
 code(r'''
 def run_epoch(model, loader, opt=None, lam=0.0):
     tr = opt is not None; model.train(tr)
@@ -205,7 +205,7 @@ def fit(use_loc_head, lam, seed, epochs=40, patience=8, batch=16):
     return model, best
 ''')
 
-md(r'''## Cell 13 — Train WITH B-factor first (data pristine), then zero the one B-factor column for WITHOUT, same seed=0, same run (same architecture both arms -- avoids the RNG-shift confound from Phase119)''')
+md(r'''## Cell 13 - Train WITH B-factor first (data pristine), then zero the one B-factor column for WITHOUT, same seed=0, same run (same architecture both arms -- avoids the RNG-shift confound from Phase119)''')
 code(r'''
 BEST_LAMBDA = 0.1
 results = []

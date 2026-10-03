@@ -15,7 +15,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 93 — Does ESM2-3B Move COACH420 Past the Round-3 Plateau?
+# Phase 93 - Does ESM2-3B Move COACH420 Past the Round-3 Plateau?
 
 Round-3 data scale-up plateaued: 0.5956 (8-seed, Phase40, 2.6x) ->
 0.5932 (8-seed, Phase53-line, 3.65x) -- more DATA stopped helping. This
@@ -25,7 +25,7 @@ pool and all other pipeline stages identical to Phase53. 3-seed first
 pass, same discipline as every other new arm.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 96's ESM2-3B blob + Phase 51's topology)''')
+md(r'''## Cell 1 - Setup (loads Phase 96's ESM2-3B blob + Phase 51's topology)''')
 code(s20(2).replace('transformers==4.46.3', 'transformers==4.46.3 accelerate'))
 code(s20(3).replace('locate("phase10_graphs.pt")', 'locate("phase96_graphs_esm3b.pt")')
            .replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")')
@@ -33,28 +33,28 @@ code(s20(3).replace('locate("phase10_graphs.pt")', 'locate("phase96_graphs_esm3b
                      'dataset = blob10["dataset"]\n'
                      'for _d in dataset: _d.x = _d.x.float()   # Phase96 stores fp16 on disk (quota fix); upcast once here'))
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures (identical to Phase 20/31/38/53)''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures (identical to Phase 20/31/38/53)''')
 code(s20(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 20 v2/31/38/53)''')
+md(r'''## Cell 3 - Clean the TRAINING side: exclude any chain homologous to COACH420 (identical to Phase 20 v2/31/38/53)''')
 code(s20(7))
 
-md(r'''## Cell 4 — Recover true ligand centers for the cleaned training set (identical to Phase 20/31/38/53/14)''')
+md(r'''## Cell 4 - Recover true ligand centers for the cleaned training set (identical to Phase 20/31/38/53/14)''')
 code(s20(9))
 
-md(r'''## Cell 5 — Model (identical to every prior localization phase; N_PRE/TOPO_DIM read dynamically so this works unchanged at the new 2621-dim node width)''')
+md(r'''## Cell 5 - Model (identical to every prior localization phase; N_PRE/TOPO_DIM read dynamically so this works unchanged at the new 2621-dim node width)''')
 code(s20(11))
 
-md(r'''## Cell 6 — Equivariance check before training anything (identical to Phase 20/31/38/53)''')
+md(r'''## Cell 6 - Equivariance check before training anything (identical to Phase 20/31/38/53)''')
 code(s20(13))
 
-md(r'''## Cell 7 — Training machinery (identical to Phase 14/20/31/38/53)''')
+md(r'''## Cell 7 - Training machinery (identical to Phase 14/20/31/38/53)''')
 code(s20(15))
 
-md(r'''## Cell 8 — Train the clean-training ensemble (3 seeds, lambda=0.1) on the ESM2-3B blob''')
+md(r'''## Cell 8 - Train the clean-training ensemble (3 seeds, lambda=0.1) on the ESM2-3B blob''')
 code(s20(17).replace("clean_deploy_seed{seed}.pt", "clean_deploy_esm3b_seed{seed}.pt"))
 
-md(r'''## Cell 8b — Free memory AND disk before loading a second ESM2-3B model (v3/v4 both still died at the identical ~30s-into-load point despite freeing dataset/splits/blob10 -- diagnostics added this round since 3 memory-only fixes in a row made zero difference to the failure point, suggesting the real ceiling may be DISK, not RAM: `RAW`/`/tmp/pdb_raw` accumulates BOTH the ~7,086 training-side PDB downloads (Cell 4, no longer needed after true-center recovery) AND the 420 COACH420 files (still needed for Cell 10's dihedral recomputation) -- prune everything except what's still needed)''')
+md(r'''## Cell 8b - Free memory AND disk before loading a second ESM2-3B model (v3/v4 both still died at the identical ~30s-into-load point despite freeing dataset/splits/blob10 -- diagnostics added this round since 3 memory-only fixes in a row made zero difference to the failure point, suggesting the real ceiling may be DISK, not RAM: `RAW`/`/tmp/pdb_raw` accumulates BOTH the ~7,086 training-side PDB downloads (Cell 4, no longer needed after true-center recovery) AND the 420 COACH420 files (still needed for Cell 10's dihedral recomputation) -- prune everything except what's still needed)''')
 code(r'''
 import gc, shutil
 
@@ -103,10 +103,10 @@ print("disk/memory usage AFTER cleanup:")
 _disk("after"); _mem("after")
 ''')
 
-md(r'''## Cell 9 — Ground-truth ligands for ALL 420 COACH420 structures (identical to Phase 20/31/38/53)''')
+md(r'''## Cell 9 - Ground-truth ligands for ALL 420 COACH420 structures (identical to Phase 20/31/38/53)''')
 code(s20(19))
 
-md(r'''## Cell 10 — Featurize (dihedral + ESM2-3B + topology; cache filename updated)''')
+md(r'''## Cell 10 - Featurize (dihedral + ESM2-3B + topology; cache filename updated)''')
 code(s20(21).replace("cache/phase20_raw_features.pkl", "cache/phase93_raw_features.pkl")
             .replace('AutoTokenizer.from_pretrained("facebook/esm2_t12_35M_UR50D")',
                       'AutoTokenizer.from_pretrained("facebook/esm2_t36_3B_UR50D")')
@@ -120,11 +120,11 @@ code(s20(21).replace("cache/phase20_raw_features.pkl", "cache/phase93_raw_featur
                       'print("loading ESM2-3B now...")\n'
                       'tok = AutoTokenizer.from_pretrained("facebook/esm2_t36_3B_UR50D")'))
 
-md(r'''## Cell 11 — P2Rank on the FULL 420 (same-run controlled reference, identical to Phase 20/31/38/53)''')
+md(r'''## Cell 11 - P2Rank on the FULL 420 (same-run controlled reference, identical to Phase 20/31/38/53)''')
 code(s20(23).replace('Path("/tmp/p2_20")', 'Path("/tmp/p2_93")')
             .replace('Path("/tmp/p2_20_out")', 'Path("/tmp/p2_93_out")'))
 
-md(r'''## Cell 12 — Score both, compare to literature AND to the 35M-vs-3B comparison''')
+md(r'''## Cell 12 - Score both, compare to literature AND to the 35M-vs-3B comparison''')
 code(s20(25).replace("phase20_summary.json", "phase93_summary.json")
             .replace('"n_train_clean": len(dataset)},', '"n_train_clean": N_TRAIN_CHAINS},'))
 

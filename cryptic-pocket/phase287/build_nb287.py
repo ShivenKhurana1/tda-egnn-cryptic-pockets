@@ -49,11 +49,11 @@ Baseline (h128L4, no global attention) is RERUN fresh here (not reused from Phas
 full per-seed val+test predictions in the same format, enabling a proper paired two-test-rule comparison.
 Everything else -- data, loss, optimiser, early stopping -- is identical to Phase 154.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1")
-md("## Cell 2 — Setup: load Phase 45's CryptoBench-650M blob (identical to Phase 154)")
+md("## Cell 2 - Setup: load Phase 45's CryptoBench-650M blob (identical to Phase 154)")
 code(s154(4))
-md("## Cell 3 — Model, with an optional global self-attention block after the EGCL stack (new parameters; from-scratch only)")
+md("## Cell 3 - Model, with an optional global self-attention block after the EGCL stack (new parameters; from-scratch only)")
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -134,7 +134,7 @@ class LocalizingEGNN(nn.Module):
             pred_center = torch.zeros(n_graphs, 3, device=h.device).index_add_(0, batch, weighted)
         return logits, pred_center
 ''')
-md("## Cell 4 — Equivariance check (global-attn arm; rotate a batch, confirm the predicted center still rotates correspondingly)")
+md("## Cell 4 - Equivariance check (global-attn arm; rotate a batch, confirm the predicted center still rotates correspondingly)")
 code(r'''
 torch.manual_seed(0)
 _probe = splits["val"][0].clone()
@@ -154,12 +154,12 @@ print(f"equivariance check (global attention): max error {err:.2e} (expect ~1e-5
 assert err < 1e-3, "equivariance broken -- do not proceed to training"
 del _m, _probe, _rot, c_ref, c_rot
 ''')
-md("## Cell 5 — Training machinery (Phase 154, unchanged)")
+md("## Cell 5 - Training machinery (Phase 154, unchanged)")
 code(s154(8).replace("model = LocalizingEGNN(N_PRE, TOPO_DIM, use_loc_head=use_loc_head, L=L).to(DEVICE)",
                      "model = LocalizingEGNN(N_PRE, TOPO_DIM, use_loc_head=use_loc_head, L=L, use_global_attn=use_global_attn).to(DEVICE)")
           .replace("def fit(use_loc_head, lam, seed, L=4, epochs=40, patience=8, batch=16):",
                    "def fit(use_loc_head, lam, seed, L=4, use_global_attn=False, epochs=40, patience=8, batch=16):"))
-md("## Cell 6 — Train BOTH arms (baseline rerun + global-attn) x 8 seeds from scratch; save per-seed val+test predictions and centers")
+md("## Cell 6 - Train BOTH arms (baseline rerun + global-attn) x 8 seeds from scratch; save per-seed val+test predictions and centers")
 code(r'''
 @torch.no_grad()
 def predict(model, split):

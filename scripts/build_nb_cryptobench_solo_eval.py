@@ -21,7 +21,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(f'''
-# Phase {PHASE_NUM} — CryptoBench {SCALE_TAG}-Transfer: Score-Only Eval
+# Phase {PHASE_NUM} - CryptoBench {SCALE_TAG}-Transfer: Score-Only Eval
 
 Loads the 8 transfer-learned {SCALE_TAG} checkpoints, builds the ensemble,
 tunes threshold on VAL only, evaluates on TEST -- fills in the AUPRC/F1/DCC
@@ -30,16 +30,16 @@ cross-scale ensemble (Phase130/148 only tracked AUC/MCC for the ensemble
 math, not the full per-scale metric set).
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s46(2))
 
-md(f'''## Cell 2 — Setup, load the {SCALE_TAG} CryptoBench blob''')
+md(f'''## Cell 2 - Setup, load the {SCALE_TAG} CryptoBench blob''')
 code(s46(3).replace('phase45_cryptobench_graphs_esm650m.pt', BLOB_FILE))
 
-md(r'''## Cell 3 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 3 - Model (identical to every prior localization phase)''')
 code(s46(5))
 
-md(f'''## Cell 4 — Load the 8 transfer-learned {SCALE_TAG} checkpoints into an ensemble''')
+md(f'''## Cell 4 - Load the 8 transfer-learned {SCALE_TAG} checkpoints into an ensemble''')
 code(f'''
 ensemble = []
 for seed in range(8):
@@ -51,13 +51,13 @@ for seed in range(8):
 print(f"loaded {{len(ensemble)}} {SCALE_TAG}-transfer checkpoints into ensemble")
 ''')
 
-md(r'''## Cell 5 — Pick a decision threshold on VAL ONLY (never touch test for this), then evaluate on TEST''')
+md(r'''## Cell 5 - Pick a decision threshold on VAL ONLY (never touch test for this), then evaluate on TEST''')
 code(s46(11))
 
-md(r'''## Cell 6 — Field-standard residue classification metrics on TEST (pooled)''')
+md(r'''## Cell 6 - Field-standard residue classification metrics on TEST (pooled)''')
 code(s46(13))
 
-md(r'''## Cell 7 — Our own localization-head metric (novel -- no prior baseline exists for this exact task)''')
+md(r'''## Cell 7 - Our own localization-head metric (novel -- no prior baseline exists for this exact task)''')
 code(s46(15).replace('phase43_summary.json', f'phase{PHASE_NUM}_summary.json')
             .replace('saved -> phase43_summary.json', f'saved -> phase{PHASE_NUM}_summary.json'))
 

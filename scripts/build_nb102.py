@@ -15,7 +15,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 102 — COACH420 ESM2-3B: 8-Seed Rescore
+# Phase 102 - COACH420 ESM2-3B: 8-Seed Rescore
 
 Phase98's 3-seed result was DCC 0.6053, already beating the 8-seed 35M
 baseline (0.5932). This loads all 8 seeds (Phase97's 0-2 + Phase101's
@@ -23,10 +23,10 @@ baseline (0.5932). This loads all 8 seeds (Phase97's 0-2 + Phase101's
 Phase98 otherwise (same lightweight setup, same fresh ESM2-3B load).
 ''')
 
-md(r'''## Cell 0 — Install dependencies''')
+md(r'''## Cell 0 - Install dependencies''')
 code(s20(2).replace('transformers==4.46.3', 'transformers==4.46.3 accelerate'))
 
-md(r'''## Cell 1 — Lightweight setup: Phase51's small topology blob only, hardcoded N_PRE/TOPO_DIM/ESM_DIM (identical to Phase98)''')
+md(r'''## Cell 1 - Lightweight setup: Phase51's small topology blob only, hardcoded N_PRE/TOPO_DIM/ESM_DIM (identical to Phase98)''')
 code(r'''
 import csv as _csv
 import gzip, json, os, pickle, shutil, subprocess, time, urllib.request, warnings
@@ -77,13 +77,13 @@ WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True
 RAW = Path("/tmp/pdb_raw"); RAW.mkdir(parents=True, exist_ok=True)
 ''')
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures''')
 code(s20(5))
 
-md(r'''## Cell 3 — Model''')
+md(r'''## Cell 3 - Model''')
 code(s20(11))
 
-md(r'''## Cell 4 — Load all 8 trained checkpoints (Phase97 seeds 0-2 + Phase101 seeds 3-7)''')
+md(r'''## Cell 4 - Load all 8 trained checkpoints (Phase97 seeds 0-2 + Phase101 seeds 3-7)''')
 code(r'''
 ensemble = []
 for seed in range(8):
@@ -96,10 +96,10 @@ for seed in range(8):
 print(f"ensemble of {len(ensemble)} trained models ready (full 8-seed)")
 ''')
 
-md(r'''## Cell 5 — Ground-truth ligands for ALL 420 COACH420 structures''')
+md(r'''## Cell 5 - Ground-truth ligands for ALL 420 COACH420 structures''')
 code(s20(19))
 
-md(r'''## Cell 6 — Featurize (dihedral + ESM2-3B + topology; identical to Phase98)''')
+md(r'''## Cell 6 - Featurize (dihedral + ESM2-3B + topology; identical to Phase98)''')
 code(s20(21).replace("cache/phase20_raw_features.pkl", "cache/phase102_raw_features.pkl")
             .replace('AutoTokenizer.from_pretrained("facebook/esm2_t12_35M_UR50D")',
                       'AutoTokenizer.from_pretrained("facebook/esm2_t36_3B_UR50D")')
@@ -110,11 +110,11 @@ code(s20(21).replace("cache/phase20_raw_features.pkl", "cache/phase102_raw_featu
             .replace('out = esm(**enc).last_hidden_state\n    return out[0,1:1+len(seq),:].float().cpu()',
                       'out = esm(**enc).last_hidden_state\n    return out[0,1:1+len(seq),:].float().cpu()  # 3B model is fp16; upcast here'))
 
-md(r'''## Cell 7 — P2Rank on the FULL 420''')
+md(r'''## Cell 7 - P2Rank on the FULL 420''')
 code(s20(23).replace('Path("/tmp/p2_20")', 'Path("/tmp/p2_102")')
             .replace('Path("/tmp/p2_20_out")', 'Path("/tmp/p2_102_out")'))
 
-md(r'''## Cell 8 — Score, compare to literature AND the 3-seed/8-seed/35M comparison''')
+md(r'''## Cell 8 - Score, compare to literature AND the 3-seed/8-seed/35M comparison''')
 code(s20(25).replace("phase20_summary.json", "phase102_summary.json")
             .replace('"n_train_excluded": len(leaked_train_keys),\n           "n_train_clean": len(dataset)},',
                       '"n_train_excluded": 332, "n_train_clean": 7181},  # from Phase97\'s own log'))

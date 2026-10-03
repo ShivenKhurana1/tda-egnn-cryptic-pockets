@@ -17,7 +17,7 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(f'''
-# Phase 230{TAG} — Does the main-pipeline topology gain survive a plain-geometry control? (folds {FOLDS[0]}–{FOLDS[-1]})
+# Phase 230{TAG} - Does the main-pipeline topology gain survive a plain-geometry control? (folds {FOLDS[0]}–{FOLDS[-1]})
 
 Phase 11 (10-fold x 2 seeds, 2,056 homology-clean chains, ESM2-35M + dihedrals): topology added +0.032 PR-AUC
 over a 2-feature burial baseline, 10/10 folds. Phase 228 (CryptoBench) then showed topology adds nothing
@@ -32,9 +32,9 @@ for early stopping, 40 epochs, patience 8, same model/loss). The gated side chan
 them; the two halves are merged locally). No thresholded metric is reported: Phase 11's MCC picked its threshold on
 the test predictions, so it is omitted here. Test data never influences early stopping.
 ''')
-md("## Cell 1 — Setup")
+md("## Cell 1 - Setup")
 code("!pip install -q torch-geometric==2.6.1 biopython==1.84")
-md("## Cell 2 — Load Phase 10 graphs and the Phase 229 geometry")
+md("## Cell 2 - Load Phase 10 graphs and the Phase 229 geometry")
 code(r'''
 import json, os, time, warnings
 from pathlib import Path
@@ -84,9 +84,9 @@ if torch.cuda.is_available():
 DEVICE = torch.device("cuda" if GPU_OK else "cpu")
 assert len({d.cluster for d in dataset}) == len(dataset), "not 1 chain per cluster"
 ''')
-md("## Cell 3 — Model and training machinery (Phase 11, unchanged)")
+md("## Cell 3 - Model and training machinery (Phase 11, unchanged)")
 code(src(8))
-md("## Cell 4 — Arms and the nested CV loop")
+md("## Cell 4 - Arms and the nested CV loop")
 code(f'''
 FOLDS_TO_RUN = {FOLDS}
 ''' + r'''
@@ -137,7 +137,7 @@ for arm in ARMS:
 print(f"\n{len(records)} runs in {(time.time()-t0)/60:.1f} min")
 json.dump({"records": records, "folds": FOLDS_TO_RUN}, open(f"/kaggle/working/phase230__TAG__records.json","w"), indent=2, default=float)
 '''.replace("__TAG__", TAG))
-md("## Cell 5 — Partial summary (final paired statistics are computed after merging both halves)")
+md("## Cell 5 - Partial summary (final paired statistics are computed after merging both halves)")
 code(r'''
 import pandas as pd
 df = pd.DataFrame(records)

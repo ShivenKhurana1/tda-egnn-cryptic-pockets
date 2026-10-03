@@ -20,7 +20,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 130 — CryptoBench: All 3 Confirmed Wins Combined
+# Phase 130 - CryptoBench: All 3 Confirmed Wins Combined
 
 Topology (baked into every model), transfer learning (35M: Phase122+128,
 +0.0218 val PR confirmed; 3B: Phase129, new), cross-scale ensemble
@@ -29,13 +29,13 @@ stays from-scratch. Compares against the prior best all-from-scratch
 ensemble (AUC 0.9000, MCC 0.4260, Phase124).
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(s124(2))
 
-md(r'''## Cell 2 — Model (identical to every CryptoBench phase)''')
+md(r'''## Cell 2 - Model (identical to every CryptoBench phase)''')
 code(s124(4))
 
-md(r'''## Cell 3 — Load each scale''' + "'" + r'''s blob + 8 checkpoints (35M and 3B: transfer-learned; 650M: from-scratch), predict on VAL and TEST''')
+md(r'''## Cell 3 - Load each scale''' + "'" + r'''s blob + 8 checkpoints (35M and 3B: transfer-learned; 650M: from-scratch), predict on VAL and TEST''')
 code(r'''
 SCALES = {
     "35M":  dict(blob="phase42_cryptobench_graphs.pt",       ckpt_prefix="cryptobench_transfer_seed"),
@@ -78,7 +78,7 @@ for split_name, keys_dict in [("val", scale_val_keys), ("test", scale_test_keys)
 print(f"\nalignment verified on both val and test across all 3 scales")
 ''')
 
-md(r'''## Cell 4 — Cross-scale ensemble, threshold tuned on VAL ONLY, applied to TEST''')
+md(r'''## Cell 4 - Cross-scale ensemble, threshold tuned on VAL ONLY, applied to TEST''')
 code(r'''
 def metrics_at(p, y, thresh):
     pred = (p >= thresh).astype(int)

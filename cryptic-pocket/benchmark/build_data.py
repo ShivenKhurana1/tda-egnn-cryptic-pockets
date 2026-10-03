@@ -33,7 +33,7 @@ D = dict(
   dict(m="P2Rank 2.5, same protocol as above", set="192 units", auc=.793, pr=.358, mcc=.285, f1=.302, note="reported in the same paper", src="acf"),
  ],
  pocketminer=[
-  dict(m="PocketMiner", set="its own test set, 35 proteins", auc="0.87", pr="—", note="value as reported in its paper"),
+  dict(m="PocketMiner", set="its own test set, 35 proteins", auc="0.87", pr="-", note="value as reported in its paper"),
   dict(m="TDA-EGNN (this work)", set="same set, 34 usable proteins, pooled", auc="0.925", pr="0.897", ours=True, note="0.920 on the 6 proteins with no relative in training data"),
   dict(m="ProMoSite", set="19-pair filtered subset only", auc="0.91", pr="0.84", note="different subset, so not comparable", src="promosite"),
   dict(m="AE-PocketMiner (bioRxiv, May 2026)", set="PocketMiner test set", auc="not retrieved", pr="not retrieved", note="reported to beat PocketMiner; the numbers could not be read from the preprint", src="aepm"),

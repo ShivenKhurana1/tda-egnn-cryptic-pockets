@@ -18,15 +18,15 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(f'''
-# Phase 266b — ESM2-3B main-pipeline pretraining, homology-clean vs CryptoBench val/test (8 seeds)
+# Phase 266b - ESM2-3B main-pipeline pretraining, homology-clean vs CryptoBench val/test (8 seeds)
 
 Seeds the homology-clean CryptoBench transfer (Phase 266c). Phase 97's recipe on the 3B blob (Phase 96), COACH420-clean list and true centres
 from Phase 251, minus every chain homologous (>=30% id) to a CryptoBench val/test chain (Phase 266a). Topology-only arm in the 51-wide format
 (geometry columns zeroed, as in Phase 263 `full`), so results compare directly with Phase 264 `full`.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1")
-md("## Cell 2 — Load the Phase 96 3B blob, Phase 251 clean list + centres, Phase 250 geometry")
+md("## Cell 2 - Load the Phase 96 3B blob, Phase 251 clean list + centres, Phase 250 geometry")
 code(r'''
 import gzip, json, os, time, warnings
 from pathlib import Path
@@ -96,13 +96,13 @@ splits = {"val": [dataset[i] for i in perm[:n_val]], "train": [dataset[i] for i 
 print(f"node dim {dataset[0].x.size(1)} = {N_PRE} + {TOPO_DIM} + {GEOM_DIM}; train {len(splits['train'])} / val {len(splits['val'])}")
 assert dataset[0].x.size(1) == N_PRE + SIDE_DIM
 ''')
-md("## Cell 3 — Model (Phase 97, verbatim)")
+md("## Cell 3 - Model (Phase 97, verbatim)")
 code(s97(11))
-md("## Cell 4 — Training machinery (Phase 97, side-channel width parameterised, fp16 -> fp32 cast per batch)")
+md("## Cell 4 - Training machinery (Phase 97, side-channel width parameterised, fp16 -> fp32 cast per batch)")
 t = s97(15).replace("LocalizingEGNN(N_PRE, TOPO_DIM, use_loc_head=use_loc_head)", "LocalizingEGNN(N_PRE, SIDE_DIM, use_loc_head=use_loc_head)")
 assert t.count("b = b.to(DEVICE)") == 1
 code(t.replace("b = b.to(DEVICE)", "b = b.to(DEVICE); b.x = b.x.float()"))
-md(f"## Cell 5 — Train arm `{ARM}` x 8 seeds")
+md(f"## Cell 5 - Train arm `{ARM}` x 8 seeds")
 code(f'''
 ARM = "{ARM}"
 ''' + r'''

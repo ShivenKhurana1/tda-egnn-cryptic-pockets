@@ -21,7 +21,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 112 — Model-Capacity Sweep at Round-3 Scale
+# Phase 112 - Model-Capacity Sweep at Round-3 Scale
 
 Phase8's capacity sweep (h=128/L=4/dropout=0.1 vs 5 alternatives) found
 no benefit from tuning -- but that was on the ORIGINAL 2,056-chain pool.
@@ -31,27 +31,27 @@ overfitting 2,056 chains may be underfitting 7,181. Tests GNN capacity
 (Thread 5, closed null) -- uses the cheap, proven 35M ESM round-3 blob.
 ''')
 
-md(r'''## Cell 1 — Setup (loads Phase 52's round-3 35M-ESM blob)''')
+md(r'''## Cell 1 - Setup (loads Phase 52's round-3 35M-ESM blob)''')
 code(s20(2))
 code(s20(3).replace('locate("phase10_graphs.pt")', 'locate("phase52_graphs.pt")')
            .replace('locate("phase6b_graphs.pt")', 'locate("phase51_graphs.pt")'))
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures''')
 code(s20(5))
 
-md(r'''## Cell 3 — Clean the TRAINING side: exclude any chain homologous to COACH420''')
+md(r'''## Cell 3 - Clean the TRAINING side: exclude any chain homologous to COACH420''')
 code(s20(7))
 
-md(r'''## Cell 4 — Recover true ligand centers for the cleaned training set''')
+md(r'''## Cell 4 - Recover true ligand centers for the cleaned training set''')
 code(s20(9))
 
-md(r'''## Cell 5 — Model class (identical to every prior localization phase)''')
+md(r'''## Cell 5 - Model class (identical to every prior localization phase)''')
 code(s20(11))
 
-md(r'''## Cell 6 — Training machinery (run_epoch is capacity-agnostic, reused as-is; fit() is NOT used here -- replaced by the sweep loop below)''')
+md(r'''## Cell 6 - Training machinery (run_epoch is capacity-agnostic, reused as-is; fit() is NOT used here -- replaced by the sweep loop below)''')
 code(s20(15).split("\n\ndef fit(")[0])
 
-md(r'''## Cell 7 — Capacity sweep: 6 configs, single seed each (cheap sanity pass)''')
+md(r'''## Cell 7 - Capacity sweep: 6 configs, single seed each (cheap sanity pass)''')
 code(r'''
 CONFIGS = [
     dict(h=128, L=4, dr=0.1, name="h128_L4_dr.1 (Phase8 default)"),

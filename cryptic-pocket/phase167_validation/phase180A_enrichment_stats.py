@@ -12,7 +12,7 @@ SUMMARY = BASE / "phase180A_enrichment_stats_summary.csv"
 df = pd.read_csv(INPUT)
 
 print("=" * 110)
-print("PHASE 180A — PROTEIN-LEVEL CENTER-PROXIMITY ENRICHMENT STATISTICS")
+print("PHASE 180A - PROTEIN-LEVEL CENTER-PROXIMITY ENRICHMENT STATISTICS")
 print("=" * 110)
 
 print("Input:", df.shape)

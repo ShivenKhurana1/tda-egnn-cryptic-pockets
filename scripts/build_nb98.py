@@ -20,7 +20,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 98 — COACH420 ESM2-3B: SCORE-ONLY
+# Phase 98 - COACH420 ESM2-3B: SCORE-ONLY
 
 Second half of the Phase93 split (see Phase97). Loads Phase97's 3 trained
 checkpoints fresh (rebuilding `LocalizingEGNN` from the same N_PRE=2587/
@@ -31,10 +31,10 @@ itself, unlike Phase93 v2-v6 which all crashed doing this in the same
 process as training.
 ''')
 
-md(r'''## Cell 0 — Install dependencies (a fresh kernel needs this too -- v1 of this notebook forgot it entirely, ModuleNotFoundError on torch_geometric)''')
+md(r'''## Cell 0 - Install dependencies (a fresh kernel needs this too -- v1 of this notebook forgot it entirely, ModuleNotFoundError on torch_geometric)''')
 code(s20(2).replace('transformers==4.46.3', 'transformers==4.46.3 accelerate'))
 
-md(r'''## Cell 1 — Lightweight setup: Phase51's small topology blob only (NOT Phase96's big training blob), hardcoded N_PRE/TOPO_DIM/ESM_DIM (confirmed via Phase96/97's own log: node dim 2621 = 21+6+2560+34)''')
+md(r'''## Cell 1 - Lightweight setup: Phase51's small topology blob only (NOT Phase96's big training blob), hardcoded N_PRE/TOPO_DIM/ESM_DIM (confirmed via Phase96/97's own log: node dim 2621 = 21+6+2560+34)''')
 code(r'''
 import csv as _csv
 import gzip, json, os, pickle, shutil, subprocess, time, urllib.request, warnings
@@ -85,13 +85,13 @@ WORK = Path("/kaggle/working"); (WORK/"cache").mkdir(parents=True, exist_ok=True
 RAW = Path("/tmp/pdb_raw"); RAW.mkdir(parents=True, exist_ok=True)
 ''')
 
-md(r'''## Cell 2 — Fetch ALL 420 COACH420 structures (identical to Phase 20/31/38/53/93/97)''')
+md(r'''## Cell 2 - Fetch ALL 420 COACH420 structures (identical to Phase 20/31/38/53/93/97)''')
 code(s20(5))
 
-md(r'''## Cell 3 — Model (identical to every prior localization phase -- needed here to reconstruct the trained architecture for loading checkpoints)''')
+md(r'''## Cell 3 - Model (identical to every prior localization phase -- needed here to reconstruct the trained architecture for loading checkpoints)''')
 code(s20(11))
 
-md(r'''## Cell 4 — Load Phase97's 3 trained checkpoints into fresh model instances''')
+md(r'''## Cell 4 - Load Phase97's 3 trained checkpoints into fresh model instances''')
 code(r'''
 ensemble = []
 for seed in (0, 1, 2):
@@ -104,10 +104,10 @@ for seed in (0, 1, 2):
 print(f"ensemble of {len(ensemble)} trained models ready")
 ''')
 
-md(r'''## Cell 5 — Ground-truth ligands for ALL 420 COACH420 structures (identical to Phase 20/31/38/53/93)''')
+md(r'''## Cell 5 - Ground-truth ligands for ALL 420 COACH420 structures (identical to Phase 20/31/38/53/93)''')
 code(s20(19))
 
-md(r'''## Cell 6 — Featurize (dihedral + ESM2-3B + topology; ESM2-3B loaded fresh here, full RAM budget available since training never ran in this process)''')
+md(r'''## Cell 6 - Featurize (dihedral + ESM2-3B + topology; ESM2-3B loaded fresh here, full RAM budget available since training never ran in this process)''')
 code(s20(21).replace("cache/phase20_raw_features.pkl", "cache/phase98_raw_features.pkl")
             .replace('AutoTokenizer.from_pretrained("facebook/esm2_t12_35M_UR50D")',
                       'AutoTokenizer.from_pretrained("facebook/esm2_t36_3B_UR50D")')
@@ -119,11 +119,11 @@ code(s20(21).replace("cache/phase20_raw_features.pkl", "cache/phase98_raw_featur
             .replace('out = esm(**enc).last_hidden_state\n    return out[0,1:1+len(seq),:].float().cpu()',
                       'out = esm(**enc).last_hidden_state\n    return out[0,1:1+len(seq),:].float().cpu()  # 3B model is fp16; upcast here'))
 
-md(r'''## Cell 7 — P2Rank on the FULL 420 (same-run controlled reference, identical to Phase 20/31/38/53/93)''')
+md(r'''## Cell 7 - P2Rank on the FULL 420 (same-run controlled reference, identical to Phase 20/31/38/53/93)''')
 code(s20(23).replace('Path("/tmp/p2_20")', 'Path("/tmp/p2_98")')
             .replace('Path("/tmp/p2_20_out")', 'Path("/tmp/p2_98_out")'))
 
-md(r'''## Cell 8 — Score both, compare to literature AND to the 35M-vs-3B comparison''')
+md(r'''## Cell 8 - Score both, compare to literature AND to the 35M-vs-3B comparison''')
 code(s20(25).replace("phase20_summary.json", "phase98_summary.json")
             .replace('"n_train_excluded": len(leaked_train_keys),\n           "n_train_clean": len(dataset)},',
                       '"n_train_excluded": 332, "n_train_clean": 7181},  # from Phase97\'s own log'))

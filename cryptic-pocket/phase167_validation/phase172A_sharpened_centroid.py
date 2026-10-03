@@ -8,7 +8,7 @@ GRAPH_FILE = "phase159_input/phase159_cryptobench_anmmsf_graphs.pt"
 OUTPUT = "phase167_validation/phase172A_sharpened_centroid.csv"
 
 print("=" * 100)
-print("PHASE 172A — SHARPENED PROBABILITY CENTROID")
+print("PHASE 172A - SHARPENED PROBABILITY CENTROID")
 print("=" * 100)
 
 pred = pd.read_csv(PRED_FILE)

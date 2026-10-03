@@ -22,9 +22,9 @@ Same checkpoints, same 8 seeds, same official val/test as Phase 266c. Training d
 homology-clean "preformed"/"neither" chains from an independent benchmark (Phase 280a/280b) -- real labelled apo/holo pairs never used
 anywhere in this project before. Validation-only selection; test predictions are saved, not used for any choice.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1")
-md("## Cell 2 — Setup: Phase 48's CryptoBench-3B blob + Phase 227's geometry")
+md("## Cell 2 - Setup: Phase 48's CryptoBench-3B blob + Phase 227's geometry")
 code(s129(4) + r'''
 
 geo = torch.load(locate("phase227_geometry_features.pt"), map_location="cpu", weights_only=False)
@@ -51,9 +51,9 @@ for d in extra:
 n_official = len(splits["train"]); splits["train"] = splits["train"] + extra
 print(f"extra homology-clean training chains added: {len(extra)}  (official {n_official} -> total {len(splits['train'])})")
 ''')
-md("## Cell 3 — Model (Phase 129, verbatim)")
+md("## Cell 3 - Model (Phase 129, verbatim)")
 code(s129(6))
-md("## Cell 4 — Training machinery (Phase 129, width-parameterised; fit() loads the seed-matched pretrained state)")
+md("## Cell 4 - Training machinery (Phase 129, width-parameterised; fit() loads the seed-matched pretrained state)")
 code(s129(8).replace("LocalizingEGNN(N_PRE, TOPO_DIM, use_loc_head=use_loc_head)", "LocalizingEGNN(N_PRE, SIDE_DIM, use_loc_head=use_loc_head)"))
 md(f"## Cell 5 - Fine-tune arm `{ARM}` x 8 seeds from Phase 263 seed-matched checkpoints; save per-residue probabilities and predicted centers")
 code(f'''

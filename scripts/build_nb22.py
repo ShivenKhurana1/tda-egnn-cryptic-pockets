@@ -15,10 +15,10 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 22 — Is "Topology Helps Localization" Real, or Also Seed Noise?
+# Phase 22 - Is "Topology Helps Localization" Real, or Also Seed Noise?
 
 Phase 18 found topology improves pocket-center localization specifically
-(+0.0289 pooled DCC), not just classification — a genuinely novel claim, since
+(+0.0289 pooled DCC), not just classification - a genuinely novel claim, since
 no prior work combines trained equivariant localization with topological
 features. But it was a **single run**, exactly the kind of number Phase 21
 just showed can be dominated by seed variance (a 0.027 single-seed std against
@@ -30,10 +30,10 @@ interesting result.
 18's 3 `no_topo` checkpoints are loaded, not retrained. 5 more seeds are
 trained per arm (8 total each), and all scoring happens on Phase 15's already
 -cached benchmark features (COACH420 + HOLO4K, the full 1,149-unit
-leakage-clean set) — no re-fetching, no re-featurization.
+leakage-clean set) - no re-fetching, no re-featurization.
 ''')
 
-md(r'''## Cell 1 — Setup, rebuild training data with true centers (Phase 14 logic)''')
+md(r'''## Cell 1 - Setup, rebuild training data with true centers (Phase 14 logic)''')
 code(r'''
 !pip install -q torch-geometric==2.6.1 biopython==1.84
 ''')
@@ -56,14 +56,14 @@ n_tr, n_va = len(splits["train"]), len(splits["val"])
 print(f"deployment training: {n_tr} train / {n_va} val  (matches Phase 15/18's 2,056-chain setup)")
 ''')
 
-md(r'''## Cell 2 — Model (identical to Phase 14/15/18)''')
+md(r'''## Cell 2 - Model (identical to Phase 14/15/18)''')
 code(s14(7))
 
-md(r'''## Cell 3 — Training machinery (identical to Phase 14)''')
+md(r'''## Cell 3 - Training machinery (identical to Phase 14)''')
 code(s14(11))
 
 md(r'''
-## Cell 4 — Load existing checkpoints, train 5 more seeds per arm (8 total)
+## Cell 4 - Load existing checkpoints, train 5 more seeds per arm (8 total)
 
 Topology is zeroed for the `no_topo` arm during training, exactly as Phase 18
 did it -- same architecture, same budget, only the input differs.
@@ -122,7 +122,7 @@ restore_topology()
 print(f"\n{len(full_models)} 'full' + {len(notopo_models)} 'no_topo' seeds available (0-7 each)")
 ''')
 
-md(r'''## Cell 5 — Load Phase 15's cached benchmark features (COACH420 + HOLO4K, no re-fetch)''')
+md(r'''## Cell 5 - Load Phase 15's cached benchmark features (COACH420 + HOLO4K, no re-fetch)''')
 code(r'''
 def locate(f):
     c=[]
@@ -139,7 +139,7 @@ blob6b_bench = torch.load(locate("phase6b_graphs.pt"), map_location="cpu", weigh
 mu_b, sd_b = blob6b_bench["topo_mean"], blob6b_bench["topo_std"]
 ''')
 
-md(r'''## Cell 6 — Per-seed and per-ensemble-size DCC, both arms''')
+md(r'''## Cell 6 - Per-seed and per-ensemble-size DCC, both arms''')
 code(r'''
 from collections import defaultdict
 
@@ -220,7 +220,7 @@ print(f"per-seed paired delta: mean {(full_seed_dccs-notopo_seed_dccs).mean():+.
       f"wins {(full_seed_dccs>notopo_seed_dccs).sum()}/8")
 ''')
 
-md(r'''## Cell 7 — Ensemble-size sweep for both arms''')
+md(r'''## Cell 7 - Ensemble-size sweep for both arms''')
 code(r'''
 print(f"{'size':<8}{'full mean':>12}{'no_topo mean':>14}{'delta':>10}")
 print("-"*44)
@@ -260,7 +260,7 @@ md(r'''
 Same standard as Phase 21: the 8-seed delta judged against the single-seed
 noise floor, not the raw number alone. If the effect survives at several
 times the noise scale, "topology helps localization" is a properly validated,
-citable finding — the actual unique contribution of this project, not just a
+citable finding - the actual unique contribution of this project, not just a
 plausible-sounding one. If it doesn't survive, that is equally worth knowing
 before it goes into a writeup as a headline claim.
 ''')

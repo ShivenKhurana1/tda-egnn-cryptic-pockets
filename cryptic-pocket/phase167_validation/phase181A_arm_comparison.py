@@ -11,7 +11,7 @@ OUT = BASE / "phase181A_arm_comparison.csv"
 df = pd.read_csv(INPUT)
 
 print("=" * 110)
-print("PHASE 181A — DIRECT ARM-TO-ARM CENTER-PROXIMITY COMPARISON")
+print("PHASE 181A - DIRECT ARM-TO-ARM CENTER-PROXIMITY COMPARISON")
 print("=" * 110)
 
 # ------------------------------------------------------------

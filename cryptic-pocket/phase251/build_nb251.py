@@ -15,25 +15,25 @@ md = lambda s: C.append({"cell_type": "markdown", "metadata": {}, "source": s.st
 code = lambda s: C.append({"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [], "source": s.strip("\n")})
 
 md(r'''
-# Phase 251 — COACH420-clean scale-3 training list with true ligand centers
+# Phase 251 - COACH420-clean scale-3 training list with true ligand centers
 
 Phase 53/56 trained on the 7,513-chain round-3 pool after excluding every chain homologous (>=30% identity, MMseqs2)
 to COACH420 (7,181 chains kept), with each chain's true ligand center recovered from its structure. This notebook reruns
 exactly those steps (Phase 53's cells, verbatim) and saves the result -- the ordered key list and the true centers -- so the
 geometry-control training kernels all start from one fixed, identical training set instead of each redoing the MMseqs2 run.
 ''')
-md("## Cell 1 — Install")
+md("## Cell 1 - Install")
 code("!pip install -q torch-geometric==2.6.1 gudhi==3.10.1 biopython==1.84 transformers==4.46.3")
-md("## Cell 2 — Setup (Phase 53 cell; the unused Phase 51 topology blob is not loaded)")
+md("## Cell 2 - Setup (Phase 53 cell; the unused Phase 51 topology blob is not loaded)")
 code(s53(3).replace('blob6b = torch.load(locate("phase51_graphs.pt"), map_location="cpu", weights_only=False)\n', '')
            .replace('TOPO_NAMES = blob6b["topo_names"]\n', ''))
-md("## Cell 3 — Fetch ALL 420 COACH420 structures (Phase 53, verbatim)")
+md("## Cell 3 - Fetch ALL 420 COACH420 structures (Phase 53, verbatim)")
 code(s53(5))
-md("## Cell 4 — Clean the TRAINING side: exclude any chain homologous to COACH420 (Phase 53, verbatim)")
+md("## Cell 4 - Clean the TRAINING side: exclude any chain homologous to COACH420 (Phase 53, verbatim)")
 code(s53(7))
-md("## Cell 5 — Recover true ligand centers for the cleaned training set (Phase 53, verbatim)")
+md("## Cell 5 - Recover true ligand centers for the cleaned training set (Phase 53, verbatim)")
 code(s53(9))
-md("## Cell 6 — Save the fixed training list and centers")
+md("## Cell 6 - Save the fixed training list and centers")
 code(r'''
 order_keys = [(str(d.pdb_id), str(d.chain_id)) for d in dataset]          # dataset order after all filters
 centers = {(str(d.pdb_id), str(d.chain_id)): d.true_center.numpy().astype(np.float32) for d in dataset}

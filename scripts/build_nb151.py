@@ -13,7 +13,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 151 — COACH420 Round-3, 8-Seed: DCA Re-Eval
+# Phase 151 - COACH420 Round-3, 8-Seed: DCA Re-Eval
 
 Phase56 computed 8-seed DCC (0.5932) on the round-3 pool but its
 dcc_rate() helper discarded the DCA (distance-to-nearest-ligand-atom,
@@ -23,10 +23,10 @@ coordinates) already exist on Kaggle -- this is pure re-inference to
 recover the DCA number, no retraining.
 ''')
 
-md(r'''## Cell 1 — Install dependencies''')
+md(r'''## Cell 1 - Install dependencies''')
 code(r'''!pip install -q torch-geometric==2.6.1 biopython==1.84''')
 
-md(r'''## Cell 2 — Setup: load Phase 52's graphs blob (N_PRE/TOPO_DIM) and Phase 51's topology stats (mu/sd)''')
+md(r'''## Cell 2 - Setup: load Phase 52's graphs blob (N_PRE/TOPO_DIM) and Phase 51's topology stats (mu/sd)''')
 code(r'''
 import json, pickle, warnings
 from pathlib import Path
@@ -60,7 +60,7 @@ DEVICE = torch.device("cuda" if GPU_OK else "cpu")
 print(f"device {DEVICE} | N_PRE {N_PRE} | TOPO_DIM {TOPO_DIM}")
 ''')
 
-md(r'''## Cell 3 — Model (identical to every prior localization phase)''')
+md(r'''## Cell 3 - Model (identical to every prior localization phase)''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -112,7 +112,7 @@ class LocalizingEGNN(nn.Module):
         return logits, pred_center
 ''')
 
-md(r'''## Cell 4 — Load all 8 checkpoints directly (no retraining -- Phase53 gave seeds 0-2, Phase56 gave seeds 3-7)''')
+md(r'''## Cell 4 - Load all 8 checkpoints directly (no retraining -- Phase53 gave seeds 0-2, Phase56 gave seeds 3-7)''')
 code(r'''
 models = {}
 for seed in range(8):
@@ -130,7 +130,7 @@ with open(locate("phase53_raw_features.pkl"), "rb") as fh:
 print(f"loaded cached (round-3 pool) COACH420 features for {len(raw_cache):,} chains")
 ''')
 
-md(r'''## Cell 5 — Per-seed and 8-seed-ensemble DCC AND DCA (fixes Phase56's dropped DCA)''')
+md(r'''## Cell 5 - Per-seed and 8-seed-ensemble DCC AND DCA (fixes Phase56's dropped DCA)''')
 code(r'''
 import time
 

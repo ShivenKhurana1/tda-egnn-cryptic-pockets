@@ -14,7 +14,7 @@ md=lambda s:C.append({"cell_type":"markdown","metadata":{},"source":s.strip("\n"
 code=lambda s:C.append({"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],"source":s.strip("\n")})
 
 md(r'''
-# Phase 26 — Thread 1, Properly Fixed: Full 8-Seed Matched Decomposition
+# Phase 26 - Thread 1, Properly Fixed: Full 8-Seed Matched Decomposition
 
 Phase 23 v2's "burial beats full" finding was invalidated by an ensemble-size
 mismatch: H0/H1/H2/burial had 8 seeds, but `full`/`no_topo` references were
@@ -30,7 +30,7 @@ training** -- just attach Phase 22 as an additional kernel source alongside
 Phase 15/18/23, and rescore.
 ''')
 
-md(r'''## Cell 1 — Setup''')
+md(r'''## Cell 1 - Setup''')
 code(r'''
 !pip install -q torch-geometric==2.6.1
 ''')
@@ -71,7 +71,7 @@ assert sum(m.sum() for m in MASKS.values()) == len(TOPO_NAMES)
 print("masks reconstructed and verified")
 ''')
 
-md(r'''## Cell 2 — Model class (identical to every prior localization phase)''')
+md(r'''## Cell 2 - Model class (identical to every prior localization phase)''')
 code(r'''
 class EGCL(nn.Module):
     def __init__(s,h,ea=2,act=nn.SiLU,uc=True):
@@ -123,7 +123,7 @@ class LocalizingEGNN(nn.Module):
         return logits, pred_center
 ''')
 
-md(r'''## Cell 3 — Load ALL 8 seeds for every arm (genuinely matched this time)''')
+md(r'''## Cell 3 - Load ALL 8 seeds for every arm (genuinely matched this time)''')
 code(r'''
 def load_seeds(prefix, seeds):
     out = {}
@@ -150,7 +150,7 @@ assert all(len(m) == 8 for m in arm_models.values()), \
 print("\nall six arms matched at 8 seeds -- confound from Phase23 v2 is fixed")
 ''')
 
-md(r'''## Cell 4 — Load cached benchmark features, score all 6 arms (pooled ensemble)''')
+md(r'''## Cell 4 - Load cached benchmark features, score all 6 arms (pooled ensemble)''')
 code(r'''
 with open(locate("phase15_raw_features.pkl"), "rb") as fh:
     raw_cache = pickle.load(fh)
@@ -218,7 +218,7 @@ for arm_name, mask in ARM_MASK_FOR_SCORING.items():
 print(f"\nscored all 6 arms in {(time.time()-t0)/60:.1f} min (CPU)")
 ''')
 
-md(r'''## Cell 5 — Ranking + per-seed significance across ALL arm pairs (not just top-2)''')
+md(r'''## Cell 5 - Ranking + per-seed significance across ALL arm pairs (not just top-2)''')
 code(r'''
 base = summary["no_topo"]["dcc"]
 full = summary["full"]["dcc"]
@@ -264,7 +264,7 @@ for name in all_arm_names:
     print(f"{name:<14} per-seed {np.round(r,4).tolist()}  mean {r.mean():.4f}  std {r.std():.4f}")
 ''')
 
-md(r'''## Cell 6 — Paired sign test across every pair of the four decomposition arms''')
+md(r'''## Cell 6 - Paired sign test across every pair of the four decomposition arms''')
 code(r'''
 from itertools import combinations
 
