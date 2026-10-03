@@ -150,7 +150,8 @@ d = ROOT_OUT / "289"; d.mkdir(parents=True, exist_ok=True)
 o = d / "phase289_cb35m_global_attention_transfer.ipynb"; o.write_text(json.dumps(nb, indent=1) + "\n")
 meta = {"id": "blackpearls1/phase289-cb35m-global-attention-transfer", "title": "Phase289 Cb35m Global Attention Transfer", "code_file": o.name,
         "language": "python", "kernel_type": "notebook", "is_private": True,
-        "enable_gpu": False, "enable_tpu": False, "enable_internet": True, "dataset_sources": [], "competition_sources": [],
-        "kernel_sources": ["blackpearls1/tda-egnn-phase42-cryptobench-ingestion", "blackpearls1/phase288-pretrain-35m-global-attention", "blackpearls1/phase288r-resume-global-attention"]}
+        "enable_gpu": False, "enable_tpu": False, "enable_internet": True, "dataset_sources": ["blackpearls1/phase288-checkpoints-35m"], "competition_sources": [],
+        # the cancelled Phase 288 kernel is rejected as a kernel source, so all 16 checkpoints (288 base 0-7, global-attn 0-1; 288r global-attn 2-7) ship as one dataset
+        "kernel_sources": ["blackpearls1/tda-egnn-phase42-cryptobench-ingestion"]}
 (d / "kernel-metadata.json").write_text(json.dumps(meta, indent=2) + "\n")
 print("wrote", o)
