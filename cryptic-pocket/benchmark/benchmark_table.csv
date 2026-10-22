@@ -1,13 +1,13 @@
 tier,method,test_set,auc,auprc_or_pr,mcc,source
-"pooled residue-level, CryptoBench","TDA-EGNN, cross-scale combiner (this work)","182 chains · 54,992 residues · 4.72% positive",0.918,0.448,0.47,this work
-"pooled residue-level, CryptoBench","TDA-EGNN, 3B transfer (this work)","182 chains · 54,992 residues · 4.72% positive",0.911,0.431,0.466,this work
+"pooled residue-level, CryptoBench","TDA-EGNN, 3B transfer, 8-seed ensemble (this work)","182 chains · 54,992 residues · 5.70% positive",0.899,0.456,0.48,this work
+"pooled residue-level, CryptoBench","TDA-EGNN, 3B transfer, single model (this work)",same 182 chains,0.887,0.427,0.449,this work
 "pooled residue-level, CryptoBench","Seq2Pocket (bioRxiv preprint, May 2026)","184 chains · 55,572 residues · 5.68% positive",0.894,0.475,0.46,seq2pocket
 "pooled residue-level, CryptoBench","CryptoBench model, re-evaluated by Seq2Pocket",same 184 chains,0.871,0.382,0.395,seq2pocket
 "pooled residue-level, CryptoBench","CryptoBench model, as published (CB-full)",CryptoBench full test split,0.86,0.36,0.39,cryptobench
 "pooled residue-level, CryptoBench",P2Rank on apo structures (CB-P2RANK-apo),single-chain apo subset,0.81,0.21,0.27,cryptobench
 "pooled residue-level, CryptoBench",PocketMiner (CB-PM),subset; 60 structures could not be scored,0.76,0.19,0.22,cryptobench
 "pooled residue-level, CryptoBench",P2Rank on holo structures (CB-P2RANK-holo),ligand-bound structures,0.89,0.34,0.38,cryptobench
-"per-protein macro, CryptoBench",TDA-EGNN (this work),182 proteins,0.863,0.489,0.41113203834133855,this work
+"per-protein macro, CryptoBench",TDA-EGNN (this work),182 proteins,0.868,0.516,0.4324269320418627,this work
 "per-protein macro, CryptoBench",UniPocket (ACM-BCB 2026),193 proteins,0.816,0.41,,unipocket
 "per-protein macro, CryptoBench","Algebraic Counting Field (arXiv, Oct 2026)",192 units,0.799,0.376,0.304,acf
 "per-protein macro, CryptoBench","P2Rank 2.5, same protocol as above",192 units,0.793,0.358,0.285,acf

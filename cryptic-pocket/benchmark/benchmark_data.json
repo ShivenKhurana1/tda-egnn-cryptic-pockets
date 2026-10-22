@@ -144,22 +144,22 @@
  },
  "pooled": [
   {
-   "m": "TDA-EGNN, cross-scale combiner (this work)",
-   "set": "182 chains \u00b7 54,992 residues \u00b7 4.72% positive",
-   "auc": 0.918,
-   "pr": 0.448,
-   "mcc": 0.47,
+   "m": "TDA-EGNN, 3B transfer, 8-seed ensemble (this work)",
+   "set": "182 chains \u00b7 54,992 residues \u00b7 5.70% positive",
+   "auc": 0.899,
+   "pr": 0.456,
+   "mcc": 0.48,
    "ours": true,
-   "note": "8 seeds at each of 3 ESM2 scales; threshold tuned on validation"
+   "note": "trained and scored on CryptoBench's released union-of-pockets labels (Phase 291); threshold tuned on validation"
   },
   {
-   "m": "TDA-EGNN, 3B transfer (this work)",
-   "set": "182 chains \u00b7 54,992 residues \u00b7 4.72% positive",
-   "auc": 0.911,
-   "pr": 0.431,
-   "mcc": 0.466,
+   "m": "TDA-EGNN, 3B transfer, single model (this work)",
+   "set": "same 182 chains",
+   "auc": 0.887,
+   "pr": 0.427,
+   "mcc": 0.449,
    "ours": true,
-   "note": "8-seed mean of single models"
+   "note": "mean of the 8 single seeds, same labels"
   },
   {
    "m": "Seq2Pocket (bioRxiv preprint, May 2026)",
@@ -167,7 +167,7 @@
    "auc": 0.894,
    "pr": 0.475,
    "mcc": 0.46,
-   "note": "MCC 0.473 without its smoothing step. Higher positive rate lifts AUPRC, so its AUPRC is not directly comparable",
+   "note": "single fine-tuned ESM2-3B model; MCC 0.473 without its smoothing step; same label definition and near-identical positive rate as ours",
    "src": "seq2pocket"
   },
   {
@@ -220,12 +220,12 @@
   {
    "m": "TDA-EGNN (this work)",
    "set": "182 proteins",
-   "auc": 0.862637173775891,
-   "pr": 0.48902838632153073,
-   "mcc": 0.41113203834133855,
-   "f1": 0.4249283382197139,
+   "auc": 0.8681106283994902,
+   "pr": 0.5161621229299681,
+   "mcc": 0.4324269320418627,
+   "f1": 0.44816803487459916,
    "ours": true,
-   "note": "threshold tuned on validation"
+   "note": "official labels; threshold tuned on validation"
   },
   {
    "m": "UniPocket (ACM-BCB 2026)",

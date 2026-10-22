@@ -71,8 +71,8 @@
     <h2>Bottom line</h2>
     <ul>
       <li><b>Strictly cryptic proteins</b> (the one comparison run under a single protocol): per-protein AUC is 0.627, level with P2Rank (0.608) and with the benchmark authors&rsquo; own model (0.643), and above the ESM-based and cavity-feature models. The clear gap is at the top of the list: 0.209 precision in the top 20 residues against P2Rank&rsquo;s 0.084.</li>
-      <li><b>Whole CryptoBench test set:</b> AUC 0.911&ndash;0.918 is the highest I found published, MCC 0.466&ndash;0.470 is level with Seq2Pocket (0.460&ndash;0.473), and AUPRC 0.431&ndash;0.448 is below Seq2Pocket&rsquo;s 0.475, which was measured on a set with a higher share of pocket residues.</li>
-      <li><b>Averaged per protein</b> instead of pooled: AUC 0.863 against 0.816 (UniPocket) and 0.799 (ACF).</li>
+      <li><b>Whole CryptoBench test set</b>, on CryptoBench&rsquo;s released labels (every ligand site on each structure): the 8-seed ensemble scores AUC 0.899, AUPRC 0.456, MCC 0.480. That is level with Seq2Pocket (0.894 / 0.475 / 0.460&ndash;0.473): AUC and MCC slightly higher, AUPRC lower, all within a few hundredths. A single model of ours (0.887 / 0.427 / 0.449) is below Seq2Pocket&rsquo;s single model. Earlier versions of this page used a narrower label set (the main ligand site only, 4.72% positive) for our rows; those numbers are withdrawn.</li>
+      <li><b>Averaged per protein</b> instead of pooled: AUC 0.868 against 0.816 (UniPocket) and 0.799 (ACF).</li>
       <li><b>Not claimed:</b> that this is the best method on cryptic sites. There are only 16 matched proteins, the AUC intervals span about 0.3, and differences among the top three are within noise. Every number outside the first section comes from another paper&rsquo;s own setup.</li>
     </ul>
   </div>
@@ -95,7 +95,7 @@
     <h2>2. CryptoBench test split, pooled over residues</h2>
     <p>The standard way CryptoBench results are reported. Each paper filters the test set a little differently, so differences of a few hundredths are not decisive.</p>
     <div class="tblwrap"><table id="t-pooled"></table></div>
-    <p class="small">AUPRC rises with the share of positive residues, so rows with a higher positive rate are favoured on that column. F1 is omitted: the CryptoBench papers use a class-weighted F1 that is not comparable to a plain positive-class F1.</p>
+    <p class="small">Our rows and Seq2Pocket&rsquo;s use the same label definition (CryptoBench&rsquo;s union of every ligand site per structure) and near-identical positive rates (5.70% vs 5.68%), so AUPRC is comparable between them. F1 is omitted: the CryptoBench papers use a class-weighted F1 that is not comparable to a plain positive-class F1.</p>
   </section>
 
   <section id="s3">

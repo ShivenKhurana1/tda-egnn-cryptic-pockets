@@ -1,7 +1,7 @@
 """Assembles benchmark_data.json: our model's numbers computed here (cryptic_head2head.json, ours_macro_pooled.json) plus competitor numbers
 transcribed from the cited sources. Every external number carries its source; nothing is estimated."""
 import json
-h = json.load(open("cryptic_head2head.json")); m = json.load(open("ours_macro_pooled.json"))
+h = json.load(open("cryptic_head2head.json")); m = json.load(open("ours_official_291.json"))   # Phase 291: official union-of-pockets labels
 rows = {r["model"]: r for r in h["rows"]}
 def A(name, key, color, role):
     r = rows[name]; return dict(model=key, color=color, role=role, auc=r["auc"], ci=r["auc_ci"], p20=r["precision@20"], r20=r["recall@20"], hit10=r["success@10"], hit20=r["success@20"])
@@ -17,9 +17,9 @@ D = dict(
    paired_vs_p2rank=dict(p20=dict(d=0.125, ci=[0.038, 0.222], t=0.020, w=0.022), r20=dict(d=0.187, ci=[0.066, 0.315], t=0.013, w=0.017), auc=dict(d=0.019, ci=[-0.103, 0.140], t=0.774, w=0.860)),
    paired_vs_authors=dict(p20=dict(d=0.025, ci=[-0.059, 0.122], t=0.611, w=0.789), auc=dict(d=-0.016, ci=[-0.143, 0.108], t=0.807, w=1.000))),
  pooled=[
-  dict(m="TDA-EGNN, cross-scale combiner (this work)", set="182 chains · 54,992 residues · 4.72% positive", auc=.918, pr=.448, mcc=.470, ours=True, note="8 seeds at each of 3 ESM2 scales; threshold tuned on validation"),
-  dict(m="TDA-EGNN, 3B transfer (this work)", set="182 chains · 54,992 residues · 4.72% positive", auc=.911, pr=.431, mcc=.466, ours=True, note="8-seed mean of single models"),
-  dict(m="Seq2Pocket (bioRxiv preprint, May 2026)", set="184 chains · 55,572 residues · 5.68% positive", auc=.894, pr=.475, mcc=.460, note="MCC 0.473 without its smoothing step. Higher positive rate lifts AUPRC, so its AUPRC is not directly comparable", src="seq2pocket"),
+  dict(m="TDA-EGNN, 3B transfer, 8-seed ensemble (this work)", set="182 chains · 54,992 residues · 5.70% positive", auc=round(m["pooled"]["roc"], 3), pr=round(m["pooled"]["pr"], 3), mcc=round(m["pooled"]["mcc"], 3), ours=True, note="trained and scored on CryptoBench's released union-of-pockets labels (Phase 291); threshold tuned on validation"),
+  dict(m="TDA-EGNN, 3B transfer, single model (this work)", set="same 182 chains", auc=.887, pr=.427, mcc=.449, ours=True, note="mean of the 8 single seeds, same labels"),
+  dict(m="Seq2Pocket (bioRxiv preprint, May 2026)", set="184 chains · 55,572 residues · 5.68% positive", auc=.894, pr=.475, mcc=.460, note="single fine-tuned ESM2-3B model; MCC 0.473 without its smoothing step; same label definition and near-identical positive rate as ours", src="seq2pocket"),
   dict(m="CryptoBench model, re-evaluated by Seq2Pocket", set="same 184 chains", auc=.871, pr=.382, mcc=.395, note="the CryptoBench baseline as scored in Seq2Pocket’s own evaluation", src="seq2pocket"),
   dict(m="CryptoBench model, as published (CB-full)", set="CryptoBench full test split", auc=.86, pr=.36, mcc=.39, note="ESM2-3B + neural network", src="cryptobench"),
   dict(m="P2Rank on apo structures (CB-P2RANK-apo)", set="single-chain apo subset", auc=.81, pr=.21, mcc=.27, note="general pocket tool, not cryptic-specific", src="cryptobench"),
@@ -27,7 +27,7 @@ D = dict(
   dict(m="P2Rank on holo structures (CB-P2RANK-holo)", set="ligand-bound structures", auc=.89, pr=.34, mcc=.38, note="uses the bound structure, so not an apo prediction; shown for reference", src="cryptobench"),
  ],
  macro=[
-  dict(m="TDA-EGNN (this work)", set="182 proteins", auc=m["macro"]["roc"], pr=m["macro"]["pr"], mcc=m["macro"]["mcc"], f1=m["macro"]["f1"], ours=True, note="threshold tuned on validation"),
+  dict(m="TDA-EGNN (this work)", set="182 proteins", auc=m["macro"]["roc"], pr=m["macro"]["pr"], mcc=m["macro"]["mcc"], f1=m["macro"]["f1"], ours=True, note="official labels; threshold tuned on validation"),
   dict(m="UniPocket (ACM-BCB 2026)", set="193 proteins", auc=.816, pr=.410, mcc=None, f1=None, note="AUC re-confirmed as macro-averaged; AUPRC as cited in the paper draft", src="unipocket"),
   dict(m="Algebraic Counting Field (arXiv, Oct 2026)", set="192 units", auc=.799, pr=.376, mcc=.304, f1=.333, note="per-unit average; accepted to PSB 2027", src="acf"),
   dict(m="P2Rank 2.5, same protocol as above", set="192 units", auc=.793, pr=.358, mcc=.285, f1=.302, note="reported in the same paper", src="acf"),

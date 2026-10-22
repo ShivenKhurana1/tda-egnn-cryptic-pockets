@@ -197,6 +197,22 @@ exposure geometry:
   unchanged; the leaky version only +0.010/+0.018. The preprint's +0.089 was against a much weaker baseline. Not ruled out: an end-to-end retrain with these
   features on the 700 train chains (needs the same mapping for train, ~6k structures). Code/results: cryptic-pocket/ensemble/.
 
+* LABEL DEFINITION FINDING (2026-10-22): Phase 42/45/48 labelled each CryptoBench apo chain with its is_main_holo_structure pocket only.
+  CryptoBench's released labels (create-annotations.py in the CryptoBench repo), and the published CryptoBench and Seq2Pocket numbers, use the UNION
+  of every holo pairing's apo_pocket_selection. 20% of official positives (3,961 of 19,835; 507 of 1,107 apo entries) were missing from our labels,
+  so every pooled/macro CryptoBench comparison before this point put our 4.72%-positive numbers next to their 5.68-5.70%-positive ones. The
+  strictly-cryptic 16-protein comparison is NOT affected: the external benchmark also uses the main site (site sizes match ours exactly).
+  Phase 266c re-scored on official labels: pooled ROC 0.911 -> 0.898, PR 0.442 -> 0.455, MCC 0.463 -> 0.470. Code: cryptic-pocket/pocket_level/official_labels.py.
+* Pocket-level scoring (no training): against all 202 official test pockets, residues thresholded on val and clustered into pockets find 60% within
+  8 A of a true pocket centre (top-n), 59% by residue overlap; this does NOT beat the model's own centre head (DCC4 0.30 vs 0.37), so the head stays.
+  Neighbour smoothing of residue probabilities lowers val PR at every setting (null; the trunk already pools neighbours). Code: cryptic-pocket/pocket_level/.
+* Phase 291 (Phase 266c recipe retrained on the OFFICIAL labels; 8 seeds, same checkpoints/seeds/split; POS_WEIGHT recomputed by the Phase 48 formula,
+  20.73 -> 16.50; the kernel first rebuilt the main labels from the structures and matched the stored ones exactly on all 942 chains): SMALL, CONFIRMED
+  on the pre-specified primary. Val PR (official labels) 0.4493 -> 0.4565 (+0.0072, 6/8, t p=.023, W p=.039). Test, all not significant: pooled PR
+  +0.003, ROC +0.004, MCC +0.005; per-protein flat; DCC4 unchanged. 8-seed ensemble on official labels: ROC 0.899, PR 0.456, MCC 0.480 (was 0.898 /
+  0.455 / 0.470). On main-only labels nothing is lost. Versus Seq2Pocket (0.894 / 0.475 / 0.460, same labels): level; a single model of ours (0.887 /
+  0.427 / 0.449) is below its single model. Benchmark page and table updated to these numbers. Code/results: cryptic-pocket/phase291/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
