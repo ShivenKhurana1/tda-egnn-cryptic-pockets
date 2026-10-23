@@ -213,6 +213,17 @@ exposure geometry:
   0.455 / 0.470). On main-only labels nothing is lost. Versus Seq2Pocket (0.894 / 0.475 / 0.460, same labels): level; a single model of ours (0.887 /
   0.427 / 0.449) is below its single model. Benchmark page and table updated to these numbers. Code/results: cryptic-pocket/phase291/.
 
+* Phase 292 (two never-tried training signals on the Phase 291 recipe; 5 arms x 8 seeds, base rerun in-kernel and reproducing Phase 291 exactly):
+  BOTH NULL on the pre-specified primary (val PR, Holm over 4 arms; every arm Holm p=1).
+  (a) REAL apo->holo motion as an auxiliary target: per-residue heavy-atom RMSD to the main holo partner after iterative core superposition
+  (compute_motion.py; 935 entries, 97-99% residue coverage, capped at 20 A then log1p; main-pocket residues move 1.27 vs 0.59 A median). Arms
+  MU=0.2/0.5: val PR -0.0001/+0.0020, test PR/ROC/MCC/AP/P@20/cryptic AUC all |delta|<0.01 and NS. The head DID learn real motion: Spearman 0.44
+  with true movement on held-out test proteins vs 0.35 for plain exposure (CA neighbour count), partial 0.29 after controlling for exposure and
+  chain-end position. So the model can tell where a protein will move, but that knowledge does not improve pocket finding.
+  (b) per-protein listwise ranking loss (-mean log softmax over each chain's positives) added to BCE, NU=0.5/1.0: val PR -0.003/-0.004 (NS);
+  CONFIRMED HARM to test pooled PR (-0.010 p=.035/.039; -0.014 p=.011/.016); per-protein AP and P@20 up slightly but NS. Not adopted.
+  Code/results: cryptic-pocket/phase292/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
