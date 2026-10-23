@@ -273,6 +273,13 @@ exposure geometry:
   views add up: each one carries information the frozen ESM2-3B input does not. (The cross-run provisional analysis agreed to 2e-4.)
   Code/results: cryptic-pocket/phase296/.
 
+* Phase 297 (test-set measurement of the CV-selected model: Phase 291 recipe + frozen ESM2-650M + ProtT5 branches, early stopping on val,
+  8 seeds, base re-run in the same kernel; the selection was made on the Phase 295/296 CV, not here). Val PR +0.0150 (7/8, p=.002/.016).
+  Test, single models: pooled PR +0.0118 (7/8, p=.15/.11), ROC +0.003, MCC +0.005, per-protein AP +0.003, P@20 +0.001, cryptic AUC +0.002,
+  none significant at 182 chains. 8-seed ensemble on official labels: ROC 0.901, PR 0.471, MCC 0.482 (base 0.899 / 0.456 / 0.480;
+  Seq2Pocket 0.894 / 0.475 / 0.460-0.473). Ensemble DCC4 0.324 vs 0.352 (single-seed mean DCC4 +0.008). Recommended model = this one;
+  the confirmation is the 760-chain CV (Phases 295/296), the test set measures it. Code/results: cryptic-pocket/phase297/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
