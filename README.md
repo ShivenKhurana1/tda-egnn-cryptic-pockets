@@ -224,6 +224,17 @@ exposure geometry:
   CONFIRMED HARM to test pooled PR (-0.010 p=.035/.039; -0.014 p=.011/.016); per-protein AP and P@20 up slightly but NS. Not adopted.
   Code/results: cryptic-pocket/phase292/.
 
+* Phase 293 (LoRA fine-tuning of a protein language model, never tried before; ESM2-650M branch, LoRA r=8 on query/key/value, 2.0M trainable
+  params, inside the Phase 291 recipe; zero-initialised projection into the EGNN's first hidden state, so step 0 equals the pretrained model
+  bit-for-bit; control arm frozen650 = same branch with ESM2-650M frozen; 8 seeds each, ~45 min/seed for LoRA on a T4 vs ~1 min frozen):
+  PRIMARY (val PR, Holm over 2) NOT CONFIRMED for either arm: frozen650 +0.0041 (6/8, p=.39/.25), lora650 +0.0098 (6/8, p=.13/.15).
+  Secondary, test pooled PR CONFIRMED up for both: frozen650 +0.0108 (7/8, p=.010/.016), lora650 +0.0142 (6/8, p=.032/.039); ROC/MCC/per-protein/
+  cryptic AUC up slightly, NS; DCC4 flat. Fine-tuning itself (lora650 vs frozen650) adds nothing measurable on any metric (val PR +0.0057
+  p=.26; test PR +0.003 p=.52). 8-seed ensembles on official labels: base ROC .899 PR .456 MCC .480 | frozen650 .904 / .474 / .479 |
+  lora650 .903 / .472 / .484 (Seq2Pocket .894 / .475 / .460-.473). Reading: a second, smaller language-model view gives a small test-set PR gain
+  that the pre-specified validation metric does not confirm (same status as the Phase 287 pilot, which did not survive its follow-up); LoRA
+  costs ~40x the compute of the frozen branch for no extra gain. Not adopted as the headline. Code/results: cryptic-pocket/phase293/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
