@@ -280,6 +280,20 @@ exposure geometry:
   Seq2Pocket 0.894 / 0.475 / 0.460-0.473). Ensemble DCC4 0.324 vs 0.352 (single-seed mean DCC4 +0.008). Recommended model = this one;
   the confirmation is the 760-chain CV (Phases 295/296), the test set measures it. Code/results: cryptic-pocket/phase297/.
 
+* Phase 298 (two more frozen protein language models on top of stack2 = ESM2-3B input + ESM2-650M + ProtT5 branches; Phase 295 CV
+  instrument, ALL arms in one kernel; primary pre-registered: pooled held-out PR vs stack2, Holm over 2).
+  Ankh-large (T5 encoder, 1536-d; its tokenizer's is_split_into_words path inserts <unk> before every residue, found locally, so input ids
+  were built from its single-letter vocabulary). SaProt-650M-PDB (structure-aware: amino acid + Foldseek 3Di letter per residue; 3Di from
+  foldseek structureto3didescriptor on each apo chain, 934/942 chains exact, 8 chains with 3-letter chain ids fell back to '#' tokens,
+  0.7% of residues). BOTH CONFIRMED:
+    stack2_saprot vs stack2: PR +0.0174 (8/8, Holm p=6e-5/.016), ROC +0.008 (7/8), per-protein AP +0.009 (8/8), P@20 +0.005 (8/8).
+    stack2_ankh vs stack2:   PR +0.0069 (8/8, Holm p=.003/.016), per-protein AP +0.005 (p=.009/.039); ROC, P@20 NS.
+    stack4 (both) vs stack2 (secondary): PR +0.0147, per-protein AP +0.011, P@20 +0.008, all 8/8. Exploratory stack4 vs stack2_saprot:
+    PR -0.003 (p=.38), P@20 +0.002 (p=.08): Ankh adds nothing measurable once SaProt is in.
+  Held-out PR over the whole stack: base 0.341 -> +ESM2-650M 0.354 -> +ProtT5 0.360 -> +SaProt 0.377 (+0.036, about +11% relative);
+  per-protein AP 0.402 -> 0.423. The largest single gain comes from the STRUCTURE-AWARE language model, even though the EGNN already
+  sees the 3D structure. Recommended model: ESM2-3B input + ESM2-650M + ProtT5 + SaProt branches. Code/results: cryptic-pocket/phase298/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
