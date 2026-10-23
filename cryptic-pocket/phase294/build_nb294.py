@@ -8,7 +8,7 @@ punishing the model for finding real sites:
   pu15 / pu20: non-negative positive-unlabelled risk with every residue as the unlabelled sample and an assumed true positive rate of
           KAPPA x the observed one:  loss = PW * sum_P softplus(-z)/n + max(0, (sum_all softplus(z) - KAPPA * sum_P softplus(z))/n).
           KAPPA = 1 reduces EXACTLY to the current BCE with pos_weight PW, so the arms differ from base only by the PU assumption.
-Base = Phase 292's in-kernel base (bit-identical to Phase 291). Everything else Phase 291 verbatim.
+Base = Phase 292's in-kernel base (matches Phase 291 to within 8e-5 per residue). Everything else Phase 291 verbatim.
 usage: build_nb294.py <output_root>"""
 import json, subprocess, sys, tempfile
 from pathlib import Path

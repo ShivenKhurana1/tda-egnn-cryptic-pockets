@@ -1,4 +1,4 @@
-"""Phase 294 analysis: each arm (ncmask, pu15, pu20) vs the Phase 292 base (bit-identical to Phase 291), paired by seed, on the OFFICIAL labels.
+"""Phase 294 analysis: each arm (ncmask, pu15, pu20) vs the Phase 292 base (matches Phase 291 to within 8e-5 per residue), paired by seed, on the OFFICIAL labels.
 PRIMARY, pre-specified: validation PR-AUC, paired t-test AND Wilcoxon, Holm-adjusted across the 4 arms (both adjusted p < .05 to
 call an arm confirmed). Secondary (test): pooled ROC/PR/MCC (val-tuned threshold), per-protein AP and precision@20, per-protein
 AUC on the strictly cryptic test proteins (main-site labels, the external benchmark's definition), centre-head DCC4.

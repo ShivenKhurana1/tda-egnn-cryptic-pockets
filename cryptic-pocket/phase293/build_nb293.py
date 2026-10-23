@@ -6,7 +6,7 @@ per-residue output goes through a ZERO-INITIALISED projection added to the EGNN'
 exactly the pretrained Phase 266b/291 model and the branch only adds what it learns. Arms (8 seeds each, seed s <- pretrained s):
   frozen650: the branch with ESM2-650M frozen (embeddings computed once) -> effect of a second language-model view
   lora650:   the branch with LoRA (r=8, alpha=16, dropout .05, query/key/value of every layer) trained jointly -> effect of fine-tuning
-Base = Phase 292's in-kernel base (bit-identical to Phase 291). Official union labels, same checkpoints, seeds, split, loss,
+Base = Phase 292's in-kernel base (matches Phase 291 to within 8e-5 per residue). Official union labels, same checkpoints, seeds, split, loss,
 early stopping (val PR, patience 8, <=40 epochs), batch 16. LoRA params lr 2e-4 (EGNN + projection 1e-3, as before); the PLM runs
 under fp16 autocast with a GradScaler. Long chains are embedded in equal chunks of <=1000 residues.
 Kernels: a = frozen650 (8 seeds) + lora650 seeds 0-3; b = lora650 seeds 4-7. A 10.5 h budget guard stops new seeds.

@@ -213,7 +213,7 @@ exposure geometry:
   0.455 / 0.470). On main-only labels nothing is lost. Versus Seq2Pocket (0.894 / 0.475 / 0.460, same labels): level; a single model of ours (0.887 /
   0.427 / 0.449) is below its single model. Benchmark page and table updated to these numbers. Code/results: cryptic-pocket/phase291/.
 
-* Phase 292 (two never-tried training signals on the Phase 291 recipe; 5 arms x 8 seeds, base rerun in-kernel and reproducing Phase 291 exactly):
+* Phase 292 (two never-tried training signals on the Phase 291 recipe; 5 arms x 8 seeds, base rerun in-kernel; it matches Phase 291 to within 8e-5 per residue, not bitwise, since GPU scatter-adds are nondeterministic):
   BOTH NULL on the pre-specified primary (val PR, Holm over 4 arms; every arm Holm p=1).
   (a) REAL apo->holo motion as an auxiliary target: per-residue heavy-atom RMSD to the main holo partner after iterative core superposition
   (compute_motion.py; 935 entries, 97-99% residue coverage, capped at 20 A then log1p; main-pocket residues move 1.27 vs 0.59 A median). Arms

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Phase 296: does a THIRD, genuinely different protein language model add to the confirmed frozen ESM2-650M view?
 ProtT5-XL-U50 (Rostlab/prot_t5_xl_half_uniref50-enc: T5 encoder, BFD + UniRef50, 1024-d) as a second zero-initialised frozen branch.
-Instrument: the Phase 295 4-fold CV (760 held-out chains, fixed 12 epochs, test untouched), reusing Phase 295's deterministic base and
-frozen650 predictions as comparators; a base seed-0 re-run must reproduce Phase 295 bit-for-bit or the comparison is void.
+Instrument: the Phase 295 4-fold CV (760 held-out chains, fixed 12 epochs, test untouched), reusing Phase 295's base and frozen650
+predictions as comparators; a base seed-0 re-run must reproduce Phase 295 bit-for-bit or the comparison is void. (It did not: GPU
+scatter-adds are not bitwise deterministic, held-out PR moved 0.0001. Variant 296b therefore re-runs all four arms in one kernel.)
 PRE-REGISTERED: PRIMARY = pooled held-out PR-AUC, (a) prott5 vs base, (b) frozen650_prott5 vs frozen650, paired by seed, t AND Wilcoxon
 < .05 after Holm over the two. Secondary: ROC, per-protein AP, P@20.
 usage: build_nb296.py <output_root>"""
@@ -63,9 +64,11 @@ t = rep(t, 'if not k.startswith("plm_proj")', 'if not k.startswith(("plm_proj", 
 setsrc(i, t)
 i = find("ARMS = [")
 setsrc(i, r'''
+INKERNEL = INKERNEL_FLAG
 KEEP_SIDE = list(range(TOPO_DIM)); m_ = torch.zeros(SIDE_DIM); m_[KEEP_SIDE] = 1.0
 for d in dataset: d.x[:, N_PRE:] = d.x[:, N_PRE:] * m_
-ARMS = [("base_check", None, None, [0]), ("prott5", None, 1024, list(range(8))), ("frozen650_prott5", 1280, 1024, list(range(8)))]
+ARMS = ([("base_check", None, None, [0]), ("prott5", None, 1024, list(range(8))), ("frozen650_prott5", 1280, 1024, list(range(8)))] if not INKERNEL else
+        [(a, p1, p2, list(range(8))) for a, p1, p2 in (("base", None, None), ("frozen650", 1280, None), ("prott5", None, 1024), ("frozen650_prott5", 1280, 1024))])
 T0 = time.time(); BUDGET = 10.5 * 3600; ALL = {}
 for name, plm_dim, plm2_dim, seeds in ARMS:
     for seed in seeds:
@@ -80,9 +83,13 @@ for name, plm_dim, plm2_dim, seeds in ARMS:
         print(f"  seed {seed} [{name}] held-out PR {average_precision_score(yy, pp):.4f}  [{(time.time()-T0)/60:.1f}m]", flush=True)
 print("done")
 ''')
-d = ROOT_OUT / SLUG; d.mkdir(parents=True, exist_ok=True)
-o = d / "phase296_prott5_cv.ipynb"; o.write_text(json.dumps(nb, indent=1) + "\n")
-meta = json.load(open(tmp / "295" / "kernel-metadata.json"))
-meta.update(id="blackpearls1/phase296-prott5-cv", title="Phase296 Prott5 Cv", code_file=o.name)
-(d / "kernel-metadata.json").write_text(json.dumps(meta, indent=2) + "\n")
-print("wrote", o)
+import copy
+for slug, flag, kid, title in (("296", "False", "phase296-prott5-cv", "Phase296 Prott5 Cv"), ("296b", "True", "phase296b-prott5-cv-inkernel", "Phase296b Prott5 Cv Inkernel")):
+    nbv = copy.deepcopy(nb); j = next(i for i in range(len(nbv["cells"])) if "INKERNEL_FLAG" in (nbv["cells"][i]["source"] if isinstance(nbv["cells"][i]["source"], str) else "".join(nbv["cells"][i]["source"])))
+    sj = nbv["cells"][j]["source"]; nbv["cells"][j]["source"] = (sj if isinstance(sj, str) else "".join(sj)).replace("INKERNEL_FLAG", flag)
+    d = ROOT_OUT / slug; d.mkdir(parents=True, exist_ok=True)
+    o = d / f"phase{slug}_prott5_cv.ipynb"; o.write_text(json.dumps(nbv, indent=1) + "\n")
+    meta = json.load(open(tmp / "295" / "kernel-metadata.json"))
+    meta.update(id=f"blackpearls1/{kid}", title=title, code_file=o.name)
+    (d / "kernel-metadata.json").write_text(json.dumps(meta, indent=2) + "\n")
+    print("wrote", o)

@@ -1,5 +1,5 @@
-"""Phase 293 analysis: frozen650 and lora650 (ESM2-650M branch, frozen vs LoRA fine-tuned) vs the Phase 292 base (bit-identical to
-Phase 291), paired by seed, official labels. PRIMARY, pre-specified: validation PR-AUC, paired t AND Wilcoxon, Holm-adjusted over the two
+"""Phase 293 analysis: frozen650 and lora650 (ESM2-650M branch, frozen vs LoRA fine-tuned) vs the Phase 292 base (matches Phase 291
+to within 8e-5 per residue), paired by seed, official labels. PRIMARY, pre-specified: validation PR-AUC, paired t AND Wilcoxon, Holm-adjusted over the two
 comparisons with base. Key secondary: lora650 vs frozen650 (the effect of fine-tuning itself). Same secondary metrics as Phase 292.
 
 usage: python3 analyze293.py <phase292_base_preds.pt> <phase293_frozen650_preds.pt> <phase293a_lora650_preds.pt> <phase293b_lora650_preds.pt> <out_prefix>
