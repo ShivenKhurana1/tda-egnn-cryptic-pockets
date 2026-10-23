@@ -1,0 +1,1276 @@
+{
+ "counts": {
+  "top": 3600,
+  "cryptic": 1642,
+  "nc": 319,
+  "pdb": 633,
+  "none": 1006
+ },
+ "base": {
+  "n": 51487,
+  "nc": 1562,
+  "pdb": 2996
+ },
+ "per_chain": [
+  {
+   "key": "1arl_A",
+   "n_entries": 27,
+   "cryptic": 15,
+   "nc": 4,
+   "pdb": 0
+  },
+  {
+   "key": "1bk2_A",
+   "n_entries": 23,
+   "cryptic": 5,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "1bzj_A",
+   "n_entries": 29,
+   "cryptic": 0,
+   "nc": 2,
+   "pdb": 15
+  },
+  {
+   "key": "1cwq_A",
+   "n_entries": 30,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 19
+  },
+  {
+   "key": "1dq2_A",
+   "n_entries": 19,
+   "cryptic": 10,
+   "nc": 0,
+   "pdb": 5
+  },
+  {
+   "key": "1e6k_A",
+   "n_entries": 30,
+   "cryptic": 8,
+   "nc": 0,
+   "pdb": 4
+  },
+  {
+   "key": "1evy_A",
+   "n_entries": 5,
+   "cryptic": 20,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "1g59_A",
+   "n_entries": 8,
+   "cryptic": 11,
+   "nc": 7,
+   "pdb": 0
+  },
+  {
+   "key": "1h13_A",
+   "n_entries": 6,
+   "cryptic": 4,
+   "nc": 6,
+   "pdb": 0
+  },
+  {
+   "key": "1i7n_A",
+   "n_entries": 0,
+   "cryptic": 17,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "1k47_D",
+   "n_entries": 0,
+   "cryptic": 10,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "1ksg_B",
+   "n_entries": 28,
+   "cryptic": 15,
+   "nc": 0,
+   "pdb": 2
+  },
+  {
+   "key": "1kx9_A",
+   "n_entries": 1,
+   "cryptic": 9,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "1kxr_A",
+   "n_entries": 8,
+   "cryptic": 14,
+   "nc": 5,
+   "pdb": 0
+  },
+  {
+   "key": "1lbe_B",
+   "n_entries": 13,
+   "cryptic": 16,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "1m5w_D",
+   "n_entries": 5,
+   "cryptic": 15,
+   "nc": 1,
+   "pdb": 0
+  },
+  {
+   "key": "1nd7_A",
+   "n_entries": 5,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "1p4o_B",
+   "n_entries": 22,
+   "cryptic": 16,
+   "nc": 4,
+   "pdb": 0
+  },
+  {
+   "key": "1p4v_A",
+   "n_entries": 12,
+   "cryptic": 15,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "1p9o_A",
+   "n_entries": 0,
+   "cryptic": 6,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "1pu5_C",
+   "n_entries": 6,
+   "cryptic": 6,
+   "nc": 12,
+   "pdb": 1
+  },
+  {
+   "key": "1rjb_A",
+   "n_entries": 5,
+   "cryptic": 13,
+   "nc": 2,
+   "pdb": 2
+  },
+  {
+   "key": "1rtc_A",
+   "n_entries": 30,
+   "cryptic": 1,
+   "nc": 12,
+   "pdb": 0
+  },
+  {
+   "key": "1se8_A",
+   "n_entries": 0,
+   "cryptic": 1,
+   "nc": 1,
+   "pdb": 0
+  },
+  {
+   "key": "1uka_A",
+   "n_entries": 8,
+   "cryptic": 2,
+   "nc": 2,
+   "pdb": 11
+  },
+  {
+   "key": "1vsn_A",
+   "n_entries": 30,
+   "cryptic": 0,
+   "nc": 2,
+   "pdb": 18
+  },
+  {
+   "key": "1x2g_C",
+   "n_entries": 4,
+   "cryptic": 10,
+   "nc": 3,
+   "pdb": 4
+  },
+  {
+   "key": "1xgd_A",
+   "n_entries": 12,
+   "cryptic": 19,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "1xjf_A",
+   "n_entries": 8,
+   "cryptic": 12,
+   "nc": 8,
+   "pdb": 0
+  },
+  {
+   "key": "1xqv_A",
+   "n_entries": 7,
+   "cryptic": 17,
+   "nc": 1,
+   "pdb": 0
+  },
+  {
+   "key": "1xtc_A",
+   "n_entries": 10,
+   "cryptic": 12,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "1zm0_A",
+   "n_entries": 0,
+   "cryptic": 11,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "2aka_A",
+   "n_entries": 26,
+   "cryptic": 18,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "2d05_A",
+   "n_entries": 1,
+   "cryptic": 17,
+   "nc": 2,
+   "pdb": 0
+  },
+  {
+   "key": "2dfp_A",
+   "n_entries": 30,
+   "cryptic": 14,
+   "nc": 1,
+   "pdb": 0
+  },
+  {
+   "key": "2fem_A",
+   "n_entries": 5,
+   "cryptic": 10,
+   "nc": 0,
+   "pdb": 1
+  },
+  {
+   "key": "2fhz_B",
+   "n_entries": 3,
+   "cryptic": 13,
+   "nc": 2,
+   "pdb": 0
+  },
+  {
+   "key": "2h7s_A",
+   "n_entries": 30,
+   "cryptic": 4,
+   "nc": 0,
+   "pdb": 16
+  },
+  {
+   "key": "2i3a_D",
+   "n_entries": 7,
+   "cryptic": 4,
+   "nc": 16,
+   "pdb": 0
+  },
+  {
+   "key": "2i3r_A",
+   "n_entries": 5,
+   "cryptic": 17,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "2iyt_A",
+   "n_entries": 17,
+   "cryptic": 14,
+   "nc": 3,
+   "pdb": 1
+  },
+  {
+   "key": "2phz_A",
+   "n_entries": 2,
+   "cryptic": 12,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "2pkf_A",
+   "n_entries": 9,
+   "cryptic": 12,
+   "nc": 7,
+   "pdb": 0
+  },
+  {
+   "key": "2pwz_G",
+   "n_entries": 12,
+   "cryptic": 20,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "2qbv_A",
+   "n_entries": 5,
+   "cryptic": 13,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "2rfj_B",
+   "n_entries": 6,
+   "cryptic": 13,
+   "nc": 1,
+   "pdb": 0
+  },
+  {
+   "key": "2v6m_D",
+   "n_entries": 4,
+   "cryptic": 19,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "2vl2_C",
+   "n_entries": 10,
+   "cryptic": 9,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "2vqz_F",
+   "n_entries": 5,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 4
+  },
+  {
+   "key": "2w8n_A",
+   "n_entries": 3,
+   "cryptic": 7,
+   "nc": 5,
+   "pdb": 0
+  },
+  {
+   "key": "2x47_A",
+   "n_entries": 0,
+   "cryptic": 19,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "2xsa_A",
+   "n_entries": 3,
+   "cryptic": 14,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "2zj7_A",
+   "n_entries": 5,
+   "cryptic": 2,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "3a0x_A",
+   "n_entries": 4,
+   "cryptic": 14,
+   "nc": 0,
+   "pdb": 1
+  },
+  {
+   "key": "3bjp_A",
+   "n_entries": 30,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 8
+  },
+  {
+   "key": "3f4k_A",
+   "n_entries": 2,
+   "cryptic": 9,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "3flg_A",
+   "n_entries": 11,
+   "cryptic": 8,
+   "nc": 0,
+   "pdb": 1
+  },
+  {
+   "key": "3fzo_A",
+   "n_entries": 8,
+   "cryptic": 20,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "3gdg_B",
+   "n_entries": 1,
+   "cryptic": 18,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "3h8a_B",
+   "n_entries": 5,
+   "cryptic": 16,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "3i8s_B",
+   "n_entries": 6,
+   "cryptic": 14,
+   "nc": 1,
+   "pdb": 0
+  },
+  {
+   "key": "3idh_A",
+   "n_entries": 30,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 18
+  },
+  {
+   "key": "3jzg_A",
+   "n_entries": 30,
+   "cryptic": 2,
+   "nc": 1,
+   "pdb": 0
+  },
+  {
+   "key": "3k01_A",
+   "n_entries": 0,
+   "cryptic": 17,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "3ly8_A",
+   "n_entries": 2,
+   "cryptic": 0,
+   "nc": 7,
+   "pdb": 0
+  },
+  {
+   "key": "3mwg_B",
+   "n_entries": 0,
+   "cryptic": 11,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "3n4u_A",
+   "n_entries": 30,
+   "cryptic": 7,
+   "nc": 13,
+   "pdb": 0
+  },
+  {
+   "key": "3nx1_B",
+   "n_entries": 2,
+   "cryptic": 7,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "3pbf_A",
+   "n_entries": 13,
+   "cryptic": 1,
+   "nc": 0,
+   "pdb": 14
+  },
+  {
+   "key": "3rwv_A",
+   "n_entries": 20,
+   "cryptic": 9,
+   "nc": 8,
+   "pdb": 0
+  },
+  {
+   "key": "3st6_C",
+   "n_entries": 12,
+   "cryptic": 11,
+   "nc": 5,
+   "pdb": 0
+  },
+  {
+   "key": "3t8b_A",
+   "n_entries": 6,
+   "cryptic": 9,
+   "nc": 0,
+   "pdb": 7
+  },
+  {
+   "key": "3tpo_A",
+   "n_entries": 30,
+   "cryptic": 6,
+   "nc": 9,
+   "pdb": 0
+  },
+  {
+   "key": "3ugk_A",
+   "n_entries": 4,
+   "cryptic": 19,
+   "nc": 1,
+   "pdb": 0
+  },
+  {
+   "key": "3uyi_A",
+   "n_entries": 1,
+   "cryptic": 12,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "3v55_A",
+   "n_entries": 13,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 9
+  },
+  {
+   "key": "3vgm_A",
+   "n_entries": 1,
+   "cryptic": 9,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "3w90_A",
+   "n_entries": 2,
+   "cryptic": 14,
+   "nc": 4,
+   "pdb": 1
+  },
+  {
+   "key": "3wb9_C",
+   "n_entries": 1,
+   "cryptic": 18,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "4aem_A",
+   "n_entries": 2,
+   "cryptic": 6,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "4amv_B",
+   "n_entries": 10,
+   "cryptic": 6,
+   "nc": 0,
+   "pdb": 11
+  },
+  {
+   "key": "4bg8_A",
+   "n_entries": 2,
+   "cryptic": 11,
+   "nc": 0,
+   "pdb": 3
+  },
+  {
+   "key": "4cmw_B",
+   "n_entries": 6,
+   "cryptic": 12,
+   "nc": 0,
+   "pdb": 1
+  },
+  {
+   "key": "4dnc_B",
+   "n_entries": 30,
+   "cryptic": 15,
+   "nc": 2,
+   "pdb": 1
+  },
+  {
+   "key": "4e1y_A",
+   "n_entries": 2,
+   "cryptic": 3,
+   "nc": 3,
+   "pdb": 6
+  },
+  {
+   "key": "4fkm_B",
+   "n_entries": 0,
+   "cryptic": 10,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "4gpi_C",
+   "n_entries": 23,
+   "cryptic": 10,
+   "nc": 1,
+   "pdb": 6
+  },
+  {
+   "key": "4gv9_A",
+   "n_entries": 15,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 8
+  },
+  {
+   "key": "4hye_A",
+   "n_entries": 3,
+   "cryptic": 2,
+   "nc": 0,
+   "pdb": 6
+  },
+  {
+   "key": "4ikv_A",
+   "n_entries": 3,
+   "cryptic": 8,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "4ilg_A",
+   "n_entries": 30,
+   "cryptic": 6,
+   "nc": 9,
+   "pdb": 0
+  },
+  {
+   "key": "4j4e_F",
+   "n_entries": 14,
+   "cryptic": 5,
+   "nc": 2,
+   "pdb": 6
+  },
+  {
+   "key": "4jax_F",
+   "n_entries": 7,
+   "cryptic": 11,
+   "nc": 0,
+   "pdb": 2
+  },
+  {
+   "key": "4jfr_C",
+   "n_entries": 3,
+   "cryptic": 13,
+   "nc": 5,
+   "pdb": 0
+  },
+  {
+   "key": "4kmy_A",
+   "n_entries": 1,
+   "cryptic": 15,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "4mwi_A",
+   "n_entries": 9,
+   "cryptic": 17,
+   "nc": 2,
+   "pdb": 0
+  },
+  {
+   "key": "4oqo_B",
+   "n_entries": 30,
+   "cryptic": 3,
+   "nc": 0,
+   "pdb": 9
+  },
+  {
+   "key": "4p2f_A",
+   "n_entries": 4,
+   "cryptic": 8,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "4qvk_B",
+   "n_entries": 0,
+   "cryptic": 12,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "4r0x_A",
+   "n_entries": 30,
+   "cryptic": 17,
+   "nc": 0,
+   "pdb": 1
+  },
+  {
+   "key": "4rvt_B",
+   "n_entries": 16,
+   "cryptic": 17,
+   "nc": 0,
+   "pdb": 1
+  },
+  {
+   "key": "4ttp_A",
+   "n_entries": 1,
+   "cryptic": 9,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "4uc8_A",
+   "n_entries": 9,
+   "cryptic": 0,
+   "nc": 2,
+   "pdb": 0
+  },
+  {
+   "key": "4uum_A",
+   "n_entries": 2,
+   "cryptic": 20,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "4zm7_A",
+   "n_entries": 11,
+   "cryptic": 6,
+   "nc": 9,
+   "pdb": 2
+  },
+  {
+   "key": "4zoe_B",
+   "n_entries": 7,
+   "cryptic": 12,
+   "nc": 0,
+   "pdb": 5
+  },
+  {
+   "key": "5acv_B",
+   "n_entries": 30,
+   "cryptic": 3,
+   "nc": 0,
+   "pdb": 12
+  },
+  {
+   "key": "5b0e_B",
+   "n_entries": 8,
+   "cryptic": 12,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "5caz_A",
+   "n_entries": 0,
+   "cryptic": 2,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "5e0v_A",
+   "n_entries": 30,
+   "cryptic": 7,
+   "nc": 0,
+   "pdb": 2
+  },
+  {
+   "key": "5ey7_B",
+   "n_entries": 2,
+   "cryptic": 7,
+   "nc": 0,
+   "pdb": 11
+  },
+  {
+   "key": "5hij_A",
+   "n_entries": 5,
+   "cryptic": 14,
+   "nc": 4,
+   "pdb": 0
+  },
+  {
+   "key": "5hto_E",
+   "n_entries": 3,
+   "cryptic": 17,
+   "nc": 1,
+   "pdb": 0
+  },
+  {
+   "key": "5i3t_E",
+   "n_entries": 10,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 11
+  },
+  {
+   "key": "5igh_A",
+   "n_entries": 5,
+   "cryptic": 5,
+   "nc": 0,
+   "pdb": 9
+  },
+  {
+   "key": "5kcg_B",
+   "n_entries": 8,
+   "cryptic": 9,
+   "nc": 11,
+   "pdb": 0
+  },
+  {
+   "key": "5loc_A",
+   "n_entries": 1,
+   "cryptic": 18,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "5o8b_A",
+   "n_entries": 30,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 13
+  },
+  {
+   "key": "5sc2_A",
+   "n_entries": 30,
+   "cryptic": 3,
+   "nc": 3,
+   "pdb": 9
+  },
+  {
+   "key": "5tc0_B",
+   "n_entries": 30,
+   "cryptic": 16,
+   "nc": 3,
+   "pdb": 0
+  },
+  {
+   "key": "5tvi_V",
+   "n_entries": 4,
+   "cryptic": 6,
+   "nc": 0,
+   "pdb": 7
+  },
+  {
+   "key": "5uxa_A",
+   "n_entries": 0,
+   "cryptic": 13,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "5wbm_B",
+   "n_entries": 30,
+   "cryptic": 8,
+   "nc": 0,
+   "pdb": 10
+  },
+  {
+   "key": "5yhb_A",
+   "n_entries": 25,
+   "cryptic": 2,
+   "nc": 1,
+   "pdb": 0
+  },
+  {
+   "key": "5yj2_C",
+   "n_entries": 12,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 12
+  },
+  {
+   "key": "5yqp_A",
+   "n_entries": 1,
+   "cryptic": 18,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "5ysb_B",
+   "n_entries": 1,
+   "cryptic": 11,
+   "nc": 0,
+   "pdb": 1
+  },
+  {
+   "key": "5z18_C",
+   "n_entries": 8,
+   "cryptic": 11,
+   "nc": 3,
+   "pdb": 0
+  },
+  {
+   "key": "5zj4_D",
+   "n_entries": 0,
+   "cryptic": 8,
+   "nc": 9,
+   "pdb": 0
+  },
+  {
+   "key": "6a98_C",
+   "n_entries": 1,
+   "cryptic": 10,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "6bty_B",
+   "n_entries": 1,
+   "cryptic": 7,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "6cqe_B",
+   "n_entries": 30,
+   "cryptic": 15,
+   "nc": 1,
+   "pdb": 4
+  },
+  {
+   "key": "6du4_A",
+   "n_entries": 5,
+   "cryptic": 6,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "6eqj_A",
+   "n_entries": 10,
+   "cryptic": 11,
+   "nc": 0,
+   "pdb": 7
+  },
+  {
+   "key": "6f52_A",
+   "n_entries": 10,
+   "cryptic": 11,
+   "nc": 0,
+   "pdb": 7
+  },
+  {
+   "key": "6fc2_C",
+   "n_entries": 1,
+   "cryptic": 10,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "6fgj_B",
+   "n_entries": 2,
+   "cryptic": 12,
+   "nc": 0,
+   "pdb": 6
+  },
+  {
+   "key": "6g6y_A",
+   "n_entries": 29,
+   "cryptic": 3,
+   "nc": 0,
+   "pdb": 13
+  },
+  {
+   "key": "6hei_A",
+   "n_entries": 11,
+   "cryptic": 7,
+   "nc": 0,
+   "pdb": 6
+  },
+  {
+   "key": "6isu_A",
+   "n_entries": 8,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 12
+  },
+  {
+   "key": "6jq9_B",
+   "n_entries": 2,
+   "cryptic": 6,
+   "nc": 7,
+   "pdb": 0
+  },
+  {
+   "key": "6ksc_A",
+   "n_entries": 8,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 15
+  },
+  {
+   "key": "6n5j_B",
+   "n_entries": 17,
+   "cryptic": 15,
+   "nc": 2,
+   "pdb": 3
+  },
+  {
+   "key": "6nei_B",
+   "n_entries": 0,
+   "cryptic": 11,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "6o4f_H",
+   "n_entries": 18,
+   "cryptic": 6,
+   "nc": 14,
+   "pdb": 0
+  },
+  {
+   "key": "6tx0_B",
+   "n_entries": 30,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 13
+  },
+  {
+   "key": "6vle_A",
+   "n_entries": 12,
+   "cryptic": 15,
+   "nc": 1,
+   "pdb": 4
+  },
+  {
+   "key": "6w10_A",
+   "n_entries": 30,
+   "cryptic": 9,
+   "nc": 6,
+   "pdb": 1
+  },
+  {
+   "key": "7c48_A",
+   "n_entries": 10,
+   "cryptic": 17,
+   "nc": 0,
+   "pdb": 1
+  },
+  {
+   "key": "7c63_A",
+   "n_entries": 15,
+   "cryptic": 5,
+   "nc": 2,
+   "pdb": 9
+  },
+  {
+   "key": "7de1_A",
+   "n_entries": 20,
+   "cryptic": 1,
+   "nc": 0,
+   "pdb": 7
+  },
+  {
+   "key": "7e5q_B",
+   "n_entries": 5,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 19
+  },
+  {
+   "key": "7f2m_B",
+   "n_entries": 30,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 20
+  },
+  {
+   "key": "7f4y_B",
+   "n_entries": 30,
+   "cryptic": 10,
+   "nc": 0,
+   "pdb": 7
+  },
+  {
+   "key": "7kay_A",
+   "n_entries": 3,
+   "cryptic": 14,
+   "nc": 0,
+   "pdb": 4
+  },
+  {
+   "key": "7nc8_D",
+   "n_entries": 15,
+   "cryptic": 10,
+   "nc": 0,
+   "pdb": 4
+  },
+  {
+   "key": "7ndl_B",
+   "n_entries": 14,
+   "cryptic": 0,
+   "nc": 8,
+   "pdb": 9
+  },
+  {
+   "key": "7nlx_A",
+   "n_entries": 16,
+   "cryptic": 9,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "7o1i_A",
+   "n_entries": 28,
+   "cryptic": 7,
+   "nc": 12,
+   "pdb": 1
+  },
+  {
+   "key": "7qoq_A",
+   "n_entries": 10,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 18
+  },
+  {
+   "key": "7qzr_D",
+   "n_entries": 30,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 18
+  },
+  {
+   "key": "7v8k_B",
+   "n_entries": 15,
+   "cryptic": 4,
+   "nc": 5,
+   "pdb": 10
+  },
+  {
+   "key": "7w19_A",
+   "n_entries": 1,
+   "cryptic": 15,
+   "nc": 4,
+   "pdb": 0
+  },
+  {
+   "key": "7x0f_A",
+   "n_entries": 1,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 13
+  },
+  {
+   "key": "7x0g_B",
+   "n_entries": 0,
+   "cryptic": 17,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "7x0i_B",
+   "n_entries": 0,
+   "cryptic": 18,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "7xgf_E",
+   "n_entries": 18,
+   "cryptic": 17,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "7yjc_A",
+   "n_entries": 30,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 12
+  },
+  {
+   "key": "8aeq_A",
+   "n_entries": 13,
+   "cryptic": 3,
+   "nc": 16,
+   "pdb": 0
+  },
+  {
+   "key": "8aqi_B",
+   "n_entries": 10,
+   "cryptic": 7,
+   "nc": 0,
+   "pdb": 6
+  },
+  {
+   "key": "8b9p_A",
+   "n_entries": 29,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 17
+  },
+  {
+   "key": "8bre_B",
+   "n_entries": 6,
+   "cryptic": 11,
+   "nc": 0,
+   "pdb": 8
+  },
+  {
+   "key": "8h27_A",
+   "n_entries": 2,
+   "cryptic": 17,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "8i84_B",
+   "n_entries": 4,
+   "cryptic": 16,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "8ias_B",
+   "n_entries": 7,
+   "cryptic": 0,
+   "nc": 12,
+   "pdb": 4
+  },
+  {
+   "key": "8j11_X",
+   "n_entries": 30,
+   "cryptic": 1,
+   "nc": 0,
+   "pdb": 7
+  },
+  {
+   "key": "8onn_E",
+   "n_entries": 6,
+   "cryptic": 18,
+   "nc": 0,
+   "pdb": 1
+  },
+  {
+   "key": "8u3n_A",
+   "n_entries": 2,
+   "cryptic": 0,
+   "nc": 0,
+   "pdb": 19
+  },
+  {
+   "key": "8vxu_B",
+   "n_entries": 0,
+   "cryptic": 1,
+   "nc": 0,
+   "pdb": 0
+  },
+  {
+   "key": "9atc_A",
+   "n_entries": 30,
+   "cryptic": 14,
+   "nc": 1,
+   "pdb": 1
+  }
+ ]
+}

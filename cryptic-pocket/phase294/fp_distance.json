@@ -1,0 +1,97 @@
+{
+ "fp": {
+  "rim <8 A": [
+   328,
+   793
+  ],
+  "near 8-12 A": [
+   175,
+   375
+  ],
+  "distant >12 A": [
+   449,
+   790
+  ]
+ },
+ "allneg": {
+  "rim <8 A": [
+   1130,
+   8843
+  ],
+  "near 8-12 A": [
+   790,
+   9343
+  ],
+  "distant >12 A": [
+   2638,
+   33301
+  ]
+ },
+ "distant_chains": [
+  "1bzj_A",
+  "1cwq_A",
+  "1pu5_C",
+  "1rtc_A",
+  "1uka_A",
+  "1vsn_A",
+  "2h7s_A",
+  "2i3a_D",
+  "2pkf_A",
+  "2rfj_B",
+  "2vqz_F",
+  "3bjp_A",
+  "3idh_A",
+  "3ly8_A",
+  "3n4u_A",
+  "3pbf_A",
+  "3tpo_A",
+  "3v55_A",
+  "4amv_B",
+  "4e1y_A",
+  "4gv9_A",
+  "4hye_A",
+  "4ilg_A",
+  "4j4e_F",
+  "4oqo_B",
+  "4zm7_A",
+  "4zoe_B",
+  "5acv_B",
+  "5ey7_B",
+  "5hij_A",
+  "5i3t_E",
+  "5igh_A",
+  "5kcg_B",
+  "5o8b_A",
+  "5sc2_A",
+  "5wbm_B",
+  "5yhb_A",
+  "5yj2_C",
+  "6fgj_B",
+  "6g6y_A",
+  "6isu_A",
+  "6ksc_A",
+  "6o4f_H",
+  "6tx0_B",
+  "7c63_A",
+  "7de1_A",
+  "7e5q_B",
+  "7f2m_B",
+  "7f4y_B",
+  "7kay_A",
+  "7nc8_D",
+  "7ndl_B",
+  "7o1i_A",
+  "7qoq_A",
+  "7qzr_D",
+  "7v8k_B",
+  "7w19_A",
+  "7x0f_A",
+  "7yjc_A",
+  "8aeq_A",
+  "8b9p_A",
+  "8bre_B",
+  "8ias_B",
+  "8j11_X",
+  "8u3n_A"
+ ]
+}
