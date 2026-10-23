@@ -263,6 +263,16 @@ exposure geometry:
   Lesson: the 60-chain validation split was underpowered for effects of ~0.01; this CV instrument (cryptic-pocket/phase295/) is the
   better primary for future CryptoBench levers. Code/results: cryptic-pocket/phase295/.
 
+* Phase 296 (a third, different protein language model: ProtT5-XL-U50 encoder, BFD+UniRef50, as a second zero-initialised frozen branch;
+  Phase 295 CV instrument; primary pre-registered: pooled held-out PR, (a) prott5 vs base, (b) frozen650_prott5 vs frozen650, Holm over 2).
+  The planned reuse of Phase 295 comparators failed its own pre-registered check: a base seed-0 re-run was not bitwise identical (GPU
+  scatter-adds are nondeterministic; held-out PR moved 1e-4), so all four arms were re-run in ONE kernel (296b) and that run is the result:
+  BOTH CONFIRMED. prott5 vs base: PR +0.0090 (7/8, Holm p=.023/.039), per-protein AP +0.004, P@20 +0.003 (both significant).
+  frozen650_prott5 vs frozen650: PR +0.0059 (8/8, Holm p=.010/.016), per-protein AP +0.006 (8/8, p=.002/.008), P@20 +0.003 (p=.031/.039).
+  Held-out PR across the stack: base 0.341 -> +ESM2-650M 0.354 -> +ProtT5 0.360; per-protein AP 0.402 -> 0.408 -> 0.414. Language-model
+  views add up: each one carries information the frozen ESM2-3B input does not. (The cross-run provisional analysis agreed to 2e-4.)
+  Code/results: cryptic-pocket/phase296/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
