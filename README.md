@@ -235,6 +235,20 @@ exposure geometry:
   that the pre-specified validation metric does not confirm (same status as the Phase 287 pilot, which did not survive its follow-up); LoRA
   costs ~40x the compute of the frozen branch for no extra gain. Not adopted as the headline. Code/results: cryptic-pocket/phase293/.
 
+* Phase 294 (labels are incomplete: CryptoBench negatives are really unlabelled). FINDING, no training: CryptoBench's own
+  noncryptic-pockets.json (OSF) lists 8,144 residues on our chains that bind ligands at non-cryptic sites yet are labelled negative (half the
+  positive count). Of the Phase 291 ensemble's top-20 residues on 180 test proteins, 45.6% are cryptic positives, 8.9% known non-cryptic
+  binders and 17.6% contact a ligand in another deposited X-ray structure of the same protein (Phase 290 cache, CryptoBench's own entries
+  excluded): 72.1% have binding evidence. Not a rim effect: false positives >12 A from the labelled pocket carry binding evidence 56.8% of
+  the time vs 7.9% for all residues in that band (7.2x); in 65/180 proteins the top 20 hits a separate site with a bound ligand elsewhere
+  in the PDB. Figure: cryptic-pocket/figures/fig_fp_binding_evidence.png. Code: phase294/pdb_wide_fp.py, fp_distance.py.
+  TRAINING (Phase 291 recipe, 8 seeds/arm vs the Phase 292 base): ncmask (known non-cryptic binders removed from the loss) null everywhere.
+  Non-negative PU loss (kappa = assumed true/observed positive ratio; kappa=1 is exactly the old BCE, asserted in-kernel): primary val PR
+  NOT confirmed (pu15 +0.0011, pu20 +0.0015; Holm p>=.59). Test, pu20: per-protein AP +0.0107 (8/8, p=.013/.008), P@20 +0.0079 (8/8,
+  p=.003/.008), pooled PR +0.0075 (7/8, p=.034/.023); pu15 the same direction, smaller (dose-response). Second test-only lead after
+  frozen650 (Phase 293): the 60-chain validation set looks underpowered for effects this size -> Phase 295 builds a cross-validation
+  instrument to settle both. Code/results: cryptic-pocket/phase294/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
