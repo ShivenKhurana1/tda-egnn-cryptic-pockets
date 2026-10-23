@@ -249,6 +249,20 @@ exposure geometry:
   frozen650 (Phase 293): the 60-chain validation set looks underpowered for effects this size -> Phase 295 builds a cross-validation
   instrument to settle both. Code/results: cryptic-pocket/phase294/.
 
+* Phase 295 (a stronger instrument: 4-fold cross-validation on CryptoBench's homology-clean training folds; all 760 train+val chains
+  held out once per seed, test set untouched; fixed 12 epochs, no early stopping; primary pre-registered in build_nb295.py before any
+  result: pooled held-out PR-AUC, t AND Wilcoxon < .05 after Holm over 3 arms; 8 seeds x 4 folds per arm, 76 min on a T4).
+  ALL THREE CONFIRMED on the primary:
+    frozen650 (zero-init frozen ESM2-650M branch, Phase 293): PR +0.0128 (7/8, Holm p=.002/.031); ROC +0.005, per-protein AP +0.006,
+      P@20 +0.005, each 7/8 and significant; 3 of 4 folds individually significant. Clean win on every metric -> ADOPTED as the
+      recommended model change. Its Phase 293 test ensemble (official labels): ROC 0.904, PR 0.474, MCC 0.479 (test seen before the
+      CV run, so the CV result, not the test, is the confirmation).
+    pu20 (non-negative PU loss, kappa 2, Phase 294): PR +0.0072 (6/8, p=.047/.039), ROC +0.031 (8/8) BUT per-protein AP -0.0076 (0/8,
+      p=.008/.008): it re-scales probabilities across proteins rather than ranking better within one. Mixed; not adopted alone.
+    frozen650_pu20: PR +0.0177 (8/8, Holm p=.006/.023), ROC +0.037, P@20 +0.005 (8/8); per-protein AP -0.0035 (NS).
+  Lesson: the 60-chain validation split was underpowered for effects of ~0.01; this CV instrument (cryptic-pocket/phase295/) is the
+  better primary for future CryptoBench levers. Code/results: cryptic-pocket/phase295/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
