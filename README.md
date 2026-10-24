@@ -304,6 +304,22 @@ exposure geometry:
   0.460-0.473, same label definition): ROC +0.014, PR level (+0.001), MCC above. Ensemble MCC moves with the val-tuned threshold (stack2:
   0.482 in Phase 297, 0.468 here), so treat MCC differences of ~0.01 as noise. New headline model: stack3. Code/results: phase299/.
 
+* Phase 300 (cryptic focus; two never-tried things, no GPU).
+  (a) pRMSD is NOT a crypticity measure: it does not separate the external benchmark's cryptic from pre-formed test proteins (AUC 0.47).
+  (b) A CRYPTIC INSTRUMENT. The external rule is cavity-based (apo <= 30 consensus-pocket voxels near the site, holo >= 30 near the ligand)
+  with an unnamed detector. On 120 of its labelled pairs, fpocket alone tracks its counts at Spearman 0.71; a two-detector consensus
+  (fpocket alpha-sphere voxels within 2 A of P2Rank pocket points) reaches 0.78 apo / 0.77 holo and AUC 0.92. With the apo threshold fitted
+  on that sample only (414 on our scale), it recovers the benchmark's independent labels on the CryptoBench test split at AUC 0.886
+  (88% sensitivity, 31% precision at a 13% base rate): a cryptic-ENRICHED filter, not a clean label; the holo condition does not
+  transfer to our scale. Applied to the CV chains: 379 cryptic-enriched vs 368 rest (the strictly-cryptic test subset has 16).
+  On it the model is far weaker (Phase 298 stack2: per-protein AUC 0.727 vs 0.889 rest; AP 0.283 vs 0.551), and SaProt is the first lever
+  shown to help cryptic sites specifically: cryptic-enriched AUC +0.010 (8/8, p=.003/.008), AP +0.011, P@20 +0.007 (all significant)
+  vs AUC +0.005 (NS) on the rest. ESM2-650M + ProtT5 raise cryptic-enriched AP +0.010 and P@20 +0.006 (8/8) but not AUC. All within-kernel.
+  (c) Structural template retrieval (Foldseek 3Di+AA all-vs-all, fold-respecting templates, pocket labels transferred through the
+  alignment): template score alone per-protein AUC 0.68 (cryptic 0.59); stacked with the model it is neutral on test when the stacker
+  is fit on the test-time model's own val chains (P@20 +0.007 p=.025, AUC -0.001), and nothing on cryptic. Homology-clean split: half the
+  test proteins have no template above TM 0.5. Not adopted. Code: cryptic-pocket/phase300/ (crypticity_counts.json = per-chain counts).
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
