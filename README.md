@@ -294,6 +294,16 @@ exposure geometry:
   per-protein AP 0.402 -> 0.423. The largest single gain comes from the STRUCTURE-AWARE language model, even though the EGNN already
   sees the 3D structure. Recommended model: ESM2-3B input + ESM2-650M + ProtT5 + SaProt branches. Code/results: cryptic-pocket/phase298/.
 
+* Phase 299 (test-set measurement of stack3 = ESM2-3B input + ESM2-650M + ProtT5 + SaProt branches, selected on the Phase 298 CV; Phase 297
+  protocol: early stopping on val, 8 seeds; base and stack2 re-run in the same kernel). stack3 vs base, single models, test, official
+  labels: pooled PR +0.0198 (7/8, p=.006/.016), ROC +0.0110 (7/8, p=.006/.016), val PR +0.0177 (8/8, p=.007/.008); MCC +0.008,
+  per-protein AP +0.012, P@20 +0.009, strictly-cryptic AUC +0.018 (all 7/8 or 6/8, NS); DCC4 flat. stack3 vs stack2 (what SaProt adds):
+  ROC +0.011 (8/8, p=.001/.008), P@20 +0.011 (p=.024/.039), cryptic AUC +0.019 (p=.046/.039), pooled PR +0.012 (p=.07/.11).
+  8-seed ensembles (official labels): base ROC 0.899 PR 0.456 MCC 0.480 | stack2 0.901 / 0.470 / 0.468 | stack3 0.908 / 0.476 / 0.488,
+  per-protein AP 0.525, P@20 0.459, strictly-cryptic per-protein AUC 0.650 (16 proteins; base 0.632). Versus Seq2Pocket (0.894 / 0.475 /
+  0.460-0.473, same label definition): ROC +0.014, PR level (+0.001), MCC above. Ensemble MCC moves with the val-tuned threshold (stack2:
+  0.482 in Phase 297, 0.468 here), so treat MCC differences of ~0.01 as noise. New headline model: stack3. Code/results: phase299/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
