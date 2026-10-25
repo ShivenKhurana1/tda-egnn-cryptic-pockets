@@ -349,6 +349,14 @@ exposure geometry:
   information (oracle headroom only +0.004) and probe hot spots all fail to improve cryptic-enriched AUC; SaProt (Phase 298) remains the
   only lever confirmed to help cryptic sites specifically. Repeatedly, signals help formed pockets and not cryptic ones.
 
+* Phase 303 (levers that helped formed pockets, built into the network; Phase 295 CV, all arms in one kernel, comparator stack3; primary
+  pre-registered: pooled held-out PR, Holm over 3). hot = Phase 302 hotspot features through a zero-init branch (929/942 chains);
+  studemb = Phase 301 holo-embedding auxiliary head. PRIMARY NOT CONFIRMED for any arm: hot -0.0009, studemb +0.0015, hot_studemb +0.0052
+  (5/8, Holm p=.22/.75). Secondary pattern: hot_studemb raises per-protein AUC +0.011 (8/8, p=.0006/.008; cryptic-enriched +0.008, 8/8,
+  p=.009/.008; rest +0.014) and per-protein AP +0.006 (8/8); studemb alone again gives +0.010 per-protein AUC on non-cryptic chains (8/8,
+  p=.0002/.008), replicating Phase 301 in a separate kernel; hot alone nothing. Pooled PR was the pre-registered primary, so this is a lead,
+  not a result -> Phase 304 re-tests it on fresh seeds with per-protein AUC pre-registered as the primary. Code/results: phase303/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
