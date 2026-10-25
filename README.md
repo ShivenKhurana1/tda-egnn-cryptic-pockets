@@ -367,6 +367,14 @@ exposure geometry:
   holo-embedding auxiliary head (both training-time additions need no extra data at prediction except the hotspot map, computed from the
   apo structure). Code/results: cryptic-pocket/phase304/.
 
+* Phase 305 (test-set measurement of stack3_hot_studemb vs stack3, Phase 299 protocol: early stopping on the 60 val chains, 8 seeds, one
+  kernel). The CV-confirmed per-protein gain does NOT reproduce on test: per-protein AUC +0.0003 (2/8, NS); pooled PR +0.003, ROC -0.0004,
+  per-protein AP +0.001, P@20 +0.002, cryptic AUC -0.001 (all NS); MCC +0.0096 (8/8, p=.012/.008) is the only significant change.
+  8-seed ensembles: stack3 ROC 0.908 PR 0.476 MCC 0.488 per-protein AUC 0.875 | +hot+emb 0.907 / 0.479 / 0.487 / 0.876.
+  Likely contributor: the CV instrument trains a fixed 12 epochs while the deployment protocol early-stops on validation POOLED PR, a
+  metric this change does not move, so checkpoint selection may discard the per-protein gain. Lesson: future levers should be confirmed
+  under the deployment protocol too. stack3 stays the headline (simpler, equal on test). Code/results: cryptic-pocket/phase305/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
