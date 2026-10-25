@@ -357,6 +357,16 @@ exposure geometry:
   p=.0002/.008), replicating Phase 301 in a separate kernel; hot alone nothing. Pooled PR was the pre-registered primary, so this is a lead,
   not a result -> Phase 304 re-tests it on fresh seeds with per-protein AUC pre-registered as the primary. Code/results: phase303/.
 
+* Phase 304 (confirmation of the Phase 303 lead on fresh fine-tuning seeds 8-15, pretrained checkpoint s-8, so partially independent;
+  primary pre-registered BEFORE the run: per-protein AUC over all 760 CV chains, Holm over 2; all arms in one kernel). BOTH CONFIRMED:
+    stack3_hot_studemb (hotspot branch + holo-embedding auxiliary head): per-protein AUC +0.0075 (8/8, Holm p=.002/.016); per-protein AP
+      +0.0039 (8/8, p=.004/.008), P@20 +0.0020 (p=.026/.039), cryptic-enriched AUC +0.0073 (8/8, p=.002/.008), rest AUC +0.0075 (7/8).
+      Pooled held-out PR unchanged (-0.0017, NS): it improves ranking WITHIN proteins, not the cross-protein probability scale.
+    stack3_studemb: per-protein AUC +0.0035 (6/8, Holm p=.040/.039), secondaries NS.
+  Effect smaller than the exploratory Phase 303 estimate (+0.011), as expected. Recommended model becomes stack3 + hotspot branch +
+  holo-embedding auxiliary head (both training-time additions need no extra data at prediction except the hotspot map, computed from the
+  apo structure). Code/results: cryptic-pocket/phase304/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
