@@ -320,6 +320,19 @@ exposure geometry:
   is fit on the test-time model's own val chains (P@20 +0.007 p=.025, AUC -0.001), and nothing on cryptic. Homology-clean split: half the
   test proteins have no template above TM 0.5. Not adopted. Code: cryptic-pocket/phase300/ (crypticity_counts.json = per-chain counts).
 
+* Phase 301 (holo-state privileged information for cryptic sites; Phase 295 CV, all arms in one kernel; comparator stack3 = ESM2-3B +
+  ESM2-650M + ProtT5 + SaProt(apo); primary pre-registered: per-protein AUC on the 379 cryptic-enriched CV chains (Phase 300 instrument),
+  students vs stack3, Holm over 2). Main holo chains -> Foldseek 3Di mapped onto apo residues (97% of residues; 13 multi-chain holo pairs
+  fall back to '#'): 22.9% of residues change 3Di letter between apo and holo, 38.3% at pocket residues.
+    oracle_holo (SaProt reads HOLO 3Di; not deployable, HEADROOM): cryptic-enriched AUC +0.004 (5/8, t p=.04, W p=.11), P@20 +0.005
+      (8/8, p=.004/.008); pooled PR flat. Even knowing the open-state local structure adds little.
+    stud3di (auxiliary head predicting holo 3Di letters): CONFIRMED HARM on the primary, cryptic-enriched AUC -0.021 (0/8, p=2e-5/.008),
+      AP -0.007; the rest unaffected.
+    studemb (auxiliary head regressing the holo-state SaProt embedding): primary not confirmed (+0.005, Holm p=.085/.055); on the REST it
+      helps: AUC +0.010 (8/8, p=.0002/.008), AP +0.006, P@20 +0.004 (all significant).
+  Reading: open-state local-structure tokens are not the missing information for cryptic sites (small oracle headroom), and asking
+  the model to predict them directly hurts cryptic performance. Not adopted. Code/results: cryptic-pocket/phase301/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
