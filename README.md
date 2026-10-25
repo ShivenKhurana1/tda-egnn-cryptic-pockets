@@ -333,6 +333,22 @@ exposure geometry:
   Reading: open-state local-structure tokens are not the missing information for cryptic sites (small oracle headroom), and asking
   the model to predict them directly hurts cryptic performance. Not adopted. Code/results: cryptic-pocket/phase301/.
 
+* Phase 302 (probe hotspot mapping, the last never-tried cryptic idea; no GPU). Cryptic sites are reported to sit next to strong binding
+  hot spots even in apo structures (FTMap studies). Full FTMap is too slow for ~935 proteins on CPU, so a grid pseudo-FTMap was built with
+  every parameter fixed a priori: four single-site probes (hydrophobic C, hydroxyl O, amide N, aromatic), soft-LJ + contact/H-bond/
+  stacking terms on a 3-6 A surface shell, ray-cast buriedness, per-probe low-energy clusters, multi-probe consensus sites; 11 per-residue
+  features. (It finds 68-169 consensus sites per protein, more than FTMap's typical 4-8: a simplification, stated as such.)
+  Features alone, per-protein AUC, cryptic-enriched vs rest CV chains: aromatic-probe energy 0.62 vs 0.67, buriedness 0.61 vs 0.755,
+  consensus-site features 0.50-0.57; the model itself 0.755 vs 0.922. PRIMARY (pre-registered): fold-wise stacking with stack3's CV
+  predictions on the 379 cryptic-enriched chains: AUC -0.002 [-0.009, +0.006] (W p=.41), AP and P@20 flat -> NULL. Buriedness-only control
+  +0.004 (p=.08). On the REST, hotspot features help: AUC +0.010 [+0.007, +0.013], AP +0.011, P@20 +0.009 (all p<.001). Test (stacker fit on
+  the 60 val chains): null overall and on the strictly cryptic 16. Reading: apo hot spots mark pockets that are already formed; at cryptic
+  sites the apo structure carries little probe-binding signal beyond what the model has. Code: cryptic-pocket/phase302/.
+* CRYPTIC PROGRAMME SUMMARY (Phases 300-302): four never-tried ideas aimed at cryptic sites. One new instrument works (fpocket+P2Rank
+  crypticity filter, 379 cryptic-enriched CV chains, AUC .886 vs the external labels). Template retrieval, holo-state privileged
+  information (oracle headroom only +0.004) and probe hot spots all fail to improve cryptic-enriched AUC; SaProt (Phase 298) remains the
+  only lever confirmed to help cryptic sites specifically. Repeatedly, signals help formed pockets and not cryptic ones.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
