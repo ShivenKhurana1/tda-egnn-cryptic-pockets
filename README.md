@@ -386,6 +386,13 @@ exposure geometry:
   Conclusion: the Phase 304 gain was an artefact of fixed-length training. This instrument is the gate for future levers.
   Code/results: cryptic-pocket/phase306/.
 
+* Phase 307 (ProstT5 frozen branches on stack3, Phase 306 instrument, pre-registered primary pooled PR with Holm over three arms).
+  ProstT5 read either the apo 3Di string alone ("<fold2AA>", a pure local-structure view) or the amino-acid sequence ("<AA2fold>").
+  NULL, nothing confirmed: 3Di view pooled PR -0.0014 (4/8), per-protein AUC -0.0020; AA view pooled PR -0.0084 (2/8, Holm .10),
+  non-cryptic AUC -0.0035 (1/8); both pooled PR -0.0054, AUC 0.0000. Cryptic-enriched AUC within +-0.001 for all three. The stack3
+  comparator reproduced Phase 306 (pooled PR 0.3839, AUC 0.8444 vs 0.8445). Reading: the language-model input is saturated at
+  four views (ESM2-3B, 650M, ProtT5, SaProt); SaProt already carries the 3Di information. Code/results: cryptic-pocket/phase307/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
