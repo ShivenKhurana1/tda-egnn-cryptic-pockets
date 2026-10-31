@@ -375,6 +375,17 @@ exposure geometry:
   metric this change does not move, so checkpoint selection may discard the per-protein gain. Lesson: future levers should be confirmed
   under the deployment protocol too. stack3 stays the headline (simpler, equal on test). Code/results: cryptic-pocket/phase305/.
 
+* Phase 306 (deployment-matched CV instrument). Same 4-fold CV on the 760 train+val chains, but each fold now trains with the deployment
+  recipe: a random 8% of the fold's training chains is held out for early stopping on pooled PR (patience 8, cosine 40), 8 seeds, arms
+  stack2 / stack3 / stack3_hot_studemb in one kernel. Early stopping picked epochs 9-21 (median 11-12). Pre-registered validation
+  against the known test outcomes, both PASS:
+  (a) SaProt (stack3 vs stack2): pooled PR +0.0115 (7/8, t p=.005, W p=.016), per-protein AUC +0.0045 (7/8, p=.004/.016),
+      cryptic-enriched AUC +0.0062 (7/8). Test showed pooled PR +0.012.
+  (b) hot+studemb vs stack3: per-protein AUC -0.0015 (2/8, NS), pooled PR -0.002, cryptic-enriched AUC +0.0002, all NS. The fixed-epoch
+      instrument had confirmed +0.0075 (Phase 304); test showed +0.0003. The new instrument reproduces the test null.
+  Conclusion: the Phase 304 gain was an artefact of fixed-length training. This instrument is the gate for future levers.
+  Code/results: cryptic-pocket/phase306/.
+
 ## Not in this repository
 
 Excluded for size (GitHub 100 MB limit) or because they are re-fetchable; see `.gitignore`:
