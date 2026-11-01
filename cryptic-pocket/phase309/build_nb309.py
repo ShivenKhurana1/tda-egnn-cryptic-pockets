@@ -42,6 +42,8 @@ for d in EXTRA:
     assert d.x.size(1) == N_PRE + TOPO_DIM
     d.x = torch.cat([d.x, torch.zeros(d.num_nodes, GEOM_DIM)], dim=1)   # geometry columns are masked to zero for every chain below
     d.fold, d.split, d.y_main = -1, "extra", d.y.clone()
+    for k in ("cb_key", "cluster95", "uniprot"): del d[k]                 # bookkeeping only; batching needs the CryptoBench key set
+    assert set(d.keys()) == set(dataset[0].keys()), set(d.keys()) ^ set(dataset[0].keys())
 with ThreadPoolExecutor(max_workers=16) as ex: paths.update({p: f for p, f in ex.map(fetch, sorted({str(d.pdb_id) for d in EXTRA})) if f})
 EXTRA = [d for d in EXTRA if str(d.pdb_id) in paths]
 for d in EXTRA[:50]: assert len(resnums_of(str(d.pdb_id), str(d.chain_id))) == d.num_nodes
