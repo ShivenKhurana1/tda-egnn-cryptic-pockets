@@ -392,6 +392,20 @@ exposure geometry:
   non-cryptic AUC -0.0035 (1/8); both pooled PR -0.0054, AUC 0.0000. Cryptic-enriched AUC within +-0.001 for all three. The stack3
   comparator reproduced Phase 306 (pooled PR 0.3839, AUC 0.8444 vs 0.8445). Reading: the language-model input is saturated at
   four views (ESM2-3B, 650M, ProtT5, SaProt); SaProt already carries the 3Di information. Code/results: cryptic-pocket/phase307/.
+* Phase 308 (CryptoBank as extra training data; Martinez et al., Zenodo 19099155, CC-BY-4.0). The 4.8 GB pickle is read on a Kaggle
+  CPU kernel with a restricted unpickler (pandas/numpy globals only, RDKit objects stubbed, anything else refused). 5,989,860
+  apo-holo-ligand rows; 21,034 experimental apo chains carry a cryptic site. Per chain, the label is the union of `apo_lig_seq` over
+  its cryptic rows. On the 194 chains shared with CryptoBench the labels only partly agree (median Jaccard 0.39). Homology filter:
+  MMseqs2 (sens 7.5, e < 1e-3) against all CryptoBench chains, train, val and test; a 95% cluster with ANY hit is dropped, one
+  representative per remaining cluster. Result: 632 graphs, 188,175 residues, 7,447 positives (4.0%), in the Phase 48 node format with
+  topology standardised by the Phase 48 statistics. Code: cryptic-pocket/phase308/.
+* Phase 309 (the 632 CryptoBank chains on stack3, Phase 306 instrument, pre-registered primary pooled PR with Holm over two arms;
+  the extra chains are never held out and never in an early-stopping set). NEGATIVE: mixing them into each fold's training set
+  gives pooled PR -0.0114 (2/8, t p=.027, W p=.055); pretraining on them alone for 12 epochs and then fine-tuning gives -0.0179
+  (1/8, t Holm .014, W Holm .031), with per-protein AUC -0.0035 (0/8). Both harm more on the non-cryptic chains than on the
+  cryptic-enriched ones. Trained on CryptoBank alone, the model reaches pooled PR 0.20-0.23 on the 760 CV chains, well below
+  stack3's 0.384: the labels transfer only partly. The stack3 comparator reproduced Phase 306 (0.3839). Reading: CryptoBank's site
+  definition differs from CryptoBench's enough that more of it dilutes the target. Code/results: cryptic-pocket/phase309/.
 
 ## Not in this repository
 
