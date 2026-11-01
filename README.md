@@ -406,6 +406,14 @@ exposure geometry:
   cryptic-enriched ones. Trained on CryptoBank alone, the model reaches pooled PR 0.20-0.23 on the 760 CV chains, well below
   stack3's 0.384: the labels transfer only partly. The stack3 comparator reproduced Phase 306 (0.3839). Reading: CryptoBank's site
   definition differs from CryptoBench's enough that more of it dilutes the target. Code/results: cryptic-pocket/phase309/.
+* Phase 310 (16-seed stack3 test ensemble, Phase 305 protocol; only 8 pretrained checkpoints exist, so seeds 8-15 reuse checkpoint
+  s mod 8 with a new fine-tune seed). Seeds 0-7 reproduced Phase 305 exactly (val PR identical per seed). NULL on the pre-registered
+  primary: 16 vs 8 seeds pooled PR +0.0022 (95% protein bootstrap CI -0.0019 to +0.0065), ROC -0.0008 (-0.0020 to +0.0003).
+  16 seeds: PR 0.478, ROC 0.907, MCC 0.491, per-protein AP 0.526, AUC 0.875, cryptic AUC 0.648. Against the mean of 30 random 8-of-16
+  subsets: PR +0.003, ROC +0.001. Test curve over the first k seeds (PR): 1 0.452, 2 0.470, 4 0.475, 8 0.476, 12 0.479, 16 0.478.
+  Reading: on test the ensemble saturates by about 8 seeds. The CV curve rose further, probably because averaging also evens out
+  calibration differences between fold models, which pooled PR across folds penalises.
+  The 8-seed stack3 stays the headline. Code/results: cryptic-pocket/phase310/.
 
 ## Not in this repository
 
