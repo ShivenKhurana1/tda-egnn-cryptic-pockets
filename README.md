@@ -414,6 +414,14 @@ exposure geometry:
   Reading: on test the ensemble saturates by about 8 seeds. The CV curve rose further, probably because averaging also evens out
   calibration differences between fold models, which pooled PR across folds penalises.
   The 8-seed stack3 stays the headline. Code/results: cryptic-pocket/phase310/.
+* Phase 311 (final model on the Phase 277 external sets; Phase 310 training, seeds 0-7; test predictions match Phase 310 to 8e-4 per
+  residue, ensemble ROC/PR identical). All 34 PocketMiner and 99 cryptic-site-benchmark chains re-attached to their structures with an
+  exact sequence match, so the language-model branches could embed them; never used for training or early stopping. 8-model ensemble,
+  pooled ROC (earlier model Phase 266c in brackets): PocketMiner all 0.943 (0.942), 6 homology-clean 0.969 (0.937); cryptic-site
+  benchmark all 0.864 (0.857), 16 homology-clean 0.790 (0.781), per-protein 0.753; CryptoBench strictly cryptic 0.749. Per-seed means:
+  PocketMiner 0.926 / 0.947, benchmark 0.848 / 0.773. Same false-positive check as Phase 294 on the final model: 73.0% of top-20
+  residues have binding evidence (45.9% labelled, 9.4% known non-cryptic binders, 17.8% ligand elsewhere in the PDB). Code/results:
+  cryptic-pocket/phase311/, phase294/pdb_wide_fp.py (now takes the predictions file as an argument).
 
 ## Not in this repository
 

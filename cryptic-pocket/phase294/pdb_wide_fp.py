@@ -2,12 +2,15 @@
 8-seed ensemble's (Phase 291, official labels) top-20 residues is classed as: cryptic positive (official label) / known non-cryptic binder
 (CryptoBench noncryptic-pockets.json) / contacts a ligand (non-additive HETATM within 4.5 A) in ANY OTHER deposited X-ray structure of the
 same protein (Phase 290 cache: up to 30 entries per chain, CryptoBench's own apo/holo entries excluded) / no binding evidence.
-Enrichment is against all non-positive residues of the same chains."""
-import json, numpy as np, torch
+Enrichment is against all non-positive residues of the same chains.
+usage: python3 pdb_wide_fp.py [preds.pt] [arm] [out.json]   (default: the Phase 291 run; arm selects A[arm] in a multi-arm dump)"""
+import json, sys, numpy as np, torch
 from pathlib import Path
 CP = Path(__file__).resolve().parents[1]
 NC = json.load(open(CP / "phase294" / "noncryptic-pockets.json")); MT = json.load(open(CP / "phase292" / "motion_targets.json"))
-P = torch.load("/tmp/p291_out/phase291_official_preds.pt", map_location="cpu", weights_only=False)
+P = torch.load(sys.argv[1] if len(sys.argv) > 1 else "/tmp/p291_out/phase291_official_preds.pt", map_location="cpu", weights_only=False)
+if len(sys.argv) > 2: P = P[sys.argv[2]]
+OUTJ = sys.argv[3] if len(sys.argv) > 3 else CP / "phase294" / "pdb_wide_fp.json"
 T = P["seeds"][0]["test"]
 cnt = dict(top=0, cryptic=0, nc=0, pdb=0, none=0); base = dict(n=0, nc=0, pdb=0); per_chain = []; nchain = 0
 for k in sorted(T):
@@ -33,4 +36,4 @@ print(f"  known non-cryptic binder (CryptoBench)   {cnt['nc']:5d}  {cnt['nc']/cn
 print(f"  ligand contact in another PDB structure  {cnt['pdb']:5d}  {cnt['pdb']/cnt['top']:.1%}   = {cnt['pdb']/fp:.1%} of 'false positives' (base rate {base['pdb']/base['n']:.1%}, x{cnt['pdb']/fp/(base['pdb']/base['n']):.1f})")
 print(f"  no binding evidence anywhere             {cnt['none']:5d}  {cnt['none']/cnt['top']:.1%}   = {cnt['none']/fp:.1%} of 'false positives'")
 print(f"top-20 precision: CryptoBench labels {cnt['cryptic']/cnt['top']:.1%} -> any binding evidence {(cnt['top']-cnt['none'])/cnt['top']:.1%}")
-json.dump(dict(counts=cnt, base=base, per_chain=per_chain), open(CP / "phase294" / "pdb_wide_fp.json", "w"), indent=1)
+json.dump(dict(counts=cnt, base=base, per_chain=per_chain), open(OUTJ, "w"), indent=1)

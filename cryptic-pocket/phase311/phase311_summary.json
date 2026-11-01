@@ -1,0 +1,50 @@
+{
+ "pocketminer_all": {
+  "n_proteins": 34,
+  "n_res": 1735,
+  "n_pos": 563,
+  "roc_seed_mean": 0.9261260563230862,
+  "pr_seed_mean": 0.9029879487241657,
+  "roc_ens": 0.9427509259876697,
+  "pr_ens": 0.9243176382762215
+ },
+ "pocketminer_clean": {
+  "n_proteins": 6,
+  "n_res": 365,
+  "n_pos": 104,
+  "roc_seed_mean": 0.946912761567934,
+  "pr_seed_mean": 0.9142516104498914,
+  "roc_ens": 0.9692012967875037,
+  "pr_ens": 0.9418048367704963
+ },
+ "csb_cryptic_all": {
+  "n_proteins": 98,
+  "n_res": 21666,
+  "n_pos": 1523,
+  "roc_seed_mean": 0.8484221862436045,
+  "pr_seed_mean": 0.37506133067849945,
+  "roc_ens": 0.863929910333499,
+  "pr_ens": 0.3982709915680747,
+  "protein_roc_ens": 0.8481376907153887
+ },
+ "csb_cryptic_clean": {
+  "n_proteins": 16,
+  "n_res": 3143,
+  "n_pos": 270,
+  "roc_seed_mean": 0.7729702466127806,
+  "pr_seed_mean": 0.3245640186612727,
+  "roc_ens": 0.7897564811591959,
+  "pr_ens": 0.3465876503964358,
+  "protein_roc_ens": 0.7529232922147336
+ },
+ "cryptobench_strict": {
+  "n_proteins": 16,
+  "roc_ens": 0.7489407713570053,
+  "roc_seed_mean": 0.7404674283951065,
+  "pr_ens": 0.1507175990735048
+ },
+ "cryptobench_test": {
+  "roc_ens": 0.9078604734975544,
+  "pr_ens": 0.47621464804473923
+ }
+}
